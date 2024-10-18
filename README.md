@@ -6,9 +6,9 @@ Bem-vindo ao Dicionário de Conhecimentos! Este repositório contém uma coleç�
 
 Aqui está uma lista de tópicos disponíveis no repositório. Clique em um dos links abaixo para acessar o conteúdo específico de cada área:
 
-1. [Linux](./linux/README.md)
+1. [Linux](./Linux/Linux.md)
 2. [C++](./C++/C++.md)
-3. [Mercado Financeiro](./mercado-financeiro/README.md)
+3. [Mercado Financeiro](./MercadoFinanceiro/MercadoFinanceiro.md)
 4. [Outro Tema](./outro-tema/README.md)
 
 ## Como Usar
