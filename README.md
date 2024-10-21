@@ -21,5 +21,4 @@ Este repositório é uma coleção de conhecimento prático sobre diferentes ár
 
 ### Exemplo de Uso
 
-Se você está interessado em comandos de Linux, por exemplo, basta clicar no link [Linux](./linux/README.md) e você será levado para uma página com temas de comandos como: `ajuda`, `operadores lógicos`, `manupulação de variaveis` , entre outros. Existem comandos que irão aparecer em mais de um grupo pois podem ter mais de um papel.
-
+Se você está interessado em comandos de Linux, por exemplo, basta clicar no link [Linux](./Linux) e você será levado para uma página com temas de comandos como: `ajuda`, `operadores lógicos`, `manupulação de variaveis` , entre outros.
