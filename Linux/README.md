@@ -61,3 +61,7 @@ Aqui estão os temas disponíveis para explorar os comandos Linux:
 
 18. [Troca de Usuário](./TrocaDeUsuário/README.md)  
     Comandos para trocar de usuário ou executar comandos como outro usuário, como `su`, `sudo`.
+
+## Informações adicionais:
+Em Linux é importante saber que as opções, em sua maioria, podem ser combinadas, como por exemplo:
+- `$ tar -cvf compactado.tar ~/Downloads/arquivo` → Que junta as opções `-c`, `-v` e `-f`.
