@@ -1,11 +1,17 @@
 # Dicionário de Comandos Linux
-
 Bem-vindo ao Dicionário de Comandos Linux! Este repositório contém uma coleção organizada de comandos Linux, divididos por temas com base em seus possíveis usos. Existem comandos que podem aparecer em mais de um tema, e estão atualizados em todos os contextos.
 
 Cada tema possui um README separado, contendo uma lista de comandos, suas descrições, opções de comandos, exemplos de uso e materiais complementares para aprofundar seu conhecimento.
 
-## Temas
+## Informações adicionais:
+### Opções
+Em Linux é importante saber que as opções, em sua maioria, podem ser combinadas, como por exemplo:
+- `$ tar -cvf compactado.tar ~/Downloads/arquivo` → Que junta as opções `-c`, `-v` e `-f`.
 
+### Sintaxe comum
+A maior parte tem uma sintaxe comum de comando, ou seja uma forma comum de escrever o comando.
+
+## Temas
 Aqui estão os temas disponíveis para explorar os comandos Linux:
 
 1. [Ajuda](./Ajuda/README.md)  
@@ -61,7 +67,3 @@ Aqui estão os temas disponíveis para explorar os comandos Linux:
 
 18. [Troca de Usuário](./TrocaDeUsuário/README.md)  
     Comandos para trocar de usuário ou executar comandos como outro usuário, como `su`, `sudo`.
-
-## Informações adicionais:
-Em Linux é importante saber que as opções, em sua maioria, podem ser combinadas, como por exemplo:
-- `$ tar -cvf compactado.tar ~/Downloads/arquivo` → Que junta as opções `-c`, `-v` e `-f`.
