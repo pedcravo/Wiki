@@ -7,8 +7,6 @@ Nesta seção, exploramos comandos que fornecem ajuda sobre outros comandos no s
 3. [`man`](#3-man)
 4. [`apropos`](#4-apropos)
 
----
-
 ## 1. `help`
 
 ### Para que serve?
