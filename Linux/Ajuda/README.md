@@ -48,13 +48,10 @@ O comando `type` geralmente é usado para **descobrir as informações sobre um 
 Além disso, você também pode encontrar o caminho real do comando.
 
 ### Opções:
-`-a` → Mostra todas as informações do comando.
-
-`-p` → Mostra local no sistema **(não mostra resultado para comandos)**.
-
-`-P` → Mostra o caminho do executável.
-
-`-t` → Mostra somente o tipo do comando.
+- `-a` → Mostra todas as informações do comando.
+- `-p` → Mostra local no sistema **(não mostra resultado para comandos)**.
+- `-P` → Mostra o caminho do executável.
+- `-t` → Mostra somente o tipo do comando.
 
 ### Sintaxe comum:
 **`$ type [OPÇÃO] COMANDO`**
@@ -90,28 +87,19 @@ O `man` é uma opção porém tem saída semelhante a saída de comandos, podend
 **(MANual)**
 
 ### Opções:
-`-a` → Lista todos os manuais existentes sobre o tema.
-
-`-k` → Pesquisa caracteres dentro do comando.
-
-`N` → Escolhe manualmente a seção para entrar, sendo `N` o número da seção.
-
-`-w` → Pesquisa o local do manual no sistema.
+- `-a` → Lista todos os manuais existentes sobre o tema.
+- `-k` → Pesquisa caracteres dentro do comando.
+- `N` → Escolhe manualmente a seção para entrar, sendo `N` o número da seção.
+- `-w` → Pesquisa o local do manual no sistema.
 
 #### Dentro manual:
-`↓↑` → Rola uma linha para cima ou para baixo.
-
-`/termo` → Busca por "termo".
-
-`n` → Pula para a próxima ocorrência da busca.
-
-`N` → Pula para a próxima ocorrência da busca.
-
-`space` → Avança uma página.
-
-`b` → Volta uma página.
-
-`q` → Sai do `man`.
+- `↓↑` → Rola uma linha para cima ou para baixo.
+- `/termo` → Busca por "termo".
+- `n` → Pula para a próxima ocorrência da busca.
+- `N` → Pula para a próxima ocorrência da busca.
+- `space` → Avança uma página.
+- `b` → Volta uma página.
+- `q` → Sai do `man`.
 
 ### Sintaxe comum:
 **`$ man [OPÇÕES] COMANDO`**
@@ -145,19 +133,13 @@ O comando `apropos` ajuda a encontrar comandos e suas descrições associadas qu
 **É muito útil quando você sabe o que um comando faz, mas não lembra o nome exato dele, permitindo pesquisar por funções ou termos relacionados.**
 
 ### Opções:
-`-a` → Exibe resultados que correspondam a todas as palavras-chave fornecidas.
-
-`-e` → Busca exata. Procura pela palavra-chave exatamente como ela foi digitada, correspondendo ao nome completo ou descrição.
-
-`-l` → Evita que a saída seja cortada para se ajustar à largura do terminal.
-
-`-r` → Interpreta a palavra-chave como uma expressão regular (configuração padrão).
-
-`-s N` → Pesquisa em seções específicas do manual, seções de número `N`.
-
-`-v` → Modo detalhado, exibe mais informações durante a execução, útil para depuração.
-
-`-w` → Interpreta a palavra-chave como um padrão com curingas (`?`, `*`)
+- `-a` → Exibe resultados que correspondam a todas as palavras-chave fornecidas.
+- `-e` → Busca exata. Procura pela palavra-chave exatamente como ela foi digitada, correspondendo ao nome completo ou descrição.
+- `-l` → Evita que a saída seja cortada para se ajustar à largura do terminal.
+- `-r` → Interpreta a palavra-chave como uma expressão regular (configuração padrão).
+- `-s N` → Pesquisa em seções específicas do manual, seções de número `N`.
+- `-v` → Modo detalhado, exibe mais informações durante a execução, útil para depuração.
+- `-w` → Interpreta a palavra-chave como um padrão com curingas (`?`, `*`)
 
 ### Sintaxe comum:
 $ apropos [OPÇÕES] PALAVRA-CHAVE
