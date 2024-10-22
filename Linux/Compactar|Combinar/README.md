@@ -70,7 +70,7 @@ Pode ser utilizado no usuário comum, porém o **uso é mais limitado**.
 
 `$ gzip compactado.tar` → Compacta arquivo `.tar` (adiciona `.gz` a ele).
 
-`$ gzip -c arquivo.txt `[`>`](./Stdin|Stdout|Stderr)` arquivo.gz` → Compacta o arquivo na saída padrão sem alterar o arquivo original (`arquivo.txt`), sobrescreve o resultado da saída padrão no `arquivo.gz`. Veja mais sobre o comando > em 
+`$ gzip -c arquivo.txt `[`>`](../Stdin|Stdout|Stderr)` arquivo.gz` → Compacta o arquivo na saída padrão sem alterar o arquivo original (`arquivo.txt`), sobrescreve o resultado da saída padrão no `arquivo.gz`. Veja mais sobre o comando > em 
 
 /Stdin|Stdout|Stderr/
 
