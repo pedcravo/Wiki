@@ -181,7 +181,7 @@ Utilizado para **compactar arquivos e diretórios no formato `.zip`**, que é am
 Pode ser utilizado no usuário comum, porém o **uso é mais limitado**.
 
 ### Opções:
-- `-e` → Progtege arquivo compactado com senha (pede senha ao descompactar).
+- `-e` → Protege arquivo compactado com senha (pede senha ao descompactar).
 - `-r` → Compacta recursivamente diretórios, seus subdiretórios e todos os arquivos contidos neles.
 
 ### Sintaxe comum:
@@ -197,6 +197,8 @@ Pode ser utilizado no usuário comum, porém o **uso é mais limitado**.
 `$ zip -e comp_c_senha.zip arquivo.txt` → Compacta um arquivo com senha.
 
 ### Máterial Complementar:
+https://labex.io/tutorials/linux-file-packaging-and-compression-385413
+
 https://www.vivaolinux.com.br/dica/Uso-basico-dos-comandos-zip-e-unzip
 
 ---
