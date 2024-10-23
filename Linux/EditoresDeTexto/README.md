@@ -208,7 +208,7 @@ Todos as opções só podem ser executados dentro do prórprio `vi`, não há ne
 - `:w` → Salva o arquivo (não o fecha).
 - `:wq` → Salva e fecha o arquivo.
 
-**(todos os comandos com : precisam que aperte <enter> para aceitar e executar o comando)**
+**Todos os comandos com : precisam que aperte <enter> para aceitar e executar o comando.**
 
 #### Movimentação:
 - `⭠`, `⭡`, `⭢`, `⭣` (setas) → Move o cursor pelo texto.
