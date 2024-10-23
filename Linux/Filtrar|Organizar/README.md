@@ -20,8 +20,21 @@ Estes comandos são amplamente utilizados para manipulação de texto e processa
 ## 1. `awk`
 
 ### Para que serve?
+Utilizado para **filtra, recortar, printar** e etc.
+
+É semelhante ao `cut` + `grep`.
+
+**É possível utilizar [`Meta Caracteres`](../MetaCaractere), funções lambda, funções com string e etc**.
 
 ### Opções:
+- `-F` → Tem como padrão para pesquisa o separador: _“:”_ mas pode ser alterado por _“,”_, _“.”_ dentre outros.
+
+#### Tipos de seletores de caracteres:
+- `$N` → Escolhe a coluna `N`.
+- `$N,$M` → Escolhe as colunas `N` e `M`.
+- `”palavra”` → Usado quando inserir string
+- `BEGIN` → Usado para fazer uma ação ao começar a rodar.
+- `END` → Usado para fazer uma ação depois que a anterior terminar (final).
 
 ### Sintaxe comum:
 
