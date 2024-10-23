@@ -198,7 +198,7 @@ Utilizado para **criar e editar arquivos em um editor de texto**, semelhante ao 
 ### Opções:
 Todos as opções só podem ser executados dentro do prórprio `vi`, não há nenhuma que podem ser chamadas ou usadas ao usar o comando.
 
-#### Dentro do vi:
+#### Trocar de modo:
 - `i` → Muda para o insert mode.
 - `esc` → Muda para o edit mode.
 
