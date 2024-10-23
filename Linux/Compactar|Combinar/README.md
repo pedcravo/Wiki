@@ -228,5 +228,3 @@ Pode ser utilizado no usuário comum, porém o **uso é mais limitado**.
 
 ### Máterial Complementar:
 https://www.vivaolinux.com.br/dica/Uso-basico-dos-comandos-zip-e-unzip
-
----
