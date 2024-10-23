@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/4c8d41c0-dc12-44f2-939f-3439dbdc4dae)![image](https://github.com/user-attachments/assets/8692aa65-face-4708-8c3b-57dd061b709d)# Comandos para Filtrar e Organizar Dados
+# Comandos para Filtrar e Organizar Dados
 
 Nesta seção, exploramos comandos que permitem filtrar e organizar dados no Linux.
 Estes comandos são amplamente utilizados para manipulação de texto e processamento de arquivos, permitindo operações como filtrar e recortar dados de forma flexível.
