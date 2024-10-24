@@ -328,6 +328,9 @@ O comando `echo` é usado para **imprimir uma string, texto ou o valor de uma va
 
 `$ ls -la | grep arquivo ; echo -e '\n' ~/Downloads/* '\a'` → Executa uma série de comandos, `ls` procurando todos os arquivos e em seguida é utilizado o `grep` sobre a saída do comando anterior para filtrar os arquivos, em seguida é executado o comando `echo` que pula uma linha, mostra os arquivos dentro de `Downloads` e seus caminhos e depois toca um sino.
 
+### Máterial Complementar:
+https://guialinux.uniriotec.br/echo/
+
 ---
 
 ## 7. `head`
@@ -364,6 +367,7 @@ Pode ser aberto mais de um arquivo ao mesmo tempo.
 https://guialinux.uniriotec.br/head/
 
 https://labex.io/tutorials/linux-linux-head-command-file-beginning-display-214302
+
 ---
 
 ## 8. `tail`
@@ -563,9 +567,30 @@ Não possui material complementar.
 ## 13. wc
 
 ### Para que serve?
+Utilizado para **mostrar linhas, palavras e números de caracteres** em um ou mais arquivos.
 
 ### Opções:
+- `-c` → Conta o número de Bytes.
+- `-l` → Conta o número de linhas.
+- `-L` → Conta o comprimento da linha mais longa.
+- `-m` → Conta o total de caracteres.
+- `-w` → Conta as palavras de um ou mais arquivos.
 
 ### Sintaxe comum:
+**`$ wc [OPÇÕES] ARQUIVO`**
 
 ### Exemplos:
+`$ wc arquivo.txt` → Exibe o número de linhas, palavras e bytes do arquivo.
+
+`$ wc -l arquivo.txt` → Exibe apenas o número de linhas no arquivo.
+
+`$ wc -w arquivo.txt` → Exibe apenas o número de palavras  no arquivo.
+
+`$ wc -m arquivo.txt` → Exibe apenas o número de caracteres  no arquivo.
+
+`$ wc -c arquivo.txt` → Exibe o número de bytes  no arquivo.
+
+`$ wc -l -w -m arquivo.txt` → Exibe o número de linhas, palavras e caracteres do arquivo.
+
+### Máterial Complementar:
+https://labex.io/tutorials/linux-linux-nl-command-line-numbering-210988
