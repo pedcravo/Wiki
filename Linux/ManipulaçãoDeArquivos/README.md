@@ -49,9 +49,9 @@ Esse comando é especialmente útil em ambientes multi usuário, onde diferentes
 `# chgrp -h backend link_sim` → Altera o grupo dono do link simbólico sem alterar o arquivo base (o arquivo na qual ele aponta).
 
 ### Máterial Complementar:
-<img src="https://github.com/user-attachments/assets/2cc507f5-4f33-44de-9ea7-f2131f21b460" width="600px">
+<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/ChgrpChmodChown.png" width="600px">
 
-<img src="https://github.com/user-attachments/assets/c5ef37ef-6c4e-44fb-bdd7-c727b870b83b" width="600px">
+<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/PermissoesQuadro.png" width="600px">
 
 https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-chgrp/
 
@@ -117,9 +117,9 @@ Binário | Octal
 `$ chmod a-r arquivo.png` → Dá permissão de `read` ao `owner`, as permissões se tornarão → `-----wx--x`.
 
 ### Máterial Complementar:
-<img src="https://github.com/user-attachments/assets/2cc507f5-4f33-44de-9ea7-f2131f21b460" width="600px">
+<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/ChgrpChmodChown.png" width="600px">
 
-<img src="https://github.com/user-attachments/assets/c5ef37ef-6c4e-44fb-bdd7-c727b870b83b" width="600px">
+<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/PermissoesQuadro.png" width="600px">
 
 https://labex.io/tutorials/linux-logical-commands-and-redirection-387332
 
@@ -177,9 +177,13 @@ O chown também pode ser usado para **alterar as permissões de diretórios de m
 `$ chown -h pedro link_arquivo` → Altera o dono do link simbólico.
 
 ### Máterial Complementar:
-<img src="https://github.com/user-attachments/assets/2cc507f5-4f33-44de-9ea7-f2131f21b460" width="600px">
+<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/ChgrpChmodChown.png" width="600px">
 
-<img src="https://github.com/user-attachments/assets/c5ef37ef-6c4e-44fb-bdd7-c727b870b83b" width="600px">
+<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/PermissoesQuadro.png" width="600px">
+
+https://labex.io/tutorials/linux-logical-commands-and-redirection-387332
+
+https://www.youtube.com/watch?v=LnKoncbQBsM
 
 ---
 
