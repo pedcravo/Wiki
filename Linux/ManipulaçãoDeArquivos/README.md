@@ -94,7 +94,6 @@ Binário | Octal
 111 | 7
 
 ### Opções:
-#### Conceder Permissões:
 - `U+P` → Qualquer usuário `+` permissão.
 - `U-P` → Qualquer usuário `-` permissão.
 - `ugo` → Número das permissões de cada usuário na ordem.
