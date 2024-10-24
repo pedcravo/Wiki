@@ -13,14 +13,13 @@ Estes comandos são amplamente utilizados para manipulação de texto e processa
 6. [`echo`](#6-echo)
 7. [`head`](#7-head)
 8. [`tail`](#8-tail)
-9. [`less`](#7-less)
-10. [`nl`](#9-nl)
-11. [`sort`](#10-sort)
-12. [`uniq`](#11-uniq)
-13. [`cut`](#12-cut)
-14. [`wc`](#13-wc)
+9. [`less`](#9-less)
+10. [`nl`](#10-nl)
+11. [`sort`](#11-sort)
+12. [`uniq`](#12-uniq)
+13. [`wc`](#13-wc)
 
-## 1.
+## 1. `cat`
 
 ### Para que serve?
 
@@ -265,7 +264,19 @@ https://labex.io/tutorials/linux-linux-awk-command-text-processing-388493
 
 ---
 
-## 6. `head`
+## 6. `echo`
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+---
+
+## 7. `head`
 
 ### Para que serve?
 Utilizado para **exibir as primeiras linhas de um arquivo**. 
@@ -301,7 +312,7 @@ https://guialinux.uniriotec.br/head/
 https://labex.io/tutorials/linux-linux-head-command-file-beginning-display-214302
 ---
 
-## 5 `tail`
+## 8. `tail`
 
 ### Para que serve?
 Utilizado para **exibir as últimas linhas de um arquivo**.
@@ -333,7 +344,7 @@ https://labex.io/tutorials/linux-linux-tail-command-file-end-display-214303
 
 ---
 
-## 6. `less`
+## 9. `less`
 
 ### Para que serve?
 Utilizado para **visualizar arquivos de forma paginada e interativa**.
@@ -366,7 +377,7 @@ Não possui material complementar.
 
 ---
 
-## 7. `nl`
+## 10. `nl`
 
 ### Para que serve?
 Utilizado para **numerar as linhas dos arquivos**.
@@ -413,7 +424,7 @@ Não possui material complementar.
 
 ---
 
-## 8. `sort`
+## 11. `sort`
 
 ### Para que serve?
 Utilizado para **organizar de forma rápida e simples as linhas**, sua forma padrão mantém em ordem alfabética.
@@ -459,7 +470,7 @@ https://guialinux.uniriotec.br/sort/
 
 ---
 
-## 9. `uniq`
+## 12. `uniq`
 
 ### Para que serve?
 Utilizado para **filtrar e contar as linhas repetidas de um arquivo**.
@@ -495,7 +506,7 @@ Não possui material complementar.
 
 ---
 
-##
+## 13. wc
 
 ### Para que serve?
 
@@ -504,17 +515,3 @@ Não possui material complementar.
 ### Sintaxe comum:
 
 ### Exemplos:
-
----
-
-## 6.
-
-### Para que serve?
-
-### Opções:
-
-### Sintaxe comum:
-
-### Exemplos:
-
----
