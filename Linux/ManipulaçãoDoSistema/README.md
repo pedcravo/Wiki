@@ -1,19 +1,3 @@
----
-
-## 11. `uniq`
-
-### Para que serve?
-
-### Opções:
-
-### Sintaxe comum:
-
-### Exemplos:
-
-### Máterial Complementar:
-
----
-
 ## `top`
 
 ### Para que serve?
@@ -56,3 +40,15 @@ Ele é uma ferramenta interativa que permite ver rapidamente o que está acontec
 ### Máterial Complementar:
 
 ---
+
+##
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+### Máterial Complementar:
