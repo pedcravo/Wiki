@@ -189,12 +189,36 @@ https://www.youtube.com/watch?v=LnKoncbQBsM
 ## 4. `cp`
 
 ### Para que serve?
+Utilizado para **copiar arquivos ou diretórios** de um diretório para outro.
 
 ### Opções:
+- `-i` → Faz checagem de segurança, se há um arquivo com este nome.
+- `-l` → Cria links.
+- `-n` → Não sobrescreve um arquivo existente.
+- `-p` → Preserva os dados do arquivo original na cópia, como: data da modificação, tempo de acesso e permissão.
+- `-r` → Pesquisa recursivamente nos diretórios.
+- `-s` → Cria links simbólicos em vez de copiar arquivos (atualiza junto com o original).
+- `-u` → Copia apenas quando o arquivo de origem é mais novo do que o arquivo de destino ou quando o arquivo de destino está faltando.
+- `-v` → Mostra com mais detalhes o processo que está acontecendo.
 
 ### Sintaxe comum:
+**`$ cp [OPÇÕES] ARQUIVO.. CÓPIA_ARQUIVO`**
 
 ### Exemplos:
+$ cp exemploarquivo arquivoexemplo → copia o exemploarquivo trocando o nome para arquivoexemplo no mesmo diretório.
+
+$ cp arquivo1.txt arquivo2.txt arquivo3.txt arquivo4.txt ~/Downloads/copias_arquivos → copia vários arquivos para dentro de um aquivo.
+
+$ cp exemploarquivo /home/pedrocravo/Downloads/ → copia o exemploarquivo do local para o diretório Downloads.
+
+$ cp /home/pedrocravo/Downloads/exemploarquivo arquivoexemplo → copia o arquivo do diretório Downloads para o local, dando a ele o nome arquivoexemplo.
+
+$ cp ~/Documentos/[a-e]* ~/Downloads → copia arquivos ou diretórios do diretório Documentos que o nome começa com qualquer letra de "a" até "e", para o diretório Downloads.
+
+$ cp ~/Documentos/[a]* exemplopasta → copia arquivos ou diretórios do diretório Documentos que o nome começa com "a", para o diretório exemplopasta (que está dentro do diretório Documentos).
+
+$ cp -r diretorio1 diretorio2 → copia diretório com arquivos com recursão e da a cópia um novo nome.
+$ cp -r diretorio /home/pedrocravo → copia diretório com arquivos para outro lugar.
 
 ### Máterial Complementar:
 
