@@ -22,12 +22,32 @@ Estes comandos são amplamente utilizados para manipulação de texto e processa
 ## 1. `cat`
 
 ### Para que serve?
+O comando `cat` é utilizado para **juntar (concatenar) arquivos**. Em sua forma base, ele também pode ser utilizado para **visualizar o conteúdo de arquivos** diretamente no terminal.
 
 ### Opções:
+- `-n` → Mostra os números de cada linha do arquivo.
+- `-v` → Mostra caracteres não imprimíveis, como acentos ou quebras de linha.
 
 ### Sintaxe comum:
+`$ cat [OPÇÕES] ARQUIVO`
 
 ### Exemplos:
+`$ cat arquivo.txt` → Mostra o arquivo `.txt` na tela.
+
+`$ cat arquivo.txt - arquivo1.txt` → Mostra o arquivo .txt na tela e redireciona o conteúdo para outro arquivo `.txt`.
+
+`$ cat arquivo1.txt arquivo2.txt > arquivo_combinado.txt` → Mostra os arquivos .txt na tela na tela e concatena ambos em um arquivo novo `.txt`.
+
+`$ cat > arquivo_novo.txt` → Cria um novo arquivo e permite inserir dados manualmente (uma linha).
+
+`$ cat >> arquivo.txt` → Atualiza o arquivo `.txt` ao invés de sobrescrevê-lo.
+
+`$ cat -n arquivo1.txt` → Mostra a numeração de cada linha.
+
+`$ cat -v arquivo2.txt` → Mostra caracteres não imprimíveis.
+
+### Máterial Complementar:
+https://ryanstutorials.net/linuxtutorial/vi.php
 
 ---
 
@@ -267,12 +287,46 @@ https://labex.io/tutorials/linux-linux-awk-command-text-processing-388493
 ## 6. `echo`
 
 ### Para que serve?
+O comando `echo` é usado para **imprimir uma string, texto ou o valor de uma variável no terminal**, sendo uma ferramenta básica para criar saídas de texto em scripts e interações no shell.
 
 ### Opções:
+- `-e` → Habilita interpretação dos códigos de escape após barra invertida.
+- `-E` → Desabilita a interpretação dos códigos de escape (comportamento padrão em algumas distribuições).
+- `-n` → Não adiciona uma nova linha após mostrar os argumentos.
+
+#### Códigos de escape:
+- `\\` → Exibe uma barra invertida.
+- `\a` → Alerta (Sino).
+- `\b` → Retroceder.
+- `\c` → Não permite saída após esta.
+- `\e` → Caractere de escape.
+- `\f` → Alimentação de página (FF).
+- `\n` → Nova linha (NL).
+- `\r` → Retorno de carro (CR).
+- `\t` → Tabulação horizontal.
+- `\v` → Tabulação vertical.
+- `\ 0 NNN` → Byte com valor octal `NNN` (que pode ter de 1 a 3 dígitos).
+- `\ x HH` → Byte com valor hexadecimal `HH` (que pode ter 1 ou 2 dígitos).
 
 ### Sintaxe comum:
+**`$ echo [OPÇÕES] ARQUIVO *ESCAPE*`**
 
 ### Exemplos:
+`$ echo /*` → Mostra todo o conteúdo do diretório raiz em ordem alfabética.
+
+`$ echo “Eu tenho $[2024 - 2005] anos de idade.”` → Mostra na tela a mensagem acima e faz o calculo.
+
+`$ echo “Há $(ls | wc -w) arquivos nesse diretório.”` → Mostra a mensagem na tela e também a soma de arquivos no diretório.
+
+`$ echo -e 'Hello World\nOlá Mundo'` → Mostra a mensagem entre aspas simples utilizando o `\n` para pular uma linha entre uma palavra e outra.
+
+`$ echo -e 'Hello World\a'` → Mostra a mensagem entre aspas simples utilizando o `\a` para tocar um som.
+
+`$ echo -E 'É só escrever \n para pular linha'` → Mostra a mensagem entre aspas simples interpretando o `\n` como uma mensagem e não como um código.
+
+`$ echo "Conteúdo do arquivo" > arquivo.txt` → Substitui o conteúdo do arquivo pela mensagem ou cria o arquivo com a mesagem.
+
+`$ ls -la | grep arquivo ; echo -e '\n' ~/Downloads/* '\a'` → Executa uma série de comandos, `ls` procurando todos os arquivos e em seguida é utilizado o `grep` sobre a saída do comando anterior para filtrar os arquivos, em seguida é executado o comando `echo` que pula uma linha, mostra os arquivos dentro de `Downloads` e seus caminhos e depois toca um sino.
 
 ---
 
