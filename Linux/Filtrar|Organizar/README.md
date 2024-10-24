@@ -5,18 +5,58 @@ Estes comandos são amplamente utilizados para manipulação de texto e processa
 
 ### Comandos:
 
-1. [`cut`](#1-cut)
-2. [`grep`](#2-grep)
-3. [`awk`](#3-awk)
-4. [`head`](#4-head)
-5. [`tail`](#5-tail)
-6. [`less`](#6-less)
-7. [`nl`](#7-nl)
-8. [`sort`](#8-sort)
-9. [`tac`](#9-tac)
-10. [`uniq`](#10-uniq)
+1. [`cat`](#1-cat)
+2. [`tac`](#2-tac)
+3. [`cut`](#3-cut)
+4. [`grep`](#4-grep)
+5. [`awk`](#5-awk)
+6. [`echo`](#6-echo)
+7. [`head`](#7-head)
+8. [`tail`](#8-tail)
+9. [`less`](#7-less)
+10. [`nl`](#9-nl)
+11. [`sort`](#10-sort)
+12. [`uniq`](#11-uniq)
+13. [`cut`](#12-cut)
+14. [`wc`](#13-wc)
 
-## 1. `cut`
+## 1.
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+---
+
+## 2. `tac`
+
+### Para que serve?
+Utilizado para **exibir o conteúdo de um arquivo de trás para frente**, ou seja, ele imprime as linhas de um arquivo em **ordem reversa**.
+
+É essencialmente o oposto do comando `cat` quando falamos de imprimir dados na tela, mas vale lembrar que o comando `cat` faz muito mais.
+
+### Opções:
+- `-b` → Adiciona coloca o separador antes de cada linha, em vez de colocar depois.
+- `-s` → Especifica um delimitador, ao invé de nova linha.
+
+### Sintaxe comum:
+**`$ tac [OPÇÕES] ARQUIVO`**
+
+### Exemplos:
+`$ tac arquivo.txt` → Mostra o arquivo em ordem decrescente de linhas.
+
+`$ tac -b arquivo.txt` → Mostra o arquivo tirando 
+
+### Máterial Complementar:
+Não possui material complementar.
+
+---
+
+## 3. `cut`
 
 ### Para que serve?
 Utilizado para **filtrar os conteúdos dos arquivos** com base nos separadores, caracteres e até mesmo bytes do arquivo.
@@ -46,7 +86,7 @@ https://www.geeksforgeeks.org/cut-command-linux-examples/
 
 ---
 
-## 2. `grep`
+## 4. `grep`
 
 ### Para que serve?
 O grep (Global Regular Expression Print) é utilizado para **filtrar/pesquisar linhas com base em caracteres e palavras em um ou mais arquivos**.
@@ -73,10 +113,10 @@ Faz uso de Expressões Regulares e de [Meta Caracteres](../MetaCaractere/README.
 - `-w` → Mostra somente as palavras completas.
 
 #### Opções utilizadas frequentemente:
--ic ↔ -i + -c
--vi ↔ -v + -i
--ri ↔ -r + -i
--rli ↔ -r + -l + -i
+- `-ic` ↔ `-i` + `-c`
+- `-vi` ↔ `-v` + `-i`
+- `-ri` ↔ `-r` + `-i`
+- `-rli` ↔ `-r` + `-l` + `-i`
 
 ### Sintaxe comum:
 #### grep
@@ -159,7 +199,7 @@ https://github.com/BurntSushi/ripgrep
 
 ---
 
-## 3. `awk`
+## 5. `awk`
 
 ### Para que serve?
 Utilizado para **filtra, recortar, printar** e etc.
@@ -225,8 +265,7 @@ https://labex.io/tutorials/linux-linux-awk-command-text-processing-388493
 
 ---
 
-
-## 4. `head`
+## 6. `head`
 
 ### Para que serve?
 Utilizado para **exibir as primeiras linhas de um arquivo**. 
@@ -420,31 +459,7 @@ https://guialinux.uniriotec.br/sort/
 
 ---
 
-## 8. `tac`
-
-### Para que serve?
-Utilizado para **exibir o conteúdo de um arquivo de trás para frente**, ou seja, ele imprime as linhas de um arquivo em **ordem reversa**.
-
-É essencialmente o oposto do comando `cat` quando falamos de imprimir dados na tela, mas vale lembrar que o comando `cat` faz muito mais.
-
-### Opções:
-- `-b` → Adiciona coloca o separador antes de cada linha, em vez de colocar depois.
-- `-s` → Especifica um delimitador, ao invé de nova linha.
-
-### Sintaxe comum:
-**`$ tac [OPÇÕES] ARQUIVO`**
-
-### Exemplos:
-`$ tac arquivo.txt` → Mostra o arquivo em ordem decrescente de linhas.
-
-`$ tac -b arquivo.txt` → Mostra o arquivo tirando 
-
-### Máterial Complementar:
-Não possui material complementar.
-
----
-
-## 10. `uniq`
+## 9. `uniq`
 
 ### Para que serve?
 Utilizado para **filtrar e contar as linhas repetidas de um arquivo**.
@@ -477,3 +492,29 @@ O `uniq` só remove duplicatas adjacentes, ou seja, as **linhas repetidas que es
 
 ### Máterial Complementar:
 Não possui material complementar.
+
+---
+
+##
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+---
+
+## 6.
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+---
