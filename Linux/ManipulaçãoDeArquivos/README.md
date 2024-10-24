@@ -49,37 +49,137 @@ Esse comando é especialmente útil em ambientes multi usuário, onde diferentes
 `# chgrp -h backend link_sim` → Altera o grupo dono do link simbólico sem alterar o arquivo base (o arquivo na qual ele aponta).
 
 ### Máterial Complementar:
-https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-chgrp/
+<img src="https://github.com/user-attachments/assets/2cc507f5-4f33-44de-9ea7-f2131f21b460" width="600px">
 
-![Screenshot 2024-10-24 at 14-46-34 Captura_de_tela_de_2024-10-17_16-55-01 webp (imagem WEBP 662 × 294 pixels)](https://github.com/user-attachments/assets/9db3d0a3-1461-4c46-96c6-f90ba2019a61)
+<img src="https://github.com/user-attachments/assets/c5ef37ef-6c4e-44fb-bdd7-c727b870b83b" width="600px">
+
+https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-chgrp/
 
 ---
 
 ## 2. `chmod`
 
 ### Para que serve?
+Utilizado para **alterar as permissões de usuários** sobre arquivos e diretórios.
+
+**Somente o usuário root e o owner podem alterar as permissões**
+
+### Sistema de Permissões:
+`----------` ↔ `-|---|---|---|` ↔ `-|u|g|o|`
+
+#### Classificação do Arquivo: (-)--- --- ---
+- `-` → **tipo** → Indica se é arquivo (-) ou diretório (d) ou link (l).
+
+#### Grupos de Permissões: -(---)(---)(---)
+- `u` → **user** → Dono/criador do arquivo.
+- `g` → **group** → Usuários do grupo dono.
+- `o` → **others** → Outros usuários.
+- `a` → **all** → Todos.
+
+#### Permissões em cada Grupo:
+- `r` → **read** → Permissão para ver o que tem no arquivo.
+- `w` → **write** → Permissão para modificar o arquivo.
+- `x` → **execute** → Permissão para executar/rodar o programa (script).
+
+#### Utiliza o sistema octal para conceder permissões
+Binário | Octal
+:----:|:----:
+000 | 0
+001 | 1
+010 | 2
+011 | 3
+100 | 4
+101 | 5
+110 | 6
+111 | 7
 
 ### Opções:
+#### Conceder Permissões:
+- `U+P` → Qualquer usuário `+` permissão.
+- `U-P` → Qualquer usuário `-` permissão.
+- `ugo` → Número das permissões de cada usuário na ordem.
+
+#### Permissões comuns:
+- `644` - File Baseline.
+- `755` - Directory Baseline.
+- `400` - Key Pair.
 
 ### Sintaxe comum:
+**`$ chmod PERMISSÃO ARQUIVO`**
 
 ### Exemplos:
+`$ chmod u+r arquivo.png` → Dá permissão de `read` ao `owner`, as permissões se tornarão → `-r--rw-r-x`.
+
+`$ chmod g-r arquivo.png` → Tira a permissão de `read` ao `group`, as permissões se tornarão → `-r---w-r-x`.
+
+`$ chmod g+rx arquivo.png` → Dá permissão de `read` e `execute` ao `group`, as permissões se tornarão → `-r--rwxr-x`.
+
+`$ chmod a-r arquivo.png` → Dá permissão de `read` ao `owner`, as permissões se tornarão → `-----wx--x`.
 
 ### Máterial Complementar:
+<img src="https://github.com/user-attachments/assets/2cc507f5-4f33-44de-9ea7-f2131f21b460" width="600px">
+
+<img src="https://github.com/user-attachments/assets/c5ef37ef-6c4e-44fb-bdd7-c727b870b83b" width="600px">
+
+https://labex.io/tutorials/linux-logical-commands-and-redirection-387332
+
+https://www.youtube.com/watch?v=LnKoncbQBsM
 
 ---
 
 ## 3. `chown`
 
 ### Para que serve?
+Utilizado para **gerenciar permissões, alterar o proprietário e/ou grupo** de um arquivo ou diretório.
+O chown também pode ser usado para **alterar as permissões de diretórios de maneira recursiva**, alterando o proprietário de todos os arquivos e subdiretórios.
+
+É possível checar alterações no arquivo com `ls -l`.
+
+**Comando funciona melhor com sudo.**
 
 ### Opções:
+- `-h` → Usado para mudar o dono do link simbólico.
+- `-R` → Utilizado para fazer a mudança de dono dos arquivos de forma recursiva.
+- `-v` → Modo verboso, exibe uma mensagem para cada arquivo que é modificado.
 
 ### Sintaxe comum:
+#### Em arquivos
+**`$ chown [OPÇÕES] USUARIO :GRUPO ARQUIVO`**
+
+#### Em diretórios
+**`$ chown [OPÇÕES] USUARIO :GRUPO /DIRETORIO`**
+
+#### Em Links Simbólicos
+**`$ chown [OPÇÕES] USUARIO :GRUPO LINK`**
 
 ### Exemplos:
+#### Em Arquivos
+`$ chown pedro arquivo.txt` → Muda o dono do arquivo para `pedro`.
+
+`$ chown pedro:backend arquivo.txt` → Muda o dono do arquivo para `pedro` e o grupo do arquivo para `backend`.
+
+`$ chown :backend arquivo.txt` → Muda o grupo do arquivo para `backend`.
+
+`$ chown --reference=arquivo1 arquivo2` → Altera o dono e o grupo do `arquivo2` para os mesmos do `arquivo1`.
+
+#### Em Diretórios
+`$ chown root /dir` → Muda o dono do diretório para `root`.
+
+`$ chown root:backend /dir` → Muda o dono do diretório para `root` e o grupo do diretório para `backend`.
+
+`$ chown :backend /dir` → Muda o grupo do diretório para `backend`.
+
+`$ chown -R pedro:backend ~/Downloads` → Altera o dono e o grupo do diretório `Downloads` e de todos os arquivos dentro dele de forma recursiva.
+
+#### Em Links Simbólicos
+`$ chown pedro link_arquivo` → Altera o dono do arquivo base do link.
+
+`$ chown -h pedro link_arquivo` → Altera o dono do link simbólico.
 
 ### Máterial Complementar:
+<img src="https://github.com/user-attachments/assets/2cc507f5-4f33-44de-9ea7-f2131f21b460" width="600px">
+
+<img src="https://github.com/user-attachments/assets/c5ef37ef-6c4e-44fb-bdd7-c727b870b83b" width="600px">
 
 ---
 
