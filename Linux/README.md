@@ -47,23 +47,20 @@ Aqui estão os temas disponíveis para explorar os comandos Linux:
 11. [Metacaracteres e Expressões Regulares](./MetaCaractere/README.md)  
     Uso de metacaracteres e expressões regulares para operações no terminal, como `*`, `?`, `[ ]`.
 
-12. [Mostrar Informações](./Mostar/README.md)  
-    Comandos para mostrar informações do sistema e arquivos, como `ls`, `cat`, `less`, `echo`.
-
-13. [Navegação Pelo Sistema](./NavegaçãoPeloSistema/README.md)  
+12. [Navegação Pelo Sistema](./NavegaçãoPeloSistema/README.md)  
     Comandos para navegar no sistema de arquivos, como `cd`, `pwd`, `ls`.
 
-14. [Operadores Lógicos](./OperadoresLógicos/README.md)  
+13. [Operadores Lógicos](./OperadoresLógicos/README.md)  
     Operadores lógicos no bash e como usá-los para construir comandos avançados.
 
-15. [Gerenciadores de Permissões](./Permissões/README.md)  
+14. [Gerenciadores de Permissões](./Permissões/README.md)  
     Comandos para visualizar e modificar permissões de arquivos e diretórios, como `chmod`, `chown`, `chgrp`.
 
-16. [Pesquisa Pelo Sistema](./PesquisaPeloSistema/README.md)  
+15. [Pesquisa Pelo Sistema](./PesquisaPeloSistema/README.md)  
     Comandos para pesquisar arquivos e conteúdo dentro do sistema, como `find`, `locate`, `grep`.
 
-17. [Redirecionamento: Stdin, Stdout e Stderr](./Stdin|Stdout|Stderr/README.md)  
+16. [Redirecionamento: Stdin, Stdout e Stderr](./Stdin|Stdout|Stderr/README.md)  
     Comandos para redirecionar entrada, saída e erros no terminal, como `<`, `>`, `2>`.
 
-18. [Troca de Usuário](./TrocaDeUsuário/README.md)  
+17. [Troca de Usuário](./TrocaDeUsuário/README.md)  
     Comandos para trocar de usuário ou executar comandos como outro usuário, como `su`, `sudo`.
