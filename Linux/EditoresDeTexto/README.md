@@ -1,7 +1,5 @@
 # Editores de Texto no Linux
-
-Nesta seção, exploramos comandos relacionados à execução e manipulação de shells no Linux, incluindo o Bash, que é o shell padrão em muitas distribuições.
-O Bash permite executar scripts, iniciar sessões de shell e manipular variáveis de ambiente, sendo uma ferramenta fundamental para automação e controle de processos no Linux.
+Nesta seção, exploramos comandos relacionados à **edição de textos, execução e manipulação de shells** no Linux.
 
 ### Comandos:
 
