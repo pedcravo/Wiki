@@ -142,6 +142,9 @@ O comando `join` **concatena registros de dois arquivos de texto baseado em índ
 `$ join -1 3 -2 1 employees.txt departments.txt` → Mostra a união entre os dois arquivos só que usando como base outra coluna, coluna `3` do arquivo employees.txt e coluna `1` de `departments.txt`.
 
 ### Máterial Complementar:
+https://labex.io/tutorials/linux-linux-join-command-file-joining-219193
+
+https://www.vivaolinux.com.br/dica/O-comando-join
 
 ---
 
