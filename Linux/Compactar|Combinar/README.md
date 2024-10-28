@@ -130,7 +130,7 @@ O comando `join` **concatena registros de dois arquivos de texto baseado em índ
 - `-v A` → Exibe somente as linhas que não condizem com o outro arquivo, as linhas solitárias.
 
 ### Sintaxe comum:
-`$ join [OPÇÃO] ARQUIVO1 ARQUIVO2`
+**`$ join [OPÇÃO] ARQUIVO1 ARQUIVO2`**
 
 ### Exemplos:
 `$ join employees.txt salaries.txt` → Mostra o conteúdo dos dois arquivos unidos usando como base o id de cada linha (1ª coluna).
