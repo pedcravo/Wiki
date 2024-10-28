@@ -227,7 +227,22 @@ $ cp -r diretorio /home/pedrocravo → copia diretório com arquivos para outro 
 
 ---
 
-## 5. `ln`
+## 5. `expand`
+
+### Para que serve?
+
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+### Máterial Complementar:
+
+---
+
+## 6. `unexpand`
 
 ### Para que serve?
 
@@ -241,7 +256,7 @@ $ cp -r diretorio /home/pedrocravo → copia diretório com arquivos para outro 
 
 ---
 
-## 6. `mkdir`
+## 7. `ln`
 
 ### Para que serve?
 
@@ -255,7 +270,7 @@ $ cp -r diretorio /home/pedrocravo → copia diretório com arquivos para outro 
 
 ---
 
-## 7. `mv`
+## 8. `mkdir`
 
 ### Para que serve?
 
@@ -269,7 +284,7 @@ $ cp -r diretorio /home/pedrocravo → copia diretório com arquivos para outro 
 
 ---
 
-## 8. `paste`
+## 9. `mv`
 
 ### Para que serve?
 
@@ -283,7 +298,7 @@ $ cp -r diretorio /home/pedrocravo → copia diretório com arquivos para outro 
 
 ---
 
-## 9. `rm`
+## 10. `paste`
 
 ### Para que serve?
 
@@ -297,7 +312,7 @@ $ cp -r diretorio /home/pedrocravo → copia diretório com arquivos para outro 
 
 ---
 
-## 10. `rmdir`
+## 11. `rm`
 
 ### Para que serve?
 
@@ -311,7 +326,36 @@ $ cp -r diretorio /home/pedrocravo → copia diretório com arquivos para outro 
 
 ---
 
-## 11. `touch`
+## 12. `rmdir`
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+### Máterial Complementar:
+
+---
+
+## 13. `split`
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+### Máterial Complementar:
+
+
+---
+
+## 14. `touch`
 
 ### Para que serve?
 
