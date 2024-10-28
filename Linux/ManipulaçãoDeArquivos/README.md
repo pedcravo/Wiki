@@ -1,6 +1,5 @@
 # Comandos para Manipulação de Arquivos
-
-Nesta seção, exploramos comandos que permitem manipular arquivos e diretórios no Linux. Esses comandos são essenciais para copiar, mover, alterar permissões, criar e remover arquivos e diretórios.
+Nesta seção, exploramos comandos que permitem manipular arquivos e diretórios no Linux. Esses comandos são essenciais para **copiar, mover, alterar permissões, criar e remover arquivos e diretórios**.
 
 ### Comandos:
 
