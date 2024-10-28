@@ -135,7 +135,7 @@ O comando `join` **concatena registros de dois arquivos de texto baseado em índ
 ### Exemplos:
 `$ join employees.txt salaries.txt` → Mostra o conteúdo dos dois arquivos unidos usando como base o id de cada linha (1ª coluna).
 
-`$ join -o 1.2,1.3,2.2,1.1 employees.txt salaries.txt` → Altera a ordem de saída dos dados, o primeiro a sair é o `1.2` (arquivo `1`, coluna `2`), `1.3` (arquivo `1`, coluna `3`), `2.2` (arquivo `2`, coluna `2`) e `1.1` (arquivo `1`, coluna `1`).
+`$ join -o 1.2,1.3,2.2,1.1 employees.txt salaries.txt` → Altera a ordem de saída dos dados, o primeiro a sair é o `1.2` (arquivo 1, coluna 2), `1.3` (arquivo 1, coluna 3), `2.2` (arquivo 2, coluna 2) e `1.1` (arquivo 1, coluna 1).
 
 `$ join -a 1 employees.txt salaries.txt` → Mostra todas as linhas do primeiro arquivo, até mesmo aquelas que não condizem com o outro arquivo.
 
