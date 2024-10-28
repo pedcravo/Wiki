@@ -30,7 +30,7 @@ O comando `cat` é utilizado para **juntar (concatenar) arquivos**. Em sua forma
 - `-v` → Mostra caracteres não imprimíveis, como acentos ou quebras de linha.
 
 ### Sintaxe comum:
-`$ cat [OPÇÕES] ARQUIVO`
+**`$ cat [OPÇÕES] ARQUIVO`**
 
 ### Exemplos:
 `$ cat arquivo.txt` → Mostra o arquivo `.txt` na tela.
@@ -545,7 +545,7 @@ O comando `tr` é utilizado para **substituir, remover ou compactar caracteres**
 - `[:digit:]` → Se refere a somente os dígitos.
 
 ### Sintaxe comum:
-`$ tr [OPTION]... SET1 [SET2]`
+**`$ tr [OPTION]... SET1 [SET2]`**
 `SET1` → Especifica os caracteres que serão transformados.
 `SET2` → Especifica para quais caracteres serão substituídos.
 
