@@ -7,9 +7,10 @@ Nesta seção, exploramos comandos que permitem combinar ou compactar arquivos n
 1. [`cat`](#1-cat)
 2. [`gzip`](#2-gzip)
 3. [`gunzip`](#3-gunzip)
-4. [`tar`](#4-tar)
-5. [`zip`](#5-zip)
-6. [`unzip`](#6-unzip)
+4. [`join`](#4-join)
+5. [`tar`](#5-tar)
+6. [`zip`](#6-zip)
+7. [`unzip`](#7-unzip)
 
 ## 1. `cat`
 
@@ -112,7 +113,39 @@ https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-gunzip/
 
 ---
 
-## 4. `tar`
+## 4. `join`
+
+### Para que serve?
+O comando `join` **concatena registros de dois arquivos de texto baseado em índices comuns** entre os registros.
+
+ O comando funciona como um tipo de banco de dados primitivo, permitindo a montagem de novos arquivos de registros a partir de registros existentes em diferentes arquivos.
+
+### Opções:
+- `-1 C` e `-2 C` → Define quais colunas (`C`) de cada arquivo serão utilizados para a junção.
+- `-a A` → Permite saída de linhas que não condizem nos arquivos, selecionar número `A` do arquivo.
+- `-e` → Define um valor específico para preencher campos vazios quando uma correspondência não é encontrada em um dos arquivos.
+- `-i` → Faz a comparação entre os valores dos campos ignorando a diferença entre maiúsculas e minúsculas.
+- `-t` → Especifica separador (padrão é `:`).
+- `-o A.C,A.C` → Edita ordem da saída, onde `A` é arquivo e `C` é coluna.
+- `-v A` → Exibe somente as linhas que não condizem com o outro arquivo, as linhas solitárias.
+
+### Sintaxe comum:
+`$ join [OPÇÃO] ARQUIVO1 ARQUIVO2`
+
+### Exemplos:
+`$ join employees.txt salaries.txt` → Mostra o conteúdo dos dois arquivos unidos usando como base o id de cada linha (1ª coluna).
+
+`$ join -o 1.2,1.3,2.2,1.1 employees.txt salaries.txt` → Altera a ordem de saída dos dados, o primeiro a sair é o `1.2` (arquivo `1`, coluna `2`), `1.3` (arquivo `1`, coluna `3`), `2.2` (arquivo `2`, coluna `2`) e `1.1` (arquivo `1`, coluna `1`).
+
+`$ join -a 1 employees.txt salaries.txt` → Mostra todas as linhas do primeiro arquivo, até mesmo aquelas que não condizem com o outro arquivo.
+
+`$ join -1 3 -2 1 employees.txt departments.txt` → Mostra a união entre os dois arquivos só que usando como base outra coluna, coluna `3` do arquivo employees.txt e coluna `1` de `departments.txt`.
+
+### Máterial Complementar:
+
+---
+
+## 5. `tar`
 
 ### Para que serve?
 Utilizado para **combinar e compactar múltiplos arquivos e diretórios** em um único arquivo com a extensão `.tar`.
@@ -173,7 +206,7 @@ https://labex.io/tutorials/linux-file-packaging-and-compression-385413
 
 ---
 
-## 5. `zip`
+## 6. `zip`
 
 ### Para que serve?
 Utilizado para **compactar arquivos e diretórios no formato `.zip`**, que é amplamente utilizado em plataformas como Linux, Windows e macOS. Ele agrupa múltiplos arquivos em um único arquivo compactado, tornando-o mais fácil de armazenar e principalmente compartilhar.
@@ -203,7 +236,7 @@ https://www.vivaolinux.com.br/dica/Uso-basico-dos-comandos-zip-e-unzip
 
 ---
 
-## 6. `unzip`
+## 7. `unzip`
 
 ### Para que serve?
 Utilizado para **descompactar arquivos `.zip`**. O comando `unzip` é a ferramenta padrão para extrair arquivos que foram compactados com o comando `zip`.
