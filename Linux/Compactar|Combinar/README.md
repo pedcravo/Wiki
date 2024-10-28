@@ -1,6 +1,6 @@
 # Comandos de Compactar e Combinar Arquivos
 
-Nesta seção, exploramos comandos que permitem combinar ou compactar arquivos no Linux. Esses comandos são úteis para manipular grandes quantidades de dados e reduzir o espaço de armazenamento ocupado por arquivos.
+Nesta seção, exploramos comandos que permitem combinar ou compactar arquivos no Linux. Esses comandos são úteis para **manipular grandes quantidades de dados e reduzir o espaço de armazenamento ocupado por arquivos**.
 
 ### Comandos:
 
