@@ -8,9 +8,10 @@ Nesta seção, exploramos comandos que permitem combinar ou compactar arquivos n
 2. [`gzip`](#2-gzip)
 3. [`gunzip`](#3-gunzip)
 4. [`join`](#4-join)
-5. [`tar`](#5-tar)
-6. [`zip`](#6-zip)
-7. [`unzip`](#7-unzip)
+5. [`paste`](#5-paste)
+6. [`tar`](#6-tar)
+7. [`zip`](#7-zip)
+8. [`unzip`](#8-unzip)
 
 ## 1. `cat`
 
@@ -148,7 +149,33 @@ https://www.vivaolinux.com.br/dica/O-comando-join
 
 ---
 
-## 5. `tar`
+## 5. `paste`
+
+### Para que serve?
+O comando `paste` é utilizado para **unir dois arquivos tanto na tela quanto em um novo arquivo novo**.
+
+### Opções:
+- `-d` → Define um separador.
+- `-s` → Troca a organização dos arquivos para uma coluna única.
+
+### Sintaxe comum:
+**`$ paste [OPÇÕES] ARQUIVO…`**
+
+### Exemplos:
+`$ paste arquivo1.txt arquivo2.txt` → Une linhas de arquivos lado a lado separador por tab.
+
+`$ paste -d "," arquivo1.txt arquivo2.txt` → Une dois arquivos na tela e os separa com `,`.
+
+`$ paste -s arquivo1.txt arquivo2.txt` → Une dois arquivos em somente uma coluna, um arquivo sobre o outro.
+
+`$ paste arquivo1.txt arquivo2.txt > combinacao.txt` → Une dois arquivos em um aquivo novo.
+
+### Máterial Complementar:
+Não possui material complementar.
+
+---
+
+## 6. `tar`
 
 ### Para que serve?
 Utilizado para **combinar e compactar múltiplos arquivos e diretórios** em um único arquivo com a extensão `.tar`.
@@ -209,7 +236,7 @@ https://labex.io/tutorials/linux-file-packaging-and-compression-385413
 
 ---
 
-## 6. `zip`
+## 7. `zip`
 
 ### Para que serve?
 Utilizado para **compactar arquivos e diretórios no formato `.zip`**, que é amplamente utilizado em plataformas como Linux, Windows e macOS. Ele agrupa múltiplos arquivos em um único arquivo compactado, tornando-o mais fácil de armazenar e principalmente compartilhar.
@@ -239,7 +266,7 @@ https://www.vivaolinux.com.br/dica/Uso-basico-dos-comandos-zip-e-unzip
 
 ---
 
-## 7. `unzip`
+## 8. `unzip`
 
 ### Para que serve?
 Utilizado para **descompactar arquivos `.zip`**. O comando `unzip` é a ferramenta padrão para extrair arquivos que foram compactados com o comando `zip`.
