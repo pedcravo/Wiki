@@ -391,6 +391,8 @@ Ficar atento a arquivos de mesmo nome, um arquivo sobrepõe outro sem perguntar.
 ### Máterial Complementar:
 https://labex.io/tutorials/linux-linux-mv-command-file-moving-and-renaming-209743
 
+https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-mv/
+
 ---
 
 ## 10. `paste`
@@ -422,54 +424,126 @@ Não possui material complementar.
 ## 11. `rm`
 
 ### Para que serve?
+O comando `rm` é utilizado para **remover arquivos e diretórios cheios**. Pode ser removido mais de um arquivo ou diretório ao mesmo tempo.
 
 ### Opções:
+- `-f` → Força a remoção.
+- `-i` → Faz checagem de segurança.
+- `-r` → Faz a remoção de diretório.
 
 ### Sintaxe comum:
+**`$ rm [OPÇÕES] ITEM`**
 
 ### Exemplos:
+`$ rm exemploarquivo.txt` → Remove arquivo.
+
+`$ rm -r exemplopasta` → Remove diretório exemplopasta recursivamente, remove ele e tudo que tem dentro (diretórios e arquivos).
+
+`$ rm -i arquivo.txt` → Questiona se realmente é para apagar a pasta.
+
+`$ rm -f arquivo.txt` → Força a remoção do arquivo.
+
+`$ rm -r exemplopasta` → Remove um diretório.
+
+`$ rm -rf exemplopasta` → Força a remoção do diretório `exemplopasta` recursivamente.
 
 ### Máterial Complementar:
+https://labex.io/tutorials/linux-linux-rm-command-file-removing-209741
 
 ---
 
 ## 12. `rmdir`
 
 ### Para que serve?
+O comando `rmdir` é utilizado para **remover um ou mais diretórios vazios**.
 
 ### Opções:
+- `-p` → Remove uma hierarquia de diretórios (recursivamente).
+- `-v` → Exibe informações para cada diretório processado.
 
 ### Sintaxe comum:
+**`$ rmdir [OPÇÕES] DIRETÓRIO...`**
 
 ### Exemplos:
+`$ rmdir exemplopasta` → Remove diretório no local.
+
+`$ rmdir dir1 dir2` → Remove dois diretórios no local.
+
+`$ rmdir /home/pedrocravo/Documentos/exemplopasta` → Remove diretório no local `/home/pedrocravo/Documentos`.
+
+`$ rmdir --ignore-fail-on-non-empty exemplopasta` → Remove diretório no local ignorando arquivos dentro dele.
 
 ### Máterial Complementar:
+https://guialinux.uniriotec.br/rmdir/
 
 ---
 
 ## 13. `split`
 
 ### Para que serve?
+O comando `split` é utilizado para **dividir arquivos grandes em arquivos menores**, com base no número de linhas ou no tamanho em bytes. Esse comando é útil para processar ou transferir arquivos grandes em partes menores.
+
+- O padrão é dividir o arquivo a cada **1000 linhas**.
+- Os nomes dos arquivos de saída seguem o padrão arquivo**aa**, arquivos**ab**, arquivo**ac**, assim por diante. É possível especificar um sufixo para o arquivo de saída.
 
 ### Opções:
+- `-a N` → Define o comprimento dos sufixos em `N` caracteres.
+- `-b N` → Divide o arquivo em um número `N` de bytes.
+- `-d` → Usa números como sufixos no lugar de letras.
+- `-l N` ou `-N` → Onde `N` é o número de linhas que irão dividir o arquivo de entrada.
 
 ### Sintaxe comum:
+**`$ split [OPÇÕES] ARQUIVO PREFIXO`**
 
 ### Exemplos:
+`$ split -2 arquivo.txt lista_` → Divide o arquivo a cada 2 linhas, cada arquivo menor vai ter 2 linhas.
+
+`$ split -a 3 -l 2 arquivo.txt parte_` → Divide arquivo em arquivos de 2 linhas cada, usando sufixos de 3 caracteres.
+
+`$ split -b 1M arquivo.txt parte_` → Divide o arquivo em arquivos de 1 megabyte cada.
+
+`$ split -b 1K arquivo.txt parte_` → Divide arquivo em arquivos de 1 KB cada.
+
+`$ split -d -l 3 arquivo.txt parte_` → Divide arquivo em arquivos de 3 linhas cada, usando sufixos numéricos.
+
+`$ split -d -a 3 -l 100 arquivo.txt parte_` → Divide arquivo em arquivos de 100 linhas cada, usando sufixos numéricos de 3 dígitos.
 
 ### Máterial Complementar:
-
+https://www.certificacaolinux.com.br/comando-linux-split/
 
 ---
 
 ## 14. `touch`
 
 ### Para que serve?
+O comando `touch` é utilizado para **criar arquivos em branco ou atualizar a data e hora de modificação e acesso de arquivos existentes**. É uma maneira rápida de criar arquivos vazios ou ajustar os timestamps de arquivos.
+
+É possível criar **mais de um arquivo ao mesmo tempo**, e caso o arquivo já exista, o `touch` não modifica seu conteúdo, apenas altera suas informações de data e hora.
 
 ### Opções:
+- `-a` → Atualiza apenas o horário de acesso do arquivo, sem modificar o horário de modificação
+- `-c` → Não cria o arquivo caso ele não exista. Apenas modifica a data e hora de arquivos que já existem.
+- `-m` → Atualiza apenas o horário de modificação do arquivo, sem alterar o horário de acesso.
+- `-r` → Usa o timestamp de outro arquivo para definir a data e hora de modificação do arquivo.
+- `-t` → Define uma data e hora específicas para o arquivo, no formato [[CC]YY]MMDDhhmm[.ss] (ano, mês, dia, hora, minuto e segundos opcionais).
 
 ### Sintaxe comum:
+**`$ touch [OPÇÕES] ARQUIVO`**
 
 ### Exemplos:
+`$ touch arquivo` → Cria um arquivo comum.
+
+`$ touch arquivo.txt` → Cria um arquivo `.txt`.
+
+`$ touch .arquivo` → Cria um arquivo oculto.
+
+`$ touch arquivo1.txt arquivo2.txt` → Cria dois arquivos `.txt`.
+
+`$ touch -a arquivo.txt` → Atualiza a data de acesso de `arquivo.txt` sem modificar seu conteúdo.
+
+`$ touch -t 202401011200 arquivo.txt` → Define a data e hora de `arquivo.txt` para 1º de janeiro de 2024, 12:00.
+
+`$ touch -r modelo.txt novoarquivo.txt` → Copia a data e hora do arquivo `modelo.txt` para o arquivo `novoarquivo.txt`.
 
 ### Máterial Complementar:
+Não possui material complementar.
