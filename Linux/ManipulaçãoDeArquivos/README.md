@@ -224,91 +224,198 @@ $ cp -r diretorio1 diretorio2 → copia diretório com arquivos com recursão e 
 $ cp -r diretorio /home/pedrocravo → copia diretório com arquivos para outro lugar.
 
 ### Máterial Complementar:
+https://www.certificacaolinux.com.br/comando-linux-cp/
+
+https://labex.io/tutorials/linux-linux-cp-command-file-copying-209744
 
 ---
 
 ## 5. `expand`
 
 ### Para que serve?
+O comando `expand` é utilizado para **converter tabs em espaços** em um arquivo e quando nenhum arquivo é especificado, ele lê a partir da entrada padrão.
 
+É interessante seu uso em scripts, para programadores é um comando excelente.
 
 ### Opções:
+- `-i` → Converte apenas tabs iniciais, deixando tabs após espaços intactos.
+- `-t N` → Define o número N de espaços que cada tabulação representará, com o padrão sendo 8.
+- `-t LIST` → Define uma lista de posições de tabulação específicas separadas por vírgulas.
 
 ### Sintaxe comum:
+**`$ expand [OPÇÕES] ARQUIVO`**
 
 ### Exemplos:
+`$ expand arquivo.txt` → Converte todas as tabs para 8 espaços.
+
+`$ expand --tabs=10 arquivo.txt > arquivo2.txt` → Converte cada tabs em 10 espaços e grava em arquivo2.txt.
+
+`$ expand -t 4 -i documento.txt` → Converte apenas os tabs iniciais do arquivo para 4 espaços.
 
 ### Máterial Complementar:
+https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-expand/
+
+https://www.certificacaolinux.com.br/comando-linux-expand/
 
 ---
 
 ## 6. `unexpand`
 
 ### Para que serve?
+O comando `unexpand` é utilizado para **converter espaços em tabs em arquivos** de texto ou entrada padrão.
+
+Esse comando é especialmente útil para reduzir o tamanho de arquivos que possuem grandes quantidades de espaços.
 
 ### Opções:
+- `-a` → Converte todos os grupos de espaços em tabs, não apenas aqueles no início da linha.
+- `--first-only` → Converte apenas os grupos iniciais de espaços em cada linha, padrão.
+- `-t N` → Define a quantidade de espaços que um tab representa. O padrão é 8 espaços.
+- `-t LIST` → Usa uma lista de posições separadas por vírgula para definir onde as tabulações devem ser colocadas.
 
 ### Sintaxe comum:
+**`$ unexpand [OPÇÕES] ARQUIVO`**
 
 ### Exemplos:
+`$ unexpand arquivo.txt` → Converte os espaços iniciais de cada linha em tabs.
+
+`$ unexpand -a arquivo.txt` → Converte todos os espaços em tabs no arquivo inteiro.
+
+`$ unexpand -t 4 arquivo.txt > arquivo_tabs.txt` → Converte grupos de 4 espaços em tabulações e grava no `arquivo_tabs.txt`.
+
+`$ unexpand --tabs=4,8,12 arquivo.txt` → Usa posições de tabulação específicas para conversão, nos pontos definidos pela lista (4, 8 e 12).
 
 ### Máterial Complementar:
+https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-expand/
+
+https://www.certificacaolinux.com.br/comando-linux-expand/
 
 ---
 
 ## 7. `ln`
 
 ### Para que serve?
+O comando `ln` (Link) é utilizado para **criar links para arquivos ou diretórios no sistema Unix**, similar ao conceito de “atalho” em outros sistemas operacionais.
+
+#### Tipos de Link
+-  **Link Direto (Hard Link)** → Adiciona um novo nome para o mesmo arquivo (compartilha o mesmo inode). O arquivo só é removido do sistema quando o último link para ele é deletado. É uma referência direta ao conteúdo do arquivo.
+
+- **Link Simbólico (Soft Link ou Symlink)** → Aponta para o caminho de um arquivo ou diretório (possui um inode próprio). É possível criar links simbólicos para arquivos em diferentes sistemas de arquivos ou diretórios, e o link permanece mesmo que o arquivo de destino seja excluído.
 
 ### Opções:
+- `-d` → Cria um link direto, é o padrão.
+- `-L` → Cria uma link para um link simbólico.
+- `-s` → Cria uma link simbólico.
+- `-t DIR` → Especifica o diretório `DIR` destino.
+- `-v` → Mostra o nome de cada arquivo antes de criar o link.
 
 ### Sintaxe comum:
+`$ ln [OPÇÕES] ORIGEM DESTINO`
 
 ### Exemplos:
+`$ ln arquivo.txt linkdireto.txt` → Cria um link direto para `arquivo.txt` com o nome `linkdireto.txt`.
+
+`$ ln -s /diretorio/exemplo linkexemplo` → Cria um link simbólico chamado `linkexemplo` para o diretório `/diretorio/exemplo`.
+
+`$ ln -t /destino arquivo1 arquivo2` → Cria links diretos para `arquivo1` e `arquivo2` no diretório `/destino`.
+
+`$ ln -s -v pasta_original/ pasta_link/` → Cria um link simbólico para `pasta_original` com o nome `pasta_link` e exibe o progresso.
 
 ### Máterial Complementar:
+https://guialinux.uniriotec.br/ln/
 
 ---
 
 ## 8. `mkdir`
 
 ### Para que serve?
+O comando mkdir é utilizado para criar um ou mais diretórios.
 
 ### Opções:
+- `-p` → Permite criar diretórios pais e filhos.
+- `-v` → Mostra na tela as ações sendo executadas.
 
 ### Sintaxe comum:
+**`$ mkdir [OPÇÕES] NOME_DIRETÓRIO`**
 
 ### Exemplos:
+`$ mkdir exemplopasta` → Cria um diretório no local atual.
+
+`$ mkdir dir1 dir2` → Cria 2 diretórios no local atual.
+
+`$ mkdir /home/pedrocravo/Documentos/exemplopasta` → cria diretório no local `/home/pedrocravo/Documentos`.
+
+`$ mkdir -p dirpai/dirmeio/dirfilho` → Cria diretórios em cadeia.
+
+`$ mkdir -pv dirpai/dirmeio/dirfilho` → Cria diretórios em cadeia e mostra na tela o que está sendo feito.
 
 ### Máterial Complementar:
+Não possui material complementar.
 
 ---
 
 ## 9. `mv`
 
 ### Para que serve?
+O comando `mv` é utilizado para **mover ou renomear arquivos e diretórios**. Pode ser movido mais de um arquivo ou diretório ao mesmo tempo
+
+Ficar atento a arquivos de mesmo nome, um arquivo sobrepõe outro sem perguntar.
 
 ### Opções:
+- `-f` → Força a substituição dos arquivos existentes sem avisar.
+- `-i` → Realiza checagem de segurança.
+- `-n` → Não permite a sobrepoisção de arquivos.
+- `-v` → Mostra na tela as ações executadas.
 
 ### Sintaxe comum:
+**`$ mv [OPÇÕES] ARQUIVO.. DESTINO`**
 
 ### Exemplos:
+`$ mv arquivo.txt ~/Downloads` → Move um arquivo para o diretório `Downloads`, a partir de qualquer diretório.
+
+`$ mv arquivo1.txt arquivo2.txt Downloads/` → Move dois arquivos para o diretório `Downloads` a partir do `/home`.
+
+`$ mv *.txt /Downloads/` → Move todos os arquivos `.txt` para o diretório `Downloads`.
+
+`$ mv *.txt Downloads` → Move todos os arquivos com `.txt` para o diretório `Downloads`.
+
+`$ mv arquivo.txt renomeado_arquivo.txt` → Renomeia o arquivo, utilizar o mesmo final `.txt`.
+
+`$ mv Dir/ DirRenomeada/` → Renomeia um diretório no mesmo local em que estava o original.
+
+`$ mv -i arquivo.txt Downloads` → Checa se tem arquivos com mesmo nome no local de destino.
+
+`$ mv -n arquivo.txt Downloads` → Move um ou mais arquivos sem permitir a sobreposição no local de destino, neste caso `Downloads`.
+
+`$ mv -v arquivo diretorio` → Move um arquivo mostrando na tela o caminho do que foi feita.
 
 ### Máterial Complementar:
+https://labex.io/tutorials/linux-linux-mv-command-file-moving-and-renaming-209743
 
 ---
 
 ## 10. `paste`
 
 ### Para que serve?
+O comando `paste` é utilizado para **unir dois arquivos tanto na tela quanto em um novo arquivo novo**.
 
 ### Opções:
+- `-d` → Define um separador.
+- `-s` → Troca a organização dos arquivos para uma coluna única.
 
 ### Sintaxe comum:
+**`$ paste [OPÇÕES] ARQUIVO…`**
 
 ### Exemplos:
+`$ paste arquivo1.txt arquivo2.txt` → Une linhas de arquivos lado a lado separador por tab.
+
+`$ paste -d "," arquivo1.txt arquivo2.txt` → Une dois arquivos na tela e os separa com `,`.
+
+`$ paste -s arquivo1.txt arquivo2.txt` → Une dois arquivos em somente uma coluna, um arquivo sobre o outro.
+
+`$ paste arquivo1.txt arquivo2.txt > combinacao.txt` → Une dois arquivos em um aquivo novo.
 
 ### Máterial Complementar:
+Não possui material complementar.
 
 ---
 
