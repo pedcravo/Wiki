@@ -1,5 +1,5 @@
 # Comandos de Ajuda no Linux
-Nesta seção, exploramos comandos que fornecem ajuda sobre outros comandos no sistema Linux. Esses comandos são úteis para obter informações detalhadas sobre como utilizar outros comandos, suas opções e funcionalidades.
+Nesta seção, exploramos comandos que fornecem ajuda sobre outros comandos no sistema Linux. Esses comandos são úteis para **obter informações detalhadas sobre como utilizar outros comandos, suas opções e funcionalidades**.
 
 ### Comandos:
 1. [`help`](#1-help)
