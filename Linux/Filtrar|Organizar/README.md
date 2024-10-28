@@ -16,8 +16,9 @@ Estes comandos são amplamente utilizados para manipulação de texto e processa
 9. [`less`](#9-less)
 10. [`nl`](#10-nl)
 11. [`sort`](#11-sort)
-12. [`uniq`](#12-uniq)
-13. [`wc`](#13-wc)
+12. [`tr`](#12-tr)
+13. [`uniq`](#13-uniq)
+14. [`wc`](#14-wc)
 
 ## 1. `cat`
 
@@ -528,7 +529,49 @@ https://guialinux.uniriotec.br/sort/
 
 ---
 
-## 12. `uniq`
+## 12. `tr`
+
+### Para que serve?
+O comando `tr` é utilizado para **substituir, remover ou compactar caracteres** em um fluxo de texto. O comando `tr` lê da **entrada padrão** (texto e arquivo) e escreve na saída padrão após aplicar as transformações especificadas.
+
+### Opções:
+- `-c` → Complementa o conjunto de caracteres, selecionando tudo o que não está no conjunto especificado.
+- `-d` → Deleta/remover os caracteres especificados da entrada.
+- `-s` → Suprime (remove duplicatas) consecutivas de caracteres especificados, deixando apenas uma ocorrência.
+- `-t` → Trunca o comprimento de `SET2` para que ele corresponda exatamente ao comprimento de `SET1`.
+
+#### Conjuntos de caracteres:
+- `[:punct:]` → Se refere a toda pontuação.
+- `[:digit:]` → Se refere a somente os dígitos.
+
+### Sintaxe comum:
+`$ tr [OPTION]... SET1 [SET2]`
+`SET1` → Especifica os caracteres que serão transformados.
+`SET2` → Especifica para quais caracteres serão substituídos.
+
+### Exemplos:
+`$ cat arquivo.txt | tr 'a-z,ç,ã' 'A-Z,Ç,Ã'` → Transforma todas as letras minúsculas dentro do arquivo em letras maiúsculas.
+
+`$ echo "hello world" | tr ' ' '_'` → Substitui espaços por underscores.
+
+`$ echo "olá pedro" | tr -d 'o'` → Remove todas as letras “`o`" do comando echo.
+
+`$ cat arquivo.txt | tr -d '[:punct:]’` → Retira toda a pontuação do arquivo.
+
+`$ cat tr.nano.txt | tr 'b-za-a' 'a-z’` → Troca as letras do arquivo por uma letra antes (b → a, c → b, e assim por diante).
+
+`$ echo "abcdef" | tr -t 'abc' 'XYZUV'` → Truncará o SET2 para 'XYZ', correspondendo ao tamanho de 'abc'.
+
+`$ cat ~/project/log_entry.txt | tr -cd '[:digit:]’` → Remove os dígitos do arquivo, deixando somente os números sobrarem.
+
+`$ cat ~/project/spaced.txt | tr -s ' ‘` → Retira os espaços repetidos.
+
+### Máterial Complementar:
+https://labex.io/tutorials/linux-linux-tr-command-character-translating-388064
+
+---
+
+## 13. `uniq`
 
 ### Para que serve?
 Utilizado para **filtrar e contar as linhas repetidas de um arquivo**.
@@ -564,7 +607,7 @@ Não possui material complementar.
 
 ---
 
-## 13. wc
+## 14. wc
 
 ### Para que serve?
 Utilizado para **mostrar linhas, palavras e números de caracteres** em um ou mais arquivos.
