@@ -8,13 +8,16 @@ Nesta seção, exploramos comandos que permitem manipular arquivos e diretórios
 2. [`chmod`](#2-chmod)
 3. [`chown`](#3-chown)
 4. [`cp`](#4-cp)
-5. [`ln`](#5-ln)
-6. [`mkdir`](#6-mkdir)
-7. [`mv`](#7-mv)
-8. [`paste`](#8-paste)
-9. [`rm`](#9-rm)
-10. [`rmdir`](#10-rmdir)
-11. [`touch`](#11-touch)
+5. [`expand`](#5-expand)
+6. [`unexpand`](#6-unexpand)
+7. [`ln`](#7-ln)
+8. [`mkdir`](#8-mkdir)
+9. [`mv`](#9-mv)
+10. [`paste`](#10-paste)
+11. [`rm`](#11-rm)
+12. [`rmdir`](#12-rmdir)
+13. [`split`](#13-split)
+14. [`touch`](#14-touch)
 
 ---
 
