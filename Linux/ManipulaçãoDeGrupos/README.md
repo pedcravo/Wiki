@@ -54,7 +54,7 @@ Quando um grupo é criado, ele é adicionado aos arquivos de sistema que gerenci
 `# groupadd -K GID_MAX = 499` → Modifica o **GID** máximo permitido no sistema.
 
 ### Máterial Complementar:
-<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/" width="600px">
+<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/groupadd.png" width="600px">
 
 https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-groupadd/
 
