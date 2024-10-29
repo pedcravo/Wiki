@@ -393,9 +393,11 @@ Pode ser aberto mais de um arquivo ao mesmo tempo.
 
 `$ tail -n +10 arquivo1.txt` → Mostra as ultimas linhas a partir da linha 10.
 
+`$ tail -c 50 arquivo.txt` → mostra os últimos 50 bytes do arquivo.
+
 `$ tail -f /var/log/syslog` → Mostra o crescimento do arquivo `/var/log/syslog` em tempo real, pode ser qualquer arquivo que seja atualizado.
 
-`$ tail -c 50 arquivo.txt` → mostra os últimos 50 bytes do arquivo.
+`$ tail /var/log/auth.log` → Mostra os logs de auth, que registram todos os eventos e atividades relacionadas à autenticação que ocorreram no servidor. Isso inclui, entre outros, logins do sistema, alterações de senha e comandos emitidos sudo.
 
 ### Máterial Complementar:
 https://labex.io/tutorials/linux-linux-tail-command-file-end-display-214303
