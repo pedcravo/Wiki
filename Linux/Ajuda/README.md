@@ -2,12 +2,12 @@
 Nesta seção, exploramos comandos que fornecem ajuda sobre outros comandos no sistema Linux. Esses comandos são úteis para **obter informações detalhadas sobre como utilizar outros comandos, suas opções e funcionalidades**.
 
 ### Comandos:
-1. [`help`](#1-help)
-2. [`type`](#2-type)
-3. [`man`](#3-man)
-4. [`apropos`](#4-apropos)
+1. [`help`](#help)
+2. [`type`](#type)
+3. [`man`](#man)
+4. [`apropos`](#apropos)
 
-## 1. `help`
+## `help`
 
 ### Para que serve?
 Utilizado em conjunto com um comando para **exibir uma aba de ajuda sobre o comando definido**.
@@ -37,7 +37,7 @@ https://labex.io/tutorials/linux-get-help-on-linux-commands-18000
 
 ---
 
-## 2. `type`
+## `type`
 
 ### Para que serve?
 Utilizado para **descrever algum "nome" informado** como parâmetro, como comando **interno do bash, programa, função, palavra-chave, apelido** ou **arquivo**. Se nenhum nome for informado, ele não faz nada.
@@ -77,7 +77,7 @@ https://www.certificacaolinux.com.br/comando-linux-type/
 https://www.bosontreinamentos.com.br/linux/certificacao-lpic-1/comando-type-ver-informacoes-sobre-outros-comandos-no-linux/#google_vignette
 
 ---
-## 3. `man`
+## `man`
 
 ### Para que serve?
 Utilizado para **acessar o manual de qualquer comando**.
@@ -122,7 +122,7 @@ https://www.baeldung.com/linux/man-command
 
 ---
 
-## 4. `apropos`
+## `apropos`
 
 ### Para que serve?
 Utilizado para **pesquisar palavras-chave nas descrições das páginas de manual** no sistema Linux.
