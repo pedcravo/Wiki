@@ -580,17 +580,17 @@ Não possui material complementar.
 ### Sintaxe comum:
 
 ### Exemplos:
-- # vim /etc/apt/sources.list
--# apt update
--# apt upgrade -y
--# apt-get dist-upgrade -y
--# apt full-upgrade
--# ls -l /var/cache/apt/archives/
--# cd /var/cache/apt/archives/
--# apt autoclean
--# apt clean
--# ls -l
--# apt remove wget
--# apt purge wget
+- `# vim /etc/apt/sources.list`
+- `# apt update`
+- `# apt upgrade -y`
+- `# apt-get dist-upgrade -y`
+- `# apt full-upgrade`
+- `# ls -l /var/cache/apt/archives/`
+- `# cd /var/cache/apt/archives/`
+- `# apt autoclean`
+- `# apt clean`
+- `# ls -l`
+- `# apt remove wget`
+- `# apt purge wget`
 
 ### Máterial Complementar:
