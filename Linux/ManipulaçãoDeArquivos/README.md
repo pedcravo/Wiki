@@ -3,26 +3,26 @@ Nesta seção, exploramos comandos que permitem manipular arquivos e diretórios
 
 ### Comandos:
 
-1. [`chgrp`](#1-chgrp)
-2. [`chmod`](#2-chmod)
-3. [`chown`](#3-chown)
-4. [`cp`](#4-cp)
-5. [`dd`](#5-dd)
+1. [`chgrp`](#chgrp)
+2. [`chmod`](#chmod)
+3. [`chown`](#chown)
+4. [`cp`](#cp)
+5. [`dd`](#dd)
 6. [`expand`](#expand)
-7. [`unexpand`](#6-unexpand)
-8. [`ln`](#7-ln)
-9. [`mkdir`](#8-mkdir)
-10. [`mv`](#9-mv)
-11. [`paste`](#10-paste)
-12. [`rm`](#11-rm)
-13. [`rmdir`](#12-rmdir)
-14. [`split`](#13-split)
-15. [`touch`](#14-touch)
+7. [`unexpand`](#unexpand)
+8. [`ln`](#ln)
+11. [`mv`](#mv)
+12. [`paste`](#paste)
+13. [`rm`](#rm)
+9. [`mkdir`](#mkdir)
+10. [`rmdir`](#rmdir)
+14. [`split`](#split)
+15. [`touch`](#touch)
 16. 
 
 ---
 
-## 1. `chgrp`
+## `chgrp`
 
 ### Para que serve?
 O comando `chgrp` (Change Group) é usado para **modificar a propriedade do grupo associado a um arquivo**, permitindo que grupos diferentes tenham controle de leitura, escrita ou execução sobre o arquivo.
@@ -61,7 +61,7 @@ https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-chgrp/
 
 ---
 
-## 2. `chmod`
+## `chmod`
 
 ### Para que serve?
 Utilizado para **alterar as permissões de usuários** sobre arquivos e diretórios.
@@ -130,7 +130,7 @@ https://www.youtube.com/watch?v=LnKoncbQBsM
 
 ---
 
-## 3. `chown`
+## `chown`
 
 ### Para que serve?
 Utilizado para **gerenciar permissões, alterar o proprietário e/ou grupo** de um arquivo ou diretório.
@@ -190,7 +190,7 @@ https://www.youtube.com/watch?v=LnKoncbQBsM
 
 ---
 
-## 4. `cp`
+## `cp`
 
 ### Para que serve?
 Utilizado para **copiar arquivos ou diretórios** de um diretório para outro.
@@ -231,7 +231,7 @@ https://labex.io/tutorials/linux-linux-cp-command-file-copying-209744
 
 ---
 
-## 5. `expand`
+## `expand`
 
 ### Para que serve?
 O comando `expand` é utilizado para **converter tabs em espaços** em um arquivo e quando nenhum arquivo é especificado, ele lê a partir da entrada padrão.
@@ -260,7 +260,7 @@ https://www.certificacaolinux.com.br/comando-linux-expand/
 
 ---
 
-## 6. `unexpand`
+## `unexpand`
 
 ### Para que serve?
 O comando `unexpand` é utilizado para **converter espaços em tabs em arquivos** de texto ou entrada padrão.
@@ -292,7 +292,7 @@ https://www.certificacaolinux.com.br/comando-linux-expand/
 
 ---
 
-## 7. `ln`
+## `ln`
 
 ### Para que serve?
 O comando `ln` (Link) é utilizado para **criar links para arquivos ou diretórios no sistema Unix**, similar ao conceito de “atalho” em outros sistemas operacionais.
@@ -326,7 +326,7 @@ https://guialinux.uniriotec.br/ln/
 
 ---
 
-## 8. `mkdir`
+## `mkdir`
 
 ### Para que serve?
 O comando mkdir é utilizado para criar um ou mais diretórios.
@@ -354,7 +354,7 @@ Não possui material complementar.
 
 ---
 
-## 9. `mv`
+## `mv`
 
 ### Para que serve?
 O comando `mv` é utilizado para **mover ou renomear arquivos e diretórios**. Pode ser movido mais de um arquivo ou diretório ao mesmo tempo
@@ -396,7 +396,7 @@ https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-mv/
 
 ---
 
-## 10. `paste`
+## `paste`
 
 ### Para que serve?
 O comando `paste` é utilizado para **unir dois arquivos tanto na tela quanto em um novo arquivo novo**.
@@ -422,7 +422,7 @@ Não possui material complementar.
 
 ---
 
-## 11. `rm`
+## `rm`
 
 ### Para que serve?
 O comando `rm` é utilizado para **remover arquivos e diretórios cheios**. Pode ser removido mais de um arquivo ou diretório ao mesmo tempo.
@@ -453,7 +453,7 @@ https://labex.io/tutorials/linux-linux-rm-command-file-removing-209741
 
 ---
 
-## 12. `rmdir`
+## `rmdir`
 
 ### Para que serve?
 O comando `rmdir` é utilizado para **remover um ou mais diretórios vazios**.
@@ -479,7 +479,7 @@ https://guialinux.uniriotec.br/rmdir/
 
 ---
 
-## 13. `split`
+## `split`
 
 ### Para que serve?
 O comando `split` é utilizado para **dividir arquivos grandes em arquivos menores**, com base no número de linhas ou no tamanho em bytes. Esse comando é útil para processar ou transferir arquivos grandes em partes menores.
@@ -514,7 +514,7 @@ https://www.certificacaolinux.com.br/comando-linux-split/
 
 ---
 
-## 14. `touch`
+## `touch`
 
 ### Para que serve?
 O comando `touch` é utilizado para **criar arquivos em branco ou atualizar a data e hora de modificação e acesso de arquivos existentes**. É uma maneira rápida de criar arquivos vazios ou ajustar os timestamps de arquivos.
