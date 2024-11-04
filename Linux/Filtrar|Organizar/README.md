@@ -19,7 +19,7 @@ Estes comandos são amplamente utilizados para **manipulação de texto e proces
 13. [`uniq`](#13-uniq)
 14. [`wc`](#14-wc)
 
-## 1. `cat`
+## `cat`
 
 ### Para que serve?
 O comando `cat` é utilizado para **juntar (concatenar) arquivos**. Em sua forma base, ele também pode ser utilizado para **visualizar o conteúdo de arquivos** diretamente no terminal.
@@ -51,7 +51,7 @@ https://ryanstutorials.net/linuxtutorial/vi.php
 
 ---
 
-## 2. `tac`
+## `tac`
 
 ### Para que serve?
 Utilizado para **exibir o conteúdo de um arquivo de trás para frente**, ou seja, ele imprime as linhas de um arquivo em **ordem reversa**.
@@ -75,7 +75,7 @@ Não possui material complementar.
 
 ---
 
-## 3. `cut`
+## `cut`
 
 ### Para que serve?
 Utilizado para **filtrar os conteúdos dos arquivos** com base nos separadores, caracteres e até mesmo bytes do arquivo.
@@ -105,7 +105,7 @@ https://www.geeksforgeeks.org/cut-command-linux-examples/
 
 ---
 
-## 4. `grep`
+## `grep`
 
 ### Para que serve?
 O grep (Global Regular Expression Print) é utilizado para **filtrar/pesquisar linhas com base em caracteres e palavras em um ou mais arquivos**.
@@ -218,7 +218,7 @@ https://github.com/BurntSushi/ripgrep
 
 ---
 
-## 5. `awk`
+## `awk`
 
 ### Para que serve?
 Utilizado para **filtra, recortar, printar** e etc.
@@ -284,7 +284,7 @@ https://labex.io/tutorials/linux-linux-awk-command-text-processing-388493
 
 ---
 
-## 6. `echo`
+## `echo`
 
 ### Para que serve?
 O comando `echo` é usado para **imprimir uma string, texto ou o valor de uma variável no terminal**, sendo uma ferramenta básica para criar saídas de texto em scripts e interações no shell.
@@ -333,7 +333,7 @@ https://guialinux.uniriotec.br/echo/
 
 ---
 
-## 7. `head`
+## `head`
 
 ### Para que serve?
 Utilizado para **exibir as primeiras linhas de um arquivo**. 
@@ -370,7 +370,7 @@ https://labex.io/tutorials/linux-linux-head-command-file-beginning-display-21430
 
 ---
 
-## 8. `tail`
+## `tail`
 
 ### Para que serve?
 Utilizado para **exibir as últimas linhas de um arquivo**.
@@ -404,7 +404,7 @@ https://labex.io/tutorials/linux-linux-tail-command-file-end-display-214303
 
 ---
 
-## 9. `less`
+## `less`
 
 ### Para que serve?
 Utilizado para **visualizar arquivos de forma paginada e interativa**.
@@ -437,7 +437,7 @@ Não possui material complementar.
 
 ---
 
-## 10. `nl`
+## `nl`
 
 ### Para que serve?
 Utilizado para **numerar as linhas dos arquivos**.
@@ -484,7 +484,7 @@ Não possui material complementar.
 
 ---
 
-## 11. `sort`
+## `sort`
 
 ### Para que serve?
 Utilizado para **organizar de forma rápida e simples as linhas**, sua forma padrão mantém em ordem alfabética.
@@ -530,7 +530,7 @@ https://guialinux.uniriotec.br/sort/
 
 ---
 
-## 12. `tr`
+## `tr`
 
 ### Para que serve?
 O comando `tr` é utilizado para **substituir, remover ou compactar caracteres** em um fluxo de texto. O comando `tr` lê da **entrada padrão** (texto e arquivo) e escreve na saída padrão após aplicar as transformações especificadas.
@@ -572,7 +572,7 @@ https://labex.io/tutorials/linux-linux-tr-command-character-translating-388064
 
 ---
 
-## 13. `uniq`
+## `uniq`
 
 ### Para que serve?
 Utilizado para **filtrar e contar as linhas repetidas de um arquivo**.
@@ -608,7 +608,7 @@ Não possui material complementar.
 
 ---
 
-## 14. wc
+## wc
 
 ### Para que serve?
 Utilizado para **mostrar linhas, palavras e números de caracteres** em um ou mais arquivos.
