@@ -1,3 +1,4 @@
+
 # Comandos para Manipulação de Arquivos
 Nesta seção, exploramos comandos que permitem manipular arquivos e diretórios no Linux. Esses comandos são essenciais para **copiar, mover, alterar permissões, criar e remover arquivos e diretórios**.
 
@@ -326,34 +327,6 @@ https://guialinux.uniriotec.br/ln/
 
 ---
 
-## `mkdir`
-
-### Para que serve?
-O comando mkdir é utilizado para criar um ou mais diretórios.
-
-### Opções:
-- `-p` → Permite criar diretórios pais e filhos.
-- `-v` → Mostra na tela as ações sendo executadas.
-
-### Sintaxe comum:
-**`$ mkdir [OPÇÕES] NOME_DIRETÓRIO`**
-
-### Exemplos:
-`$ mkdir exemplopasta` → Cria um diretório no local atual.
-
-`$ mkdir dir1 dir2` → Cria 2 diretórios no local atual.
-
-`$ mkdir /home/pedrocravo/Documentos/exemplopasta` → cria diretório no local `/home/pedrocravo/Documentos`.
-
-`$ mkdir -p dirpai/dirmeio/dirfilho` → Cria diretórios em cadeia.
-
-`$ mkdir -pv dirpai/dirmeio/dirfilho` → Cria diretórios em cadeia e mostra na tela o que está sendo feito.
-
-### Máterial Complementar:
-Não possui material complementar.
-
----
-
 ## `mv`
 
 ### Para que serve?
@@ -453,6 +426,34 @@ https://labex.io/tutorials/linux-linux-rm-command-file-removing-209741
 
 ---
 
+## `mkdir`
+
+### Para que serve?
+O comando mkdir é utilizado para criar um ou mais diretórios.
+
+### Opções:
+- `-p` → Permite criar diretórios pais e filhos.
+- `-v` → Mostra na tela as ações sendo executadas.
+
+### Sintaxe comum:
+**`$ mkdir [OPÇÕES] NOME_DIRETÓRIO`**
+
+### Exemplos:
+`$ mkdir exemplopasta` → Cria um diretório no local atual.
+
+`$ mkdir dir1 dir2` → Cria 2 diretórios no local atual.
+
+`$ mkdir /home/pedrocravo/Documentos/exemplopasta` → cria diretório no local `/home/pedrocravo/Documentos`.
+
+`$ mkdir -p dirpai/dirmeio/dirfilho` → Cria diretórios em cadeia.
+
+`$ mkdir -pv dirpai/dirmeio/dirfilho` → Cria diretórios em cadeia e mostra na tela o que está sendo feito.
+
+### Máterial Complementar:
+Não possui material complementar.
+
+---
+
 ## `rmdir`
 
 ### Para que serve?
@@ -548,3 +549,17 @@ O comando `touch` é utilizado para **criar arquivos em branco ou atualizar a da
 
 ### Máterial Complementar:
 Não possui material complementar.
+
+---
+
+## `apt`
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+### Máterial Complementar:
