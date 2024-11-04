@@ -6,12 +6,12 @@ Os seguintes comandos são utilizados de forma mais completa pelo usuário `root
 
 ### Comandos:
 
-1. [`groupadd`](#1-groupadd)
-2. [`groupmod`](#2-groupmod)
-3. [`groupdel`](#3-groupdel)
-4. [`gpasswd`](#4-gpasswd)
+1. [`groupadd`](#groupadd)
+2. [`groupmod`](#groupmod)
+3. [`groupdel`](#groupdel)
+4. [`gpasswd`](#gpasswd)
 
-## 1. groupadd
+## groupadd
 
 ### Para que serve?
 O comando `groupadd` é utilizado para `criar novos grupos no sistema`. Este comando permite que administradores definam um **grupo no sistema com um _GID_ (valor numérico do ID do grupo) específico e outras opções de configuração**. Grupos no Linux são usados para gerenciar permissões de arquivos e diretórios para múltiplos usuários (que fazem parte de um mesmo grupo).
@@ -60,7 +60,7 @@ https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-groupadd/
 
 ---
 
-## 2. groupmod
+## groupmod
 
 ### Para que serve?
 
@@ -74,7 +74,7 @@ https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-groupadd/
 
 ---
 
-## 3. groupdel
+## groupdel
 
 ### Para que serve?
 
@@ -88,7 +88,7 @@ https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-groupadd/
 
 ---
 
-## 4. gpasswd
+## gpasswd
 
 ### Para que serve?
 
