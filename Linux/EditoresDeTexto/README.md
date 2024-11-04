@@ -3,14 +3,14 @@ Nesta seção, exploramos comandos relacionados à **edição de textos, execuç
 
 ### Comandos:
 
-1. [`bash`](#1-bash)
-2. [`Nano`](#2-nano)
-3. [`sed`](#3-sed)
-4. [`vi`](#4-vi)
+1. [`bash`](#bash)
+2. [`Nano`](#nano)
+3. [`sed`](#sed)
+4. [`vi`](#vi)
 
 ---
 
-## 1. `bash`
+## `bash`
 
 ### Para que serve?
 O comando `bash` pode ser usado para **iniciar uma nova sessão de shell, executar scripts de shell, ou executar comandos interativamente**. O `bash` é o shell padrão em muitas distribuições Linux e permite automação, controle de processos, e manipulação de arquivos.
@@ -46,7 +46,7 @@ Não possui material complementar.
 
 ---
 
-## 2. `Nano`
+## `Nano`
 
 ### Para que serve?
 É um editor de texto, muito simples e fácil de utilizar, com diversos comandos e atalhos.
@@ -119,7 +119,7 @@ https://www.nano-editor.org/
 
 ---
 
-## 3. `sed` 
+## `sed` 
 
 ### Para que serve?
 Utilizado para **manipular e editar textos em arquivos** de maneira eficiente e não interativa.
@@ -183,7 +183,7 @@ Não possui material complementar.
 
 ---
 
-## 4. `vi`
+## `vi`
 
 ### Para que serve?
 Utilizado para **criar e editar arquivos em um editor de texto**, semelhante ao Notepad (Windows) ou Textedit (Apple), porém mais poderoso.
