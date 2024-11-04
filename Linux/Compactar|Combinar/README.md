@@ -4,16 +4,16 @@ Nesta seção, exploramos comandos que permitem combinar ou compactar arquivos n
 
 ### Comandos:
 
-1. [`cat`](#1-cat)
-2. [`gzip`](#2-gzip)
-3. [`gunzip`](#3-gunzip)
-4. [`join`](#4-join)
-5. [`paste`](#5-paste)
-6. [`tar`](#6-tar)
-7. [`zip`](#7-zip)
-8. [`unzip`](#8-unzip)
+1. [`cat`](#cat)
+2. [`gzip`](#gzip)
+3. [`gunzip`](#gunzip)
+4. [`join`](#join)
+5. [`paste`](#paste)
+6. [`tar`](#tar)
+7. [`zip`](#zip)
+8. [`unzip`](#unzip)
 
-## 1. `cat`
+## `cat`
 
 ### Para que serve?
 O comando `cat` é utilizado para **juntar (concatenar) arquivos**. Em sua forma base, ele também pode ser utilizado para **visualizar o conteúdo de arquivos** diretamente no terminal.
@@ -45,7 +45,7 @@ https://ryanstutorials.net/linuxtutorial/vi.php
 
 ---
 
-## 2. `gzip`
+## `gzip`
 
 ### Para que serve?
 O comando `gzip` é usado para **compactar arquivos**. Aplica algoritmos de compressão para reduzir o tamanho dos arquivos e adicionar a extensão `.gz` ao nome.
@@ -81,7 +81,7 @@ https://labex.io/tutorials/linux-file-packaging-and-compression-385413
 
 ---
 
-## 3. `gunzip`
+## `gunzip`
 
 ### Para que serve?
 Utilizado para **descompactar arquivos no formato `.gz`**. O comando `gunzip` é a ferramenta complementar ao `gzip`, permitindo a **reversão da compactação** aplicada por ele. Ele restaura o arquivo ao seu estado original antes da compressão.
@@ -114,7 +114,7 @@ https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-gunzip/
 
 ---
 
-## 4. `join`
+## `join`
 
 ### Para que serve?
 O comando `join` **concatena registros de dois arquivos de texto baseado em índices comuns** entre os registros.
@@ -149,7 +149,7 @@ https://www.vivaolinux.com.br/dica/O-comando-join
 
 ---
 
-## 5. `paste`
+## `paste`
 
 ### Para que serve?
 O comando `paste` é utilizado para **unir dois arquivos tanto na tela quanto em um novo arquivo novo**.
@@ -175,7 +175,7 @@ Não possui material complementar.
 
 ---
 
-## 6. `tar`
+## `tar`
 
 ### Para que serve?
 Utilizado para **combinar e compactar múltiplos arquivos e diretórios** em um único arquivo com a extensão `.tar`.
@@ -236,7 +236,7 @@ https://labex.io/tutorials/linux-file-packaging-and-compression-385413
 
 ---
 
-## 7. `zip`
+## `zip`
 
 ### Para que serve?
 Utilizado para **compactar arquivos e diretórios no formato `.zip`**, que é amplamente utilizado em plataformas como Linux, Windows e macOS. Ele agrupa múltiplos arquivos em um único arquivo compactado, tornando-o mais fácil de armazenar e principalmente compartilhar.
@@ -266,7 +266,7 @@ https://www.vivaolinux.com.br/dica/Uso-basico-dos-comandos-zip-e-unzip
 
 ---
 
-## 8. `unzip`
+## `unzip`
 
 ### Para que serve?
 Utilizado para **descompactar arquivos `.zip`**. O comando `unzip` é a ferramenta padrão para extrair arquivos que foram compactados com o comando `zip`.
