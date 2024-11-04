@@ -19,7 +19,7 @@ Nesta seção, exploramos comandos que permitem manipular arquivos e diretórios
 10. [`rmdir`](#rmdir)
 14. [`split`](#split)
 15. [`touch`](#touch)
-16. 
+16. [`apt`](#apt)
 
 ---
 
@@ -229,6 +229,24 @@ $ cp -r diretorio /home/pedrocravo → copia diretório com arquivos para outro 
 https://www.certificacaolinux.com.br/comando-linux-cp/
 
 https://labex.io/tutorials/linux-linux-cp-command-file-copying-209744
+
+---
+
+## `dd`
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+**`$ dd if=ORIGEM of=DESTINO [OPÇÕES]`**
+
+### Exemplos:
+
+### Máterial Complementar:
+https://www.linuxdescomplicado.com.br/2016/11/alguns-exemplos-de-que-o-comando-dd-pode-ser-considerado-umas-das-ferramentas-mais-versateis-do-linux.html
+
+https://www.certificacaolinux.com.br/backup-do-mbr-com-o-comando-dd/
 
 ---
 
@@ -555,11 +573,24 @@ Não possui material complementar.
 ## `apt`
 
 ### Para que serve?
+É utilizado para adicionar ou remover arquivos do sistema.
 
 ### Opções:
 
 ### Sintaxe comum:
 
 ### Exemplos:
+- # vim /etc/apt/sources.list
+-# apt update
+-# apt upgrade -y
+-# apt-get dist-upgrade -y
+-# apt full-upgrade
+-# ls -l /var/cache/apt/archives/
+-# cd /var/cache/apt/archives/
+-# apt autoclean
+-# apt clean
+-# ls -l
+-# apt remove wget
+-# apt purge wget
 
 ### Máterial Complementar:
