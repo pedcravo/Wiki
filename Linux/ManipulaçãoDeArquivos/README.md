@@ -19,7 +19,12 @@ Nesta seção, exploramos comandos que permitem manipular arquivos e diretórios
 10. [`rmdir`](#rmdir)
 14. [`split`](#split)
 15. [`touch`](#touch)
-16. [`apt`](#apt)
+16. [`dpkg`](#dpkg)
+17. [`apt`](#apt)
+18. [`snap`](#snap)
+19. [`aptitude`](#aptitude)
+20. [`yum`](#yum)
+21. [`rpm`](#rpm)
 
 ---
 
@@ -570,6 +575,20 @@ Não possui material complementar.
 
 ---
 
+##
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+### Máterial Complementar:
+
+---
+
 ## `apt`
 
 ### Para que serve?
@@ -592,5 +611,47 @@ Não possui material complementar.
 - `# ls -l`
 - `# apt remove wget`
 - `# apt purge wget`
+
+### Máterial Complementar:
+
+---
+
+##
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+### Máterial Complementar:
+
+---
+
+##
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+### Máterial Complementar:
+
+---
+
+##
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
 
 ### Máterial Complementar:
