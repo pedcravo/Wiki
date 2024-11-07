@@ -575,7 +575,7 @@ Não possui material complementar.
 
 ---
 
-##
+## `dpkg`
 
 ### Para que serve?
 
@@ -616,7 +616,7 @@ Não possui material complementar.
 
 ---
 
-##
+## `snap`
 
 ### Para que serve?
 
@@ -630,7 +630,7 @@ Não possui material complementar.
 
 ---
 
-##
+## `aptitude`
 
 ### Para que serve?
 
@@ -644,7 +644,21 @@ Não possui material complementar.
 
 ---
 
-##
+## `yum`
+
+### Para que serve?
+
+### Opções:
+
+### Sintaxe comum:
+
+### Exemplos:
+
+### Máterial Complementar:
+
+---
+
+## `rpm`
 
 ### Para que serve?
 
