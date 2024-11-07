@@ -432,6 +432,8 @@ Todos as opções só podem ser executados dentro do prórprio `less`, não há 
 
 `$ less +/termo arquivo.txt` → Abre o arquivo e já começa a busca pelo _"termo"_.
 
+`$ less /etc/group` → Mostra todos os grupos no linux.
+
 ### Máterial Complementar:
 Não possui material complementar.
 
