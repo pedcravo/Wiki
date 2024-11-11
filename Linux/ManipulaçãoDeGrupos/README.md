@@ -63,14 +63,41 @@ https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-groupadd/
 ## groupmod
 
 ### Para que serve?
+O comando `groupmod` é utilizado para **modificar e alterar propriedades de um grupo existente no sistema, como o nome do grupo ou o GID (ID do grupo)**.
+Ele atualiza as entradas nos arquivos do sistema que gerenciam grupos, como `/etc/group`, `/etc/gshadow` e `/etc/passwd`.
+
+#### Arquivos relacionados:
+- `/etc/group` → Contém informações sobre grupos de usuários no sistema.
+- `/etc/gshadow` → Contém informações seguras de grupos.
+- `/etc/passwd` → Contém informações sobre as contas de usuário.
+
+#### Saída de status:
+- `0` → Sucesso.
+- `2` → Sintaxe de comando inválida.
+- `3` → Argumento inválido para a opção.
+- `4` → O grupo especificado não existe.
+- `9` → O nome do grupo já está em uso.
+- `10` → Falha ao atualizar o arquivo de grupo.
 
 ### Opções:
+- `-g` → Altera o GID do grupo para o valor especificado. O GID deve ser exclusivo, a menos que a opção -o seja utilizada. Arquivos com o GID antigo não serão alterados automaticamente, sendo necessário modificar manualmente os arquivos que utilizam o ID antigo.
+- `-n` → Altera o nome do grupo. O nome antigo será substituído pelo novo nome em todos os arquivos relevantes do sistema, como /etc/group.
+- `-o` → Permite que o GID seja alterado para um valor não exclusivo (duplicado). Muito utilizado com -g
+- `-p` → Define uma senha criptografada para o grupo.
+- `-R` → Aplique alterações no diretório CHROOT_DIR e use os arquivos de configuração do diretório CHROOT_DIR.
 
 ### Sintaxe comum:
+**`# groupmod [OPÇÕES] GRUPO`**
 
 ### Exemplos:
+`# groupmod -n staff backend` → Altera o nome do grupo de `backend` para `staff`.
+`# groupmod -g 1011 staff` → Troca o GID de `staff` para o GID `1011` exclusivo.
+`# groupmod -o -g 1000 backend2` → Troca o GID de backend para um GID já usado. 
 
 ### Máterial Complementar:
+<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/groupmod.png" width="600px">
+
+https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-groupmod/
 
 ---
 
