@@ -95,7 +95,7 @@ Ele atualiza as entradas nos arquivos do sistema que gerenciam grupos, como `/et
 `# groupmod -o -g 1000 backend2` → Troca o GID de backend para um GID já usado. 
 
 ### Máterial Complementar:
-<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/groupmod.png" width="600px">
+<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/groupadd.png" width="600px">
 
 https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-groupmod/
 
