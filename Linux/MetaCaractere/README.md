@@ -15,7 +15,7 @@ Os meta caracteres são símbolos especiais usados no terminal Linux para repres
 9. [`\`](#\\)
 10. [`^`](#^)
 11. [`+`](#+)
-12. [`$`](#$)
+12. [`$`](#`$`)
 
 ---
 
