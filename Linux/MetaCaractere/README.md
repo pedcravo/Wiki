@@ -100,7 +100,7 @@ Utilizado para expandir um conjunto de caracteres.
 ---
 
 ## `*`
-Representa qualquer caractere e número deste (0 ou mais caracteres).
+Representa qualquer caractere e número deste (0 ou mais caracteres), ou qualquer quantidade do caractere anterior a ele (grep).
 **Não importam quantos e nem quais caracteres.**
 
 ### Exemplos:
@@ -119,6 +119,10 @@ Representa qualquer caractere e número deste (0 ou mais caracteres).
 `$ ls ???*` → Lista todos os itens do diretório atual que tenham 3 caracteres avulsos e que termine com qualquer conjunto de caracteres, como retorno pode ter: _“banana"_, _“laranja"_, _“maça"_, _“maracuja"_,  _“melancia”_, _“morango"_ e _“uva"_.
 
 `$ ls ??n*` → Lista todos os itens do diretório atual que tenham 2 caracteres avulsos, depois a letra _A_ e que termine com qualquer conjunto de caracteres, como retorno pode ter: _“banana”_.
+
+**`grep` + `*` =**
+
+`$ cat grep-file.txt | grep 'ss*'` → Mostra todas as linhas que tem um ou dois _s_, pode ter como retorno: _"expressão"_ e _"sapo"_.
 
 ---
 
