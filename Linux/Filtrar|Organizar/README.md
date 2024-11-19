@@ -202,6 +202,18 @@ Faz uso de Expressões Regulares e de [Meta Caracteres](../MetaCaractere/README.
 
 `$ egrep "(ab)+" arquivo.txt` → Procura por 1 ou mais ocorrências da sequência _"ab"_, como _"ab"_, _"abab"_, _"ababab”_.
 
+`$ egrep -w '[[:lower:]]{5}' grep-file.txt` → Procura pelas palavras com apenas 5 letras minusculas.
+
+`$ egrep '[[:lower:]]{5}' grep-file.txt` → Procura pelas palavras com 5 letras minusculas.
+
+`$ egrep -w '[[:alpha:]]{5}' grep-file.txt` → Procura pelas palavras com apenas 5 letras, minusculas ou maiusculas.
+
+`$ egrep -w '[[:upper:]]{5,}' grep-file.txt` → Procura pelas palavras com 5 ou mais letras maiusculas.
+
+`$ egrep '.{40,}' grep-file.txt` → Procura pelas linhas com 40 ou mais letras.
+
+`$ egrep 'f(a|o)r' grep-file.txt` → Filtra somente as palavras que comecem com a letra _f_, _a_ ou _o_ e por fim _r_.
+
 #### fgrep
 `$ fgrep "?" arquivo.txt` → Procura as linhas que tenham o caractere `?` ( tem como equivalente `grep`: `$ grep "\?" arquivo.txt`).
 
