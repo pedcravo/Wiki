@@ -4,20 +4,20 @@ Estes comandos são amplamente utilizados para **manipulação de texto e proces
 
 ### Comandos:
 
-1. [`cat`](#1-cat)
-2. [`tac`](#2-tac)
-3. [`cut`](#3-cut)
-4. [`grep`](#4-grep)
-5. [`awk`](#5-awk)
-6. [`echo`](#6-echo)
-7. [`head`](#7-head)
-8. [`tail`](#8-tail)
-9. [`less`](#9-less)
-10. [`nl`](#10-nl)
-11. [`sort`](#11-sort)
-12. [`tr`](#12-tr)
-13. [`uniq`](#13-uniq)
-14. [`wc`](#14-wc)
+1. [`cat`](#cat)
+2. [`tac`](#tac)
+3. [`cut`](#cut)
+4. [`grep`](#grep)
+5. [`awk`](#awk)
+6. [`echo`](#echo)
+7. [`head`](#head)
+8. [`tail`](#tail)
+9. [`less`](#less)
+10. [`nl`](#nl)
+11. [`sort`](#sort)
+12. [`tr`](#tr)
+13. [`uniq`](#uniq)
+14. [`wc`](#wc)
 
 ## `cat`
 
