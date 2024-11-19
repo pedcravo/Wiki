@@ -214,6 +214,8 @@ Faz uso de Expressões Regulares e de [Meta Caracteres](../MetaCaractere/README.
 
 `$ egrep 'f(a|o)r' grep-file.txt` → Filtra somente as palavras que comecem com a letra _f_, _a_ ou _o_ e por fim _r_.
 
+`$ egrep 'f[ao]r' grep-file.txt` → Filtra somente as palavras que comecem com a letra _f_, _a_ ou _o_ e por fim _r_.
+
 #### fgrep
 `$ fgrep "?" arquivo.txt` → Procura as linhas que tenham o caractere `?` ( tem como equivalente `grep`: `$ grep "\?" arquivo.txt`).
 
