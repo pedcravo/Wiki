@@ -100,7 +100,7 @@ Utilizado para expandir um conjunto de caracteres.
 ---
 
 ## `*`
-Representa qualquer caractere e número deste (0 ou mais caracteres), ou qualquer quantidade do caractere anterior a ele (grep).
+Representa qualquer caractere e quantidade de caracteres, pode ser interpretado também como 1x ou 0x o caractere anterior a ele (grep).
 **Não importam quantos e nem quais caracteres.**
 
 ### Exemplos:
@@ -125,6 +125,10 @@ Representa qualquer caractere e número deste (0 ou mais caracteres), ou qualque
 `$ cat grep-file.txt | grep 'ss*'` → Mostra todas as linhas que tenham um ou dois _s_, pode ter como retorno: _"expressão"_ e _"sapo"_.
 
 `$ cat grep-file.txt | grep 'ess*'` → Mostra todas as linhas que tenham _es_ ou _ess_, pode ter como retorno: _"expressão"_ e _"teste"_.
+
+**`cp` + `*` =**
+
+`$ cp * /tmp/` → Copia todos os arquivos do diretório atual para o `/tmp/`.
 
 ---
 
