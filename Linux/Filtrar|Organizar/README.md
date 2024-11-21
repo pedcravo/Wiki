@@ -246,11 +246,11 @@ Utilizado para **filtra, recortar, printar** e etc.
 
 #### Tipos de seletores de caracteres:
 - `$N` → Escolhe a coluna `N`.
-- `$N,$M` → Escolhe as colunas `N` e `M`.
+- `$N,$M` → Escolhe as colunas `N` e `M`, $0 corresponde a linha inteira linha inteira.
 - `”palavra”` → Usado quando inserir string
 - `BEGIN` → Usado para fazer uma ação ao começar a rodar.
 - `END` → Usado para fazer uma ação depois que a anterior terminar (final).
-
+ 
 ### Sintaxe comum:
 **`$ awk -F 'CARACTERE {print $NUMERO-DA-COLUNA}' ARQUIVO`**
 
@@ -290,6 +290,8 @@ Utilizado para **filtra, recortar, printar** e etc.
 `$ awk -F: '{print "username: " $1, "\t\tuid:" $3}' /etc/passwd` → Mostra cada linha da 1 e 3 coluna com formatação com `\t` (tab).
 
 `$ awk -F: '{count[$3]++} END {for (resource in count) print count[resource], resource}' /etc/passwd |sort -n` → Mostra cada linha juntamente com o número de vezes que a UID (coluna 3) se repete e ordena em ordem do menor pro maior (ou alfabetica) utilizando o `| sort -n` 
+
+`$ awk 'NR==3, NR==6 {print NR,$0}' employee.txt` → Mostra apenas as linhas de 3 a 6 numeradas.
 
 ### Máterial Complementar:
 https://www.hostgator.com.br/blog/como-usar-o-comando-awk-do-linux/
