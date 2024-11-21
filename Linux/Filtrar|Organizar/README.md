@@ -253,8 +253,8 @@ Utilizado para **filtra, recortar, printar** e etc.
 - `FS` → Usado para especificar o separador de campo (linha) para filtragem.
 - `RS` → Usado para especificar o separador de registro (coluna) para filtragem.
 - `OFS` → Usado para especificar o separador de coluna ao mostrar.
-- `FNR` → Variavel usada para contar as linhas de um arquivo (reinicia a cada novo arquivo), armazena o número de cada linha.
-- `NR` → Variavel usada para contar as linhas de vários arquivos (continua contando a cada novo arquivo), armazena o número total de linhas.
+- `FNR` → Variável usada para contar as linhas de um arquivo (reinicia a cada novo arquivo), armazena o número de cada linha.
+- `NR` → Variável usada para contar as linhas de vários arquivos (continua contando a cada novo arquivo), armazena o número total de linhas.
 
 ### Sintaxe comum:
 **`$ awk [OPÇÕES] 'CARACTERE {print $NUMERO-DA-COLUNA}' ARQUIVO`**
