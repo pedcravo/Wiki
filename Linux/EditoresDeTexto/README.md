@@ -178,7 +178,7 @@ Ele não altera o arquivo original a menos que seja usado com a opção -i (edi�
 
 `$ tail -f /var/log/syslog | sed '/daemon/i # Daemon line’` → Mostra os arquivos atualizados em tempo real e adiciona uma linha antes de cada linha com a palavra _"Daemon"_.
 
-`$ echo “Olá mundo” | sed s/Olá/Hello/ | sed s/mundo/world/` → Troca as palavras _"Olá"_ por _"Hello"_ e _"mundo"_ por _"world"_.
+`$ echo “Olá mundo” | sed -e 's/Olá/Hello/' -e 's/mundo/world/'` → Troca as palavras _"Olá"_ por _"Hello"_ e _"mundo"_ por _"world"_.
 
 ### Máterial Complementar:
 Não possui material complementar.
