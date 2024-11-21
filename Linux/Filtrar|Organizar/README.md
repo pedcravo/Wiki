@@ -252,7 +252,7 @@ Utilizado para **filtra, recortar, printar** e etc.
 - `END` → Usado para fazer uma ação depois que a anterior terminar (final).
  
 ### Sintaxe comum:
-**`$ awk -F 'CARACTERE {print $NUMERO-DA-COLUNA}' ARQUIVO`**
+**`$ awk [OPÇÕES] 'CARACTERE {print $NUMERO-DA-COLUNA}' ARQUIVO`**
 
 ### Exemplos:
 `$ awk {print} arquivo.txt` → Imprime todas as linhas do arquivo.
@@ -294,6 +294,20 @@ Utilizado para **filtra, recortar, printar** e etc.
 `$ awk 'NR==3, NR==6 {print NR,$0}' employee.txt` → Mostra apenas as linhas de 3 a 6 numeradas.
 
 `$ history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head` → Conta cada comando, em seguida mostra os comandos mais utilizados e quantas vezes aqueles comando foi utilizado.
+
+`# dmidecode | awk '/Product Name/,/Manufacturer/'` → Mostra qual o nome do produto e quem o fez, por quem foi produzido.
+
+`# awk '!x[$0]++' arquivo.txt` → Filtra as linhas repetidas, não altera o arquivo original.
+
+`$ tail -100 arquivo.txt | awk '{print $1}' | sort | uniq -c | sort -n | tail` → Conta cada linha que tem a 1ª coluna reptida e organiza do menos repetido para o mais repetido, em seguida mostra o total de repetição daquel coluna e cada coluna.
+
+`# last  | grep -v "^$" | awk '{print $1}' | sort -nr | uniq -c` → Mostra os usuários que mais acessaram o sistema por nome.
+
+`# netstat -ntu | awk '{print $5}' | cut -d: -f1,2 | sort | uniq -c | sort -n` → Mostra os endereços acessados e a quantidade de vezes acessada.
+
+`# netstat -ant | awk '{print $NF,$3,$4,$5}' | grep -v '[a-z]' | sort | uniq -c` → Mostra as conexões estabelecidas e em escuta organizadas em ordem alfabética.
+
+`# du -d 1 | sort -r -n | awk '{split("KB(s) MB(s) GB(s)",v); s=1; while($1>1024){$1/=1024; s++} print int($1)" "v[s]"t"$2}'` → Mostra os diretórios organizados por tamanho.
 
 ### Máterial Complementar:
 https://www.hostgator.com.br/blog/como-usar-o-comando-awk-do-linux/
