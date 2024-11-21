@@ -346,6 +346,32 @@ print varx }}' texto.txt
 ```
 Mostra os números do arquivo de maneira que se o valor for > 50 ele é multiplicado por dois e mostrado na tela, caso não seja ele é multiplicado por 3 e mostrado na tela. Pode ser reescrito desta maneira: `$ awk '{if ($1 > 50) print $1 *2; else print $1 *3}' texto.txt`
 
+```bash 
+$ awk '{
+total = 0
+i = 1
+while (i < 4)
+{
+total += $i
+i++
+}
+media = total/3
+print "Valor médio: ", media
+}' texto.txt 
+```
+Mostra a média de cada linha. Pode ser reescrito com o loop for.
+```bash 
+$ awk '{
+total = 0
+for (i=1; i < 4; i++)
+{
+total += $i
+}
+media = total/3
+print "Valor médio: ", media
+}' texto.txt 
+```
+
 ### Máterial Complementar:
 https://www.hostgator.com.br/blog/como-usar-o-comando-awk-do-linux/
 
