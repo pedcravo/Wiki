@@ -250,7 +250,12 @@ Utilizado para **filtra, recortar, printar** e etc.
 - `”palavra”` → Usado quando inserir string
 - `BEGIN` → Usado para fazer uma ação ao começar a rodar.
 - `END` → Usado para fazer uma ação depois que a anterior terminar (final).
- 
+- `FS` → Usado para especificar o separador de campo (linha) para filtragem.
+- `RS` → Usado para especificar o separador de registro (coluna) para filtragem.
+- `OFS` → Usado para especificar o separador de coluna ao mostrar.
+- `FNR` → Variavel usada para contar as linhas de um arquivo (reinicia a cada novo arquivo), armazena o número de cada linha.
+- `NR` → Variavel usada para contar as linhas de vários arquivos (continua contando a cada novo arquivo), armazena o número total de linhas.
+
 ### Sintaxe comum:
 **`$ awk [OPÇÕES] 'CARACTERE {print $NUMERO-DA-COLUNA}' ARQUIVO`**
 
@@ -308,6 +313,14 @@ Utilizado para **filtra, recortar, printar** e etc.
 `# netstat -ant | awk '{print $NF,$3,$4,$5}' | grep -v '[a-z]' | sort | uniq -c` → Mostra as conexões estabelecidas e em escuta organizadas em ordem alfabética.
 
 `# du -d 1 | sort -r -n | awk '{split("KB(s) MB(s) GB(s)",v); s=1; while($1>1024){$1/=1024; s++} print int($1)" "v[s]"t"$2}'` → Mostra os diretórios organizados por tamanho.
+
+`$ awk 'BEGIN{FS="\n"; RS=""}{print $1,$3}' arquivo.txt` → Organiza a 1ª e 3ª linha e as mostr na tela na mesma linha.
+
+`$ awk 'BEGIN{FS="\n"; RS=""; OFS="\n"}{print $1,$3}' arquivo.txt` → Organiza a 1ª e 3ª linha e as mostr na tela uma sobre a outra.
+
+`$ awk 'BEGIN{FS="\n"}{print $1, "FNR="FNR}' arquivo.txt` → Mostra todas as linhas do arquivo mostrando o valor de FNR em cada linha, o FNR equivale ao número da linha.
+
+`awk 'BEGIN{FS="\n"}{print $1, "FNR="FNR, "NR="NR}END{print "Total de linhas: "NR}' arquivo.txt arquivo.txt` → Mostra todas as linhas do arquivo mostrando o valor de FNR e NR em cada linha, por fim mostra o NR total.
 
 ### Máterial Complementar:
 https://www.hostgator.com.br/blog/como-usar-o-comando-awk-do-linux/
