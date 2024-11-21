@@ -4,7 +4,7 @@ Nesta seção, exploramos comandos relacionados à **edição de textos, execuç
 ### Comandos:
 
 1. [`bash`](#bash)
-2. [`Nano`](#nano)
+2. [`nano`](#nano)
 3. [`sed`](#sed)
 4. [`vi`](#vi)
 
@@ -177,6 +177,8 @@ Ele não altera o arquivo original a menos que seja usado com a opção -i (edi�
 `$ sed '/^daemon/i # Daemon line' /etc/passwd` → Adiciona uma linha antes de toda linha que comece com a palavra _"daemon"_.
 
 `$ tail -f /var/log/syslog | sed '/daemon/i # Daemon line’` → Mostra os arquivos atualizados em tempo real e adiciona uma linha antes de cada linha com a palavra _"Daemon"_.
+
+`$ echo “Olá mundo” | sed s/Olá/Hello/ | sed s/mundo/world/` → Troca as palavras _"Olá"_ por _"Hello"_ e _"mundo"_ por _"world"_.
 
 ### Máterial Complementar:
 Não possui material complementar.
