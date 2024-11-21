@@ -344,7 +344,7 @@ else{
 varx= $1 *3
 print varx }}' texto.txt 
 ```
-Mostra os números do arquivo de maneira que se o valor for > 50 ele é multiplicado por dois e mostrado na tela, caso não seja ele é multiplicado por 3 e mostrado na tela.
+Mostra os números do arquivo de maneira que se o valor for > 50 ele é multiplicado por dois e mostrado na tela, caso não seja ele é multiplicado por 3 e mostrado na tela. Pode ser reescrito desta maneira: `$ awk '{if ($1 > 50) print $1 *2; else print $1 *3}' texto.txt`
 
 ### Máterial Complementar:
 https://www.hostgator.com.br/blog/como-usar-o-comando-awk-do-linux/
