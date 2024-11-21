@@ -320,7 +320,18 @@ Utilizado para **filtra, recortar, printar** e etc.
 
 `$ awk 'BEGIN{FS="\n"}{print $1, "FNR="FNR}' arquivo.txt` → Mostra todas as linhas do arquivo mostrando o valor de FNR em cada linha, o FNR equivale ao número da linha.
 
-`awk 'BEGIN{FS="\n"}{print $1, "FNR="FNR, "NR="NR}END{print "Total de linhas: "NR}' arquivo.txt arquivo.txt` → Mostra todas as linhas do arquivo mostrando o valor de FNR e NR em cada linha, por fim mostra o NR total.
+`$ awk 'BEGIN{FS="\n"}{print $1, "FNR="FNR, "NR="NR}END{print "Total de linhas: "NR}' arquivo.txt arquivo.txt` → Mostra todas as linhas do arquivo mostrando o valor de FNR e NR em cada linha, por fim mostra o NR total.
+
+``` bash
+$ awk '
+BEGIN{
+str1="Bem vindo"
+str2=", olá"
+str3=str1 str2
+print str3
+}'
+```
+Cria 3 variáveis string `str1`, `str2` e `str3`, mostrando na tela a `str3`. 
 
 ### Máterial Complementar:
 https://www.hostgator.com.br/blog/como-usar-o-comando-awk-do-linux/
