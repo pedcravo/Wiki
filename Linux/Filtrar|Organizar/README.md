@@ -293,6 +293,8 @@ Utilizado para **filtra, recortar, printar** e etc.
 
 `$ awk 'NR==3, NR==6 {print NR,$0}' employee.txt` → Mostra apenas as linhas de 3 a 6 numeradas.
 
+`$ history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head` → Conta cada comando, em seguida mostra os comandos mais utilizados e quantas vezes aqueles comando foi utilizado.
+
 ### Máterial Complementar:
 https://www.hostgator.com.br/blog/como-usar-o-comando-awk-do-linux/
 
