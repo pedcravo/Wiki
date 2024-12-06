@@ -72,7 +72,7 @@ Mostram os hashs dos arquivos dos diretórios e das trees.
       git tag
 Mostra as versões.
 
-    git cat-file -p v1.0
+      git cat-file -p v1.0
 Mostra informações sobre o commit v1.0 
 
 ## 🌐 Fluxos de Trabalho com GitHub
