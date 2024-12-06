@@ -63,6 +63,18 @@ git config --global user.email "seuemail@example.com"
 - Enviar alterações: git push
 - Atualizar repositório local: git pull
 
+      git cat-file -p HEAD
+      git cat-file -p HEAD^{tree}
+      git cat-file -p f21dc2804e888fee6014d7e5b1ceee533b222c15
+      git cat-file -p master
+Mostram os hashs dos arquivos dos diretórios e das trees.
+
+      git tag
+Mostra as versões.
+
+    git cat-file -p v1.0
+Mostra informações sobre o commit v1.0 
+
 ## 🌐 Fluxos de Trabalho com GitHub
 - **Fork e Pull Request:** Para contribuir em repositórios de terceiros.
 - **Issues e Discussions:** Gerenciando e discutindo tarefas.
