@@ -10,8 +10,8 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 2. [Configuração Inicial](#configuração-inicial)
 3. [Principais Comandos do Git](#principais-comandos-do-git)
 4. [Fluxos de Trabalho com GitHub](#fluxos-de-trabalho-com-github)
-5. [Problemas Comuns e Soluções](#problemas-comuns-e-soluções)
-6. [Boas Práticas](#boas-práticas)
+5. [Boas Práticas](#boas-práticas)
+6. [Problemas Comuns e Soluções](#problemas-comuns-e-soluções)
 7. [Recursos Úteis](#recursos-úteis)
 
 ---
@@ -38,11 +38,46 @@ Para mais informações acesse: [Guia oficial de instalação](https://git-scm.c
 git config --global user.name "Seu Nome"
 git config --global user.email "seuemail@example.com"
 ```
+
 ## 🛠️ Principais Comandos do Git
+### Fluxo Básico
+- Iniciar um repositório:
+```bash
+  git init
+```
+- Adicionar arquivos:
+```bash
+  git add <arquivo> ou git add
+```
+- Commitar mudanças: git commit -m "Mensagem do commit"
+- Verificar o status: git status
+- Ver o histórico: git log
+
+### Trabalhando com Branches
+- Criar uma branch: git branch nome-da-branch
+- Trocar de branch: git checkout nome-da-branch
+- Mesclar branches: git merge nome-da-branch
+
+### Remoto
+- Clonar um repositório: git clone <url>
+- Enviar alterações: git push
+- Atualizar repositório local: git pull
 
 ## 🌐 Fluxos de Trabalho com GitHub
+- **Fork e Pull Request:** Para contribuir em repositórios de terceiros.
+- **Issues e Discussions:** Gerenciando e discutindo tarefas.
+- **Actions:** Automatizando fluxos de trabalho.
+
+## ✅ Boas Práticas
+- Sempre escreva mensagens de commit **claras e descritivas**.
+- **Use branches** para **organizar** funcionalidades e correções.
+- Sincronize **frequentemente** seu repositório local com o remoto: ` git pull `
+- Revise mudanças **antes de fazer o commit**.
+- Resolva conflitos de merge com a**tenção e paciência**.
 
 ## 🛡️ Problemas Comuns e Soluções
+- **Conflitos de Merge:** Como identificar e resolver conflitos.
+- **Erro ao Clonar Repositório:** Checar URL e permissões.
 
 ## 🌟 Recursos Úteis
 [**Documentação Oficial do Git**](https://git-scm.com/doc)
