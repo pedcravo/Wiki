@@ -1,4 +1,4 @@
-# 🚀 Meu Guia de Git e GitHub
+# 🚀 Git e GitHub
 
 Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaço para organizar e compartilhar meus estudos, anotações e exemplos práticos relacionados ao controle de versão e colaboração com Git e GitHub.
 
@@ -11,7 +11,8 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 3. [Principais Comandos do Git](#principais-comandos-do-git)
 4. [Fluxos de Trabalho com GitHub](#fluxos-de-trabalho-com-github)
 5. [Problemas Comuns e Soluções](#problemas-comuns-e-soluções)
-6. [Recursos Úteis](#recursos-úteis)
+6. [Boas Práticas](#boas-práticas)
+7. [Recursos Úteis](#recursos-úteis)
 
 ---
 
@@ -25,9 +26,25 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 ## 🔧 Configuração Inicial
 
 ### Instalação do Git
-- [Guia oficial de instalação](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+```Bash
+  apt install git
+```
+Instala git e suas dependências.
+
+Para mais informações acesse: [Guia oficial de instalação](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Configuração Básica
 ```bash
 git config --global user.name "Seu Nome"
 git config --global user.email "seuemail@example.com"
+```
+## 🛠️ Principais Comandos do Git
+
+## 🌐 Fluxos de Trabalho com GitHub
+
+## 🛡️ Problemas Comuns e Soluções
+
+## 🌟 Recursos Úteis
+[**Documentação Oficial do Git**](https://git-scm.com/doc)
+
+[**Guia do GitHub**](https://docs.github.com/pt)
