@@ -21,18 +21,17 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 
 **GitHub** é uma plataforma para hospedagem de repositórios Git, colaboração em projetos e muito mais.
 
-**Commit** é um registro de alterações feitas em um projeto, que captura o estado dos arquivos em um determinado momento. É um **patch** de alterações desde o **commit** anterior. Cada **commit** aponta para o **commit** anterior.
+**Master** é o projeto original, o conjunto principal de **commits** do projeto, base dos **branchs**.
 
-**Master** é o projeto principal, o conjunto principal de **commits** do projeto, base dos **branchs**.
+**Branch** é uma cópia de algum momento do projeto separada para o desenvolvedor sem interferir no **master**. Internamente é uma cópia do **master** que ainda aponta para o **commit** anterior a ela.
 
-**Branch** é uma cópia de algum momento do projeto separada para o desenvolvedor sem interferir no **master**. Internamente é uma cópia do master que 
+**Commit** é um registro de alterações feitas em um projeto que captura o estado dos arquivos em um determinado momento. É um **patch** de alterações desde o **commit** anterior, aponta para o **commit** anterior.
 
-**Patch** é um arquivo que tem as alterações feitas no arquivo da versão anterior para a nova versão, é usado para carregar as alterações de um projeto. Ele é criado com base no diff. Cada patch tem um **hash (SHA-1)** que é a assinatura daquele delta, o hash é a prova que o patch está correto.
+**Patch** é um arquivo que tem as alterações feitas no projeto desde a versão anterior, é usado para carregar as alterações do projeto. Cada **patch** tem um **hash (SHA-1)** que é a assinatura daquele delta, o **hash** é a prova que o **patch** está correto.
 
-**Diff** é um comando do Git que compara fontes de dados, como arquivos, commits, ramificações, e dá origem ao patch.
+**Diff** é um comando do Git que compara fontes de dados, como arquivos, commits e ramificações que dá origem ao **patch**.
 
-
-Merge
+**Merge** é a união do **branch** com o **master**. Internamente é como dar um **diff** na **branch** e usar os **patch**s de cada arquivo resultante para atualizar (dar **commit**) o **master**.
 
 Subscripcion 
 
