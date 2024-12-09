@@ -32,8 +32,7 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 **Diff** é um comando do Git que compara fontes de dados, como arquivos, commits e ramificações que dá origem ao **patch**.
 
 **Merge** é a união do **branch** com o **master**. Internamente é como dar um **diff** na **branch** e usar os **patch**s de cada arquivo resultante para atualizar (dar **commit**) o **master**.
-
-**Sobrescrita** é uma sobrescrição usada no **merge**, onde o Git compara os **branchs** com o **master** de origem e escolhe a versão modificada mais recente para permanecer.
+Em casos de dois ou mais **branchs** o Git compara os **branchs** com o **master** de origem e escolhe a versão modificada mais recente para permanecer, em seguida cria um **commit** de **branch** que torna este o **master** de origem.
 
 Para mais informações acesse: [**Vídeo de Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
 
