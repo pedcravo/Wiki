@@ -18,13 +18,13 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 
 ## 🧐 O que é Git e GitHub
 
-**Git** é um sistema de controle de versão distribuído usado para rastrear alterações em arquivos e facilitar o trabalho em equipe.  
+**Git** é um sistema de controle de versão distribuído usado para rastrear alterações em arquivos e facilitar o trabalho em equipe. Criado em 2005 por Linus Torvalds.
 
 **GitHub** é uma plataforma para hospedagem de repositórios Git, colaboração em projetos e muito mais.
 
 **Commit** é um registro de alterações feitas em um projeto, que captura o estado dos arquivos em um determinado momento.
 
-**Patch** é um arquivo que tem as alterações feitas no arquivo da versão anterior para a nova versão, é usado para carregar as alterações do projeto. Ele é criado com base no **diff**. Cada patch tem um hash (SHA-1) que é a assinatura daquele delta, o hash prova que o patch está correto.
+**Patch** é um arquivo que tem as alterações feitas no arquivo da versão anterior para a nova versão, é usado para carregar as alterações de um projeto. Ele é criado com base no diff. Cada patch tem um hash (SHA-1) que é a assinatura daquele delta, o hash é a prova que o patch está correto.
 
 **Diff** é um comando do Git que compara fontes de dados, como arquivos, commits, ramificações, entre outros.
 
