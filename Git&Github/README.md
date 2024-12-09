@@ -19,7 +19,15 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 ## 🧐 O que é Git e GitHub
 
 **Git** é um sistema de controle de versão distribuído usado para rastrear alterações em arquivos e facilitar o trabalho em equipe.  
+
 **GitHub** é uma plataforma para hospedagem de repositórios Git, colaboração em projetos e muito mais.
+
+**Commit** é um registro de alterações feitas em um projeto, que captura o estado dos arquivos em um determinado momento.
+
+**Patch** é um arquivo que tem as alterações feitas no arquivo da versão anterior para a nova versão, é usado para carregar as alterações do projeto. Ele é criado com base no **diff**. Cada patch tem um hash (SHA-1) que é a assinatura daquele delta, o hash prova que o patch está correto.
+
+**Diff** é um comando do Git que compara fontes de dados, como arquivos, commits, ramificações, entre outros.
+
 
 ---
 
@@ -45,13 +53,10 @@ git config --global user.email "seuemail@example.com"
 ```bash
   git init
 ```
-- Adicionar arquivos:
-```bash
-  git add <arquivo> ou git add
-```
-- Commitar mudanças: git commit -m "Mensagem do commit"
-- Verificar o status: git status
-- Ver o histórico: git log
+- Adicionar arquivos **(marcar alterações)**: `git add <arquivo> ou git add`
+- Commitar mudanças **(é o patch de alterações desde o commit anterior)**: `git commit -m "Mensagem do commit"`
+- Verificar o status: `git status`
+- Ver o histórico: `git log`
 
 ### Trabalhando com Branches
 - Criar uma branch: git branch nome-da-branch
@@ -59,7 +64,7 @@ git config --global user.email "seuemail@example.com"
 - Mesclar branches: git merge nome-da-branch
 
 ### Remoto
-- Clonar um repositório: git clone <url>
+- Clonar/puxar um repositório para sua máquina: `git clone <url>`
 - Enviar alterações: git push
 - Atualizar repositório local: git pull
 
@@ -79,6 +84,12 @@ Mostra informações sobre o commit v1.0
 - **Fork e Pull Request:** Para contribuir em repositórios de terceiros.
 - **Issues e Discussions:** Gerenciando e discutindo tarefas.
 - **Actions:** Automatizando fluxos de trabalho.
+
+1. Executa um `git clone` no diretório que deseja;
+2. Faz alterações no arquivo da máquina;
+3. Executa `git add` para marcar as alterações;
+4. Executa `git commit` para empacotar as alterações num **patch**;
+
 
 ## ✅ Boas Práticas
 - Sempre escreva mensagens de commit **claras e descritivas**.
