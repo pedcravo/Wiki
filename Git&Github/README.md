@@ -14,7 +14,6 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 6. [Problemas Comuns e Soluções](#problemas-comuns-e-soluções)
 7. [Recursos Úteis](#recursos-úteis)
 
----
 
 ## 🧐 O que é Git e GitHub
 
@@ -22,13 +21,23 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 
 **GitHub** é uma plataforma para hospedagem de repositórios Git, colaboração em projetos e muito mais.
 
-**Commit** é um registro de alterações feitas em um projeto, que captura o estado dos arquivos em um determinado momento é o patch de alterações desde o commit anterior.
+**Commit** é um registro de alterações feitas em um projeto, que captura o estado dos arquivos em um determinado momento. É um **patch** de alterações desde o **commit** anterior. Cada **commit** aponta para o **commit** anterior.
+
+**Master** é o projeto principal, o conjunto principal de **commits** do projeto, base dos **branchs**.
+
+**Branch** é uma cópia de algum momento do projeto separada para o desenvolvedor sem interferir no **master**. Internamente é uma cópia do master que 
 
 **Patch** é um arquivo que tem as alterações feitas no arquivo da versão anterior para a nova versão, é usado para carregar as alterações de um projeto. Ele é criado com base no diff. Cada patch tem um **hash (SHA-1)** que é a assinatura daquele delta, o hash é a prova que o patch está correto.
 
-**Diff** é um comando do Git que compara fontes de dados, como arquivos, commits, ramificações, entre outros.
+**Diff** é um comando do Git que compara fontes de dados, como arquivos, commits, ramificações, e dá origem ao patch.
 
----
+
+Merge
+
+Subscripcion 
+
+Para mais informações acesse: [**Vídeo de Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
+
 
 ## 🔧 Configuração Inicial
 
@@ -45,6 +54,7 @@ Para mais informações acesse: [Guia oficial de instalação](https://git-scm.c
 git config --global user.name "Seu Nome"
 git config --global user.email "seuemail@example.com"
 ```
+
 
 ## 🛠️ Principais Comandos do Git
 ### Fluxo Básico
@@ -76,6 +86,7 @@ Mostra as versões.
       git cat-file -p v1.0
 Mostra informações sobre o commit v1.0 
 
+
 ## 🌐 Fluxos de Trabalho com GitHub
 - **Fork e Pull Request:** Para contribuir em repositórios de terceiros.
 - **Issues e Discussions:** Gerenciando e discutindo tarefas.
@@ -94,6 +105,7 @@ Mostra informações sobre o commit v1.0
 - Revise mudanças **antes de fazer o commit**.
 - Resolva conflitos de merge com a**tenção e paciência**.
 
+
 ## 🛡️ Problemas Comuns e Soluções
 - **Conflitos de Merge:** Como identificar e resolver conflitos.
 - **Erro ao Clonar Repositório:** Checar URL e permissões.
@@ -106,5 +118,7 @@ Mostra informações sobre o commit v1.0
 [**Guia do GitHub**](https://docs.github.com/pt)
 
 [**Vídeo de Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
+
+
 
 [**Corte do .git/obj**](https://youtube.com/clip/UgkxdbdLysxqglFwcK8ahZSO3Gkp2QUFTBNI?si=tkoNDcxbL1lW9t_m)
