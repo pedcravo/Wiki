@@ -2,7 +2,6 @@
 
 Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaço para organizar e compartilhar meus estudos, anotações e exemplos práticos relacionados ao controle de versão e colaboração com Git e GitHub.
 
----
 
 ## 📚 Índice
 
