@@ -106,3 +106,5 @@ Mostra informações sobre o commit v1.0
 [**Guia do GitHub**](https://docs.github.com/pt)
 
 [**Vídeo de Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
+
+[**Corte do .git/obj**](https://youtube.com/clip/UgkxdbdLysxqglFwcK8ahZSO3Gkp2QUFTBNI?si=tkoNDcxbL1lW9t_m)
