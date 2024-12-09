@@ -33,7 +33,7 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 
 **Merge** é a união do **branch** com o **master**. Internamente é como dar um **diff** na **branch** e usar os **patch**s de cada arquivo resultante para atualizar (dar **commit**) o **master**.
 
-Subscripcion 
+**Sobrescrita** é uma sobrescrição usada no **merge**, onde o Git compara os **branchs** com o **master** de origem e escolhe a versão modificada mais recente para permanecer.
 
 Para mais informações acesse: [**Vídeo de Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
 
