@@ -22,7 +22,7 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 
 **GitHub** é uma plataforma para hospedagem de repositórios Git, colaboração em projetos e muito mais.
 
-**Commit** é um registro de alterações feitas em um projeto, que captura o estado dos arquivos em um determinado momento.
+**Commit** é um registro de alterações feitas em um projeto, que captura o estado dos arquivos em um determinado momento é o patch de alterações desde o commit anterior.
 
 **Patch** é um arquivo que tem as alterações feitas no arquivo da versão anterior para a nova versão, é usado para carregar as alterações de um projeto. Ele é criado com base no diff. Cada patch tem um hash (SHA-1) que é a assinatura daquele delta, o hash é a prova que o patch está correto.
 
@@ -49,24 +49,21 @@ git config --global user.email "seuemail@example.com"
 
 ## 🛠️ Principais Comandos do Git
 ### Fluxo Básico
-- Iniciar um repositório:
-```bash
-  git init
-```
+- Iniciar um repositório: `git init`
 - Adicionar arquivos **(marcar alterações)**: `git add <arquivo> ou git add`
-- Commitar mudanças **(é o patch de alterações desde o commit anterior)**: `git commit -m "Mensagem do commit"`
+- Commitar mudanças: `git commit -m "Mensagem do commit"`
 - Verificar o status: `git status`
 - Ver o histórico: `git log`
 
 ### Trabalhando com Branches
-- Criar uma branch: git branch nome-da-branch
-- Trocar de branch: git checkout nome-da-branch
-- Mesclar branches: git merge nome-da-branch
+- Criar uma branch: `git branch nome-da-branch`
+- Trocar de branch: `git checkout nome-da-branch`
+- Mesclar branches: `git merge nome-da-branch`
 
 ### Remoto
 - Clonar/puxar um repositório para sua máquina: `git clone <url>`
-- Enviar alterações: git push
-- Atualizar repositório local: git pull
+- Enviar alterações: `git push`
+- Atualizar repositório local: `git pull`
 
       git cat-file -p HEAD
       git cat-file -p HEAD^{tree}
@@ -104,5 +101,7 @@ Mostra informações sobre o commit v1.0
 
 ## 🌟 Recursos Úteis
 [**Documentação Oficial do Git**](https://git-scm.com/doc)
+
+[**Documentação Oficial do Git em PT-BR**](https://git-scm.com/book/pt-br/v2/Come%c3%a7ando-Sobre-Controle-de-Vers%c3%a3o)
 
 [**Guia do GitHub**](https://docs.github.com/pt)
