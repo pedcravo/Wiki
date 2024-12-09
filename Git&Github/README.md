@@ -24,10 +24,9 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 
 **Commit** é um registro de alterações feitas em um projeto, que captura o estado dos arquivos em um determinado momento é o patch de alterações desde o commit anterior.
 
-**Patch** é um arquivo que tem as alterações feitas no arquivo da versão anterior para a nova versão, é usado para carregar as alterações de um projeto. Ele é criado com base no diff. Cada patch tem um hash (SHA-1) que é a assinatura daquele delta, o hash é a prova que o patch está correto.
+**Patch** é um arquivo que tem as alterações feitas no arquivo da versão anterior para a nova versão, é usado para carregar as alterações de um projeto. Ele é criado com base no diff. Cada patch tem um **hash (SHA-1)** que é a assinatura daquele delta, o hash é a prova que o patch está correto.
 
 **Diff** é um comando do Git que compara fontes de dados, como arquivos, commits, ramificações, entre outros.
-
 
 ---
 
@@ -105,3 +104,5 @@ Mostra informações sobre o commit v1.0
 [**Documentação Oficial do Git em PT-BR**](https://git-scm.com/book/pt-br/v2/Come%c3%a7ando-Sobre-Controle-de-Vers%c3%a3o)
 
 [**Guia do GitHub**](https://docs.github.com/pt)
+
+[**Vídeo de Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
