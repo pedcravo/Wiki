@@ -5,7 +5,7 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 
 ## 📚 Índice
 
-1. [O que é Git e GitHub](##-🧐-o-que-é-git-e-github)
+1. [O que é Git e GitHub](##-o-que-é-git-e-github)
 2. [Configuração Inicial](#configuração-inicial)
 3. [Principais Comandos do Git](#principais-comandos-do-git)
 4. [Fluxos de Trabalho com GitHub](#fluxos-de-trabalho-com-github)
@@ -14,7 +14,7 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 7. [Recursos Úteis](#--recursos-úteis)
 
 
-## 🧐 O que é Git e GitHub
+## O que é Git e GitHub 🧐
 
 - **Git** é um sistema de controle de versão distribuído usado para rastrear alterações em arquivos e facilitar o trabalho em equipe. Criado em 2005 por Linus Torvalds.
 
