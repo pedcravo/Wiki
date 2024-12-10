@@ -84,7 +84,7 @@ Por exemplo, você pode ver a manpage do commando config rodando: `$ git help co
 
 ### Iniciando um projeto Git
 Você pode iniciar um projeto Git utilizando duas formas principais:
-1. Usar como base um diretório local que atualmente não está sob controle de versão e transformá-lo em um repositório Git. Segue o [Fluxo Básico](##-Fluxo-Básico)
+1. Usar como base um diretório local que atualmente não está sob controle de versão e transformá-lo em um repositório Git. Segue o [Fluxo Básico](###-Fluxo-Básico)
 2. Fazer um clone de um repositório Git existente em outro lugar.
 
 #### Inicializando um Repositório em um Diretório Existente
