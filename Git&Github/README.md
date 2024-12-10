@@ -154,7 +154,7 @@ Mostra informações sobre o commit v1.0
 - **Erro ao Clonar Repositório:** Checar URL e permissões.
 
 ## 🌟 Recursos Úteis
-# Recursos Úteis
+### Recursos Úteis
 [**Documentação Oficial do Git**](https://git-scm.com/doc)
 
 [**Documentação Oficial do Git em PT-BR**](https://git-scm.com/book/pt-br/v2/Come%c3%a7ando-Sobre-Controle-de-Vers%c3%a3o)
