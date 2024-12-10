@@ -72,7 +72,7 @@ Se você quiser **testar as suas configurações**, você pode usar o comando `g
 ~~~
 
 
-## 🛠️ Principais Comandos do Git
+## Principais Comandos do Git 🛠️
 ### Pedindo ajuda
 Há três formas de acessar a página do manual de ajuda (manpage) para qualquer um dos comandos Git:
 ~~~bash
