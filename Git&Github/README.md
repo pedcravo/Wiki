@@ -66,6 +66,11 @@ Você pode **escolher o editor de texto padrão** que será chamado quando Git p
 >**OBS:** Vim e Emacs são editores de texto populares comumente usados por desenvolvedores em sistemas baseados em Unix como Linux e Max. Se você não for acostumado com estes editores ou estiver em um sistema Windows, você precisará procurar por instruções de como configurar o seu editor preferido com Git. Se você não configurar o seu editor preferido e não sabe usar o Vim ou Emacs, é provável que você fique bastante confuso ao entrar neles.
 Testando Suas Configurações
 
+Também é interessante usar o comando para definir o nome da branch principal.
+~~~bash
+  $ git config --global init.defaultBranch main
+~~~
+
 Se você quiser **testar as suas configurações**, você pode usar o comando `git config --list` para listar todas as configurações que o Git conseguir encontrar naquele momento:
 ~~~bash
   $ git config --list
