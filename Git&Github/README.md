@@ -40,70 +40,48 @@ Para mais informações veja o vídeo: [**Vídeo sobre Git**](https://youtu.be/6
 
 ### Instalação do Git
 Para instalar o git e suas dependencias use o comando:
-```
+~~~bash
   $ apt install git
-```
+~~~
 
 Para mais informações acesse: [Guia oficial de instalação](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Configuração Básica
 A primeira coisa que você deve fazer ao instalar Git é **configurar seu nome de usuário e endereço de e-mail**. Isto é importante porque cada commit usa esta informação, e ela é carimbada de forma imutável nos commits que você começa a criar:
 
-```bash
+~~~bash
   $ git config --global user.name "Seu Nome"
   $ git config --global user.email "seuemail@example.com"
-```
+~~~
 
 Se você quiser substituir essa informação com nome diferente para um projeto específico, você pode rodar o comando sem a opção `--global` dentro daquele projeto.
 
 Muitas ferramentas GUI o ajudarão com isso quando forem usadas pela primeira vez.
 
 Você pode **escolher o editor de texto padrão** que será chamado quando Git precisar que você entre uma mensagem. Se não for configurado, o Git usará o editor padrão, que normalmente é o Vim. Se você quiser usar um editor de texto diferente, como o Emacs, você pode fazer o seguinte:
-```
+~~~bash
   $ git config --global core.editor emacs
-```
+~~~
 
 >OBS: Vim e Emacs são editores de texto populares comumente usados por desenvolvedores em sistemas baseados em Unix como Linux e Max. Se você não for acostumado com estes editores ou estiver em um sistema Windows, você precisará procurar por instruções de como configurar o seu editor preferido com Git. Se você não configurar o seu editor preferido e não sabe usar o Vim ou Emacs, é provável que você fique bastante confuso ao entrar neles.
 Testando Suas Configurações
 
 Se você quiser **testar as suas configurações**, você pode usar o comando `git config --list` para listar todas as configurações que o Git conseguir encontrar naquele momento:
-```
+~~~bash
   $ git config --list
-````
+~~~
 
 
 ## 🛠️ Principais Comandos do Git
 ### Pedindo ajuda
 Se você precisar de ajuda para usar o Git, há três formas de acessar a página do manual de ajuda (manpage) para qualquer um dos comandos Git:
-```
-  $ git help <verb>
-  $ git <verb> --help
-  $ man git-<verb>
-```
-Por exemplo, você pode ver a manpage do commando config rodando: `$ git help config`
 ~~~bash
   $ git help <verb>
   $ git <verb> --help
   $ man git-<verb>
 ~~~
+Por exemplo, você pode ver a manpage do commando config rodando: `$ git help config`
 
-~~~javascript
-  $ git help <verb>
-  $ git <verb> --help
-  $ man git-<verb>
-~~~
-
-~~~php
-  $ git help <verb>
-  $ git <verb> --help
-  $ man git-<verb>
-~~~
-
-~~~ruby
-  $ git help <verb>
-  $ git <verb> --help
-  $ man git-<verb>
-~~~
 
 ### Fluxo Básico
 - Iniciar um repositório: `git init`
