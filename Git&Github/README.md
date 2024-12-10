@@ -148,6 +148,7 @@ Mostra informações sobre o commit v1.0
 - Revise mudanças **antes de fazer o commit**.
 - Resolva conflitos de merge com a**tenção e paciência**.
 
+## Configuração Inicial
 
 ## 🛡️ Problemas Comuns e Soluções
 - **Conflitos de Merge:** Como identificar e resolver conflitos.
