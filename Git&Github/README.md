@@ -14,7 +14,7 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 7. [Recursos Úteis](#--recursos-úteis)
 
 
-## O que é Git e GitHub 🧐
+## 🧐 O que é Git e GitHub
 
 - **Git** é um sistema de controle de versão distribuído usado para rastrear alterações em arquivos e facilitar o trabalho em equipe. Criado em 2005 por Linus Torvalds.
 
@@ -71,8 +71,8 @@ Se você quiser **testar as suas configurações**, você pode usar o comando `g
   $ git config --list
 ~~~
 
-
-## Principais Comandos do Git 🛠️
+ 🛠️
+## Principais Comandos do Git
 ### Pedindo ajuda
 Há três formas de acessar a página do manual de ajuda (manpage) para qualquer um dos comandos Git:
 ~~~bash
