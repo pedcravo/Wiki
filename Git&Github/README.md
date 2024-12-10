@@ -16,7 +16,7 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 
 ## 🧐 O que é Git e GitHub
 
-**Git** é um sistema de controle de versão distribuído usado para rastrear alterações em arquivos e facilitar o trabalho em equipe. Criado em 2005 por Linus Torvalds.
+- **Git** é um sistema de controle de versão distribuído usado para rastrear alterações em arquivos e facilitar o trabalho em equipe. Criado em 2005 por Linus Torvalds.
 
 **GitHub** é uma plataforma para hospedagem de repositórios Git, colaboração em projetos e muito mais.
 
@@ -33,7 +33,7 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 **Merge** é a união do **branch** com o **master**. Internamente é como dar um **diff** na **branch** e usar os **patch**s de cada arquivo resultante para atualizar (dar **commit**) o **master**.
 Em casos de dois ou mais **branchs** o Git compara os **branchs** com o **master** de origem e escolhe a versão modificada mais recente para permanecer, em seguida cria um **commit** de **branch** que torna este o **master** de origem.
 
-Para mais informações acesse: [**Vídeo de Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
+Para mais informações veja o vídeo: [**Vídeo sobre Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
 
 
 ## 🔧 Configuração Inicial
@@ -63,7 +63,7 @@ Você pode **escolher o editor de texto padrão** que será chamado quando Git p
   $ git config --global core.editor emacs
 ```
 
-OBS: Vim e Emacs são editores de texto populares comumente usados por desenvolvedores em sistemas baseados em Unix como Linux e Max. Se você não for acostumado com estes editores ou estiver em um sistema Windows, você precisará procurar por instruções de como configurar o seu editor preferido com Git. Se você não configurar o seu editor preferido e não sabe usar o Vim ou Emacs, é provável que você fique bastante confuso ao entrar neles.
+>OBS: Vim e Emacs são editores de texto populares comumente usados por desenvolvedores em sistemas baseados em Unix como Linux e Max. Se você não for acostumado com estes editores ou estiver em um sistema Windows, você precisará procurar por instruções de como configurar o seu editor preferido com Git. Se você não configurar o seu editor preferido e não sabe usar o Vim ou Emacs, é provável que você fique bastante confuso ao entrar neles.
 Testando Suas Configurações
 
 Se você quiser **testar as suas configurações**, você pode usar o comando `git config --list` para listar todas as configurações que o Git conseguir encontrar naquele momento:
@@ -73,6 +73,38 @@ Se você quiser **testar as suas configurações**, você pode usar o comando `g
 
 
 ## 🛠️ Principais Comandos do Git
+### Pedindo ajuda
+Se você precisar de ajuda para usar o Git, há três formas de acessar a página do manual de ajuda (manpage) para qualquer um dos comandos Git:
+```
+  $ git help <verb>
+  $ git <verb> --help
+  $ man git-<verb>
+```
+Por exemplo, você pode ver a manpage do commando config rodando: `$ git help config`
+~~~bash
+  $ git help <verb>
+  $ git <verb> --help
+  $ man git-<verb>
+~~~
+
+~~~javascript
+  $ git help <verb>
+  $ git <verb> --help
+  $ man git-<verb>
+~~~
+
+~~~php
+  $ git help <verb>
+  $ git <verb> --help
+  $ man git-<verb>
+~~~
+
+~~~ruby
+  $ git help <verb>
+  $ git <verb> --help
+  $ man git-<verb>
+~~~
+
 ### Fluxo Básico
 - Iniciar um repositório: `git init`
 - Adicionar arquivos **(marcar alterações)**: `git add <arquivo> ou git add`
@@ -136,7 +168,7 @@ Mostra informações sobre o commit v1.0
 
 [**Guia do GitHub**](https://docs.github.com/pt)
 
-[**Vídeo de Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
+[**Vídeo sobre Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
 
 
 
