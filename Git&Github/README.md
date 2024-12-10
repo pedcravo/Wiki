@@ -5,13 +5,13 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 
 ## 📚 Índice
 
-1. [O que é Git e GitHub](#-🧐-O-que-é-Git-e-Github)
+1. [O que é Git e GitHub](#-🧐-o-que-é-git-e-github)
 2. [Configuração Inicial](#configuração-inicial)
 3. [Principais Comandos do Git](#principais-comandos-do-git)
 4. [Fluxos de Trabalho com GitHub](#fluxos-de-trabalho-com-github)
 5. [Boas Práticas](#boas-práticas)
 6. [Problemas Comuns e Soluções](#problemas-comuns-e-soluções)
-7. [Recursos Úteis](#-%F0%9F%8C%9F-Recursos-Úteis)
+7. [Recursos Úteis](#--recursos-úteis)
 
 
 ## 🧐 O que é Git e GitHub
@@ -147,8 +147,6 @@ Mostra informações sobre o commit v1.0
 - Sincronize **frequentemente** seu repositório local com o remoto: ` git pull `
 - Revise mudanças **antes de fazer o commit**.
 - Resolva conflitos de merge com a**tenção e paciência**.
-
-## Configuração Inicial
 
 ## 🛡️ Problemas Comuns e Soluções
 - **Conflitos de Merge:** Como identificar e resolver conflitos.
