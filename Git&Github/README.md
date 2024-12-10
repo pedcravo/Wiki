@@ -74,7 +74,7 @@ Se você quiser **testar as suas configurações**, você pode usar o comando `g
 
 ## 🛠️ Principais Comandos do Git
 ### Pedindo ajuda
-Se você precisar de ajuda para usar o Git, há três formas de acessar a página do manual de ajuda (manpage) para qualquer um dos comandos Git:
+Há três formas de acessar a página do manual de ajuda (manpage) para qualquer um dos comandos Git:
 ~~~bash
   $ git help <verb>
   $ git <verb> --help
@@ -82,6 +82,20 @@ Se você precisar de ajuda para usar o Git, há três formas de acessar a págin
 ~~~
 Por exemplo, você pode ver a manpage do commando config rodando: `$ git help config`
 
+### Iniciando um projeto Git
+Você pode iniciar um projeto Git utilizando duas formas principais:
+1. Usar como base um diretório local que atualmente não está sob controle de versão e transformá-lo em um repositório Git. Segue o [Fluxo Básico](##Fluxo-Básico)
+2. Fazer um clone de um repositório Git existente em outro lugar.
+
+#### Inicializando um Repositório em um Diretório Existente
+- Iniciar um repositório: `git init`
+- Adicionar arquivos **(marcar alterações)**: `git add <arquivo>` ou `git add`
+- Commitar mudanças: `git commit -m "Mensagem do commit"`
+
+#### Clonando um Repositório Existente
+- Clonar/puxar um repositório para sua máquina: `git clone <url> [local]`
+
+Em vez de receber apenas uma cópia para trabalho, o Git recebe uma cópia completa de praticamente todos os dados que o servidor possui.
 
 ### Fluxo Básico
 - Iniciar um repositório: `git init`
