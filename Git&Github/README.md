@@ -63,7 +63,7 @@ Você pode **escolher o editor de texto padrão** que será chamado quando Git p
   $ git config --global core.editor emacs
 ~~~
 
->OBS: Vim e Emacs são editores de texto populares comumente usados por desenvolvedores em sistemas baseados em Unix como Linux e Max. Se você não for acostumado com estes editores ou estiver em um sistema Windows, você precisará procurar por instruções de como configurar o seu editor preferido com Git. Se você não configurar o seu editor preferido e não sabe usar o Vim ou Emacs, é provável que você fique bastante confuso ao entrar neles.
+>**OBS:** Vim e Emacs são editores de texto populares comumente usados por desenvolvedores em sistemas baseados em Unix como Linux e Max. Se você não for acostumado com estes editores ou estiver em um sistema Windows, você precisará procurar por instruções de como configurar o seu editor preferido com Git. Se você não configurar o seu editor preferido e não sabe usar o Vim ou Emacs, é provável que você fique bastante confuso ao entrar neles.
 Testando Suas Configurações
 
 Se você quiser **testar as suas configurações**, você pode usar o comando `git config --list` para listar todas as configurações que o Git conseguir encontrar naquele momento:
@@ -99,20 +99,20 @@ Por exemplo, você pode ver a manpage do commando config rodando: `$ git help co
 - Clonar/puxar um repositório para sua máquina: `git clone <url>`
 - Enviar alterações: `git push`
 - Atualizar repositório local: `git pull`
-```
+~~~bash
   $ git cat-file -p HEAD
   $ git cat-file -p HEAD^{tree}
   $ git cat-file -p f21dc2804e888fee6014d7e5b1ceee533b222c15
   $ git cat-file -p master
-```
+~~~
 Mostram os hashs dos arquivos dos diretórios e das trees.
-```
+~~~bash
   $ git tag
-```
+~~~
 Mostra as versões.
-```
+~~~bash
   $ git cat-file -p v1.0
-```
+~~~
 Mostra informações sobre o commit v1.0 
 
 
