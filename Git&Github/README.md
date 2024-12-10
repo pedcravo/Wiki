@@ -39,18 +39,24 @@ Para mais informações acesse: [**Vídeo de Git**](https://youtu.be/6Czd1Yetaac
 ## 🔧 Configuração Inicial
 
 ### Instalação do Git
-```Bash
-  apt install git
+Para instalar o git e suas dependencias use o comando:
 ```
-Instala git e suas dependências.
+  $ apt install git
+```
 
 Para mais informações acesse: [Guia oficial de instalação](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Configuração Básica
+A primeira coisa que você deve fazer ao instalar Git é configurar seu nome de usuário e endereço de e-mail. Isto é importante porque cada commit usa esta informação, e ela é carimbada de forma imutável nos commits que você começa a criar:
+
 ```bash
-git config --global user.name "Seu Nome"
-git config --global user.email "seuemail@example.com"
+  $ git config --global user.name "Seu Nome"
+  $ git config --global user.email "seuemail@example.com"
 ```
+
+Reiterando, você precisará fazer isso somente uma vez se tiver usado a opção `--global`, porque então o Git usará esta informação para qualquer coisa que você fizer naquele sistema. Se você quiser substituir essa informação com nome diferente para um projeto específico, você pode rodar o comando sem a opção `--global` dentro daquele projeto.
+
+Muitas ferramentas GUI o ajudarão com isso quando forem usadas pela primeira vez.
 
 
 ## 🛠️ Principais Comandos do Git
@@ -70,17 +76,20 @@ git config --global user.email "seuemail@example.com"
 - Clonar/puxar um repositório para sua máquina: `git clone <url>`
 - Enviar alterações: `git push`
 - Atualizar repositório local: `git pull`
-
-      git cat-file -p HEAD
-      git cat-file -p HEAD^{tree}
-      git cat-file -p f21dc2804e888fee6014d7e5b1ceee533b222c15
-      git cat-file -p master
+```
+  $ git cat-file -p HEAD
+  $ git cat-file -p HEAD^{tree}
+  $ git cat-file -p f21dc2804e888fee6014d7e5b1ceee533b222c15
+  $ git cat-file -p master
+```
 Mostram os hashs dos arquivos dos diretórios e das trees.
-
-      git tag
+```
+  $ git tag
+```
 Mostra as versões.
-
-      git cat-file -p v1.0
+```
+  $ git cat-file -p v1.0
+```
 Mostra informações sobre o commit v1.0 
 
 
