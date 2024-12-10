@@ -11,7 +11,7 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 4. [Fluxos de Trabalho com GitHub](#fluxos-de-trabalho-com-github)
 5. [Boas Práticas](#boas-práticas)
 6. [Problemas Comuns e Soluções](#problemas-comuns-e-soluções)
-7. [Recursos Úteis](#-🌟-Recursos-Úteis)
+7. [Recursos Úteis](🌟-Recursos-Úteis)
 
 
 ## 🧐 O que é Git e GitHub
@@ -161,7 +161,5 @@ Mostra informações sobre o commit v1.0
 [**Guia do GitHub**](https://docs.github.com/pt)
 
 [**Vídeo sobre Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
-
-
 
 [**Corte do .git/obj**](https://youtube.com/clip/UgkxdbdLysxqglFwcK8ahZSO3Gkp2QUFTBNI?si=tkoNDcxbL1lW9t_m)
