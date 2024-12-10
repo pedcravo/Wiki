@@ -5,13 +5,13 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 
 ## 📚 Índice
 
-1. [O que é Git e GitHub](#O-que-é-Git-e-Github)
+1. [O que é Git e GitHub](#🧐O-que-é-Git-e-Github)
 2. [Configuração Inicial](#configuração-inicial)
 3. [Principais Comandos do Git](#principais-comandos-do-git)
 4. [Fluxos de Trabalho com GitHub](#fluxos-de-trabalho-com-github)
 5. [Boas Práticas](#boas-práticas)
 6. [Problemas Comuns e Soluções](#problemas-comuns-e-soluções)
-7. [Recursos Úteis](#Recursos-Úteis)
+7. [Recursos Úteis](#🌟-Recursos-Úteis)
 
 
 ## 🧐 O que é Git e GitHub
@@ -154,7 +154,6 @@ Mostra informações sobre o commit v1.0
 - **Erro ao Clonar Repositório:** Checar URL e permissões.
 
 ## 🌟 Recursos Úteis
-## Recursos Úteis
 [**Documentação Oficial do Git**](https://git-scm.com/doc)
 
 [**Documentação Oficial do Git em PT-BR**](https://git-scm.com/book/pt-br/v2/Come%c3%a7ando-Sobre-Controle-de-Vers%c3%a3o)
