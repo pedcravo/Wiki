@@ -84,18 +84,12 @@ Por exemplo, você pode ver a manpage do commando config rodando: `$ git help co
 
 ### Iniciando um projeto Git
 Você pode iniciar um projeto Git utilizando duas formas principais:
-1. Usar como base um diretório local que atualmente não está sob controle de versão e transformá-lo em um repositório Git. Segue o [Fluxo Básico](###-Fluxo-Básico)
-2. Fazer um clone de um repositório Git existente em outro lugar.
-
-#### Inicializando um Repositório em um Diretório Existente
-- Iniciar um repositório: `git init`
-- Adicionar arquivos **(marcar alterações)**: `git add <arquivo>` ou `git add`
-- Commitar mudanças: `git commit -m "Mensagem do commit"`
-
-#### Clonando um Repositório Existente
-- Clonar/puxar um repositório para sua máquina: `git clone <url> [local]`
+1. Usar como base um diretório local que atualmente não está sob controle de versão e transformá-lo em um repositório Git. Neste caso segue-se o **Fluxo Básico**.
+2. Fazer um clone de um repositório Git existente em outro lugar. Neste caso segue-se o **Fluxo Remoto**.
 
 Em vez de receber apenas uma cópia para trabalho, o Git recebe uma cópia completa de praticamente todos os dados que o servidor possui.
+
+
 
 ### Fluxo Básico
 - Iniciar um repositório: `git init`
@@ -109,7 +103,7 @@ Em vez de receber apenas uma cópia para trabalho, o Git recebe uma cópia compl
 - Trocar de branch: `git checkout nome-da-branch`
 - Mesclar branches: `git merge nome-da-branch`
 
-### Remoto
+### Fluxo Remoto
 - Clonar/puxar um repositório para sua máquina: `git clone <url>`
 - Enviar alterações: `git push`
 - Atualizar repositório local: `git pull`
