@@ -11,7 +11,7 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 4. [Fluxos de Trabalho com GitHub](#fluxos-de-trabalho-com-github)
 5. [Boas Práticas](#boas-práticas)
 6. [Problemas Comuns e Soluções](#problemas-comuns-e-soluções)
-7. [Recursos Úteis](🌟-Recursos-Úteis)
+7. [Recursos Úteis](#-%F0%9F%8C%9F-Recursos-Úteis)
 
 
 ## 🧐 O que é Git e GitHub
