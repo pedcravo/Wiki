@@ -1,8 +1,8 @@
-# 🚀 Git e GitHub
+# Git e GitHub
 
 <img src="https://github.com/pedcravo/Wiki/blob/gitgithub_issue%233/Git%26Github/Git.png" width="600px">
 
-## 🌟 Recursos Úteis
+## Recursos Úteis
 [**Documentação Oficial do Git**](https://git-scm.com/doc)
 
 [**Documentação Oficial do Git em PT-BR**](https://git-scm.com/book/pt-br/v2/Come%c3%a7ando-Sobre-Controle-de-Vers%c3%a3o)
@@ -14,3 +14,9 @@
 [**Corte do .git/obj**](https://youtube.com/clip/UgkxdbdLysxqglFwcK8ahZSO3Gkp2QUFTBNI?si=tkoNDcxbL1lW9t_m)
 
 [**Tags no git**](https://medium.com/rafaeltardivo/git-criando-tags-7c34ee6786be)
+
+[**Renomear commit no git**](https://www.atlassian.com/git/tutorials/rewriting-history)
+
+[**Ignorando arquivos de commit no git**](https://www.freecodecamp.org/portuguese/news/gitignore-explicado-o-que-e-o-gitignore-e-como-adiciona-lo-ao-seu-repositorio/)
+
+[**Renomeando branch no git**](https://kinsta.com/pt/base-de-conhecimento/git-rename-branch/)
