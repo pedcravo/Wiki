@@ -7,18 +7,18 @@ Qualquer duvida nos conceitos é só clicar em um dos links na seção [**Recurs
 ## Conceitos
 O **Git** é um sistema controle e versionamento de arquivos distribuído usado para rastrear alterações em arquivos e facilitar o trabalho em equipe.
 
-**Commit** é um registro de alterações feitas em um projeto que captura o estado dos arquivos em um determinado momento (snapshot). Cada commit tem uma chave hash auto-incremento, onde a hash do commit anterior é adicionada a hash do novo commit, tornando assim cada novo commit um ponteiro para o commit anterior. Os commits se assemelham com uma lista encadeada, onde cada um aponta para o seu anterior.
+**Commit** é um registro de alterações feitas em um projeto que captura o estado dos arquivos em um determinado momento (snapshot). **Cada commit tem uma chave hash** auto-incremento, onde a hash do commit anterior é adicionada a hash do novo commit, tornando assim cada novo commit um ponteiro para o commit anterior. Os commits se assemelham com uma lista encadeada, onde **cada um aponta para o seu anterior**.
 Enquanto registro das alterações dos arquivos tem a funçõe de patch do projeto, que pode ser aplicado a qualquer commit para muda-lo para o estado da snapshot tornando assim rápida a transição entre commits.
 
 **Branch** é um caminho diferente que os arquivos do projeto podem tomar além do main. Tem um conceito semelhante ao de multiverso, onde caso algo fosse feito de diferente em determinado momento do tempo uma série de eventos (neste caso commits) podem acontecer sem interferir na linha do tempo original (main ou master).
 
-No git, assim como outros sistemas de versionamento de arquivos, é possível unir duas branchs e seguir o mesmo caminho ou isola-las novamente, este processo é chamado de **merge**. É usado um sistema de 3 chaves para dar merge nos branchs, onde o git compara as alterações feitas em ambas as branchs e no commit em comum entre elas. Em alguns casos é necessário fazer alterações de merge manualmente.
+No git, assim como outros sistemas de versionamento de arquivos, é possível unir duas branchs e seguir o mesmo caminho ou isola-las novamente, este processo é chamado de **merge**. É usado um sistema de **3 chaves** para dar merge nos branchs, onde o git compara as alterações feitas em ambas as branchs e no commit em comum entre elas. Em alguns casos é necessário fazer alterações de merge manualmente.
 
 Os arquivos podem estar em vários estados no sistema do git, como podemos ver nesta imagem:
 
 <img src="https://github.com/pedcravo/Wiki/blob/gitgithub_issue%233/Git%26Github/Git.png" width="600px">
 
-No git é possível desenvolver localmente e manter os arquivos salvos localmente assim como mante-los na nuvem, para isso temos o github (mais famoso na área).
+> No git é possível desenvolver localmente e manter os arquivos salvos localmente bem como envia-los a nuvem, para isso temos o github (mais famoso na área).
 
 O **Github** é uma plataforma de hospedagem de repositórios git, colaboração em projetos e muito mais.É possível fazer conexões remotas de diversas maneiras com esta plataforma, mas iremos abordar apenas a conexão via ssh que é a mais comum e segura.
 
@@ -32,16 +32,38 @@ Caso não tenha e queira gerar chave ssh siga os seguintes passos:
 Para conectar via ssh no github siga os seguintes passos:
 1. Ir para `~/.ssh` e checar os arquivos `id_rsa` e `id_rsa.pub`.
 2. Copiar todo conteúdo do arquivo `id_rsa.pub`.
-3. Acessar seu perfil no Github -> Settings -> "SSH and GPG Keys"
-4. Clicar em "New SSH Key"
-5. Inserir um título e colar o conteúdo de `id_rsa.pub` no campo "Key".
+3. Acessar seu perfil no **Github > Settings > "SSH and GPG Keys"**
+4. Clicar em **"New SSH Key"**.
+5. Inserir um título e colar o conteúdo de `id_rsa.pub` no campo **"Key"**.
 
 ## Fluxos de trabalho
 Como já foi dito, é possível seguir dois caminhos diferentes de trabalho no git sendo o fluxo local e o remoto. 
 
 ### Local
+Ao desenvolver localmente os arquivos serão mantidos na própia máquina.
+
+1. Inicie um projeto git com o comando:
+    ```
+    git init
+    ```
+2. a
 
 ### Remoto
+Caso você opte por manter seus arquivos remotamente, sua máquina irá ter uma cópia dos arquivos enquanto o servidor vai ter a principal. Será possível acessar de qualquer lugar os arquivos que estão na nuvem, porém sempre será necessário fazer o upload dos arquivos.
+
+Neste fluxo de trabalho é possível iniciar de formas diferentes:
+#### Criar o projeto remoto e importando-o com link para sua máquina:
+1. De inicio precisamos criar um projeto no Github;
+2. Ir até a opção **"Code > Local > SSH"** e copiar o link.
+
+    ```Bash
+    git
+    ```
+
+#### Criar o projeto remoto e conectando em um projeto já existente na máquina: 
+Onde o inicio a criação do projeto é semelhante ao fluxo local, porém o diferencial é a conexão dele com o remoto.
+
+Criação de branchs
 
 ## Recursos Úteis
 [**Documentação Oficial do Git**](https://git-scm.com/doc)
