@@ -22,6 +22,8 @@ No git é possível desenvolver localmente e manter os arquivos salvos localment
 
 O **Github** é uma plataforma de hospedagem de repositórios git, colaboração em projetos e muito mais.É possível fazer conexões remotas de diversas maneiras com esta plataforma, mas iremos abordar apenas a conexão via ssh que é a mais comum e segura.
 
+## Conexão Remota com o Github
+
 Caso não tenha e queira gerar chave ssh siga os seguintes passos:
 1. Usar o comando **`ssh-keygen -t rsa`** para criar uma chave ssh na máquina local.
 2. Inserir uma senha forte.
