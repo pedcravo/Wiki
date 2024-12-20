@@ -36,9 +36,12 @@ Para conectar via ssh no github siga os seguintes passos:
 4. Clicar em "New SSH Key"
 5. Inserir um título e colar o conteúdo de `id_rsa.pub` no campo "Key".
 
-## Fluxo de trabalho
+## Fluxos de trabalho
+Como já foi dito, é possível seguir dois caminhos diferentes de trabalho no git sendo o fluxo local e o remoto. 
 
+### Local
 
+### Remoto
 
 ## Recursos Úteis
 [**Documentação Oficial do Git**](https://git-scm.com/doc)
@@ -48,8 +51,6 @@ Para conectar via ssh no github siga os seguintes passos:
 [**Guia do GitHub**](https://docs.github.com/pt)
 
 [**Vídeo sobre Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)
-
-[**Corte do .git/obj**](https://youtube.com/clip/UgkxdbdLysxqglFwcK8ahZSO3Gkp2QUFTBNI?si=tkoNDcxbL1lW9t_m)
 
 [**Tags no git**](https://medium.com/rafaeltardivo/git-criando-tags-7c34ee6786be)
 
