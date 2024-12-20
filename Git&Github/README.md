@@ -1,6 +1,6 @@
 # 🚀 Git e GitHub
 
-
+<img src="https://github.com/pedcravo/Wiki/blob/main/Git&Github/Git.png" width="600px">
 
 ## 🌟 Recursos Úteis
 [**Documentação Oficial do Git**](https://git-scm.com/doc)
