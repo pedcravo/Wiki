@@ -40,19 +40,21 @@ Para conectar via ssh no github siga os seguintes passos:
 Como já foi dito, é possível seguir dois caminhos diferentes de trabalho no git sendo o fluxo local e o remoto. 
 
 ### Local
-Ao desenvolver localmente os arquivos serão mantidos na própia máquina. **Para iniciar e desenvolver** um projeto git local:
+Ao desenvolver localmente os arquivos serão mantidos na própia máquina.
 
+#### Para iniciar um projeto git local:
 1. Crie um diretório para o projeto:
     ```
     mkdir repository
-    cd /home/user/repository
+    cd repository
     ```
 2. Inicie um projeto git com o comando:
     ```
     git init
     ```
 
-Ao iniciar o projeto é criada uma branch principal. **Para criar outras branchs**:
+#### Para criar outras branchs:
+Ao iniciar o projeto é criada uma branch principal. É possível criar outras branchs para trabalhar de forma mais organizada.
 
 1. Criar branch no commit da hash (caso não inserida, é criada no commit atual):
     ```
@@ -67,14 +69,15 @@ Ao iniciar o projeto é criada uma branch principal. **Para criar outras branchs
     git checkout <nome>
     ```
 
-> Criar branch e troca para ela:
+> **Criar branch e troca para ela:**
 >   ```
 >   git checkout -b <nome> <hash>
 >   ```
 
-O projeto foi íniciado, agora é possível **inserir arquivos a branch atual** do projeto:
+O projeto foi íniciado, agora é possível **inserir arquivos a branch atual** do projeto.
 
-1. Criar e editar arquivos no diretório do projeto.
+#### Inserir dados ao projeto:
+1. Criar ou editar arquivos no diretório do projeto.
 2. Adiciona-los a área do stage:
     ```
     git add <arquivo>
@@ -90,24 +93,133 @@ O projeto foi íniciado, agora é possível **inserir arquivos a branch atual** 
     git log
         ou
     git log --oneline --graph --all
+        ou
+    gitk
+    ```
+
+Ainda é possível **ter uma visão das mudanças feitas nos arquivos do projeto**:
+
+- Mostra mudanças entre o arquivo na aréa de edição e do stage:
+    ```
+    git diff
+    ```
+- Mostra mudanças entre o arquivo na areá do stage e o ultimo commit:
+    ```
+    git diff --staged
     ```
 
 ### Remoto
 Caso você opte por manter seus arquivos remotamente, sua máquina irá ter uma cópia dos arquivos enquanto o servidor vai ter a principal. Será possível acessar de qualquer lugar os arquivos que estão na nuvem, porém sempre será necessário fazer o upload dos arquivos.
 
-Neste fluxo de trabalho é possível iniciar de formas diferentes:
-#### Criar o projeto remoto e importando-o com link para sua máquina:
-1. De inicio precisamos criar um projeto no Github;
+#### Para íniciar um projeto git remoto:
+1. De inicio precisamos criar um projeto no Github.
 2. Ir até a opção **"Code > Local > SSH"** e copiar o link.
-
-    ```Bash
-    git
+3. Baixar o projeto remoto no git local para trabalhar no projeto:
+    ```
+    git clone -o <projeto> <ssh>
     ```
 
-#### Criar o projeto remoto e conectando em um projeto já existente na máquina: 
-Onde o inicio a criação do projeto é semelhante ao fluxo local, porém o diferencial é a conexão dele com o remoto.
+Por padrão é baixada a branch principal. Neste fluxo de trabalho **é possível iniciar branchs de formas diferentes**:
 
-Criação de branchs
+#### Criar branch remota com base em uma local:
+1. Criar branch local no commit da hash (caso não inserida, é criada no commit atual):
+    ```
+    git branch <nome> <hash>
+    ```
+2. Ver as branchs locais criadas e conectadas remotamente:
+    ```
+    git branch -vv
+    ```
+3. Entrar na branch criada:
+    ```
+    git checkout <nome>
+    ```
+
+> **Criar branch e troca para ela:**
+>   ```
+>   git checkout -b <nome> <hash>
+>   ```
+
+4. Criar branch remota conectada a local:
+    ```
+    git push -u <remota> <nome>
+    ```
+
+#### Importar branch remota para local:
+1. Criar a branch no github.
+2. Importar branch para local:
+    ```
+    git checkout --track <remota>/<nome>
+    ```
+
+#### Conectar branch remota com uma local
+1. Criar a branch no github.
+2. Criar branch local no commit da hash (caso não inserida, é criada no commit atual):
+    ```
+    git branch <nome> <hash>
+    ```
+3. Ver as branchs locais criadas e conectadas remotamente:
+    ```
+    git branch -vv
+    ```
+4. Entrar na branch criada:
+    ```
+    git checkout <nome>
+    ```
+5. Conectar branch local com remota:
+    ```
+    git branch -u <remota>/<nome>
+    ```
+
+#### Branchs remotas:
+Podemos resumir os comandos para branchs no git em forma de tabela.
+Comandos | Existe local? | Existe remoto?
+:--------- | :------: | :-------:
+push -u | V | X
+checkout --track | X | V
+branch -u | V | V
+
+
+#### Inserir dados ao projeto:
+Agora **para inserir arquivos na branch** atual do projeto, o caminho é muito semelhante ao feito no outro fluxo.
+1. Recuperar dados da branch no servidor e uni-los com os da máquina:
+    ```
+    git pull
+    ```
+2. Criar ou editar arquivos no diretório local do projeto.
+3. Adiciona-los a área do stage:
+    ```
+    git add <arquivo>
+        ou
+    git add *
+    ```
+4. Enviar commit para a branch:
+    ```
+    git commit -am "Descrição do commit"
+    ```
+5. Ver total de commits e onde está projeto local em relação ao remoto:
+    ```
+    git log
+        ou
+    git log --oneline --graph --all
+        ou
+    gitk
+    ```
+6. Enviar mudanças feitar ao servidor:
+    ```
+    git push
+    ```
+
+Assim como no local, é possível **ter uma visão das mudanças feitas nos arquivos do projeto**:
+
+- Mostra mudanças entre o arquivo na aréa de edição e do stage:
+    ```
+    git diff
+    ```
+- Mostra mudanças entre o arquivo na areá do stage e o ultimo commit:
+    ```
+    git diff --staged
+    ```
 
 ## Recursos Úteis
 [**Documentação Oficial do Git**](https://git-scm.com/doc)
