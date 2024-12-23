@@ -40,13 +40,57 @@ Para conectar via ssh no github siga os seguintes passos:
 Como já foi dito, é possível seguir dois caminhos diferentes de trabalho no git sendo o fluxo local e o remoto. 
 
 ### Local
-Ao desenvolver localmente os arquivos serão mantidos na própia máquina.
+Ao desenvolver localmente os arquivos serão mantidos na própia máquina. **Para iniciar e desenvolver** um projeto git local:
 
-1. Inicie um projeto git com o comando:
+1. Crie um diretório para o projeto:
+    ```
+    mkdir repository
+    cd /home/user/repository
+    ```
+2. Inicie um projeto git com o comando:
     ```
     git init
     ```
-2. a
+
+Ao iniciar o projeto é criada uma branch principal. **Para criar outras branchs**:
+
+1. Criar branch no commit da hash (caso não inserida, é criada no commit atual):
+    ```
+    git branch <nome> <hash>
+    ```
+2. Ver as branchs criadas:
+    ```
+    git branch
+    ```
+3. Entrar na branch criada:
+    ```
+    git checkout <nome>
+    ```
+
+> Criar branch e troca para ela:
+>   ```
+>   git checkout -b <nome> <hash>
+>   ```
+
+O projeto foi íniciado, agora é possível **inserir arquivos a branch atual** do projeto:
+
+1. Criar e editar arquivos no diretório do projeto.
+2. Adiciona-los a área do stage:
+    ```
+    git add <arquivo>
+        ou
+    git add *
+    ```
+3. Enviar commit para a branch:
+    ```
+    git commit -am "Descrição do commit"
+    ```
+4. Ver total de commits:
+    ```
+    git log
+        ou
+    git log --oneline --graph --all
+    ```
 
 ### Remoto
 Caso você opte por manter seus arquivos remotamente, sua máquina irá ter uma cópia dos arquivos enquanto o servidor vai ter a principal. Será possível acessar de qualquer lugar os arquivos que estão na nuvem, porém sempre será necessário fazer o upload dos arquivos.
