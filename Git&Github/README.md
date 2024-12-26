@@ -40,7 +40,7 @@ Como já foi dito, é possível seguir dois caminhos diferentes de trabalho no g
 ### Local
 Ao desenvolver localmente os arquivos serão mantidos na própia máquina.
 
-#### Para iniciar um projeto git local
+#### Para iniciar um projeto 
 1. Crie um diretório para o projeto:
     ```
     mkdir repository
@@ -51,7 +51,7 @@ Ao desenvolver localmente os arquivos serão mantidos na própia máquina.
     git init
     ```
 
-#### Para criar outras branchs
+#### Criar branchs
 Ao iniciar o projeto é criada uma branch principal. É possível criar outras branchs para trabalhar de forma mais organizada.
 
 1. Criar branch no commit da hash (caso não inserida, é criada no commit atual):
@@ -74,10 +74,39 @@ Ao iniciar o projeto é criada uma branch principal. É possível criar outras b
 
 O projeto foi íniciado, agora é possível **inserir arquivos a branch atual** do projeto.
 
-#### Unir branchs (merge)
+#### Unir branchs
+Para unir duar branchs executamos o comando merge. Este comando faz um commit que tem como pais o ultimo commit de uma branch b1 e o ultimo commit de b2.
 
+1. Vá para a branch **b1** (que vai ser "principal" na união) e atualize-a:
+    ```
+    git checkout b1
+    ```
+2. Faça merge de **b2** em * *b1**:
+    ```
+    git merge b2
+    ```
+3. Caso ocorra algum conflito entre branchs:
+    - verifique quais arquivos estão em conflito.
+    - edite os arquivos em conflito.
+    - faça commit das alterações.
 
-#### Fazer commits
+#### Navegar entre commits com branch
+É possível modificar o local da branch em relação aos commits, ir adiante ou atrás do commit escolhido para iniciar a branch.
+
+- Para ir para algum **commit em específico** utilize a hash dele para complementar o comando:
+    ```
+    git reset --hard <hash>
+    ```
+- Para ir até um **commit atrás do atual** utilize:
+    ```
+    git reset --hard HEAD^
+    ```
+- Para ir para um **commit onde outra branch está posicionada** utilize:
+    ```
+    git reset --hard <branch>
+    ```
+
+#### Commits
 1. Criar ou editar arquivos no diretório do projeto.
 2. Adiciona-los a área do stage:
     ```
@@ -118,7 +147,7 @@ Ainda é possível **ter uma visão das mudanças feitas nos arquivos do projeto
 ### Remoto
 Caso você opte por manter seus arquivos remotamente, sua máquina irá ter uma cópia dos arquivos enquanto o servidor vai ter a principal. Será possível acessar de qualquer lugar os arquivos que estão na nuvem, porém sempre será necessário fazer o upload dos arquivos.
 
-#### Para íniciar um projeto git remoto
+#### Iníciar um projeto
 1. De inicio precisamos criar um projeto no Github.
 2. Ir até a opção **"Code > Local > SSH"** e copiar o link.
 3. Baixar o projeto remoto no git local para trabalhar no projeto:
@@ -186,7 +215,7 @@ push -u | **V** | **X**
 checkout --track | **X** | **V**
 branch -u | **V** | **V**
 
-#### Unir branchs (merge)
+#### Unir branchs
 Para unir duar branchs executamos o comando merge. Este comando faz um commit que tem como pais o ultimo commit de uma branch b1 e o ultimo commit de b2.
 
 1. Cheque se os branchs que serão unidos estão na máquina:
@@ -216,7 +245,24 @@ Para unir duar branchs executamos o comando merge. Este comando faz um commit qu
     git push
     ```
 
-#### Fazer commits e atualizar remoto
+#### Navegar entre commits com branch
+É possível modificar o local da branch em relação aos commits, ir adiante ou atrás do commit escolhido para iniciar a branch.
+Lembre-se de sempre dar `git pull` antes e `git push` após executar o comando para atualizar o remoto.
+
+- Para ir para algum **commit em específico** utilize a hash dele para complementar o comando:
+    ```
+    git reset --hard <hash>
+    ```
+- Para ir até um **commit atrás do atual** utilize:
+    ```
+    git reset --hard HEAD^
+    ```
+- Para ir para um **commit onde outra branch está posicionada** utilize:
+    ```
+    git reset --hard <branch>
+    ```
+
+#### Commits e atualizar remoto
 Agora **para inserir arquivos na branch** atual do projeto, o caminho é muito semelhante ao feito no outro fluxo.
 1. Recuperar dados da branch no servidor e uni-los com os da máquina:
     ```
@@ -260,6 +306,13 @@ Assim como no local, é possível **ter uma visão das mudanças feitas nos arqu
     ```
     git diff --staged
     ```
+
+#### Issues
+Ao trabalhar remotamente no git é muito comum o uso de issues. Para inserir um commit a uma issue é necessário utilizar o **#n** (sendo **n** o número da issue), este commit ao ser enviado para o servidor vai automáticamente para a issue.
+    ```
+    git commit -am "Este commit vai para a issue (#3)"
+    ```
+
 
 ## Recursos Úteis
 [**Documentação Oficial do Git**](https://git-scm.com/doc)
