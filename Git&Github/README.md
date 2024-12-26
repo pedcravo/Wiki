@@ -1,8 +1,6 @@
 # Git e GitHub
-
 Nesta seção vamos falar sobre o git e github.
 Qualquer duvida nos conceitos é só clicar em um dos links na seção [**Recursos Úteis**](#recursos-úteis).
-
 
 ## Conceitos
 O **Git** é um sistema controle e versionamento de arquivos distribuído usado para rastrear alterações em arquivos e facilitar o trabalho em equipe.
@@ -42,7 +40,7 @@ Como já foi dito, é possível seguir dois caminhos diferentes de trabalho no g
 ### Local
 Ao desenvolver localmente os arquivos serão mantidos na própia máquina.
 
-#### Para iniciar um projeto git local:
+#### Para iniciar um projeto git local
 1. Crie um diretório para o projeto:
     ```
     mkdir repository
@@ -53,7 +51,7 @@ Ao desenvolver localmente os arquivos serão mantidos na própia máquina.
     git init
     ```
 
-#### Para criar outras branchs:
+#### Para criar outras branchs
 Ao iniciar o projeto é criada uma branch principal. É possível criar outras branchs para trabalhar de forma mais organizada.
 
 1. Criar branch no commit da hash (caso não inserida, é criada no commit atual):
@@ -76,7 +74,10 @@ Ao iniciar o projeto é criada uma branch principal. É possível criar outras b
 
 O projeto foi íniciado, agora é possível **inserir arquivos a branch atual** do projeto.
 
-#### Inserir dados ao projeto:
+#### Unir branchs (merge)
+
+
+#### Fazer commits
 1. Criar ou editar arquivos no diretório do projeto.
 2. Adiciona-los a área do stage:
     ```
@@ -84,11 +85,15 @@ O projeto foi íniciado, agora é possível **inserir arquivos a branch atual** 
         ou
     git add *
     ```
-3. Enviar commit para a branch:
+3. Verificar área de stage:
+    ```
+    git status
+    ```
+4. Enviar commit para a branch:
     ```
     git commit -am "Descrição do commit"
     ```
-4. Ver total de commits:
+5. Ver total de commits:
     ```
     git log
         ou
@@ -111,7 +116,7 @@ Ainda é possível **ter uma visão das mudanças feitas nos arquivos do projeto
 ### Remoto
 Caso você opte por manter seus arquivos remotamente, sua máquina irá ter uma cópia dos arquivos enquanto o servidor vai ter a principal. Será possível acessar de qualquer lugar os arquivos que estão na nuvem, porém sempre será necessário fazer o upload dos arquivos.
 
-#### Para íniciar um projeto git remoto:
+#### Para íniciar um projeto git remoto
 1. De inicio precisamos criar um projeto no Github.
 2. Ir até a opção **"Code > Local > SSH"** e copiar o link.
 3. Baixar o projeto remoto no git local para trabalhar no projeto:
@@ -121,7 +126,7 @@ Caso você opte por manter seus arquivos remotamente, sua máquina irá ter uma 
 
 Por padrão é baixada a branch principal. Neste fluxo de trabalho **é possível iniciar branchs de formas diferentes**:
 
-#### Criar branch remota com base em uma local:
+#### Criar branch remota com base em uma local
 1. Criar branch local no commit da hash (caso não inserida, é criada no commit atual):
     ```
     git branch <nome> <hash>
@@ -145,7 +150,7 @@ Por padrão é baixada a branch principal. Neste fluxo de trabalho **é possíve
     git push -u <remota> <nome>
     ```
 
-#### Importar branch remota para local:
+#### Importar branch remota para local
 1. Criar a branch no github.
 2. Importar branch para local:
     ```
@@ -171,16 +176,25 @@ Por padrão é baixada a branch principal. Neste fluxo de trabalho **é possíve
     git branch -u <remota>/<nome>
     ```
 
-#### Branchs remotas:
+#### Branchs remotas
 Podemos resumir os comandos para branchs no git em forma de tabela.
 Comandos | Existe local? | Existe remoto?
 :--------- | :------: | :-------:
-push -u | V | X
-checkout --track | X | V
-branch -u | V | V
+push -u | **V** | **X**
+checkout --track | **X** | **V**
+branch -u | **V** | **V**
+
+#### Unir branchs (merge)
+Para unir duar branchs executamos o comando merge.
+
+#### Caso sejam pai e filho
+Este é o melhor dos casos, onde um é decendente do outro onde um 
 
 
-#### Inserir dados ao projeto:
+#### Caso sejam irmãos
+
+
+#### Fazer commits e atualizar remoto
 Agora **para inserir arquivos na branch** atual do projeto, o caminho é muito semelhante ao feito no outro fluxo.
 1. Recuperar dados da branch no servidor e uni-los com os da máquina:
     ```
@@ -193,11 +207,15 @@ Agora **para inserir arquivos na branch** atual do projeto, o caminho é muito s
         ou
     git add *
     ```
-4. Enviar commit para a branch:
+4. Verificar área de stage:
+    ```
+    git status
+    ```
+5. Enviar commit para a branch:
     ```
     git commit -am "Descrição do commit"
     ```
-5. Ver total de commits e onde está projeto local em relação ao remoto:
+6. Ver total de commits e onde está projeto local em relação ao remoto:
     ```
     git log
         ou
@@ -205,7 +223,7 @@ Agora **para inserir arquivos na branch** atual do projeto, o caminho é muito s
         ou
     gitk
     ```
-6. Enviar mudanças feitar ao servidor:
+7. Enviar mudanças feitar ao servidor:
     ```
     git push
     ```
@@ -216,7 +234,7 @@ Assim como no local, é possível **ter uma visão das mudanças feitas nos arqu
     ```
     git diff
     ```
-- Mostra mudanças entre o arquivo na areá do stage e o ultimo commit:
+- Mostra mudanças entre o arquivo na areá do stage e o último commit:
     ```
     git diff --staged
     ```
