@@ -113,6 +113,8 @@ Ainda é possível **ter uma visão das mudanças feitas nos arquivos do projeto
     git diff --staged
     ```
 
+---
+
 ### Remoto
 Caso você opte por manter seus arquivos remotamente, sua máquina irá ter uma cópia dos arquivos enquanto o servidor vai ter a principal. Será possível acessar de qualquer lugar os arquivos que estão na nuvem, porém sempre será necessário fazer o upload dos arquivos.
 
@@ -185,14 +187,34 @@ checkout --track | **X** | **V**
 branch -u | **V** | **V**
 
 #### Unir branchs (merge)
-Para unir duar branchs executamos o comando merge.
+Para unir duar branchs executamos o comando merge. Este comando faz um commit que tem como pais o ultimo commit de uma branch b1 e o ultimo commit de b2.
 
-#### Caso sejam pai e filho
-Este é o melhor dos casos, onde um é decendente do outro onde um 
-
-
-#### Caso sejam irmãos
-
+1. Cheque se os branchs que serão unidos estão na máquina:
+    ```
+    git branch -vv
+    ```
+2. Troque para a branch **b2** e atualize-a de acordo com o servidor:
+    ```
+    git checkout b2
+    git pull
+    ```
+3. Vá para a branch **b1** (que vai ser "principal" na união) e atualize-a:
+    ```
+    git checkout b1
+    git pull
+    ```
+4. Faça merge de **b2** em **b1**:
+    ```
+    git merge b2
+    ```
+5. Caso ocorra algum conflito entre branchs:
+    - verifique quais arquivos estão em conflito.
+    - edite os arquivos em conflito.
+    - faça commit das alterações.
+6. Atualize o servidor:
+    ```
+    git push
+    ```
 
 #### Fazer commits e atualizar remoto
 Agora **para inserir arquivos na branch** atual do projeto, o caminho é muito semelhante ao feito no outro fluxo.
