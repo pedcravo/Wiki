@@ -78,11 +78,11 @@ O projeto foi íniciado, agora é possível **inserir arquivos a branch atual** 
 Para unir duar branchs executamos o comando merge. Este comando faz um commit que tem como pais o ultimo commit de uma branch b1 e o ultimo commit de b2.
 
 1. Vá para a branch **b1** (que vai ser "principal" na união) e atualize-a:
-    ```
+    ```bash
     git checkout b1
     ```
 2. Faça merge de **b2** em * *b1**:
-    ```
+    ```bash
     git merge b2
     ```
 3. Caso ocorra algum conflito entre branchs:
@@ -94,36 +94,36 @@ Para unir duar branchs executamos o comando merge. Este comando faz um commit qu
 É possível modificar o local da branch em relação aos commits, ir adiante ou atrás do commit escolhido para iniciar a branch.
 
 - Para ir para algum **commit em específico** utilize a hash dele para complementar o comando:
-    ```
+    ```bash
     git reset --hard <hash>
     ```
 - Para ir até um **commit atrás do atual** utilize:
-    ```
+    ```bash
     git reset --hard HEAD^
     ```
 - Para ir para um **commit onde outra branch está posicionada** utilize:
-    ```
+    ```bash
     git reset --hard <branch>
     ```
 
 #### Commits
 1. Criar ou editar arquivos no diretório do projeto.
 2. Adiciona-los a área do stage:
-    ```
+    ```bash
     git add <arquivo>
         ou
     git add *
     ```
 3. Verificar área de stage:
-    ```
+    ```bash
     git status
     ```
 4. Enviar commit para a branch:
-    ```
+    ```bash
     git commit -am "Descrição do commit"
     ```
 5. Ver total de commits:
-    ```
+    ```bash
     git log
         ou
     git log --oneline --graph --all
@@ -134,11 +134,11 @@ Para unir duar branchs executamos o comando merge. Este comando faz um commit qu
 Ainda é possível **ter uma visão das mudanças feitas nos arquivos do projeto**:
 
 - Mostra mudanças entre o arquivo na aréa de edição e do stage:
-    ```
+    ```bash
     git diff
     ```
 - Mostra mudanças entre o arquivo na areá do stage e o ultimo commit:
-    ```
+    ```bash
     git diff --staged
     ```
 
@@ -159,51 +159,51 @@ Por padrão é baixada a branch principal. Neste fluxo de trabalho **é possíve
 
 #### Criar branch remota com base em uma local
 1. Criar branch local no commit da hash (caso não inserida, é criada no commit atual):
-    ```
+    ```bash
     git branch <nome> <hash>
     ```
 2. Ver as branchs locais criadas e conectadas remotamente:
-    ```
+    ```bash
     git branch -vv
     ```
 3. Entrar na branch criada:
-    ```
+    ```bash
     git checkout <nome>
     ```
 
 > **Criar branch e troca para ela:**
->   ```
+>   ```bash
 >   git checkout -b <nome> <hash>
 >   ```
 
 4. Criar branch remota conectada a local:
-    ```
+    ```bash
     git push -u <remota> <nome>
     ```
 
 #### Importar branch remota para local
 1. Criar a branch no github.
 2. Importar branch para local:
-    ```
+    ```bash
     git checkout --track <remota>/<nome>
     ```
 
 #### Conectar branch remota com uma local
 1. Criar a branch no github.
 2. Criar branch local no commit da hash (caso não inserida, é criada no commit atual):
-    ```
+    ```bash
     git branch <nome> <hash>
     ```
 3. Ver as branchs locais criadas e conectadas remotamente:
-    ```
+    ```bash
     git branch -vv
     ```
 4. Entrar na branch criada:
-    ```
+    ```bash
     git checkout <nome>
     ```
 5. Conectar branch local com remota:
-    ```
+    ```bash
     git branch -u <remota>/<nome>
     ```
 
@@ -219,21 +219,21 @@ branch -u | **V** | **V**
 Para unir duar branchs executamos o comando merge. Este comando faz um commit que tem como pais o ultimo commit de uma branch b1 e o ultimo commit de b2.
 
 1. Cheque se os branchs que serão unidos estão na máquina:
-    ```
+    ```bash
     git branch -vv
     ```
 2. Troque para a branch **b2** e atualize-a de acordo com o servidor:
-    ```
+    ```bash
     git checkout b2
     git pull
     ```
 3. Vá para a branch **b1** (que vai ser "principal" na união) e atualize-a:
-    ```
+    ```bash
     git checkout b1
     git pull
     ```
 4. Faça merge de **b2** em **b1**:
-    ```
+    ```bash
     git merge b2
     ```
 5. Caso ocorra algum conflito entre branchs:
@@ -241,7 +241,7 @@ Para unir duar branchs executamos o comando merge. Este comando faz um commit qu
     - edite os arquivos em conflito.
     - faça commit das alterações.
 6. Atualize o servidor:
-    ```
+    ```bash
     git push
     ```
 
@@ -250,41 +250,41 @@ Para unir duar branchs executamos o comando merge. Este comando faz um commit qu
 Lembre-se de sempre dar `git pull` antes e `git push` após executar o comando para atualizar o remoto.
 
 - Para ir para algum **commit em específico** utilize a hash dele para complementar o comando:
-    ```
+    ```bash
     git reset --hard <hash>
     ```
 - Para ir até um **commit atrás do atual** utilize:
-    ```
+    ```bash
     git reset --hard HEAD^
     ```
 - Para ir para um **commit onde outra branch está posicionada** utilize:
-    ```
+    ```bash
     git reset --hard <branch>
     ```
 
 #### Commits e atualizar remoto
 Agora **para inserir arquivos na branch** atual do projeto, o caminho é muito semelhante ao feito no outro fluxo.
 1. Recuperar dados da branch no servidor e uni-los com os da máquina:
-    ```
+    ```bash
     git pull
     ```
 2. Criar ou editar arquivos no diretório local do projeto.
 3. Adiciona-los a área do stage:
-    ```
+    ```bash
     git add <arquivo>
         ou
     git add *
     ```
 4. Verificar área de stage:
-    ```
+    ```bash
     git status
     ```
 5. Enviar commit para a branch:
-    ```
+    ```bash
     git commit -am "Descrição do commit"
     ```
 6. Ver total de commits e onde está projeto local em relação ao remoto:
-    ```
+    ```bash
     git log
         ou
     git log --oneline --graph --all
@@ -292,24 +292,24 @@ Agora **para inserir arquivos na branch** atual do projeto, o caminho é muito s
     gitk
     ```
 7. Enviar mudanças feitar ao servidor:
-    ```
+    ```bash
     git push
     ```
 
 Assim como no local, é possível **ter uma visão das mudanças feitas nos arquivos do projeto**:
 
 - Mostra mudanças entre o arquivo na aréa de edição e do stage:
-    ```
+    ```bash
     git diff
     ```
 - Mostra mudanças entre o arquivo na areá do stage e o último commit:
-    ```
+    ```bash
     git diff --staged
     ```
 
 #### Issues
 Ao trabalhar remotamente no git é muito comum o uso de issues. Para inserir um commit a uma issue é necessário utilizar o **#n** (sendo **n** o número da issue), este commit ao ser enviado para o servidor vai automáticamente para a issue.
-    ```
+    ```bash
     git commit -am "Este commit vai para a issue (#3)"
     ```
 
