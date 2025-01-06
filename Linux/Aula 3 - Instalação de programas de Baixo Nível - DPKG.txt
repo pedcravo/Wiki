@@ -1,0 +1,43 @@
+// Aula 1 - Acesso remoto do servidor e host usando SSH.txt
+
+DPKG
+
+# dpkg --help
+
+# dpkg -l vim
+
+# dpkg -l | grep vim
+
+# dpkg -l | less
+
+# dpkg -s vim
+
+wget http://archive.ubuntu.com/ubuntu/pool/main/a/automake-1.15/automake_1.15.1-3ubuntu2_all.deb
+
+# dpkg -i automake_1.15.1-3ubuntu2_all.deb
+
+dpkg: erro ao processar o pacote automake (--install)
+
+# apt-get install -f
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

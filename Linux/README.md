@@ -64,3 +64,28 @@ Aqui estão os temas disponíveis para explorar os comandos Linux:
 
 17. [Troca de Usuário](./TrocaDeUsuário/README.md)  
     Comandos para trocar de usuário ou executar comandos como outro usuário, como `su`, `sudo`.
+
+
+## Formatação:
+```markdown
+## `comando`
+
+### Para que serve?
+
+
+### Opções:
+- `opção` →
+
+### Sintaxe comum:
+**`Sintaxe`**
+
+### Exemplos:
+`Exemplo 1` →
+
+`Exemplo 2` →
+
+### Máterial Complementar:
+https://link;comum.com.br/
+
+---
+```
