@@ -1,3 +1,52 @@
+# Comandos de manipulação do sistema
+
+Nesta sessão vamos ver os comandos que são utilizados para manipular o sistema, ou seja, os comandos que mexem nas configurações do sistema e dos processos.
+
+### Comandos:
+
+1. [`&`](#&)
+2. [`at`](#at)
+3. [`bg`](#bg)
+4. [`fg`](#fg`)
+5. [`cron` e `anacron`](#cron-e-anacron)
+6. [`date`](#date)
+7. [`dnstop`](#dnstop)
+8. [`fdisk`](#fdisk)
+9. [`free`](#free)
+10. [`history`](#history)
+11. [`hostname`](#hostname)
+12. [`htop`](#htop)
+13. [`ifconfig`](#ifconfig)
+14. [`ionice`](#ionice)
+15. [`iostat`](#iostat)
+16. [`iperf`](#iperf)
+17. [`jobs`](#jobs)
+18. [`kill`](#kill)
+19. [`mii-tool` e `ethtool`]()
+20. [`modprobe`]()
+21. [`mount` e `unmount`]()
+22. [`nice`]()
+23. [`renice`]()
+24. [`nmcli` e `nmtui`]()
+25. [`pgrep`]()
+26. [`ps`]()
+27. [`pstree`]()
+28. [`rsync`]()
+29. [`sar`]()
+30. [`sftp`]()
+31. [`ssh`]()
+32. [`swapon`]()
+33. [`systemctl`]()
+34. [`tmux`]()
+35. [`top`]()
+36. [`tty`]()
+37. [`tzselect`]()
+38. [`uname`]()
+39. [`uptime`]()
+40. [`vmstat`]()
+
+## `cron` e `anacron`
+
 ## `top`
 
 ### Para que serve?
