@@ -1,0 +1,49 @@
+// Aula 8 - Compreendendo o serviço Cron
+
+# crontab -e
+
+# select-editor
+
+# tarefa 1
+30 22 2,10 * * root echo "Teste de Cron!" 
+
+# tarefa 12
+30 22 2,10 * * root systemctl restart sshd
+
+Para Ubuntu/Debian, não precisa colocar o nome do usuário:
+
+# tarefa 1
+* * * * * echo "Teste de Cron!"
+
+# tarefa 2
+1 * * * * echo "Teste de Cron!"
+
+systemctl restart crond.service (RHEL/CentOS)
+
+Ou:
+
+systemctl restart cron.service  (Debian/Ubuntu)
+
+E para deixar habilitado:
+
+systemctl enable cron.service
+
+Ou
+
+systemctl enable crond.service
+
+# tail -100 /var/log/syslog
+
+Ou:
+
+# tail /var/log/cron
+
+@daily /usr/local/bin/db_backup.sh
+
+
+
+
+
+
+
+

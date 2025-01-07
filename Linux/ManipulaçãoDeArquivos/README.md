@@ -4,189 +4,21 @@ Nesta seção, exploramos comandos que permitem manipular arquivos e diretórios
 
 ### Comandos:
 
-1. [`chgrp`](#chgrp)
-2. [`chmod`](#chmod)
-3. [`chown`](#chown)
-4. [`cp`](#cp)
-5. [`dd`](#dd)
-6. [`expand`](#expand)
-7. [`unexpand`](#unexpand)
-8. [`ln`](#ln)
-11. [`mv`](#mv)
-12. [`paste`](#paste)
-13. [`rm`](#rm)
-9. [`mkdir`](#mkdir)
-10. [`rmdir`](#rmdir)
+1. [`cp`](#cp)
+2. [`dd`](#dd)
+3. [`diff`](#diff) WIP
+4. [`expand`](#expand)
+5. [`unexpand`](#unexpand)
+6. [`ln`](#ln)
+7.  [`mv`](#mv)
+8.  [`paste`](#paste)
+9.  [`rm`](#rm)
+10. [`mktemp`](#mktemp)
+11. [`mkdir`](#mkdir)
+12. [`rmdir`](#rmdir)
+13. [`rsync`](#rsync)
 14. [`split`](#split)
 15. [`touch`](#touch)
-
----
-
-## `chgrp`
-
-### Para que serve?
-O comando `chgrp` (Change Group) é usado para **modificar a propriedade do grupo associado a um arquivo**, permitindo que grupos diferentes tenham controle de leitura, escrita ou execução sobre o arquivo.
-
-Esse comando é especialmente útil em ambientes multi usuário, onde diferentes grupos de trabalho precisam gerenciar arquivos em conjunto.
-
-#### Arquivos Relacionados:
-- `/etc/group`: Contém informações sobre grupos de usuários no sistema.
-
-### Opções:
-- `-c` → Exibe as alterações feitas. Similar ao `-v`, mas mostra apenas quando uma alteração de grupo ocorre.
-- `-f` → Suprime a maioria das mensagens de erro. Se houver falhas no comando, elas não serão exibidas no terminal.
-- `-h` → Afeta links simbólicos em vez dos arquivos apontados por eles. Usado em sistemas que permitem alterar a propriedade de links simbólicos.
-- `-R` → Aplica a mudança de grupo a todos os arquivos e subdiretórios dentro de um diretório.
-- `--reference=RFILE` → Altera o grupo de um arquivo ou diretório com base nas permissões de grupo do `RFILE` especificado.
-- `-v` → Mostra um diagnóstico para cada arquivo processado, independentemente de ter sido alterado ou não.
-
-### Sintaxe comum:
-**`$ chgrp [OPÇÕES] GRUPO ARQUIVO`**
-
-### Exemplos:
-`# chgrp backend file.txt` → Altera o grupo proprietário do arquivo para o grupo `backend`.
-
-`# chgrp -R staff /office/files` → Altera recursivamente o grupo de todos os arquivos e diretórios dentro de `/office/files`.
-
-`# chgrp --reference=arquivo.exe file.txt` → Altera o grupo do arquivo `file.txt` para o mesmo grupo de `arquivo.exe`.
-
-`# chgrp -h backend link_sim` → Altera o grupo dono do link simbólico sem alterar o arquivo base (o arquivo na qual ele aponta).
-
-### Máterial Complementar:
-<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/ChgrpChmodChown.png" width="600px">
-
-<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/PermissoesQuadro.png" width="600px">
-
-https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-chgrp/
-
----
-
-## `chmod`
-
-### Para que serve?
-Utilizado para **alterar as permissões de usuários** sobre arquivos e diretórios.
-
-**Somente o usuário root e o owner podem alterar as permissões**
-
-### Sistema de Permissões:
-`----------` ↔ `-|---|---|---|` ↔ `-|u|g|o|`
-
-#### Classificação do Arquivo: (-)--- --- ---
-- `-` → **tipo** → Indica se é arquivo (-) ou diretório (d) ou link (l).
-
-#### Grupos de Permissões: -(---)(---)(---)
-- `u` → **user** → Dono/criador do arquivo.
-- `g` → **group** → Usuários do grupo dono.
-- `o` → **others** → Outros usuários.
-- `a` → **all** → Todos.
-
-#### Permissões em cada Grupo:
-- `r` → **read** → Permissão para ver o que tem no arquivo.
-- `w` → **write** → Permissão para modificar o arquivo.
-- `x` → **execute** → Permissão para executar/rodar o programa (script).
-
-#### Utiliza o sistema octal para conceder permissões
-Binário | Octal
-:----:|:----:
-000 | 0
-001 | 1
-010 | 2
-011 | 3
-100 | 4
-101 | 5
-110 | 6
-111 | 7
-
-### Opções:
-- `U+P` → Qualquer usuário `+` permissão.
-- `U-P` → Qualquer usuário `-` permissão.
-- `ugo` → Número das permissões de cada usuário na ordem.
-
-#### Permissões comuns:
-- `644` - File Baseline.
-- `755` - Directory Baseline.
-- `400` - Key Pair.
-
-### Sintaxe comum:
-**`$ chmod PERMISSÃO ARQUIVO`**
-
-### Exemplos:
-`$ chmod u+r arquivo.png` → Dá permissão de `read` ao `owner`, as permissões se tornarão → `-r--rw-r-x`.
-
-`$ chmod g-r arquivo.png` → Tira a permissão de `read` ao `group`, as permissões se tornarão → `-r---w-r-x`.
-
-`$ chmod g+rx arquivo.png` → Dá permissão de `read` e `execute` ao `group`, as permissões se tornarão → `-r--rwxr-x`.
-
-`$ chmod a-r arquivo.png` → Dá permissão de `read` ao `owner`, as permissões se tornarão → `-----wx--x`.
-
-### Máterial Complementar:
-<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/ChgrpChmodChown.png" width="600px">
-
-<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/PermissoesQuadro.png" width="600px">
-
-https://labex.io/tutorials/linux-logical-commands-and-redirection-387332
-
-https://www.youtube.com/watch?v=LnKoncbQBsM
-
----
-
-## `chown`
-
-### Para que serve?
-Utilizado para **gerenciar permissões, alterar o proprietário e/ou grupo** de um arquivo ou diretório.
-O chown também pode ser usado para **alterar as permissões de diretórios de maneira recursiva**, alterando o proprietário de todos os arquivos e subdiretórios.
-
-É possível checar alterações no arquivo com `ls -l`.
-
-**Comando funciona melhor com sudo.**
-
-### Opções:
-- `-h` → Usado para mudar o dono do link simbólico.
-- `-R` → Utilizado para fazer a mudança de dono dos arquivos de forma recursiva.
-- `-v` → Modo verboso, exibe uma mensagem para cada arquivo que é modificado.
-
-### Sintaxe comum:
-#### Em arquivos
-**`$ chown [OPÇÕES] USUARIO :GRUPO ARQUIVO`**
-
-#### Em diretórios
-**`$ chown [OPÇÕES] USUARIO :GRUPO /DIRETORIO`**
-
-#### Em Links Simbólicos
-**`$ chown [OPÇÕES] USUARIO :GRUPO LINK`**
-
-### Exemplos:
-#### Em Arquivos
-`$ chown pedro arquivo.txt` → Muda o dono do arquivo para `pedro`.
-
-`$ chown pedro:backend arquivo.txt` → Muda o dono do arquivo para `pedro` e o grupo do arquivo para `backend`.
-
-`$ chown :backend arquivo.txt` → Muda o grupo do arquivo para `backend`.
-
-`$ chown --reference=arquivo1 arquivo2` → Altera o dono e o grupo do `arquivo2` para os mesmos do `arquivo1`.
-
-#### Em Diretórios
-`$ chown root /dir` → Muda o dono do diretório para `root`.
-
-`$ chown root:backend /dir` → Muda o dono do diretório para `root` e o grupo do diretório para `backend`.
-
-`$ chown :backend /dir` → Muda o grupo do diretório para `backend`.
-
-`$ chown -R pedro:backend ~/Downloads` → Altera o dono e o grupo do diretório `Downloads` e de todos os arquivos dentro dele de forma recursiva.
-
-#### Em Links Simbólicos
-`$ chown pedro link_arquivo` → Altera o dono do arquivo base do link.
-
-`$ chown -h pedro link_arquivo` → Altera o dono do link simbólico.
-
-### Máterial Complementar:
-<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/ChgrpChmodChown.png" width="600px">
-
-<img src="https://github.com/pedcravo/Wiki/blob/main/Linux/PermissoesQuadro.png" width="600px">
-
-https://labex.io/tutorials/linux-logical-commands-and-redirection-387332
-
-https://www.youtube.com/watch?v=LnKoncbQBsM
 
 ---
 
@@ -231,16 +63,73 @@ https://labex.io/tutorials/linux-linux-cp-command-file-copying-209744
 
 ---
 
-## `dd`
+## `diff`
 
 ### Para que serve?
 
+
 ### Opções:
+- `opção` →
 
 ### Sintaxe comum:
-**`$ dd if=ORIGEM of=DESTINO [OPÇÕES]`**
+**`Sintaxe`**
 
 ### Exemplos:
+`Exemplo 1` →
+
+`Exemplo 2` →
+
+### Máterial Complementar:
+https://link;comum.com.br/
+
+---
+
+## `dd`
+
+### Para que serve?
+O comando `dd` é utilizado no Linux para realizar a **cópia e conversão de dados entre arquivos ou dispositivos.** Ele é altamente flexível e pode ser usado para criar backups, clonar discos, gerar arquivos com tamanhos específicos, criar dispositivos bootáveis, entre outras tarefas relacionadas à manipulação de dados em baixo nível.
+
+Funcionamento Geral:
+• `if` (input file): Especifica o arquivo de origem.
+• `of` (output file): Especifica o arquivo de destino.
+• **Bloco de Leitura e Escrita:** A cópia é feita em blocos configuráveis, definidos por opções como `bs`, `ibs`, ou `obs`.
+• **Conversões:** Permite converter formatos de dados, como transformar texto em maiúsculas, ou manipular bytes.
+
+### Opções:
+- `if=ARQUIVO` → Especifica o arquivo ou dispositivo de entrada (input file).
+- `of=ARQUIVO` → Especifica o arquivo ou dispositivo de saída (output file).
+- `bs=N` → Define o tamanho do bloco para leitura e escrita como N bytes (exemplo: bs=4M para blocos de 4 MB).
+- `ibs=N` → Define o tamanho do bloco de entrada como N bytes.
+- `obs=N` → Define o tamanho do bloco de saída como N bytes.
+- `count=N` → Copia apenas N blocos da entrada.
+- `skip=N` → Ignora os primeiros N blocos da entrada.
+- `seek=N` → Pula os primeiros N blocos no arquivo de saída.
+- `conv=tipo` → Realiza conversões específicas:
+     1. `notrunc`: Não trunca o arquivo de saída.
+     2. `sync`: Preenche blocos parciais com zeros.
+     3. `ucase`: Converte para maiúsculas.
+     4. `lcase`: Converte para minúsculas.
+- `status=tipo` → Controla a saída do progresso:
+     1. `none`: Suprime toda saída.
+     2. `progress`: Mostra progresso durante a operação.
+
+### Sintaxe comum:
+**`$ dd if=ARQUIVO_ORIGEM of=ARQUIVO_DESTINO [OPÇÕES]`**
+
+### Exemplos:
+`$ dd if=/dev/cdrom of=imagem.iso bs=4M status=progress` → Copia os dados do dispositivo `/dev/cdrom` e cria um arquivo de imagem ISO chamado `imagem.iso` em blocos de 4 MB e exibe o progresso.
+
+`# dd if=/dev/sda of=/dev/sdb bs=1M status=progress` → Clona o disco `/dev/sda` para `/dev/sdb` em blocos de 1 MB.
+
+`$ dd if=/dev/zero of=arquivo_teste bs=1M count=100` → Cria um arquivo chamado `arquivo_teste` com 100 MB preenchidos com zeros.
+
+`# dd if=arquivo.iso of=/dev/sdX bs=4M status=progress` → Escreve a imagem arquivo.iso diretamente no dispositivo `/dev/sdX` (substitua pelo seu dispositivo USB).
+
+`# dd if=/dev/sda of=mbr_backup.img bs=512 count=1` → Copia os primeiros 512 bytes do disco `/dev/sda` (o MBR) para o arquivo `mbr_backup.img`.
+
+`# dd if=mbr_backup.img of=/dev/sda bs=512 count=1` → Restaura o MBR salvo anteriormente no disco `/dev/sda`.
+
+`$ echo "exemplo de texto" | dd conv=ucase` → Converte o texto de entrada para maiúsculas.
 
 ### Máterial Complementar:
 https://www.linuxdescomplicado.com.br/2016/11/alguns-exemplos-de-que-o-comando-dd-pode-ser-considerado-umas-das-ferramentas-mais-versateis-do-linux.html
@@ -443,6 +332,44 @@ https://labex.io/tutorials/linux-linux-rm-command-file-removing-209741
 
 ---
 
+## `mktemp`
+
+### Para que serve?
+O comando `mktemp` é usado para **criar arquivos e diretórios temporários de forma segura no Linux.** Esses arquivos ou diretórios recebem nomes únicos e geralmente são usados para armazenar dados temporários durante a execução de scripts ou comandos.
+
+Os arquivos ou diretórios criados com `mktemp` não são automaticamente excluídos, a menos que sejam removidos explicitamente ou que o sistema seja reinicializado (dependendo da localização do arquivo).
+
+### Opções:
+- `-d` → Cria um diretório temporário em vez de um arquivo.
+- `-p DIR` → Especifica o diretório onde o arquivo ou diretório temporário será criado.
+- `-q` → Não exibe mensagens de erro no caso de falhas.
+- `-t` → Usa um prefixo padrão e cria o arquivo ou diretório temporário no `/tmp`.
+- `--suffix=SUFFIX` → Adiciona um sufixo ao nome do arquivo temporário.
+- `-u` → Remove o arquivo ou diretório logo após a criação (geralmente não recomendado por motivos de segurança).
+
+### Sintaxe comum:
+**`$ mktemp [OPÇÕES] [PADRÃO]`**
+
+### Exemplos:
+`$ mktemp` → Cria um arquivo temporário com um nome único no diretório atual.
+
+`$ mktemp -d` → Cria um diretório temporário no /tmp com um nome único.
+
+`$ mktemp arquivo_XXXXXX` → Cria um arquivo com o prefixo "`arquivo_`" e substitui os "`X`" por caracteres aleatórios.
+
+`$ mktemp -p /home/user/temp_files` → Cria o arquivo temporário no diretório /home/user/temp_files.
+
+`$ mktemp --suffix=.log` → Cria um arquivo temporário que termina com a extensão `.log`.
+
+`$ mktemp -u` → Cria um arquivo temporário e o remove em seguida.
+
+### Máterial Complementar:
+https://sempreupdate.com.br/linux/comandos/guia-completo-para-o-comando-mktemp-no-linux/
+
+https://www.gnu.org/software/autogen/mktemp.html
+
+---
+
 ## `mkdir`
 
 ### Para que serve?
@@ -494,6 +421,52 @@ O comando `rmdir` é utilizado para **remover um ou mais diretórios vazios**.
 
 ### Máterial Complementar:
 https://guialinux.uniriotec.br/rmdir/
+
+---
+
+## `rsync`
+
+### Para que serve?
+O comando `rsync` é uma ferramenta robusta para **copiar e sincronizar arquivos e diretórios de forma eficiente.** Ele utiliza um algoritmo que transfere apenas as diferenças entre a origem e o destino, economizando tempo e largura de banda.
+
+- **Sincronizar arquivos e diretórios:** Pode ser usado localmente ou entre sistemas remotos via SSH.
+- **Backup:** Ideal para backups incrementais, pois transfere apenas arquivos novos ou modificados.
+- **Transferência eficiente:** Transfere dados usando compressão e verificações de integridade.
+
+#### Arquivos Relacionados:
+**Log de transferência:** É possível salvar logs de execução adicionando `--log-file=NOME_ARQUIVO`.
+
+### Opções:
+- `-a` → Habilita o modo de arquivamento, preserva permissões, timestamps, links simbólicos e mais.
+- `-v` → Mostra os arquivos sendo transferidos.
+- `-z` → Habilita compressão durante a transferência.
+- `-r` → Copia diretórios recursivamente.
+- `-u` → Evita substituir arquivos mais novos no destino.
+- `-e` → Permite especificar um shell remoto, como SSH.
+- `--progress` → Mostra o progresso detalhado da transferência.
+- `-P` → Combina `--progress` e `--partial`, permitindo reiniciar transferências interrompidas.
+- `--delete` → Remove do destino os arquivos que não estão na origem.
+- `--exclude=PADRÃO` → Exclui arquivos ou diretórios que correspondem ao `PADRÃO` fornecido.
+- `--dry-run` → Simula a execução do comando sem fazer alterações.
+- `--bwlimit=KB/s` → Limita a largura de banda usada para a transferência.
+
+### Sintaxe comum:
+**`$ rsync [OPÇÕES] ORIGEM DESTINO`**
+
+### Exemplos:
+`$ rsync -av /origem/diretorio/ /destino/diretorio/` → Copia recursivamente todos os arquivos de `/origem/diretorio/` para `/destino/diretorio/`, preserva permissões, timestamps e links simbólicos. O uso de `/` ao final de `/origem/diretorio/` copia apenas o conteúdo, e não o diretório em si.
+
+`$ rsync -avz -e ssh /origem/diretorio/ usuario@servidor:/destino/diretorio/` → Utiliza o SSH para transferir arquivos com segurança e comprime os dados durante a transferência.
+
+`$ rsync -av --progress /origem/diretorio/ /destino/diretorio/` → Mostra os detalhes e progresso de cada arquivo sendo transferido.
+
+`$ rsync -av --exclude="*.log" /origem/ /destino/` → Ignora arquivos com a extensão .log.
+
+`$ rsync -av --delete /origem/ /destino/` → Remove do destino os arquivos que não existem mais na origem.
+
+`$ rsync -av --dry-run /origem/ /destino/` → Mostra o que seria feito, sem realmente executar a sincronização.
+
+`$ rsync -av --bwlimit=100 /origem/ usuario@servidor:/destino/` → Limita a transferência a `100 KB/s`.
 
 ---
 

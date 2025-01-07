@@ -5,9 +5,11 @@ Nesta sessão vamos ver os comandos que são utilizados para manipular aplicaç�
 ### Comandos:
 1. [`apt`](#apt)
 2. [`aptitude`](#aptitude)
-3. [`dpkg`](#dpkg)
-4. [`flatpak`](#flatpak)
-5. [`snap`](#snap)
+3. [`conigure`](#configure)
+4. [`dpkg`](#dpkg)
+5. [`flatpak`](#flatpak)
+6. [`ppa`](#ppa)
+7. [`snap`](#snap)
 
 
 ## `apt`
@@ -75,6 +77,28 @@ O comando `aptitude` é uma **ferramenta de gerenciamento de pacotes no Debian e
 ### Exemplos:
 `# aptitude` → Abre interface de instalação.
 
+---
+
+## `configure`
+
+### Para que serve?
+O comando `configure` é utilizado em sistemas Linux/Unix para **preparar um pacote de software para compilação e instalação.** Ele é um script autogerado pela ferramenta *Autoconf* e verifica o ambiente do sistema para garantir que todas as dependências e configurações necessárias estejam disponíveis antes de compilar o software.
+O `configure` ajusta automaticamente as configurações do sistema ao pacote, criando um arquivo `Makefile` personalizado para a execução do comando `make`.
+
+**Funcionalidades principais:**
+- **Detectar dependências:** Verifica se as bibliotecas e ferramentas necessárias estão disponíveis no sistema.
+- **Configuração personalizada:** Permite ao usuário definir diretórios de instalação, habilitar ou desabilitar recursos do pacote.
+- **Flexibilidade do sistema:** Garante que o pacote seja compatível com diferentes sistemas e ambientes.
+
+### Opções:
+- `--prefix=DIRETÓRIO` → Especifica o diretório onde o software será instalado. O padrão é /usr/local.
+- `--disable-FEATURE` → Desabilita uma funcionalidade específica do pacote.
+- `--enable-FEATURE` → Habilita uma funcionalidade específica do pacote.
+- `--with-PACKAGE` → Força a inclusão de uma biblioteca ou recurso adicional.
+- `--without-PACKAGE` → Exclui uma biblioteca ou recurso adicional.
+
+### Sintaxe comum:
+**`$ ./configure [OPÇÕES]`**
 
 ---
 
@@ -139,7 +163,16 @@ Para ter informações completas é necessário utilizar o usuário `root`.
 
 ### Máterial Complementar:
 
-Arquivo aula 3 [!INCLUDE [Aula 3](https://github.com/pedcravo/Wiki/blob/main/Linux/Aula 3 - Instalação de programas de Baixo Nível - DPKG.txt)]
+https://github.com/pedcravo/Wiki/blob/main/Linux/Aula 3 - Instalação de programas de Baixo Nível - DPKG.txt
+
+---
+
+## `ppa`
+
+### Para que serve?
+O `PPA` (Personal Package Archive) é uma funcionalidade do sistema de gerenciamento de pacotes do Ubuntu e derivados que **permite aos usuários adicionar repositórios personalizados ao sistema.** Esses repositórios são mantidos por indivíduos ou organizações, permitindo o acesso a versões mais recentes ou alternativas de softwares que podem não estar disponíveis nos repositórios oficiais do sistema.
+
+O comando principal usado para gerenciar PPAs é o `add-apt-repository`.
 
 ---
 
