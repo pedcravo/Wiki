@@ -1,0 +1,36 @@
+// Aula 1 - Acesso remoto do servidor e host usando SSH
+
+# apt-get install openssh-server
+
+Ou:
+
+# yum –y install openssh-server openssh-clients
+
+# ssh user1@192.168.1.210 
+
+# scp arquivo user@192.168.0.23:/destino
+
+# scp -r diretório user@192.168.0.23:/destino
+
+Da máquina REMOTA para a LOCAL:
+
+De um arquivo:
+scp usuario@IP_DE_ORIGEM(REMOTO):/arquivo /destino
+
+De um diretório:
+scp usuario@IP_DE_ORIGEM(REMOTO):/arquivo /destino
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

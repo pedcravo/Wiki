@@ -1,0 +1,26 @@
+//Aula 2 - Trabalhando com chaves Assimétricas
+
+# ssh-keygen -b 1024 -t rsa 
+
+# cat .ssh/id_rsa
+
+# cat .ssh/id_rsa.pub
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
