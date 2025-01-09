@@ -624,52 +624,56 @@ Aula 2 - Trabalhando com chaves Assimétricas.txt
 ## `sftp`
 
 ### Para que serve?
-O comando sftp é utilizado para manipular arquivos entre servidor e máquina local.
+O comando `sftp` é utilizado para **manipular arquivos entre servidor e máquina local.**
 
-O sftp é um subsistema do ssh. Portanto, ele suporta todos os métodos de autenticação ssh. Enquanto pode ser fácil configurar e usar autenticação por senha, é muito mais conveniente e seguro criar chaves ssh para ter um login de sftp sem senha.
+O `sftp` é um subsistema do `ssh`. Portanto, ele **suporta todos os métodos de autenticação `ssh`.** Enquanto pode ser fácil configurar e usar autenticação por senha, é muito mais conveniente e seguro criar chaves `ssh` para ter um login de sftp sem senha.
 
-A conexão ao servidor é feita de forma semelhante ao comando ssh, é necessário o usuário e o endereço de IP (ou nome do domínio).
+A conexão ao servidor é feita de forma semelhante ao comando `ssh`, é necessário o usuário e o endereço de IP (ou nome do domínio).
 
 ### Opções:
-- -oPort=N → Seleciona a porta N para se conectar, caso a porta seja diferente da porta padrão.
+- `-oPort=N` → Seleciona a porta `N` para se conectar, caso a porta seja diferente da porta padrão.
 
 ### Comandos quando conectado:
-A maioria dos comandos para manipulação de arquivos, como cd, ls, mkdir e rmdir, necessitam que seja adicionado l de local antes do comando para indicar ao ssh que deseja executar na máquina local.
-Porém existem exceções, como os comandos rm, chown, chgrp e chmod,  que funcionam apenas no sistema remoto.
-- get → Comando utilizado para importar um arquivo do arquivo do servidor para a máquina local.
-- mget → Comando utilizado para importar diversos arquivos do servidor para a máquina local.
-- put → Comando utilizado para exportar um arquivo da máquina local para o servidor.
-- mput → Comando utilizado para exportar vários arquivos da máquina local para o servidor.
-- df -h →Comando utilizado para conferir o espaço em disco de um servidor remoto em gigabytes.
-- rename → Comando utilizado para renomear arquivos.
-- bye e exit → Comandos utilizados para sair do sftp.
+A maioria dos comandos para manipulação de arquivos, como `cd`, `ls`, `mkdir` e `rmdir`, necessitam que seja adicionado `l` de local antes do comando para indicar ao `ssh` que deseja executar na máquina local.
+Porém existem exceções, como os comandos `rm`, `chown`, `chgrp` e `chmod`,  que funcionam apenas no sistema remoto.
+- `get` → Comando utilizado para importar um arquivo do arquivo do servidor para a máquina local.
+- `mget` → Comando utilizado para importar diversos arquivos do servidor para a máquina local.
+- `put` → Comando utilizado para exportar um arquivo da máquina local para o servidor.
+- `mput` → Comando utilizado para exportar vários arquivos da máquina local para o servidor.
+- `df -h` →Comando utilizado para conferir o espaço em disco de um servidor remoto em gigabytes.
+- `rename` → Comando utilizado para renomear arquivos.
+- `bye` ou `exit` → Comandos utilizados para sair do `sftp`.
 
 ### Sintaxe comum:
-**`Sintaxe`**
+**`$ sftp [OPÇÕES] USUARIO@host_remoto/IP`**
 
 ### Exemplos:
-Sintaxe comum:
-$ sftp [OPÇÕES] USUARIO@host_remoto/IP
+`$ sftp pedro@192.168.0.129` → Conecta ao servidor de IP: `192.168.0.129`, como o usuário pedro.
 
-$ sftp pedro@192.168.0.129 → Conecta ao servidor de IP: 192.168.0.129, como o usuário pedro.
-$ sftp -oPort=22022 pedro@192.168.0.129 → Conecta ao servidor de IP: 192.168.0.129, como o usuário pedro, pela porta 22022.
+`$ sftp -oPort=22022 pedro@192.168.0.129` → Conecta ao servidor de IP: `192.168.0.129`, como o usuário pedro, pela porta 22022.
 
-Sintaxe comum para transferência de arquivos:
-sftp> COMANDO /DirOriginal/arquivo /DirDestino/
+### Sintaxe comum para transferência de arquivos:
+**`sftp> COMANDO /DirOriginal/arquivo /DirDestino/`**
 
-sftp> get /etc/xinetd.conf → Importa arquivo /etc/xinetd.conf do servidor para o diretório atual da máquina local.
-sftp> get file.txt /home/pedro/Downloads → Importa arquivo file.txt do servidor para o diretório /home/pedro/Downloads da máquina local.
-sftp> mget /etc/*.conf → Importa todos os arquivos com .conf do diretório /etc do servidor  para o diretório atual da máquina local.
+`sftp> get /etc/xinetd.conf` → Importa arquivo `/etc/xinetd.conf` do servidor para o diretório atual da máquina local.
 
-sftp> put /home/pedro/imagem.png /root → Exporta arquivo /home/pedro/imagem.png da máquina local para o diretório /root no servidor.
-sftp> mput /home/pedro/*.txt → Exporta arquivo todos os arquivos .txt da máquina local para o diretório atual do servidor.
+`sftp> get file.txt /home/pedro/Downloads` → Importa arquivo `file.txt` do servidor para o diretório `/home/pedro/Downloads` da máquina local.
 
-sftp> pwd → Executa o comando pwd no servido.
-sftp> lpwd → Executa o comando pwd na máquina local.
-sftp> ls → Executa o comando ls no servido.
-sftp> lls → Executa o comando ls na máquina local.
+`sftp> mget /etc/*.conf` → Importa todos os arquivos com `.conf` do diretório `/etc` do servidor  para o diretório atual da máquina local.
 
-sftp> rename A.txt B.txt → Renomeia o arquivo A.txt para B.txt.
+`sftp> put /home/pedro/imagem.png /root` → Exporta arquivo `/home/pedro/imagem.png` da máquina local para o diretório `/root` no servidor.
+
+`sftp> mput /home/pedro/*.txt` → Exporta arquivo todos os arquivos `.txt` da máquina local para o diretório atual do servidor.
+
+`sftp> pwd` → Executa o comando pwd no servido.
+
+`sftp> lpwd` → Executa o comando pwd na máquina local.
+
+`sftp> ls` → Executa o comando ls no servido.
+
+`sftp> lls` → Executa o comando ls na máquina local.
+
+`sftp> rename A.txt B.txt` → Renomeia o arquivo `A.txt` para `B.txt`.
 
 ### Máterial Complementar:
 https://www.hostinger.com.br/tutoriais/como-usar-sftp-ssh-file-transfer-protocol

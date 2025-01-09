@@ -1,3 +1,62 @@
+# Comandos para gerenciamento de Permissões
+
+Nesta sessão iremos ver os principais comandos para gerenciamento de permissões.
+
+### Comandos:
+
+1. [`acl`](#acl)
+2. [`chgrp`](#chgrp)
+3. [`chmod`](#chmod)
+4. [`chown`](#chown)
+
+## `acl`
+
+### Para que serve?
+Os comandos `setfacl` e `getfacl` são usados para manipular e visualizar **ACLs** (Access Control Lists) no Linux, que permitem **gerenciar permissões detalhadas de arquivos e diretórios para usuários e grupos específicos**, além dos esquemas tradicionais de permissão (usuário, grupo, outros).
+
+- `setfacl` → Configura permissões adicionais para usuários ou grupos específicos em um arquivo ou diretório.
+- `getfacl` → Exibe as permissões ACL aplicadas a um arquivo ou diretório.
+
+O uso de ACLs é útil para situações em que o sistema tradicional de permissões de leitura, escrita e execução (rwx) não é suficiente, permitindo a atribuição de permissões detalhadas para diferentes usuários e grupos.
+
+Instalar pacote acl → `$ sudo apt install acl`.
+
+### set
+#### Opções:
+- `-m` → Modifica permissões para o usuário ou grupo indicado.
+- `-x` → Remove permissões para um usuário ou grupo específico.
+- `-b` → Remove todas as entradas de ACL do arquivo ou diretório (limpa as permissões ACL).
+- `-R` → Aplica as permissões recursivamente em diretórios e seus arquivos/subdiretórios.
+- `-d` → Define permissões ACL padrão para um diretório, que serão herdadas por arquivos e subdiretórios criados posteriormente.
+- `u` → Especifica que a ACL será aplicada a um usuário.
+- `g` → Especifica que a ACL será aplicada a um grupo.
+
+#### Sintaxe comum:
+**`$ setfacl [OPÇÕES] u/g:USUÁRIO/GRUPO:rwx ARQUIVO`**
+
+#### Exemplos:
+`$ setfacl -m u:pedro:rx Downloads/arquivo.txt` → Muda as permissões do usuário `pedro` para `r` e `x` no arquivo `Downloads/arquivo.txt`.
+
+`$ setfacl -m g:backend:rw /tmp/memo.txt` → Muda as permissões do grupo `backend` para `r` e `w` no arquivo `/tmp/memo.txt`.
+
+`$ setfacl -m d:u:pedro:rw /tmp/backend/` → Cria um diretório com configurações padrões, qualquer subdir vai seguir as mesmas permissões.
+
+### get
+#### Opções:
+- `-p` → Exibe as permissões ACL de um arquivo ou diretório, incluindo permissões padrão e permissões explícitas para usuários e grupos.
+- `-R` → Exibe as permissões ACL de forma recursiva para todos os arquivos e subdiretórios de um diretório.
+
+#### Sintaxe comum:
+**`$ getfacl [OPÇÕES] ARQUIVO`**
+
+#### Exemplos:
+`$ getfacl -p /Downloads/arquivo.txt` → Mostra na tela uma série de permissões dos grupos em relação ao arquivo `Downloads/arquivo.txt`.
+
+### Máterial Complementar:
+https://link;comum.com.br/
+
+---
+
 ## `chgrp`
 
 ### Para que serve?
