@@ -1,10 +1,12 @@
 # Redis
 Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos uteis, dentre outras coisas uteis deste programa.
 
-### Tópicos
+## Tópicos
 - [Redis](#redis)
-    - [Tópicos](#tópicos)
+  - [Tópicos](#tópicos)
   - [Conceitos:](#conceitos)
+      - [Comandos gerais do Redis:](#comandos-gerais-do-redis)
+  - [Tipos de KEYS:](#tipos-de-keys)
     - [String](#string)
       - [Comandos de String no redis:](#comandos-de-string-no-redis)
       - [Exemplos de uso:](#exemplos-de-uso)
@@ -24,7 +26,9 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
   - [Instalação e Configurações:](#instalação-e-configurações)
 
 ## Conceitos:
-**Redis** é um banco de dados no SQL, que armazena dados na memória do computador, mais especificamente na memória ativa do computador, o que é mais rápido do que acessar dados em armazenamento secundário, como um disco rígido. 
+**Redis** é um banco de dados no SQL, que armazena dados na memória do computador, mais especificamente na memória ativa do computador, o que é mais rápido do que acessar dados em armazenamento secundário, como um disco rígido.
+
+<img src="https://github.com/pedcravo/Wiki/blob/main/Redis/RedisIsFast.jpg" width="600px">
 
 **Redis Commander** é um programa que utiliza a porta 8081 da máquina para visualizar os dados do **Redis** e fazer comandos diretamente no mesmo usando a linha de comando na parte inferior da página.
 
@@ -35,8 +39,16 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
 **Dois pontos (:)** é uma forma de criar pastas e inserir os tipos de dados desejados, **pode ser usado na criação de qualquer um dos tipos de dados**. Forma base `pasta:key`, futuramente iremos ver exemplos.
 
 **Key** são chaves atreladas a valores, cada chave tem seu **nome**, seu **tempo de vida** (TTL) e seu **tipo**.
-A seguir iremos ver os tipos de keys:
 
+#### Comandos gerais do Redis:
+- `KEYS name` → Pesquisa chaves, idependente do tipo, é possível utilizar os metacaracteres de forma semelhante ao terminal do linux.
+- `TYPE key` → Verifica o tipo da chave.
+- `MULTI` → Faz uma lista de comandos a serem executados, cria um novo terminal dedicado a isso.
+- `EXEC` → Finaliza a lista de comandos do `MULTI` e os executa.
+
+## Tipos de KEYS:
+
+---
 ### String
 As strings são o tipo de dado mais simples no Redis e armazenam valores únicos associados a uma chave.
 
@@ -88,6 +100,7 @@ GET counter
 4. Adiciona o texto " vezes" ao valor, resultando em "10 vezes".
 5. Retorna o valor atualizado.
 
+---
 ### Hash
 Os hashes armazenam coleções de pares **campo/valor**, similares a um objeto JSON.
 É possível inserir mais de um campo/valor por comando.
@@ -121,6 +134,7 @@ HGETALL user:2           # Retorna todos os campos e valores da hash "user:1".
 1. Insere um hash "user:2" com os campos "login" com valor "teste", "senha" com valor "teste123", "pontos" com valor "200".
 2. Mostra todos os campos e valores do hash "user:2".
 
+---
 ### Listas
 As listas armazenam uma sequência ordenada de valores (strings).
 
@@ -145,7 +159,7 @@ LRANGE tasks 0 -1
 3. Adiciona "Praticar" ao final da lista "tasks".
 4. Retorna todos os elementos da lista.
 
-
+---
 ### Conjuntos (Sets)
 Os conjuntos armazenam valores únicos e não ordenados. É possível adicionar mais de um dado ao mesmo tempo.
 
@@ -179,6 +193,7 @@ SCARD user:1:teste
 3. Adiciona o valor "mysql" ao hash.
 4. Mostra a quantidade de dados no hash "user:1:teste".
 
+---
 ### Conjuntos Classificados (Sorted Sets)
 Os conjuntos classificados são como conjuntos, mas cada valor está associado a um score numérico para ordenação.
 É possível inserir mais de um valor/score por comandos.
