@@ -325,6 +325,10 @@ JSON.GET vendor:96
 3. Atualiza o endereço em "location", modifica o campo "address" de "1434" para "1452".
 4. Exibe o documento JSON completo, o comando final retorna o documento completo armazenado na chave "vendor:96".
 
+> Para mais sobre **JSON** acesse:
+> - [RedisJSON documentação][jsondoc]
+> - [Redis and JSON Explained][video1]
+> - [Redis and JSON Explained (Revisited)][video2]
 
 ## Redis no Docker:
 Caso o **Redis** esteja sendo executado via [**Docker**][docker], o comando para acessar a linha de comando do **Redis** é diferente de se o **Redis** estivesse diretamente na máquina. Podemos observar isso:
@@ -342,3 +346,6 @@ Após instalar o **Docker** execute os comandos em [**Instalação docker, redis
 
 [docker]: https://github.com/pedcravo/Wiki/tree/main/Docker
 [tutorial]: https://github.com/LuizFillipe1/dicas
+[jsondoc]: https://redis-io.translate.goog/docs/latest/develop/data-types/json/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
+[video1]: https://youtu.be/V0wmD_y03iM?si=zY-5Qr7rLg5t0f8P
+[video2]: https://www.youtube.com/watch?v=I-ohlZXXaxs&list=TLPQMjMwMTIwMjWqGEnALrOmfQ&index=6
