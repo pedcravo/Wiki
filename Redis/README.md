@@ -236,7 +236,7 @@ O tipo de dado JSON no Redis é usado para armazenar documentos JSON diretamente
 - `JSON.TYPE key [path]` → Retorna o tipo do valor no caminho especificado.
 
 #### $ vs .
-<img src="https://github.com/pedcravo/Wiki/blob/main/Redis/RedisJSON.jpg" width="600px">
+<img src="https://github.com/pedcravo/Wiki/blob/main/Redis/RedisJSON.png" width="600px">
 
 ##### "$"
 O $ é usado como o caminho raiz quando você deseja acessar ou manipular dados de um JSON existente. Ele funciona como o ponto de partida para selecionar partes específicas do documento.
