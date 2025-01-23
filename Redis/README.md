@@ -24,7 +24,7 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
       - [Exemplos de uso:](#exemplos-de-uso-4)
     - [JSON](#json)
       - [Comandos de JSON no Redis:](#comandos-de-json-no-redis)
-      - [$ vs .](#-vs-)
+      - ["$" vs "."](#-vs-)
         - ["$"](#)
         - ["."](#-1)
       - [Exemplos de JSON:](#exemplos-de-json)
@@ -235,7 +235,7 @@ O tipo de dado JSON no Redis é usado para armazenar documentos JSON diretamente
 - `JSON.DEL key [path]` → Remove o documento JSON ou parte dele.
 - `JSON.TYPE key [path]` → Retorna o tipo do valor no caminho especificado.
 
-#### $ vs .
+#### "$" vs "."
 <img src="https://github.com/pedcravo/Wiki/blob/main/Redis/RedisJSON.png" width="600px">
 
 ##### "$"
