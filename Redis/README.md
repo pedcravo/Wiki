@@ -25,9 +25,9 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
     - [JSON](#json)
       - [Comandos de JSON no Redis:](#comandos-de-json-no-redis)
       - [$ vs .](#-vs-)
-        - [$](#)
-        - [.](#-1)
-      - [Exemplos de uso:](#exemplos-de-uso-5)
+        - ["$"](#)
+        - ["."](#-1)
+      - [Exemplos de JSON:](#exemplos-de-json)
   - [Redis no Docker:](#redis-no-docker)
   - [Instalação e Configurações:](#instalação-e-configurações)
 
@@ -238,7 +238,7 @@ O tipo de dado JSON no Redis é usado para armazenar documentos JSON diretamente
 #### $ vs .
 <img src="https://github.com/pedcravo/Wiki/blob/main/Redis/RedisJSON.jpg" width="600px">
 
-##### $
+##### "$"
 O $ é usado como o caminho raiz quando você deseja acessar ou manipular dados de um JSON existente. Ele funciona como o ponto de partida para selecionar partes específicas do documento.
 
 **Características do $:**
@@ -255,10 +255,10 @@ JSON.GET vendor:96 $.menu[*].name
 2. Retorna o valor do campo "name".
 3. Retorna uma lista com os valores do campo "name" dentro de todos os itens do array "menu".
 
-##### .
+##### "."
 O . é usado para definir diretamente o caminho ao criar ou atualizar um JSON novo ou existente. Ele especifica a hierarquia de campos no documento.
 
-**Características do .:**
+**Características do ".":**
 - Utilizado para criar ou atualizar valores em partes específicas de um JSON.
 - Representa o ponto no qual você está inserindo/modificando dados.
 - Não é usado para leitura de dados (apenas para escrita).
@@ -272,7 +272,7 @@ JSON.SET vendor:96 .menu[0] '{"name":"burrito","price":11.5}'
 2. Adiciona um novo campo "location" com um objeto contendo "address".
 3. Substitui o primeiro elemento do array "menu".
 
-#### Exemplos de uso:
+#### Exemplos de JSON:
 ```bash
 JSON.SET user:1 $ '{"name":"João","age":30,"skills":["Redis","Docker"]}'
 JSON.GET user:1
