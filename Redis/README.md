@@ -22,6 +22,12 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
     - [Conjuntos Classificados (Sorted Sets)](#conjuntos-classificados-sorted-sets)
       - [Comandos de Sorted Sets no Redis:](#comandos-de-sorted-sets-no-redis)
       - [Exemplos de uso:](#exemplos-de-uso-4)
+    - [JSON](#json)
+      - [Comandos de JSON no Redis:](#comandos-de-json-no-redis)
+      - [$ vs .](#-vs-)
+        - ["$"](#)
+        - ["."](#-1)
+      - [Exemplos de JSON:](#exemplos-de-json)
   - [Redis no Docker:](#redis-no-docker)
   - [Instalação e Configurações:](#instalação-e-configurações)
 
@@ -63,7 +69,7 @@ As strings são o tipo de dado mais simples no Redis e armazenam valores únicos
 - `APPEND key value` → Adiciona texto ao final do valor existente.
 
 #### Exemplos de uso:
-```
+```bash
 SET name João
 GET name
 DEL name
@@ -72,7 +78,7 @@ DEL name
 2. Retorna o valor da chave "name".
 3. Remove a chave "name".
 
-```
+```bash
 SET name:1 João
 GET name:1
 SET name:2 Thiago
@@ -87,7 +93,7 @@ GET name:3
 5. Insere na pasta chamada "name" uma chave "3" com o valor "Pedro".
 6. Retorna o valor da chave "2" na pasta "name".
 
-```
+```bash
 SET counter 10
 INCR counter
 DECR counter
@@ -116,7 +122,7 @@ Os hashes armazenam coleções de pares **campo/valor**, similares a um objeto J
 - `HEXISTS key field` → Verifica se um campo existe.
 
 #### Exemplos de uso:
-```
+```bash
 HSET user:1 name João
 HSET user:1 age 30
 HGET user:1 name
@@ -127,9 +133,9 @@ HGETALL user:1
 3. Retorna o valor do campo "name".
 4. Retorna todos os campos e valores do hash "user:1".
 
-```
+```bash
 HSET user:2 login teste senha teste123 pontos 200
-HGETALL user:2           # Retorna todos os campos e valores da hash "user:1".
+HGETALL user:2
 ```
 1. Insere um hash "user:2" com os campos "login" com valor "teste", "senha" com valor "teste123", "pontos" com valor "200".
 2. Mostra todos os campos e valores do hash "user:2".
@@ -148,7 +154,7 @@ As listas armazenam uma sequência ordenada de valores (strings).
 - `LRANGE key start stop` → Retorna elementos de uma faixa da lista.
 
 #### Exemplos de uso:
-```
+```bash
 LPUSH tasks "Estudar Redis"
 LPUSH tasks "Ler Documentação"
 RPUSH tasks "Praticar"
@@ -173,7 +179,7 @@ Os conjuntos armazenam valores únicos e não ordenados. É possível adicionar 
 - `SISMEMBER key value` → Verifica se um valor está no conjunto.
 
 #### Exemplos de uso:
-```
+```bash
 SADD tags Redis NoSQL Database
 SMEMBERS tags
 SCARD tags
@@ -182,7 +188,7 @@ SCARD tags
 2. Retorna todos os valores do conjunto "tags".
 3. Retorna o número de elementos no conjunto.
 
-```
+```bash
 SADD user:1:teste redis
 SADD user:1:teste mongodb
 SADD user:1:teste mysql
@@ -207,7 +213,7 @@ Os conjuntos classificados são como conjuntos, mas cada valor está associado a
 - `ZREM key value` → Remove um valor do conjunto.
 
 #### Exemplos de uso:
-```
+```bash
 ZADD leaderboard 100 Pedro
 ZADD leaderboard 200 João
 ZRANGE leaderboard 0 -1 WITHSCORES
@@ -215,6 +221,114 @@ ZRANGE leaderboard 0 -1 WITHSCORES
 1. Adiciona "Pedro" ao conjunto "leaderboard" com score 100.
 2. Adiciona "João" ao conjunto "leaderboard" com score 200.
 3. Retorna todos os valores com seus scores.
+
+
+### JSON
+O tipo de dado JSON no Redis é usado para armazenar documentos JSON diretamente, permitindo manipulação e consulta de seus campos. Esse tipo é suportado por meio do módulo **RedisJSON**.
+
+> **Uma** chave está ligada a **um documento** JSON.
+
+#### Comandos de JSON no Redis:
+- `JSON.SET key path value` → Define um valor no caminho especificado no documento JSON.
+- `JSON.ARRAPPEND key path value` → Adiciona um valor ao final de um array JSON.
+- `JSON.GET key [path]` → Retorna o documento JSON inteiro ou parte dele.
+- `JSON.DEL key [path]` → Remove o documento JSON ou parte dele.
+- `JSON.TYPE key [path]` → Retorna o tipo do valor no caminho especificado.
+
+#### $ vs .
+<img src="https://github.com/pedcravo/Wiki/blob/main/Redis/RedisJSON.png" width="600px">
+
+##### "$"
+O $ é usado como o caminho raiz quando você deseja acessar ou manipular dados de um JSON existente. Ele funciona como o ponto de partida para selecionar partes específicas do documento.
+
+**Características do $:**
+- Utilizado principalmente em comandos que leem ou manipulam partes de um JSON já armazenado.
+- Representa todo o documento ou caminhos dentro dele.
+- Suporta seleção de múltiplos elementos ou valores específicos em estruturas complexas.
+
+```bash
+JSON.GET vendor:96 $
+JSON.GET vendor:96 $.name
+JSON.GET vendor:96 $.menu[*].name
+```
+1. Retorna todo o JSON armazenado na chave "vendor:96".
+2. Retorna o valor do campo "name".
+3. Retorna uma lista com os valores do campo "name" dentro de todos os itens do array "menu".
+
+##### "."
+O . é usado para definir diretamente o caminho ao criar ou atualizar um JSON novo ou existente. Ele especifica a hierarquia de campos no documento.
+
+**Características do ".":**
+- Utilizado para criar ou atualizar valores em partes específicas de um JSON.
+- Representa o ponto no qual você está inserindo/modificando dados.
+- Não é usado para leitura de dados (apenas para escrita).
+
+```bash
+JSON.SET vendor:96 . '{"name":"Tacos Mi Ranchos"}'
+JSON.SET vendor:96 .location '{"address":"123 Main St"}'
+JSON.SET vendor:96 .menu[0] '{"name":"burrito","price":11.5}'
+```
+1. Cria um JSON inteiro com o campo "name".
+2. Adiciona um novo campo "location" com um objeto contendo "address".
+3. Substitui o primeiro elemento do array "menu".
+
+#### Exemplos de JSON:
+```bash
+JSON.SET user:1 $ '{"name":"João","age":30,"skills":["Redis","Docker"]}'
+JSON.GET user:1
+JSON.GET user:1 $.name
+JSON.SET user:1 $.age 31
+JSON.ARRAPPEND user:1 $.skills "Kubernetes"
+JSON.GET user:1 $.skills
+```
+1. Define um documento JSON para a chave "user:1" contendo os campos "name", "age" e "skills".
+2. Retorna o documento JSON completo associado à chave "user:1".
+3. Retorna o valor do campo "name" no documento JSON.
+4. Atualiza o campo "age" para 31.
+5. Adiciona o valor "Kubernetes" ao array "skills".
+6. Retorna o array atualizado de "skills".
+
+```bash
+JSON.SET vendor:96 . '
+{
+   "name": "Tacos Mi Ranchos",
+   "phone": 5557891234,
+   "menu":
+        [
+           {
+              "name": "burrito",
+              "price", 11.5
+            },
+           {
+              "name": "taco",
+              "price", 3.5
+            },
+       ]
+}'
+
+JSON.SET vendor:96 .location '
+{
+   "address": "1434 1st Ave, Oakland, CA 94606",
+   "coordinates":
+       [
+          37.7989708,
+          -122.2565053
+       ]
+}'
+
+JSON.SET vendor:96 .location.address "\" 1452 1st Ave, Oakland, CA 94606\""
+
+JSON.GET vendor:96
+```
+1. Define o JSON inicial, cria a estrutura com "name", "phone" e "menu" com dois itens.
+2. Adiciona o campo "location", insere o endereço original e as coordenadas de localização.
+3. Atualiza o endereço em "location", modifica o campo "address" de "1434" para "1452".
+4. Exibe o documento JSON completo, o comando final retorna o documento completo armazenado na chave "vendor:96".
+
+> Para mais sobre **JSON** acesse:
+> - [RedisJSON documentação][jsondoc]
+> - [Redis and JSON Explained][video1]
+> - [Redis and JSON Explained (Revisited)][video2]
 
 ## Redis no Docker:
 Caso o **Redis** esteja sendo executado via [**Docker**][docker], o comando para acessar a linha de comando do **Redis** é diferente de se o **Redis** estivesse diretamente na máquina. Podemos observar isso:
@@ -232,3 +346,6 @@ Após instalar o **Docker** execute os comandos em [**Instalação docker, redis
 
 [docker]: https://github.com/pedcravo/Wiki/tree/main/Docker
 [tutorial]: https://github.com/LuizFillipe1/dicas
+[jsondoc]: https://redis-io.translate.goog/docs/latest/develop/data-types/json/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
+[video1]: https://youtu.be/V0wmD_y03iM?si=zY-5Qr7rLg5t0f8P
+[video2]: https://www.youtube.com/watch?v=I-ohlZXXaxs&list=TLPQMjMwMTIwMjWqGEnALrOmfQ&index=6
