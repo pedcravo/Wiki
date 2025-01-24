@@ -313,6 +313,49 @@ Ao trabalhar remotamente no git é muito comum o uso de issues. Para inserir um 
     git commit -am "Este commit vai para a issue (#3)"
     ```
 
+## Configurações globais
+No git é possível definir configurações globais, padronizando assim todos os projetos sequentes ou atuais (dependendo das alterações). Para isso é necessário editar o arquivo `.gitconfig` do usuário.
+
+Podemos citar algumas configurações globais uteis a serem feitas como:
+- **Usuário:** Define o usuário padrão e  o email que vai ser usado na assinatura (geralmente os mesmos do Github).
+```bash
+[user]
+        name = Pedro Cravo
+        email = pedroh.s.cravo@gmail.com
+```
+
+- **Core:** Define configurações básicas ao git como qual o editor de texto padrão do sistema e qual o arquivo padrão para arquivos ignorados ao fazer `git add *`.
+```bash
+[core]
+        editor = nano
+        excludesfile = /home/pedro/.gitignore_global
+```
+
+- **Init:** Definque qual a branch padrão ao iniciar um projeto.
+```bash
+[init]
+        defaultBranch = main
+```
+
+- **Color:** Define a detecção de espaços em branco e diffs coloridos.
+```bash
+[color]
+        ui = auto
+```
+
+- **Alias:** Define aliases para comandos `git`.
+``` bash
+[alias]
+        br = branch
+        co = checkout
+        lg = log --oneline --graph --all
+        st = status
+        ad = add *
+        cm = commit -am
+        ps = push
+        pl = pull
+```
+
 
 ## Recursos Úteis
 [**Documentação Oficial do Git**](https://git-scm.com/doc)
