@@ -5,8 +5,8 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
 - [Redis](#redis)
   - [Tópicos](#tópicos)
   - [Conceitos:](#conceitos)
-      - [Comandos gerais do Redis:](#comandos-gerais-do-redis)
-  - [Tipos de KEYS:](#tipos-de-keys)
+  - [KEYS](#keys)
+      - [Comandos gerais:](#comandos-gerais)
     - [String](#string)
       - [Comandos de String no redis:](#comandos-de-string-no-redis)
       - [Exemplos de uso:](#exemplos-de-uso)
@@ -46,13 +46,17 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
 
 **Key** são chaves atreladas a valores, cada chave tem seu **nome**, seu **tempo de vida** (TTL) e seu **tipo**.
 
-#### Comandos gerais do Redis:
+[**Pub/Sub**][pubsub], ou **Publish/Subscribe** em outras palavras, **é uma forma de envio e recepção de mensagens que existe no Redis**. Esse método pode ser usado entre máquinas ou aplicações.
+Este método consiste em uma máquina (por exemplo), que como Publisher envia mensagens e uma ou mais máquinas como Subscriber recebem essas mensagens.
+
+## KEYS
+#### Comandos gerais:
 - `KEYS name` → Pesquisa chaves, idependente do tipo, é possível utilizar os metacaracteres de forma semelhante ao terminal do linux.
 - `TYPE key` → Verifica o tipo da chave.
 - `MULTI` → Faz uma lista de comandos a serem executados, cria um novo terminal dedicado a isso.
 - `EXEC` → Finaliza a lista de comandos do `MULTI` e os executa.
-
-## Tipos de KEYS:
+- `EXPIRE key` → Dá um TTL para uma chave.
+- `TTL key` → Verifica o TTL da chave.
 
 ---
 ### String
@@ -62,7 +66,7 @@ As strings são o tipo de dado mais simples no Redis e armazenam valores únicos
 
 #### Comandos de String no redis:
 - `SET key value` → Define uma chave com o valor.
-- `GET name` → Retorna o valor da chave.
+- `GET key` → Retorna o valor da chave.
 - `DEL key` → Remove a chave.
 - `INCR key` → Incrementa o valor em 1 (assumindo que é numérico).
 - `DECR key` → Decrementa o valor em 1 (assumindo que é numérico).
@@ -204,13 +208,17 @@ SCARD user:1:teste
 Os conjuntos classificados são como conjuntos, mas cada valor está associado a um score numérico para ordenação.
 É possível inserir mais de um valor/score por comandos.
 
-> **Uma** chave está ligada a um **conjunto** ordenado de valores com scores.
+> **Uma** chave está ligada a um **conjunto** ordenado de valores com scores (pontos).
 
 #### Comandos de Sorted Sets no Redis:
 - `ZADD key score value` → Adiciona um valor com um score ao conjunto.
-- `ZRANGE key start stop [WITHSCORES]` → Retorna valores dentro de uma faixa de índices, com ou sem scores.
-- `ZRANGEBYSCORE key min max` → Retorna valores dentro de uma faixa de scores.
+- `ZINCRBY key increment value`
+- `ZRANGE key start stop [WITHSCORES]` → Retorna valores dentro de uma faixa de índices de forma crescente, com ou sem scores ([WITHSCORES]).
+- `ZRANGEBYSCORE key min max` → Retorna valores dentro de uma faixa de scores de forma decrescente, com ou sem scores ([WITHSCORES]).
 - `ZREM key value` → Remove um valor do conjunto.
+- `ZRANK key value` → Mostra qual a posição daquele value em relação ao ranking, onde o maior rank é o de maior score.
+- `ZREVRANK key value` → Mostra qual a posição daquele value em relação ao ranking ao contrário, onde o menor rank é o de maior score.
+- `ZSCORE key value` → Mostra qual o score daquele value.
 
 #### Exemplos de uso:
 ```bash
@@ -222,7 +230,7 @@ ZRANGE leaderboard 0 -1 WITHSCORES
 2. Adiciona "João" ao conjunto "leaderboard" com score 200.
 3. Retorna todos os valores com seus scores.
 
-
+---
 ### JSON
 O tipo de dado JSON no Redis é usado para armazenar documentos JSON diretamente, permitindo manipulação e consulta de seus campos. Esse tipo é suportado por meio do módulo **RedisJSON**.
 
@@ -349,3 +357,4 @@ Após instalar o **Docker** execute os comandos em [**Instalação docker, redis
 [jsondoc]: https://redis-io.translate.goog/docs/latest/develop/data-types/json/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
 [video1]: https://youtu.be/V0wmD_y03iM?si=zY-5Qr7rLg5t0f8P
 [video2]: https://www.youtube.com/watch?v=I-ohlZXXaxs&list=TLPQMjMwMTIwMjWqGEnALrOmfQ&index=6
+[pubsub]: https://redis.io/docs/latest/develop/interact/pubsub/
