@@ -362,6 +362,10 @@ Podemos citar algumas configurações globais uteis a serem feitas como:
 
 [**Documentação Oficial do Git em PT-BR**](https://git-scm.com/book/pt-br/v2/Come%c3%a7ando-Sobre-Controle-de-Vers%c3%a3o)
 
+[**Roadmap GIt e Github**](https://roadmap.sh/git-github)
+
+[**Livro Git and Github**](https://books.goalkicker.com/GitBook/)
+
 [**Guia do GitHub**](https://docs.github.com/pt)
 
 [**Vídeo sobre Git**](https://youtu.be/6Czd1Yetaac?si=H7eOSQlWhTSD0PfM)

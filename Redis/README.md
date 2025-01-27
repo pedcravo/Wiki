@@ -30,6 +30,7 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
       - [Exemplos de JSON:](#exemplos-de-json)
   - [Redis no Docker:](#redis-no-docker)
   - [Instalação e Configurações:](#instalação-e-configurações)
+  - [Recursos Úteis](#recursos-úteis)
 
 ## Conceitos:
 **Redis** é um banco de dados no SQL, que armazena dados na memória do computador, mais especificamente na memória ativa do computador, o que é mais rápido do que acessar dados em armazenamento secundário, como um disco rígido.
@@ -352,9 +353,27 @@ Então primeiramente faça a instalação do [**Docker**][docker] em sua máquin
 
 Após instalar o **Docker** execute os comandos em [**Instalação docker, redis, redis commandar e sql**][tutorial].
 
+## Recursos Úteis
+Usei como base o [roadmap sobre Docker][roadmap].
+<img src="https://github.com/pedcravo/Wiki/blob/main/Redis/RoadmapRedis.png" width="600px">
+
+[**Pub/Sub**][pubsub]
+
+[**Documento sobre JSON**][jsondoc]
+
+[**Vídeo Redis 1**][video1]
+
+[**Vídeo Redis 2**][video2]
+
+[**Tutorial do Luiz**][tutorial]
+
+[**Docker**][docker]
+
+
 [docker]: https://github.com/pedcravo/Wiki/tree/main/Docker
 [tutorial]: https://github.com/LuizFillipe1/dicas
 [jsondoc]: https://redis-io.translate.goog/docs/latest/develop/data-types/json/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
 [video1]: https://youtu.be/V0wmD_y03iM?si=zY-5Qr7rLg5t0f8P
 [video2]: https://www.youtube.com/watch?v=I-ohlZXXaxs&list=TLPQMjMwMTIwMjWqGEnALrOmfQ&index=6
 [pubsub]: https://redis.io/docs/latest/develop/interact/pubsub/
+[roadmap]: https://roadmap.sh/redis
