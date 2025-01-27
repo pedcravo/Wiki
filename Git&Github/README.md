@@ -1,6 +1,31 @@
-# Git e GitHub
+# Git e Github
 Nesta seção vamos falar sobre o git e github.
 Qualquer duvida nos conceitos é só clicar em um dos links na seção [**Recursos Úteis**](#recursos-úteis).
+
+## Tópicos
+- [Git e Github](#git-e-github)
+  - [Tópicos](#tópicos)
+  - [Conceitos](#conceitos)
+  - [Conexão Remota com o Github](#conexão-remota-com-o-github)
+  - [Fluxos de trabalho](#fluxos-de-trabalho)
+    - [Local](#local)
+      - [Para iniciar um projeto](#para-iniciar-um-projeto)
+      - [Criar branchs](#criar-branchs)
+      - [Unir branchs](#unir-branchs)
+      - [Navegar entre commits com branch](#navegar-entre-commits-com-branch)
+      - [Commits](#commits)
+    - [Remoto](#remoto)
+      - [Iníciar um projeto](#iníciar-um-projeto)
+      - [Criar branch remota com base em uma local](#criar-branch-remota-com-base-em-uma-local)
+      - [Importar branch remota para local](#importar-branch-remota-para-local)
+      - [Conectar branch remota com uma local](#conectar-branch-remota-com-uma-local)
+      - [Branchs remotas](#branchs-remotas)
+      - [Unir branchs](#unir-branchs-1)
+      - [Navegar entre commits com branch](#navegar-entre-commits-com-branch-1)
+      - [Commits e atualizar remoto](#commits-e-atualizar-remoto)
+      - [Issues](#issues)
+  - [Configurações globais](#configurações-globais)
+  - [Recursos Úteis](#recursos-úteis)
 
 ## Conceitos
 O **Git** é um sistema controle e versionamento de arquivos distribuído usado para rastrear alterações em arquivos e facilitar o trabalho em equipe.
