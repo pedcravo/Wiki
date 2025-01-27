@@ -355,6 +355,7 @@ Após instalar o **Docker** execute os comandos em [**Instalação docker, redis
 
 ## Recursos Úteis
 Usei como base o [roadmap sobre Docker][roadmap].
+
 <img src="https://github.com/pedcravo/Wiki/blob/main/Redis/RoadmapRedis.png" width="600px">
 
 [**Pub/Sub**][pubsub]
