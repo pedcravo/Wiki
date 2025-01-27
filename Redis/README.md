@@ -5,6 +5,10 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
 - [Redis](#redis)
   - [Tópicos](#tópicos)
   - [Conceitos:](#conceitos)
+    - [Pub/Sub](#pubsub)
+      - [Formato das mensagens comuns:](#formato-das-mensagens-comuns)
+      - [Comandos e retornos comuns:](#comandos-e-retornos-comuns)
+      - [Comandos e retornos com padrão:](#comandos-e-retornos-com-padrão)
   - [KEYS](#keys)
       - [Comandos gerais:](#comandos-gerais)
     - [String](#string)
@@ -47,17 +51,127 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
 
 **Key** são chaves atreladas a valores, cada chave tem seu **nome**, seu **tempo de vida** (TTL) e seu **tipo**.
 
+**Pipeline é uma otimização que ajuda a executar vários comandos no Redis sequencialmente.** Normalmente, para uma interação do Redis, um cliente primeiro emite um comando para o servidor e, em seguida, envia outro quando o processamento do seu comando é concluído.
+Em contraste com o Redis Pipelining, os clientes podem enviar vários comandos de uma vez para o servidor sem esperar por cada resposta. Para isso, o servidor armazena esses comandos e os processa serialmente antes de retornar a resposta após executar todos os comandos.
+
+### Pub/Sub
 [**Pub/Sub**][pubsub], ou **Publish/Subscribe** em outras palavras, **é uma forma de envio e recepção de mensagens que existe no Redis**. Esse método pode ser usado entre máquinas ou aplicações.
 Este método consiste em uma máquina (por exemplo), que como Publisher envia mensagens e uma ou mais máquinas como Subscriber recebem essas mensagens.
 
+[Vídeo sobre Pub/Sub][video3]
+
+#### Formato das mensagens comuns:
+Uma mensagem é uma resposta de matriz com três elementos. Sendo o primeiro elemento o tipo de mensagem:
+
+- **subscribe**: significa que foi dado `SUBSCRIBE` com sucesso em um canal (foi possível conectar aquele canal).
+- **unsubscribe**: significa que foi dado `UNSUBSCRIBE` com sucesso em um canal.
+- **message**: significa que uma mensagem foi recebida como resultado de um comando `PUBLISH` emitido por outro cliente.
+
+O segundo o nome do canal conectado/desconectado.
+
+O terceiro sendo:
+- **subscribe** e **unsubscribe**: armazena a quantidade de canais conectados (se for menor que 0 não há nenhum canal inscrito).
+- **message**: armazena a mensagem enviada pelo `PUBLISH`.
+
+#### Comandos e retornos comuns:
+**SUBSCRIBE** → Assina um ou mais canais.
+``` bash
+> SUBSCRIBE channel <channel>
+```
+**Saída:**
+```bash
+1) "subscribe"
+2) "channel"
+3) (integer) n
+```
+1. Mostra o comando que foi executado com sucesso, foi possível conectar a um ou mais canais.
+2. Mostra o nome do canal.
+3. Mostra a quantidade `n` de canais assinados.
+**Recebendo mensagens:**
+```bash
+1) "message"
+2) "channel"
+3) "Hello World"
+```
+1. Mostra que o comando `PUBLISH` foi executado com sucesso pelo PUBLISHER.
+2. Mostra o nome do canal.
+3. Mostra a mensagem enviada.
+
+
+**PUBLISH** → Envia mensagem aos.
+``` bash
+> PUBLISH channel message
+```
+**Saída:**
+```bash
+(integer) n
+```
+1. Mostra que o comando foi executado com sucesso, a mensagem foi enviada com sucesso.
+
+
+**UNSUBSCRIBE** → Deixa de assinar um ou mais canais.
+``` bash
+> UNSUBSCRIBE [channel [channel ...]]
+```
+**Saída:**
+```bash
+1) "unsubscribe"
+2) "channel"
+3) (integer) n
+```
+1. Mostra o comando que foi executado com sucesso, foi possível desconectar de um ou mais canais.
+2. Mostra o nome do canal.
+3. Mostra a quantidade `n` de canais assinados, caso seja menor que 0 não há nenhum canal assinado.
+
+#### Comandos e retornos com padrão:
+**PSUBSCRIBE** → Assina um padrão de canais utilizando padrão de caracteres e [**meta caracteres**][metacaractere] como `*`, `?` e `[]`.
+``` bash
+> PSUBSCRIBE pattern <pattern>
+```
+
+**Saída:**
+```bash
+1) "psubscribe"
+2) "pattern"
+3) (integer) n
+```
+1. Mostra o comando que foi executado com sucesso, foi possível conectar a um padrão canais.
+2. Mostra o padrão dos canais conectados.
+3. Mostra a quantidade `n` de canais assinados.
+**Recebendo mensagens:**
+```bash
+1) "pmessage"
+2) "pattern"
+3) "channel"
+4) "Hello World"
+```
+1. Mostra que o comando `PUBLISH` foi executado com sucesso pelo PUBLISHER.
+2. Mostra o padrão usado.
+3. Mostra o nome do canal que foi enviada a mensagem.
+4. Mostra a mensagem enviada.
+
+
+**PUNSUBSCRIBE** → Deixa de assinar um ou mais canais.
+``` bash
+> UNSUBSCRIBE [pattern [pattern ...]]
+```
+**Saída:**
+```bash
+1) "punsubscribe"
+2) "pattern"
+3) (integer) n
+```
+
+
 ## KEYS
 #### Comandos gerais:
-- `KEYS name` → Pesquisa chaves, idependente do tipo, é possível utilizar os metacaracteres de forma semelhante ao terminal do linux.
-- `TYPE key` → Verifica o tipo da chave.
-- `MULTI` → Faz uma lista de comandos a serem executados, cria um novo terminal dedicado a isso.
-- `EXEC` → Finaliza a lista de comandos do `MULTI` e os executa.
-- `EXPIRE key` → Dá um TTL para uma chave.
-- `TTL key` → Verifica o TTL da chave.
+- `KEYS name` → **Pesquisa chaves**, idependente do tipo, é possível utilizar os metacaracteres de forma semelhante ao terminal do linux.
+- `TYPE key` → **Verifica o tipo** da chave.
+- `EXPIRE key` → **Dá um TTL** para uma chave.
+- `TTL key` → **Verifica o TTL** da chave.
+- `MULTI` → **Inicia o Pipeline** dando inicio a lista dos comandos.
+- `EXEC` → **Finaliza Pipeline e executa.**
+- `DESCARTE` → **Cancela o bloco de transações** criado por `MULTI`, descartando todos os comandos enfileirados.
 
 ---
 ### String
@@ -377,4 +491,6 @@ Usei como base o [roadmap sobre Docker][roadmap].
 [video1]: https://youtu.be/V0wmD_y03iM?si=zY-5Qr7rLg5t0f8P
 [video2]: https://www.youtube.com/watch?v=I-ohlZXXaxs&list=TLPQMjMwMTIwMjWqGEnALrOmfQ&index=6
 [pubsub]: https://redis.io/docs/latest/develop/interact/pubsub/
+[video3]: https://youtu.be/KIFA_fFzSbo?si=J_RwK3VIplYTOfL7
 [roadmap]: https://roadmap.sh/redis
+[metacaractere]: https://github.com/pedcravo/Wiki/tree/main/Linux/MetaCaractere
