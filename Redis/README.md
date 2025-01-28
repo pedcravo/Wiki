@@ -5,6 +5,7 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
 - [Redis](#redis)
   - [Tópicos](#tópicos)
   - [Conceitos:](#conceitos)
+      - [Exemplo de Arquitetura:](#exemplo-de-arquitetura)
     - [Pub/Sub](#pubsub)
       - [Formato das mensagens comuns:](#formato-das-mensagens-comuns)
       - [Comandos e retornos comuns:](#comandos-e-retornos-comuns)
@@ -46,6 +47,46 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
 > Para acessar o Redis Commander no navegador, acesse http://localhost:8081/
 > 
 > O usuário e a senha são ***admin***.
+
+O **Redis Replication** é um recurso que permite replicar os dados de um servidor Redis (conhecido como primary ou master) para outros servidores (conhecidos como replicas ou slaves). Ele permite que as instâncias replicas Redis sejam cópias exatas das instâncias mestras. A réplica se reconectará automaticamente ao mestre toda vez que o link quebrar e tentará ser uma cópia exata dela, independentemente do que acontecer com o mestre. Essa replicação é usada para aumentar a disponibilidade, a escalabilidade e a redundância dos dados em um ambiente Redis.
+
+Muitas réplicas conectadas podem sobrecarregar o primary, especialmente durante sincronizações iniciais, em outras palavras o Failover.
+
+[Vídeo sobre Redis Replication e Cluster][video4]
+
+O **Redis Sentinel** é um sistema integrado ao Redis que fornece alta disponibilidade para ambientes distribuídos. Ele é responsável por monitorar instâncias Redis (master e replicas), detectar falhas, realizar failover automático e configurar os clientes para que eles sempre acessem o primary correto.
+
+Quando o master falha, os Sentinels escolhem uma réplica para ser promovida a primary com base em critérios como o tempo de atraso na replicação.
+Após a promoção, os Sentinels reconfiguram as outras replicas para replicarem o novo primary.
+
+#### Exemplo de Arquitetura:
+- Um primary Redis.
+- Duas replicas Redis.
+- Três instâncias Redis Sentinel (em servidores diferentes) para monitorar o cluster.
+
+**Quando o primary falha:**
+1. O Sentinel detecta a falha.
+2. Um consenso é alcançado entre os Sentinels para iniciar o failover.
+3. Uma réplica é promovida a primary.
+4. As réplicas restantes são configuradas para sincronizar com o novo primary.
+5. Os clientes são informados sobre o novo primary.
+
+[Vídeo sobre Redis Sentinel][video5]
+
+O **Redis Cluster** é uma funcionalidade do Redis que permite distribuir dados entre múltiplos nós, ***oferecendo escalabilidade horizontal*** e alta disponibilidade. Ele é projetado para lidar com grandes volumes de dados e alta taxa de requisições, dividindo a carga entre vários servidores e mantendo os dados disponíveis mesmo em caso de falhas.
+
+Cada nó pode ter réplicas (chamadas de replica nodes ou slaves). Essas réplicas são usadas para garantir que os dados permaneçam acessíveis em caso de falha de um nó primário (master). Se um nó primário falhar, uma de suas réplicas é promovida automaticamente a primário.
+
+É possível adicionar ou remover nós do cluster dinamicamente, redistribuindo os slots para equilibrar a carga.
+
+[Vídeo sobre Redis Cluster][video6]
+
+O Redis Cluster é quase um 
+
+|    **Redis**    | **O que faz?**                                                                                 | **Monitoramento de Failover**                          |
+| :-------------: | :--------------------------------------------------------------------------------------------- | :----------------------------------------------------- |
+| **Replication** | Replica mudanças feitas no master em suas replicas, salva em mais de um local os mesmos dados. | Não faz sozinho, precisa do **Redis Sentinel**.        |
+|   **Cluster**   | Distribui os dados entre máquinas, divide os dados em 16k slots (chamados de hash slots).      | Faz automáticamente caso os Clusteres tenham réplicas. |
 
 **Dois pontos (:)** é uma forma de criar pastas e inserir os tipos de dados desejados, **pode ser usado na criação de qualquer um dos tipos de dados**. Forma base `pasta:key`, futuramente iremos ver exemplos.
 
@@ -480,6 +521,14 @@ Usei como base o [roadmap sobre Docker][roadmap].
 
 [**Vídeo Redis 2**][video2]
 
+[**Vídeo Redis pubsub**][video3]
+
+[**Vídeo Redis Replication**][video4]
+
+[**Vídeo Redis Sentinel**][video5]
+
+[**Vídeo Redis Cluster**][video6]
+
 [**Tutorial do Luiz**][tutorial]
 
 [**Docker**][docker]
@@ -492,5 +541,8 @@ Usei como base o [roadmap sobre Docker][roadmap].
 [video2]: https://www.youtube.com/watch?v=I-ohlZXXaxs&list=TLPQMjMwMTIwMjWqGEnALrOmfQ&index=6
 [pubsub]: https://redis.io/docs/latest/develop/interact/pubsub/
 [video3]: https://youtu.be/KIFA_fFzSbo?si=J_RwK3VIplYTOfL7
+[video4]: https://youtu.be/p8mK8GBCARE?si=TcRIplWkQxWzgUaD
+[video5]: https://youtu.be/-a07Ief51H4?si=qpg-XPJfC0iClNFM
+[video6]: https://youtu.be/N8BkmdZzxDg?si=75c_v_1vzsuxicdV
 [roadmap]: https://roadmap.sh/redis
 [metacaractere]: https://github.com/pedcravo/Wiki/tree/main/Linux/MetaCaractere
