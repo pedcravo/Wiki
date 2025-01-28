@@ -35,6 +35,7 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
       - [Exemplos de JSON:](#exemplos-de-json)
   - [Redis no Docker:](#redis-no-docker)
   - [Instalação e Configurações:](#instalação-e-configurações)
+  - [redis.conf](#redisconf)
   - [Recursos Úteis](#recursos-úteis)
 
 ## Conceitos:
@@ -208,11 +209,13 @@ O terceiro sendo:
 #### Comandos gerais:
 - `KEYS name` → **Pesquisa chaves**, idependente do tipo, é possível utilizar os metacaracteres de forma semelhante ao terminal do linux.
 - `TYPE key` → **Verifica o tipo** da chave.
+- `INFO section` → **Fornece informações detalhadas e estatísticas** sobre o servidor, incluindo o uso de memória, carga da CPU, clientes conectados, status de replicação e muito mais.
 - `EXPIRE key` → **Dá um TTL** para uma chave.
 - `TTL key` → **Verifica o TTL** da chave.
 - `MULTI` → **Inicia o Pipeline** dando inicio a lista dos comandos.
 - `EXEC` → **Finaliza Pipeline e executa.**
 - `DESCARTE` → **Cancela o bloco de transações** criado por `MULTI`, descartando todos os comandos enfileirados.
+- `MONITOR` → **Fornece um feed em tempo real** de todos os comandos executados no servidor, exibindo cada comando junto com seus argumentos à medida que são processados.
 
 ---
 ### String
@@ -508,6 +511,11 @@ Então primeiramente faça a instalação do [**Docker**][docker] em sua máquin
 
 Após instalar o **Docker** execute os comandos em [**Instalação docker, redis, redis commandar e sql**][tutorial].
 
+## redis.conf
+Acesse as configurações básicas de redis.conf https://raw.githubusercontent.com/redis/redis/unstable/redis.conf
+
+[Explicação das configurações][redisconfig]
+
 ## Recursos Úteis
 Usei como base o [roadmap sobre Docker][roadmap].
 
@@ -533,6 +541,7 @@ Usei como base o [roadmap sobre Docker][roadmap].
 
 [**Docker**][docker]
 
+[**Explicação das configurações**][redisconfig]
 
 [docker]: https://github.com/pedcravo/Wiki/tree/main/Docker
 [tutorial]: https://github.com/LuizFillipe1/dicas
@@ -546,3 +555,4 @@ Usei como base o [roadmap sobre Docker][roadmap].
 [video6]: https://youtu.be/N8BkmdZzxDg?si=75c_v_1vzsuxicdV
 [roadmap]: https://roadmap.sh/redis
 [metacaractere]: https://github.com/pedcravo/Wiki/tree/main/Linux/MetaCaractere
+[redisconfig]: https://www.geeksforgeeks.org/complete-tutorial-of-configuration-in-redis/
