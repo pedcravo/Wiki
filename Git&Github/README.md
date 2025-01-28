@@ -11,6 +11,7 @@ Qualquer duvida nos conceitos é só clicar em um dos links na seção [**Recurs
     - [Local](#local)
       - [Para iniciar um projeto](#para-iniciar-um-projeto)
       - [Criar branchs](#criar-branchs)
+      - [Deletar branchs](#deletar-branchs)
       - [Unir branchs](#unir-branchs)
       - [Navegar entre commits com branch](#navegar-entre-commits-com-branch)
       - [Commits](#commits)
@@ -20,6 +21,8 @@ Qualquer duvida nos conceitos é só clicar em um dos links na seção [**Recurs
       - [Importar branch remota para local](#importar-branch-remota-para-local)
       - [Conectar branch remota com uma local](#conectar-branch-remota-com-uma-local)
       - [Branchs remotas](#branchs-remotas)
+      - [Renomear branchs](#renomear-branchs)
+      - [Deletando branchs](#deletando-branchs)
       - [Unir branchs](#unir-branchs-1)
       - [Navegar entre commits com branch](#navegar-entre-commits-com-branch-1)
       - [Commits e atualizar remoto](#commits-e-atualizar-remoto)
@@ -98,6 +101,23 @@ Ao iniciar o projeto é criada uma branch principal. É possível criar outras b
 >   ```
 
 O projeto foi íniciado, agora é possível **inserir arquivos a branch atual** do projeto.
+
+#### Deletar branchs
+O Git não permitirá que você exclua a ramificação em que você está atualmente, portanto, deve certificar-se de fazer o `checkout` de uma ramificação que você não está excluindo.
+Logo siga essa série de comandos:
+
+1. Troque para main ou outra branch diferente daquela que ira ser apagada:
+   ```bash
+   git checkout main
+   ```
+2. Apague a branch local:
+   ```bash
+   git branch -d <nome>.
+   ```
+
+> **OBS:**
+> 
+> A opção `-d` excluirá a ramificação somente se ela já tiver dado `push` ou `merge` com a branch remota. Use `-D` em vez disso, se você quiser forçar o ramo a ser excluído, mesmo que ele ainda não tenha dado `push` ou `merge`.
 
 #### Unir branchs
 Para unir duar branchs executamos o comando merge. Este comando faz um commit que tem como pais o ultimo commit de uma branch b1 e o ultimo commit de b2.
@@ -239,6 +259,39 @@ Comandos | Existe local? | Existe remoto?
 push -u | **V** | **X**
 checkout --track | **X** | **V**
 branch -u | **V** | **V**
+
+#### Renomear branchs
+[**Renomeando branch no git**][Renomeando branch no git]]
+
+[**Renomeando branchs no github**][Renomeando branchs no github]
+
+#### Deletando branchs
+O Git não permitirá que você exclua a ramificação em que você está atualmente, portanto, deve certificar-se de fazer o `checkout` de uma ramificação que você não está excluindo.
+Logo siga essa série de comandos:
+
+1. Troque para main ou outra branch diferente daquela que ira ser apagada:
+   ```bash
+   git checkout main
+   ```
+2. Apague a branch local:
+   ```bash
+   git branch -d <nome>.
+   ```
+
+> **OBS:**
+> 
+> A opção `-d` excluirá a ramificação somente se ela já tiver dado `push` ou `merge` com a branch remota. Use `-D` em vez disso, se você quiser forçar o ramo a ser excluído, mesmo que ele ainda não tenha dado `push` ou `merge`.
+
+3. Apague a branch remotamente:
+   ```bash
+   git push <remota> --delete <nome>.
+   ```
+
+> Você também pode usar este comando mais curto para excluir um branch remotamente: 
+>   ```bash
+>   git push "remote" :'branch
+>   ```
+
 
 #### Unir branchs
 Para unir duar branchs executamos o comando merge. Este comando faz um commit que tem como pais o ultimo commit de uma branch b1 e o ultimo commit de b2.
@@ -401,4 +454,9 @@ Podemos citar algumas configurações globais uteis a serem feitas como:
 
 [**Ignorando arquivos de commit no git**](https://www.freecodecamp.org/portuguese/news/gitignore-explicado-o-que-e-o-gitignore-e-como-adiciona-lo-ao-seu-repositorio/)
 
-[**Renomeando branch no git**](https://kinsta.com/pt/base-de-conhecimento/git-rename-branch/)
+[**Renomeando branch no git**][Renomeando branch no git]]
+
+[**Renomeando branchs no github**][Renomeando branchs no github]
+
+[Renomeando branch no git]: https://kinsta.com/pt/base-de-conhecimento/git-rename-branch/
+[Renomeando branchs no github]: https://docs.github.com/pt/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch
