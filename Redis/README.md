@@ -5,7 +5,14 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
 - [Redis](#redis)
   - [Tópicos](#tópicos)
   - [Conceitos:](#conceitos)
+    - [Redis](#redis-1)
+    - [Redis Commander](#redis-commander)
+    - [Redis AOF \& RDB](#redis-aof--rdb)
+    - [Redis Replication](#redis-replication)
+    - [Redis Sentinel](#redis-sentinel)
       - [Exemplo de Arquitetura:](#exemplo-de-arquitetura)
+    - [Redis Cluster](#redis-cluster)
+    - [Replication VS Cluster](#replication-vs-cluster)
     - [Pub/Sub](#pubsub)
       - [Formato das mensagens comuns:](#formato-das-mensagens-comuns)
       - [Comandos e retornos comuns:](#comandos-e-retornos-comuns)
@@ -39,22 +46,39 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
   - [Recursos Úteis](#recursos-úteis)
 
 ## Conceitos:
+### Redis
 **Redis** é um banco de dados no SQL, que armazena dados na memória do computador, mais especificamente na memória ativa do computador, o que é mais rápido do que acessar dados em armazenamento secundário, como um disco rígido.
 
 <img src="https://github.com/pedcravo/Wiki/blob/main/Redis/RedisIsFast.jpg" width="600px">
 
+
+### Redis Commander
 **Redis Commander** é um programa que utiliza a porta 8081 da máquina para visualizar os dados do **Redis** e fazer comandos diretamente no mesmo usando a linha de comando na parte inferior da página.
 
 > Para acessar o Redis Commander no navegador, acesse http://localhost:8081/
 > 
 > O usuário e a senha são ***admin***.
 
+### Redis AOF & RDB
+|            **Nome**             | **O que faz?**                                                                                                                                       | **Tempos para execução**                                                                                                                                    | **Vantagens**                                                                                    |
+| :-----------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------- |
+|   Append-Only File (**AOF**)    | È um sistema de backup que baixa cada log, cada operação em um arquivo (.aof).                                                                       | **Sempre** (baixa performace porém alta segurança); **A Cada Segundo** - Performace melhor e segurança média; **Desligado** - Melhor performace e inseguro. | Mais confiável pois cada log foi salvo no arquivo.                                               |
+| Redis Database Backup (**RDB**) | É um sistema de backup semelhante ao Git que faz snapshots do Redis e os organiza em ordem cronológica arquivos binários (dump.rdp), pode ter forks. | A cada 1 minuto se 10 alterações; 5 minutos se 1000 alterações.                                                                                             | Não afeta performace do Redis; Velocidade alta para restauração de dados; Arquivo mais compacto. |
+
+[Vídeo sobre AOF e RDB →][video7]
+
+[Fazer backup →][rdp&aof]
+
+
+### Redis Replication
 O **Redis Replication** é um recurso que permite replicar os dados de um servidor Redis (conhecido como primary ou master) para outros servidores (conhecidos como replicas ou slaves). Ele permite que as instâncias replicas Redis sejam cópias exatas das instâncias mestras. A réplica se reconectará automaticamente ao mestre toda vez que o link quebrar e tentará ser uma cópia exata dela, independentemente do que acontecer com o mestre. Essa replicação é usada para aumentar a disponibilidade, a escalabilidade e a redundância dos dados em um ambiente Redis.
 
 Muitas réplicas conectadas podem sobrecarregar o primary, especialmente durante sincronizações iniciais, em outras palavras o Failover.
 
-[Vídeo sobre Redis Replication e Cluster][video4]
+[Vídeo sobre Redis Replication e Cluster →][video4]
 
+
+### Redis Sentinel
 O **Redis Sentinel** é um sistema integrado ao Redis que fornece alta disponibilidade para ambientes distribuídos. Ele é responsável por monitorar instâncias Redis (master e replicas), detectar falhas, realizar failover automático e configurar os clientes para que eles sempre acessem o primary correto.
 
 Quando o master falha, os Sentinels escolhem uma réplica para ser promovida a primary com base em critérios como o tempo de atraso na replicação.
@@ -72,35 +96,31 @@ Após a promoção, os Sentinels reconfiguram as outras replicas para replicarem
 4. As réplicas restantes são configuradas para sincronizar com o novo primary.
 5. Os clientes são informados sobre o novo primary.
 
-[Vídeo sobre Redis Sentinel][video5]
+[Vídeo sobre Redis Sentinel →][video5]
 
+
+### Redis Cluster
 O **Redis Cluster** é uma funcionalidade do Redis que permite distribuir dados entre múltiplos nós, ***oferecendo escalabilidade horizontal*** e alta disponibilidade. Ele é projetado para lidar com grandes volumes de dados e alta taxa de requisições, dividindo a carga entre vários servidores e mantendo os dados disponíveis mesmo em caso de falhas.
 
 Cada nó pode ter réplicas (chamadas de replica nodes ou slaves). Essas réplicas são usadas para garantir que os dados permaneçam acessíveis em caso de falha de um nó primário (master). Se um nó primário falhar, uma de suas réplicas é promovida automaticamente a primário.
 
 É possível adicionar ou remover nós do cluster dinamicamente, redistribuindo os slots para equilibrar a carga.
 
-[Vídeo sobre Redis Cluster][video6]
+[Vídeo sobre Redis Cluster →][video6]
 
-O Redis Cluster é quase um 
 
+### Replication VS Cluster
 |    **Redis**    | **O que faz?**                                                                                 | **Monitoramento de Failover**                          |
 | :-------------: | :--------------------------------------------------------------------------------------------- | :----------------------------------------------------- |
 | **Replication** | Replica mudanças feitas no master em suas replicas, salva em mais de um local os mesmos dados. | Não faz sozinho, precisa do **Redis Sentinel**.        |
 |   **Cluster**   | Distribui os dados entre máquinas, divide os dados em 16k slots (chamados de hash slots).      | Faz automáticamente caso os Clusteres tenham réplicas. |
 
-**Dois pontos (:)** é uma forma de criar pastas e inserir os tipos de dados desejados, **pode ser usado na criação de qualquer um dos tipos de dados**. Forma base `pasta:key`, futuramente iremos ver exemplos.
-
-**Key** são chaves atreladas a valores, cada chave tem seu **nome**, seu **tempo de vida** (TTL) e seu **tipo**.
-
-**Pipeline é uma otimização que ajuda a executar vários comandos no Redis sequencialmente.** Normalmente, para uma interação do Redis, um cliente primeiro emite um comando para o servidor e, em seguida, envia outro quando o processamento do seu comando é concluído.
-Em contraste com o Redis Pipelining, os clientes podem enviar vários comandos de uma vez para o servidor sem esperar por cada resposta. Para isso, o servidor armazena esses comandos e os processa serialmente antes de retornar a resposta após executar todos os comandos.
 
 ### Pub/Sub
 [**Pub/Sub**][pubsub], ou **Publish/Subscribe** em outras palavras, **é uma forma de envio e recepção de mensagens que existe no Redis**. Esse método pode ser usado entre máquinas ou aplicações.
 Este método consiste em uma máquina (por exemplo), que como Publisher envia mensagens e uma ou mais máquinas como Subscriber recebem essas mensagens.
 
-[Vídeo sobre Pub/Sub][video3]
+[Vídeo sobre Pub/Sub →][video3]
 
 #### Formato das mensagens comuns:
 Uma mensagem é uma resposta de matriz com três elementos. Sendo o primeiro elemento o tipo de mensagem:
@@ -206,6 +226,13 @@ O terceiro sendo:
 
 
 ## KEYS
+**Key** são chaves atreladas a valores, cada chave tem seu **nome**, seu **tempo de vida** (TTL) e seu **tipo**.
+
+**Dois pontos (:)** é uma forma de criar pastas e inserir os tipos de dados desejados, **pode ser usado na criação de qualquer um dos tipos de dados**. Forma base `pasta:key`, futuramente iremos ver exemplos.
+
+**Pipeline é uma otimização que ajuda a executar vários comandos no Redis sequencialmente.** Normalmente, para uma interação do Redis, um cliente primeiro emite um comando para o servidor e, em seguida, envia outro quando o processamento do seu comando é concluído.
+Em contraste com o Redis Pipelining, os clientes podem enviar vários comandos de uma vez para o servidor sem esperar por cada resposta. Para isso, o servidor armazena esses comandos e os processa serialmente antes de retornar a resposta após executar todos os comandos.
+
 #### Comandos gerais:
 - `KEYS name` → **Pesquisa chaves**, idependente do tipo, é possível utilizar os metacaracteres de forma semelhante ao terminal do linux.
 - `TYPE key` → **Verifica o tipo** da chave.
@@ -493,17 +520,17 @@ JSON.GET vendor:96
 4. Exibe o documento JSON completo, o comando final retorna o documento completo armazenado na chave "vendor:96".
 
 > Para mais sobre **JSON** acesse:
-> - [RedisJSON documentação][jsondoc]
-> - [Redis and JSON Explained][video1]
-> - [Redis and JSON Explained (Revisited)][video2]
+> - [RedisJSON documentação →][jsondoc]
+> - [Video Redis and JSON Explained →][video1]
+> - [Vídeo Redis and JSON Explained (Revisited) →][video2]
 
 ## Redis no Docker:
 Caso o **Redis** esteja sendo executado via [**Docker**][docker], o comando para acessar a linha de comando do **Redis** é diferente de se o **Redis** estivesse diretamente na máquina. Podemos observar isso:
 
-| Local do Redis | Comando                                    |
-| :------------: | :----------------------------------------- |
-|    Máquina     | `$ redis-docker redis-cli`                 |
-|     Docker     | `$ docker exec -it redis-docker redis-cli` |
+| **Local do Redis** | **Comando**                                |
+| :----------------: | :----------------------------------------- |
+|      Máquina       | `$ redis-docker redis-cli`                 |
+|       Docker       | `$ docker exec -it redis-docker redis-cli` |
 
 ## Instalação e Configurações:
 Para fazer a instalação e configurações do **Redis** e do **Redis Commander** é indicado o uso em [**Docker**][docker].
@@ -514,34 +541,40 @@ Após instalar o **Docker** execute os comandos em [**Instalação docker, redis
 ## redis.conf
 Acesse as configurações básicas de redis.conf https://raw.githubusercontent.com/redis/redis/unstable/redis.conf
 
-[Explicação das configurações][redisconfig]
+[Explicação das configurações →][redisconfig]
+
+[Fazer backup →][rdp&aof]
 
 ## Recursos Úteis
-Usei como base o [roadmap sobre Docker][roadmap].
-
 <img src="https://github.com/pedcravo/Wiki/blob/main/Redis/RoadmapRedis.png" width="600px">
 
-[**Pub/Sub**][pubsub]
+[**Roadmap sobre Docker →**][roadmap]
 
-[**Documento sobre JSON**][jsondoc]
+[**Pub/Sub →**][pubsub]
 
-[**Vídeo Redis 1**][video1]
+[**Documento sobre JSON →**][jsondoc]
 
-[**Vídeo Redis 2**][video2]
+[**Vídeo Redis and JSON Explained →**][video1]
 
-[**Vídeo Redis pubsub**][video3]
+[**Vídeo Redis and JSON Explained (Revisited) →**][video2]
 
-[**Vídeo Redis Replication**][video4]
+[**Vídeo Redis pubsub →**][video3]
 
-[**Vídeo Redis Sentinel**][video5]
+[**Vídeo Redis Replication →**][video4]
 
-[**Vídeo Redis Cluster**][video6]
+[**Vídeo Redis Sentinel →**][video5]
 
-[**Tutorial do Luiz**][tutorial]
+[**Vídeo Redis Cluster →**][video6]
 
-[**Docker**][docker]
+[**Vídeo sobre AOF e RDB →**][video7]
 
-[**Explicação das configurações**][redisconfig]
+[**Fazer backup →**][rdp&aof]
+
+[**Tutorial do Luiz →**][tutorial]
+
+[**Anotações sobre Docker →**][docker]
+
+[**Explicação das configurações →**][redisconfig]
 
 [docker]: https://github.com/pedcravo/Wiki/tree/main/Docker
 [tutorial]: https://github.com/LuizFillipe1/dicas
@@ -553,6 +586,8 @@ Usei como base o [roadmap sobre Docker][roadmap].
 [video4]: https://youtu.be/p8mK8GBCARE?si=TcRIplWkQxWzgUaD
 [video5]: https://youtu.be/-a07Ief51H4?si=qpg-XPJfC0iClNFM
 [video6]: https://youtu.be/N8BkmdZzxDg?si=75c_v_1vzsuxicdV
+[video7]: https://www.youtube.com/watch?v=1pfvz24BAUs
 [roadmap]: https://roadmap.sh/redis
 [metacaractere]: https://github.com/pedcravo/Wiki/tree/main/Linux/MetaCaractere
 [redisconfig]: https://www.geeksforgeeks.org/complete-tutorial-of-configuration-in-redis/
+[rdp&aof]:https://dev.to/thehollidayinn/backing-up-and-restoring-redis-25e5
