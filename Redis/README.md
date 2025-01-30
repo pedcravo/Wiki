@@ -13,6 +13,9 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
       - [Exemplo de Arquitetura:](#exemplo-de-arquitetura)
     - [Redis Cluster](#redis-cluster)
     - [Replication VS Cluster](#replication-vs-cluster)
+    - [Disaster Recovery (DR)](#disaster-recovery-dr)
+      - [Situações Comuns de Falha e Como Resolver:](#situações-comuns-de-falha-e-como-resolver)
+      - [Estratégias de Prevenção](#estratégias-de-prevenção)
     - [Pub/Sub](#pubsub)
       - [Canais comuns:](#canais-comuns)
       - [Canais por padrão:](#canais-por-padrão)
@@ -114,6 +117,80 @@ Cada nó pode ter réplicas (chamadas de replica nodes ou slaves). Essas réplic
 | **Replication** | Replica mudanças feitas no master em suas replicas, salva em mais de um local os mesmos dados. | Não faz sozinho, precisa do **Redis Sentinel**.        |
 |   **Cluster**   | Distribui os dados entre máquinas, divide os dados em 16k slots (chamados de hash slots).      | Faz automáticamente caso os Clusteres tenham réplicas. |
 
+
+### Disaster Recovery (DR)
+
+#### Situações Comuns de Falha e Como Resolver:
+Aqui estão algumas falhas comuns e como agir em cada uma delas:
+
+**1.Falha no Servidor (Perda de Dados)**
+- Se o Redis foi configurado para usar AOF, ele pode ser recuperado até o último comando gravado.
+- Se estiver usando apenas RDB, a recuperação dependerá do último snapshot salvo.
+
+**O que fazer?**
+  1. Verifique se há backups disponíveis (arquivos .rdb ou .aof).
+  2. Restaure um backup recente copiando o arquivo de backup para o diretório do Redis (/var/lib/redis por padrão).
+  3. Reinicie o Redis para que ele carregue o backup restaurado.
+  ```bash
+  $ sudo systemctl restart redis
+  ```
+
+**2. Corrupção do Arquivo AOF**
+- O Redis pode detectar corrupção no arquivo AOF e impedir sua recuperação.
+
+**O que fazer?**
+  1. Use a ferramenta interna do Redis para corrigir o AOF:
+  ```bash
+  $ redis-check-aof --fix appendonly.aof
+  ```
+  2. Após a correção, reinicie o Redis.
+  
+**3. Corrupção do Arquivo RDB**
+- Se o arquivo .rdb estiver corrompido, ele pode impedir a inicialização do Redis.
+
+**O que fazer?**
+  1. Use o comando para verificar e corrigir:
+  ```bash
+  $ redis-check-rdb dump.rdb
+  ```
+  2. Se a corrupção for irreparável, restaure um backup recente.
+
+**4. Perda Total dos Dados**
+- Se você perdeu todos os dados e não tem um backup, a única opção pode ser restaurar a partir de réplicas.
+
+**O que fazer?**
+  1. Se estiver usando replicação (Redis Replica, ex-Slave), promova um dos nós como primário:
+  ```bash
+  $ redis-cli
+  ```
+  ```bash
+  > SLAVEOF NO ONE
+  ```
+  2. Se tiver backups externos, restaure-os e reinicie o Redis.
+
+#### Estratégias de Prevenção
+Para evitar problemas futuros, siga essas boas práticas:
+
+**1. Configurar Backups Automáticos**
+- Se ainda não fez isso, configure um cron job para copiar o arquivo *.rdb* e o *.aof* para um local seguro regularmente:
+```bash
+$ crontab -e
+```
+- Adicione:
+```bash
+0 * * * * cp /var/lib/redis/dump.rdb /backup/redis/dump-$(date +\%F-\%H\%M).rdb
+0 * * * * cp /var/lib/redis/appendonly.aof /backup/redis/appendonly-$(date +\%F-\%H\%M).aof
+```
+- Isso salvará backups a cada hora.
+
+**2. Usar Redis Replication e Sentinel**
+- Para evitar a perda total dos dados, use replicação com Redis Sentinel. Ele pode detectar falhas e promover automaticamente uma réplica a principal.
+
+> Para mais informações sobre vá aos tópicos:
+> 
+> [Redis Replication →](#redis-replication)
+> 
+> [Redis Sentinel →](#redis-sentinel)
 
 ### Pub/Sub
 [**Pub/Sub**][pubsub], ou **Publish/Subscribe** em outras palavras, **é uma forma de envio e recepção de mensagens que existe no Redis**. Esse método pode ser usado entre máquinas ou aplicações.
@@ -246,21 +323,21 @@ As strings são o tipo de dado mais simples no Redis e armazenam valores únicos
 
 #### Exemplos de uso:
 ```bash
-SET name João
-GET name
-DEL name
+> SET name João
+> GET name
+> DEL name
 ```
 1. Define uma chave "name" com o valor "João".
 2. Retorna o valor da chave "name".
 3. Remove a chave "name".
 
 ```bash
-SET name:1 João
-GET name:1
-SET name:2 Thiago
-GET name:2
-SET name:3 Pedro
-GET name:3
+> SET name:1 João
+> GET name:1
+> SET name:2 Thiago
+> GET name:2
+> SET name:3 Pedro
+> GET name:3
 ```
 1. Cria uma pasta chamada "name" e insere uma chave "1" com o valor "João".
 2. Retorna o valor da chave "1" na pasta "name".
@@ -270,11 +347,11 @@ GET name:3
 6. Retorna o valor da chave "2" na pasta "name".
 
 ```bash
-SET counter 10
-INCR counter
-DECR counter
-APPEND counter " vezes"
-GET counter
+> SET counter 10
+> INCR counter
+> DECR counter
+> APPEND counter " vezes"
+> GET counter
 ```
 1. Define uma chave "counter" com o valor "10".
 2. Incrementa o valor da chave "counter" para "11".
@@ -299,10 +376,10 @@ Os hashes armazenam coleções de pares **campo/valor**, similares a um objeto J
 
 #### Exemplos de uso:
 ```bash
-HSET user:1 name João
-HSET user:1 age 30
-HGET user:1 name
-HGETALL user:1
+> HSET user:1 name João
+> HSET user:1 age 30
+> HGET user:1 name
+> HGETALL user:1
 ```
 1. Define um hash "1" na pasta "user" com o campo "name" e valor "João".
 2. Adiciona o campo "age" com o valor "30".
@@ -310,8 +387,8 @@ HGETALL user:1
 4. Retorna todos os campos e valores do hash "user:1".
 
 ```bash
-HSET user:2 login teste senha teste123 pontos 200
-HGETALL user:2
+> HSET user:2 login teste senha teste123 pontos 200
+> HGETALL user:2
 ```
 1. Insere um hash "user:2" com os campos "login" com valor "teste", "senha" com valor "teste123", "pontos" com valor "200".
 2. Mostra todos os campos e valores do hash "user:2".
@@ -331,10 +408,10 @@ As listas armazenam uma sequência ordenada de valores (strings).
 
 #### Exemplos de uso:
 ```bash
-LPUSH tasks "Estudar Redis"
-LPUSH tasks "Ler Documentação"
-RPUSH tasks "Praticar"
-LRANGE tasks 0 -1
+> LPUSH tasks "Estudar Redis"
+> LPUSH tasks "Ler Documentação"
+> RPUSH tasks "Praticar"
+> LRANGE tasks 0 -1
 ```
 1. Adiciona "Estudar Redis" ao início da lista "tasks".
 2. Adiciona "Ler Documentação" ao início da lista "tasks".
@@ -356,19 +433,19 @@ Os conjuntos armazenam valores únicos e não ordenados. É possível adicionar 
 
 #### Exemplos de uso:
 ```bash
-SADD tags Redis NoSQL Database
-SMEMBERS tags
-SCARD tags
+> SADD tags Redis NoSQL Database
+> SMEMBERS tags
+> SCARD tags
 ```
 1. Adiciona "Redis", "NoSQL" e "Database" ao conjunto "tags".
 2. Retorna todos os valores do conjunto "tags".
 3. Retorna o número de elementos no conjunto.
 
 ```bash
-SADD user:1:teste redis
-SADD user:1:teste mongodb
-SADD user:1:teste mysql
-SCARD user:1:teste    
+> SADD user:1:teste redis
+> SADD user:1:teste mongodb
+> SADD user:1:teste mysql
+> SCARD user:1:teste    
 ```
 1. Define um hash "user:1:teste" com o valor "redis".
 2. Adiciona o valor "mongodb" ao hash.
@@ -394,9 +471,9 @@ Os conjuntos classificados são como conjuntos, mas cada valor está associado a
 
 #### Exemplos de uso:
 ```bash
-ZADD leaderboard 100 Pedro
-ZADD leaderboard 200 João
-ZRANGE leaderboard 0 -1 WITHSCORES
+> ZADD leaderboard 100 Pedro
+> ZADD leaderboard 200 João
+> ZRANGE leaderboard 0 -1 WITHSCORES
 ```
 1. Adiciona "Pedro" ao conjunto "leaderboard" com score 100.
 2. Adiciona "João" ao conjunto "leaderboard" com score 200.
@@ -427,9 +504,9 @@ O $ é usado como o caminho raiz quando você deseja acessar ou manipular dados 
 - Suporta seleção de múltiplos elementos ou valores específicos em estruturas complexas.
 
 ```bash
-JSON.GET vendor:96 $
-JSON.GET vendor:96 $.name
-JSON.GET vendor:96 $.menu[*].name
+> JSON.GET vendor:96 $
+> JSON.GET vendor:96 $.name
+> JSON.GET vendor:96 $.menu[*].name
 ```
 1. Retorna todo o JSON armazenado na chave "vendor:96".
 2. Retorna o valor do campo "name".
@@ -444,9 +521,9 @@ O . é usado para definir diretamente o caminho ao criar ou atualizar um JSON no
 - Não é usado para leitura de dados (apenas para escrita).
 
 ```bash
-JSON.SET vendor:96 . '{"name":"Tacos Mi Ranchos"}'
-JSON.SET vendor:96 .location '{"address":"123 Main St"}'
-JSON.SET vendor:96 .menu[0] '{"name":"burrito","price":11.5}'
+> JSON.SET vendor:96 . '{"name":"Tacos Mi Ranchos"}'
+> JSON.SET vendor:96 .location '{"address":"123 Main St"}'
+> JSON.SET vendor:96 .menu[0] '{"name":"burrito","price":11.5}'
 ```
 1. Cria um JSON inteiro com o campo "name".
 2. Adiciona um novo campo "location" com um objeto contendo "address".
@@ -454,12 +531,12 @@ JSON.SET vendor:96 .menu[0] '{"name":"burrito","price":11.5}'
 
 #### Exemplos de JSON:
 ```bash
-JSON.SET user:1 $ '{"name":"João","age":30,"skills":["Redis","Docker"]}'
-JSON.GET user:1
-JSON.GET user:1 $.name
-JSON.SET user:1 $.age 31
-JSON.ARRAPPEND user:1 $.skills "Kubernetes"
-JSON.GET user:1 $.skills
+> JSON.SET user:1 $ '{"name":"João","age":30,"skills":["Redis","Docker"]}'
+> JSON.GET user:1
+> JSON.GET user:1 $.name
+> JSON.SET user:1 $.age 31
+> JSON.ARRAPPEND user:1 $.skills "Kubernetes"
+> JSON.GET user:1 $.skills
 ```
 1. Define um documento JSON para a chave "user:1" contendo os campos "name", "age" e "skills".
 2. Retorna o documento JSON completo associado à chave "user:1".
@@ -469,7 +546,7 @@ JSON.GET user:1 $.skills
 6. Retorna o array atualizado de "skills".
 
 ```bash
-JSON.SET vendor:96 . '
+> JSON.SET vendor:96 . '
 {
    "name": "Tacos Mi Ranchos",
    "phone": 5557891234,
@@ -486,7 +563,7 @@ JSON.SET vendor:96 . '
        ]
 }'
 
-JSON.SET vendor:96 .location '
+> JSON.SET vendor:96 .location '
 {
    "address": "1434 1st Ave, Oakland, CA 94606",
    "coordinates":
@@ -496,9 +573,9 @@ JSON.SET vendor:96 .location '
        ]
 }'
 
-JSON.SET vendor:96 .location.address "\" 1452 1st Ave, Oakland, CA 94606\""
+> JSON.SET vendor:96 .location.address "\" 1452 1st Ave, Oakland, CA 94606\""
 
-JSON.GET vendor:96
+> JSON.GET vendor:96
 ```
 1. Define o JSON inicial, cria a estrutura com "name", "phone" e "menu" com dois itens.
 2. Adiciona o campo "location", insere o endereço original e as coordenadas de localização.
