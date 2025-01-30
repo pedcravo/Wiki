@@ -15,6 +15,9 @@ Qualquer duvida nos conceitos é só clicar em um dos links na seção [**Recurs
       - [Unir branchs](#unir-branchs)
       - [Navegar entre commits com branch](#navegar-entre-commits-com-branch)
       - [Commits](#commits)
+      - [Revertendo Commits](#revertendo-commits)
+      - [Resetando Commits Locais](#resetando-commits-locais)
+      - [Diferenciando Commits (diff)](#diferenciando-commits-diff)
     - [Remoto](#remoto)
       - [Iníciar um projeto](#iníciar-um-projeto)
       - [Criar branch remota com base em uma local](#criar-branch-remota-com-base-em-uma-local)
@@ -26,6 +29,9 @@ Qualquer duvida nos conceitos é só clicar em um dos links na seção [**Recurs
       - [Unir branchs](#unir-branchs-1)
       - [Navegar entre commits com branch](#navegar-entre-commits-com-branch-1)
       - [Commits e atualizar remoto](#commits-e-atualizar-remoto)
+      - [Revertendo Commits Remotos](#revertendo-commits-remotos)
+      - [Resetando Commits Remotos](#resetando-commits-remotos)
+      - [Diferenciando Commits (diff)](#diferenciando-commits-diff-1)
       - [Issues](#issues)
   - [Configurações globais](#configurações-globais)
   - [Recursos Úteis](#recursos-úteis)
@@ -175,7 +181,39 @@ Para unir duar branchs executamos o comando merge. Este comando faz um commit qu
         ou
     gitk
     ```
+---
 
+#### Revertendo Commits
+O comando `git revert <commit>` é usado para desfazer as alterações de um commit específico, criando um novo commit que reverte essas mudanças sem alterar o histórico do repositório.
+
+- É necessário identificar o hash do commit que deseja reverter:
+    ```bash
+    git log --oneline
+    ```
+
+| Comando                                    | O que faz?                                                                                |
+| :----------------------------------------- | :---------------------------------------------------------------------------------------- |
+| `git revert <hash_do_commit>`              | Reverte um commit específico (abre um editor para inserir mensagem do commit)             |
+| `git revert <hash_inicial>^..<hash_final>` | Reverte varios commits ao mesmo tempo                                                     |
+| `git revert -n <hash_do_commit>`           | Reverte commit específico sem confirmação (precisará de commit para confirmar alterações) |
+
+---
+#### Resetando Commits Locais
+O comando `git reset` é usado para desfazer alterações em commits locais. Ele pode modificar o histórico da branch, então deve ser usado com cautela.
+
+- É necessário identificar o hash do commit que deseja reverter:
+    ```bash
+    git log --oneline
+    ```
+
+| Comando                    | O que faz?                                                                    |
+| :------------------------- | :---------------------------------------------------------------------------- |
+| `git reset --soft <hash>`  | Mantém as alterações dos commits resetados na área de stage                   |
+| `git reset --mixed <hash>` | Mantém as alterações dos commits resetados no diretório de trabalho           |
+| `git reset --hard <hash>`  | Remove completamente os commits e suas alterações (essa ação é irreversível!) |
+
+---
+#### Diferenciando Commits (diff)
 Ainda é possível **ter uma visão das mudanças feitas nos arquivos do projeto**:
 
 - Mostra mudanças entre o arquivo na aréa de edição e do stage:
@@ -187,7 +225,6 @@ Ainda é possível **ter uma visão das mudanças feitas nos arquivos do projeto
     git diff --staged
     ```
 
----
 
 ### Remoto
 Caso você opte por manter seus arquivos remotamente, sua máquina irá ter uma cópia dos arquivos enquanto o servidor vai ter a principal. Será possível acessar de qualquer lugar os arquivos que estão na nuvem, porém sempre será necessário fazer o upload dos arquivos.
@@ -254,11 +291,11 @@ Por padrão é baixada a branch principal. Neste fluxo de trabalho **é possíve
 
 #### Branchs remotas
 Podemos resumir os comandos para branchs no git em forma de tabela.
-Comandos | Existe local? | Existe remoto?
-:--------- | :------: | :-------:
-push -u | **V** | **X**
-checkout --track | **X** | **V**
-branch -u | **V** | **V**
+| Comandos           | Existe local? | Existe remoto? |
+| :----------------- | :-----------: | :------------: |
+| `push -u`          |     **V**     |     **X**      |
+| `checkout --track` |     **X**     |     **V**      |
+| `branch -u`        |     **V**     |     **V**      |
 
 #### Renomear branchs
 [**Renomeando branch no git**][Renomeando branch no git]]
@@ -374,6 +411,51 @@ Agora **para inserir arquivos na branch** atual do projeto, o caminho é muito s
     git push
     ```
 
+#### Revertendo Commits Remotos
+Quando um commit já foi enviado para o repositório remoto e precisa ser revertido, o `git revert` pode ser usado para criar um novo commit que desfaz as alterações, mantendo o histórico intacto.
+Os comandos são semelhantes porém por fim é necessário enviar as alterações para o remoto atráves do `git push`.
+
+- É necessário identificar o hash do commit que deseja reverter:
+    ```bash
+    git log --oneline
+    ```
+
+| Comando                                    | O que faz?                                                                                |
+| :----------------------------------------- | :---------------------------------------------------------------------------------------- |
+| `git revert <hash_do_commit>`              | Reverte um commit específico (abre um editor para inserir mensagem do commit)             |
+| `git revert <hash_inicial>^..<hash_final>` | Reverte varios commits ao mesmo tempo                                                     |
+| `git revert -n <hash_do_commit>`           | Reverte commit específico sem confirmação (precisará de commit para confirmar alterações) |
+
+Por fim é necessário enviar alterações ao servidor:
+```bash
+git push
+```
+
+---
+#### Resetando Commits Remotos
+Quando um commit já foi enviado para o repositório remoto, o `git reset` pode ser usado para reescrever o histórico local, mas será necessário forçar a atualização no remoto com `git push --force`.
+
+> **Atenção:** Usar `git push --force` pode causar perda de histórico e problemas ao trabalhar em equipe.
+
+- É necessário identificar o hash do commit que deseja reverter:
+    ```bash
+    git log --oneline
+    ```
+
+| Comando                                    | O que faz?                                                                                |
+| :----------------------------------------- | :---------------------------------------------------------------------------------------- |
+| `git revert <hash_do_commit>`              | Reverte um commit específico (abre um editor para inserir mensagem do commit)             |
+| `git revert <hash_inicial>^..<hash_final>` | Reverte varios commits ao mesmo tempo                                                     |
+| `git revert -n <hash_do_commit>`           | Reverte commit específico sem confirmação (precisará de commit para confirmar alterações) |
+
+Enviar as alterações ao servidor (com cuidado!):
+```bash
+git push --force
+```
+
+
+---
+#### Diferenciando Commits (diff)
 Assim como no local, é possível **ter uma visão das mudanças feitas nos arquivos do projeto**:
 
 - Mostra mudanças entre o arquivo na aréa de edição e do stage:
