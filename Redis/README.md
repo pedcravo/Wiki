@@ -43,6 +43,7 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
         - ["."](#-1)
       - [Exemplos de JSON:](#exemplos-de-json)
   - [Redis no Docker:](#redis-no-docker)
+  - [Redis e AWS (ElastiCache)](#redis-e-aws-elasticache)
   - [Instalação e Configurações:](#instalação-e-configurações)
   - [redis.conf](#redisconf)
   - [Recursos Úteis](#recursos-úteis)
@@ -592,8 +593,13 @@ Caso o **Redis** esteja sendo executado via [**Docker**][docker], o comando para
 
 | **Local do Redis** | **Comando**                                |
 | :----------------: | :----------------------------------------- |
-|      Máquina       | `$ redis-docker redis-cli`                 |
+|      Máquina       | `$ redis-cli`                              |
 |       Docker       | `$ docker exec -it redis-docker redis-cli` |
+
+## Redis e AWS (ElastiCache)
+[Por que usar AWS? →][rediseaws]
+
+[Salvar Backup no AWS →][backupaws]
 
 ## Instalação e Configurações:
 Para fazer a instalação e configurações do **Redis** e do **Redis Commander** é indicado o uso em [**Docker**][docker].
@@ -639,6 +645,10 @@ Acesse as configurações básicas de redis.conf https://raw.githubusercontent.c
 
 [**Explicação das configurações →**][redisconfig]
 
+[**Por que usar AWS? →**][rediseaws]
+
+[**Salvar Backup no AWS →**][backupaws]
+
 [docker]: https://github.com/pedcravo/Wiki/tree/main/Docker
 [tutorial]: https://github.com/LuizFillipe1/dicas
 [jsondoc]: https://redis-io.translate.goog/docs/latest/develop/data-types/json/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
@@ -654,3 +664,5 @@ Acesse as configurações básicas de redis.conf https://raw.githubusercontent.c
 [metacaractere]: https://github.com/pedcravo/Wiki/tree/main/Linux/MetaCaractere
 [redisconfig]: https://www.geeksforgeeks.org/complete-tutorial-of-configuration-in-redis/
 [rdp&aof]:https://dev.to/thehollidayinn/backing-up-and-restoring-redis-25e5
+[rediseaws]: https://dev.to/aws-builders/amazon-elasticache-for-redis-2436
+[backupaws]: (https://dev.to/danimal141/how-to-investigate-memory-usage-on-elasticache-for-redis-5dm5)
