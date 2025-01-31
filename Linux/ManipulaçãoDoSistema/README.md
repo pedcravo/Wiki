@@ -30,10 +30,10 @@ Nesta sessão vamos ver os comandos que são utilizados para manipular o sistema
 24. [`tmux`](#tmux)
 25. [`top`](#top)
 26. [`htop`](#htop)
-27. [`tty`]()
-28. [`tzselect`]()
-29. [`uname`]()
-30. [`uptime`]()
+27. [`tty`](#tty)
+28. [`tzselect`](#tzselect)
+29. [`uname`](#uname)
+30. [`uptime`](#uptime)
 
 ## `&`
 

@@ -681,5 +681,3 @@ https://www.hostinger.com.br/tutoriais/como-usar-sftp-ssh-file-transfer-protocol
 https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-sftp/
 
 <img src="https://github.com/pedcravo/Wiki/blob/main/Linux/.png" width="600px">
-
----

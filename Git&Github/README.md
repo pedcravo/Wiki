@@ -5,13 +5,22 @@ Bem-vindo ao meu guia pessoal sobre Git e GitHub! Este repositório é um espaç
 
 ## 📚 Índice
 
-1. [O que é Git e GitHub](##-o-que-é-git-e-github)
-2. [Configuração Inicial](#configuração-inicial)
-3. [Principais Comandos do Git](#principais-comandos-do-git)
-4. [Fluxos de Trabalho com GitHub](#fluxos-de-trabalho-com-github)
-5. [Boas Práticas](#boas-práticas)
-6. [Problemas Comuns e Soluções](#problemas-comuns-e-soluções)
-7. [Recursos Úteis](#-recursos-úteis)
+- [🚀 Git e GitHub](#-git-e-github)
+  - [📚 Índice](#-índice)
+  - [🧐 O que é Git e GitHub](#-o-que-é-git-e-github)
+  - [🔧 Configuração Inicial](#-configuração-inicial)
+    - [Instalação do Git](#instalação-do-git)
+    - [Configuração Básica](#configuração-básica)
+  - [🛠️ Principais Comandos do Git](#️-principais-comandos-do-git)
+    - [Pedindo ajuda](#pedindo-ajuda)
+    - [Iniciando um projeto Git](#iniciando-um-projeto-git)
+    - [Fluxo Básico](#fluxo-básico)
+    - [Trabalhando com Branches](#trabalhando-com-branches)
+    - [Fluxo Remoto](#fluxo-remoto)
+  - [🌐 Fluxos de Trabalho com GitHub](#-fluxos-de-trabalho-com-github)
+  - [✅ Boas Práticas](#-boas-práticas)
+  - [🛡️ Problemas Comuns e Soluções](#️-problemas-comuns-e-soluções)
+  - [🌟 Recursos Úteis](#-recursos-úteis)
 
 
 ## 🧐 O que é Git e GitHub
