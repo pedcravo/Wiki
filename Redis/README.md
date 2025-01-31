@@ -43,7 +43,8 @@ Nesta seção iremos falar sobre Redis. O que ele é, para que serve, comandos u
         - ["."](#-1)
       - [Exemplos de JSON:](#exemplos-de-json)
   - [Redis no Docker:](#redis-no-docker)
-  - [Redis e AWS (ElastiCache)](#redis-e-aws-elasticache)
+  - [Como é feito na Ontick?](#como-é-feito-na-ontick)
+    - [Sistema de Replicas:](#sistema-de-replicas)
   - [Instalação e Configurações:](#instalação-e-configurações)
   - [redis.conf](#redisconf)
   - [Recursos Úteis](#recursos-úteis)
@@ -596,7 +597,20 @@ Caso o **Redis** esteja sendo executado via [**Docker**][docker], o comando para
 |      Máquina       | `$ redis-cli`                              |
 |       Docker       | `$ docker exec -it redis-docker redis-cli` |
 
-## Redis e AWS (ElastiCache)
+## Como é feito na Ontick?
+A Ontick utiliza o **Redis** e o **MySQL** pelos serviços do **AWS**, mais especificamente o **Elastcache** para o **Redis** e  o **RDS** para o **MySQL** respectivamente.
+
+### Sistema de Replicas:
+
+| Banco de dados:       |         Redis (Elastcache)         |            MySQL (RDS)             |
+| :-------------------- | :--------------------------------: | :--------------------------------: |
+| Quant. Primary (rw-): |                 4                  |                 2                  |
+| Quant. Replica (r--): |                 3                  |                 1                  |
+| Caso Failout:         | Torna a **Replica** um **Primary** | Torna a **Replica** um **Primary** |
+| Horário Backups:      |                2am                 |                2am                 |
+| Caso perda de dados:  |        Baixa último backup         |        Baixa último backup         |
+| TTL de Backups:       |               7 dias               |              30 dias               |
+
 [Por que usar AWS? →][rediseaws]
 
 [Salvar Backup no AWS →][backupaws]
@@ -665,4 +679,4 @@ Acesse as configurações básicas de redis.conf https://raw.githubusercontent.c
 [redisconfig]: https://www.geeksforgeeks.org/complete-tutorial-of-configuration-in-redis/
 [rdp&aof]:https://dev.to/thehollidayinn/backing-up-and-restoring-redis-25e5
 [rediseaws]: https://dev.to/aws-builders/amazon-elasticache-for-redis-2436
-[backupaws]: (https://dev.to/danimal141/how-to-investigate-memory-usage-on-elasticache-for-redis-5dm5)
+[backupaws]: https://dev.to/danimal141/how-to-investigate-memory-usage-on-elasticache-for-redis-5dm5
