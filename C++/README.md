@@ -7,7 +7,13 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
 - [C++](#c)
   - [Tópicos:](#tópicos)
   - [Conceitos](#conceitos)
-    - [Variáveis:](#variáveis)
+    - [Fluxos de entrada e saída:](#fluxos-de-entrada-e-saída)
+    - [Variáveis, Constantes e Ponteiros:](#variáveis-constantes-e-ponteiros)
+      - [Variáveis](#variáveis)
+      - [Ponteiros](#ponteiros)
+      - [Constantes](#constantes)
+    - [Funções](#funções)
+      - [main()](#main)
   - [Tipos de Erros](#tipos-de-erros)
     - [Erro de sintaxe:](#erro-de-sintaxe)
     - [Erro de semântica:](#erro-de-semântica)
@@ -20,7 +26,118 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
 
 ## Conceitos
 
-### Variáveis:
+- `return` → É usado para retornar um valor (variável, constante e etc.) ao sistema ou a máquina, como: `return 0;`, `return a;`.
+
+- `namespaces` → Usados para renomear comandos, como: `std::cout` que pode virar `cout`.
+
+- `cin` → Entrada padrão para o teclado, recebe dados do teclado.
+- `cout` → Saída padrão de dados no prompt, mostra no prompt algum dado.
+- `cerr` → Saída de erros padrão, mostra erros.
+- `clog` → Saída dos logs padrão, mostra logs.
+- `<<` → Usa dados anteriores como argumentos para o comando/variável anterior (geralmente anda junto com `cout`).
+- `>>` → Usa dados anteriores para o comando/variável a seguir.
+- `endl` → Pula linha no prompt (endl - end line).
+
+### Fluxos de entrada e saída:
+- Saída de dados (da máquina para o usúario)
+  ```cpp
+  cout << data1;
+
+  cout << "data 1 is" << data1;
+
+  cout << "data 1 is" << data1 << endl;
+  cout << "data 1 is" << data1 << "\n";
+  ```
+- Entrada de dados (do teclado para a máquina)
+  ```cpp
+  cin >> data1;
+
+  cout >> data1 >> data2;
+  ```
+  > A entrada de dadps pode falhar dependendo da entrada e do tipo de dado solicitado (*int* recebe *string*)
+
+### Variáveis, Constantes e Ponteiros:
+Ambos tem conceitos semelhantes por se tratarem de nomear, apontar e definir locais da memória.
+
+Pense na memória como uma caixa de correio de um prédio, onde cada caixinha tem um espaço para conteúdo e um endereço de identificação.
+
+<img src="https://https://github.com/pedcravo/Wiki/blob/main/C%2B%2B/memoria.jpg" width="600px">
+
+É possível dar um nome para cada caixinha com base nos moradores de cada apartamento e ao invés de chamar a caixinha pelo endereço chamá-la pelo nome. Cada caixinha pode ter armazenados qualquer tipo de coisa, desde cartas até chaves.
+
+Logo podemos inferir que **variáveis** e **ponteiros** são nomes dados a locais especificos na memória, tendo cada um tem seu prórpio endereço e conteúdo volátil. A única diferença entre elas são os tipos de contéudo que armazenam (veremos isso em breve).
+
+Já as **constantes** podem ser vistas como caixinhas semelhantes as variáveis e ponteiros mas que não podem ter seu tipo ou conteúdo modificados com o decorrer do tempo.
+
+#### Variáveis
+Como vimos são palavras chaves para locais na memória que armazenam valores em sí mesmos.
+
+Como se fosse uma caixinha de correspondencia que tem o nome de José (morador daquele apto) que contém somente panfletos, voltando ao exemplo da caixa de correio.
+
+Cada variável vem com seu **tipo**, logo seguido de seu **nome** e (possívelmente) de seu **valor**. Sendo a sintaxe comum:
+
+```html
+<tipo> <nome> = <valor>;
+```
+
+Tipos de variáveis:
+- `int` → Números inteiros (10);
+- `float` → Números flutuantes (1,0012314);
+- `double` → Números Reais (1,0001);
+- `long` → Números Reais grandes (1,000000001);
+- `bool` → Boleanos (true/false);
+
+**Exemplos:**
+
+```cpp
+int a = 10;
+```
+- Declarando e inicializando variável.
+
+```cpp
+float b, c;
+b = 3,14;
+c = 111,11;
+```
+- Declarando variáveis e em seguida atribuindo valores a elas.
+
+#### Ponteiros
+Como dito anteriormente, são nomes dados a locais da memória que armazenam conteúdos específicos. Os conteúdos armazenados por esses ponteiros são os endereços de outros locais na mémoria.
+
+Voltando ao exemplo das caixas de correios, ponteiros seriam uma caixinha com o nome de João que tem uma chave para caixinha de correspondencia de José. O conteúdo da caixinha de João é uma forma de encontrar e ver o que tem dentro da caixinha de José.
+
+#### Constantes
+Como já disse são variáveis ou ponteiros que tem seu tipo e valor definidos uma única vez no código, após sua definição não podem ter seu valor alterado.
+
+### Funções
+
+#### main()
+A função `main()` é a principal função de qualquer software, pois ela que roda ao inciar o programa.
+Podemos ver a sintaxe padrão:
+
+```cpp
+int main()
+{
+  //codigo
+  return 0;
+}
+```
+```bash
+$ programa.exe
+```
+
+A função `main()` pode precisar de argumentos para funcionar, neste caso seria assim o código:
+
+```cpp
+int main(int arg1, char *arg2[])
+{
+  //codigo
+  return 0;
+}
+```
+```bash
+$ programa.exe arg1 arg2
+```
 
 ## Tipos de Erros
 ### Erro de sintaxe:
