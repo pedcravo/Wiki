@@ -74,25 +74,50 @@ Como vimos são palavras chaves para locais na memória que armazenam valores em
 
 Como se fosse uma caixinha de correspondencia que tem o nome de José (morador daquele apto) que contém somente panfletos, voltando ao exemplo da caixa de correio.
 
-Cada variável vem com seu **tipo**, logo seguido de seu **nome** e (possívelmente) de seu **valor**. Sendo a sintaxe comum:
+Cada variável tem seu **tipo**, seu **nome**, seu **valor** e seu **escopo**. Sendo a sintaxe comum:
 
 ```html
 <tipo> <nome> = <valor>;
 ```
 
-Tipos de variáveis:
-- `int` → Números inteiros (10);
-- `float` → Números flutuantes (1,0012314);
-- `double` → Números Reais (1,0001);
-- `long` → Números Reais grandes (1,000000001);
-- `bool` → Boleanos (true/false);
+**Tipos de variáveis:**
+- `int` → Números inteiros (10,-20,0);
+- `long` → Números inteiros grandes (2000000);  
+- `float` → Números flutuantes (1.01);
+- `double` → Números flutuantes grandes (1.00001);
+- `bool` → Boleanos (true/false, 0/qualquer-valor); 
+- `char` → Representam caracteres (A, X, @), tipos (`char`, `char16_t`, `char32_t`, `wchar_t`)
+- `string` → Conjunto de caracteres (batata);
+
+**Modificadores de variáveis:**
+- `signed` → Adicina sinal ao tipo de variável;
+- `unsigned` → Retira sinal ao tipo de variável;
+- `short` → Torna o tamanho da variável menor;
+- `long` → Aumentar o tamanho da variável.
+
+<img src="https://https://github.com/pedcravo/Wiki/blob/main/C%2B%2B/MidifierslnC.png" width="600px">
+
+**Nomes de variáveis:**
+- Existem casos convencionais para as declarações dos nomes de váriaveis.
+
+[Casos comuns para declaração de variáveis →][variavel]
+
+**Escopo:**
+É em outras palavras é a área em que a variável existe e quem pode acessa-la, fora da área essa variável não existe mas todos que estiverem dentro da área pode acessa-la.
+
+Ou seja, variáveis criadas em funções só existem dentro daquelas funções e enquanto as funções existirem, só podem ser acessadas por funções, operações e ações dentro delas.
+
+| Escopo | Descrição                                                                                                                                            |
+| :----: | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Local  | Variáveis inicializadas dentro de funções, que podem ser acessadas por todos em seu contexto e que deixam de existir fora de suas funções.           |
+| Global | Variáveis que são inicializadas fora das funções (na área geral do programa), podem ser acessadas por todos e existem até que o programa se encerre. |
 
 **Exemplos:**
 
 ```cpp
 int a = 10;
 ```
-- Declarando e inicializando variável.
+- Inicializando variável estilo C.
 
 ```cpp
 float b, c;
@@ -101,6 +126,17 @@ c = 111,11;
 ```
 - Declarando variáveis e em seguida atribuindo valores a elas.
 
+```cpp
+int d (21);
+```
+- Inicializando variável estilo construtor.
+
+```cpp
+int e {8};
+char f {'J'};
+```
+- Inicializando variável estilo C++11.
+
 #### Ponteiros
 Como dito anteriormente, são nomes dados a locais da memória que armazenam conteúdos específicos. Os conteúdos armazenados por esses ponteiros são os endereços de outros locais na mémoria.
 
@@ -108,6 +144,19 @@ Voltando ao exemplo das caixas de correios, ponteiros seriam uma caixinha com o 
 
 #### Constantes
 Como já disse são variáveis ou ponteiros que tem seu tipo e valor definidos uma única vez no código, após sua definição não podem ter seu valor alterado.
+
+**Contantes literais:**
+```cpp
+const int x = 12;
+const float y = 1.56;
+const string name = "Andrew";
+```
+
+**Constantes definidas:**
+```cpp
+#define pi 3.1415926;
+```
+> Usado principalmente em sistemas legados.
 
 ### Funções
 
@@ -240,5 +289,8 @@ Método padrão: `g++-13 -g -ggdb -std=c++23 .cpp; mv ~/Ontick/`
 
 [Tutorial Compilador →][compilador]
 
+[Casos comuns para declaração de variáveis →][variavel]
+
 [pratica]: https://github.com/pedcravo/Aprendendo-C-
+[variavel]: https://www.dio.me/articles/breve-guia-para-estilo-de-nomenclatura-para-programacao
 [compilador]: https://www.tutorialspoint.com/gnu_debugger/index.htm
