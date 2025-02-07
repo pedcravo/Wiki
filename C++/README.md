@@ -13,6 +13,8 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
       - [Ponteiros](#ponteiros)
       - [Constantes](#constantes)
     - [Arrays:](#arrays)
+      - [Arrays multidimensionais:](#arrays-multidimensionais)
+        - [Array 2D](#array-2d)
     - [Vetores:](#vetores)
     - [Funções](#funções)
       - [main()](#main)
@@ -181,16 +183,15 @@ int teste_notaN = 0;
 - O primeiro elemento tem index 0 enquanto o ultimo tem n-1.
 
 **Declarando array:**
-Forma padrão para inicializar array
 ```html
-<tipo> <nome> [<n_elementos>] {<valores>};
+<tipo> <nome> [<tamanho>] {<valores>};
 ```
 
 **Exemplos:**
 ```cpp
 int notas [10];
 ```
-↳ Apenas declara array e define seu tamanho
+↳ Apenas declara array e define seu tamanho.
 
 ```cpp
 int pontuacao [5] {10,7,2,8,9};
@@ -207,9 +208,127 @@ int casas [] {1,6,14,26,35};
 ```
 ↳ Inicializa array com seus valores definidos, tamanho é definido automáticamente.
 
+**Acessando elementos na array:**
+```html
+<nome> [<n_elemento>];
+```
+
+```cpp
+casas [0];
+```
+↳ Seleciona o primeiro item da array `casas[]`.
+
+#### Arrays multidimensionais:
+Tem as mesmas caracteristicas de um array comum, porém possui 2 ou mais dimensões.
+
+**Declarando array:**
+```html
+<tipo> <nome> [<tamanho>][<tamanho>]...;
+```
+
+##### Array 2D
+<img src="https://https://github.com/pedcravo/Wiki/blob/main/C%2B%2B/2Darray.png" width="600px">
+
+```cpp
+const int Row (4);
+const int Col (4);
+int Arr [linhas][colunas];
+```
+↳ Apenas declara array 2D e define seu tamanho.
+
+```cpp
+const int Row (4);
+const int Col (4);
+int Arr [linhas][colunas]
+{
+  { 0, 4, 3, 5 },
+  { 2, 1, 3, 5 },
+  { 1, 2, 4, 5 },
+  { 3, 1, 2, 5 },
+};
+```
+↳ Declara a array 2D, define seu tamanho e valores.
+
+***Acessando elementos na array:**
+```html
+<nome> [<n_elemento>][<n_elemento>]
+  {
+    {}, ...
+  };
+```
+
+```cpp
+cin >> Arr[1][2];
+```
+↳ Insere dados do teclado a array.
+
+```cpp
+cout << Arr[1][2];
+```
+↳ Mostrta dados da array.
 
 ### Vetores:
+Os vetores são semelhantes as arrays, porém sua principal diferença é que os vetores não possuem tamanhos fixos.
 
+Os vetores são mais versateis e mais manipulaveis, tendo funções como `sort`, `reverse`, `find` e mais.
+
+**Declarando vetores:**
+```html
+# include <vector>
+
+vector <<tipo>> <nome> (<tamanho>) {<valores>};
+```
+
+**Exemplos:**
+```cpp
+vector <int> notas (10);
+```
+↳ Declara vetor e define tamanho.
+
+```cpp
+vector <char> vowels (5);
+```
+↳ Declara vetor e define tamanho.
+
+```cpp
+vector <char> vowels {'a', 'e', 'i', 'o', 'u' };
+```
+↳ Declara vetor e define valores armazenados, o tamanho é definido automáticamente.
+
+```cpp
+vector <double> hi_temperatures (365, 80.9);
+```
+↳ Declara vetor e define o tamanho como `365` e o valor default como `80.9`.
+
+**Acessando elementos no vetor com método array**
+```html
+<nome> [<n_elemento>];
+```
+
+```cpp
+vowels [0];
+```
+↳ Seleciona o primeiro item da vetor `vowels[]`.
+
+**Acessando elementos no vetor com método vetor**
+```html
+<nome>.at (<n_elemento>);
+```
+
+```cpp
+vowels.at (0);
+```
+↳ Seleciona o primeiro item da vetor `vowels()`.
+
+**Adicionar elementos ao fim do vetor:**
+```html
+<nome>.push_back (<n_elemento>);
+```
+
+```cpp
+vowels.push_back (d);
+```
+↳ Adiciona um valor ao fim do vetor.
 
 ### Funções
 
