@@ -12,6 +12,8 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
       - [Variáveis](#variáveis)
       - [Ponteiros](#ponteiros)
       - [Constantes](#constantes)
+    - [Arrays:](#arrays)
+    - [Vetores:](#vetores)
     - [Funções](#funções)
       - [main()](#main)
   - [Tipos de Erros](#tipos-de-erros)
@@ -117,25 +119,25 @@ Ou seja, variáveis criadas em funções só existem dentro daquelas funções e
 ```cpp
 int a = 10;
 ```
-- Inicializando variável estilo C.
+↳ Inicializando variável estilo C.
 
 ```cpp
 float b, c;
 b = 3,14;
 c = 111,11;
 ```
-- Declarando variáveis e em seguida atribuindo valores a elas.
+↳ Declarando variáveis e em seguida atribuindo valores a elas.
 
 ```cpp
 int d (21);
 ```
-- Inicializando variável estilo construtor.
+↳ Inicializando variável estilo construtor.
 
 ```cpp
 int e {8};
 char f {'J'};
 ```
-- Inicializando variável estilo C++11.
+↳ Inicializando variável estilo C++11.
 
 #### Ponteiros
 Como dito anteriormente, são nomes dados a locais da memória que armazenam conteúdos específicos. Os conteúdos armazenados por esses ponteiros são os endereços de outros locais na mémoria.
@@ -157,6 +159,57 @@ const string name = "Andrew";
 #define pi 3.1415926;
 ```
 > Usado principalmente em sistemas legados.
+ 
+### Arrays:
+Arrays são matrizes que contém dados estruturados, ou seja, são tipos de dados que contém uma série de dados.
+
+Como por exemplo a pontuação de um teste. Onde o professor pode criar uma variável para armazenar cada valor ou armazenar todos em apenas uma array.
+```cpp
+int teste_nota1 = 0;
+int teste_nota2 = 0;
+int teste_nota3 = 0;
+int teste_nota4 = 0;
+...
+int teste_notaN = 0;
+```
+
+**Caracteristicas:**
+- Cada array tem seu tamanho fixo;
+- Array é guardada na memória continuamente;
+- Todos os elementos devem ser do mesmo tipo (int, float, char);
+- Os elementos podem ser acessados diretamente e individualmente;
+- O primeiro elemento tem index 0 enquanto o ultimo tem n-1.
+
+**Declarando array:**
+Forma padrão para inicializar array
+```html
+<tipo> <nome> [<n_elementos>] {<valores>};
+```
+
+**Exemplos:**
+```cpp
+int notas [10];
+```
+↳ Apenas declara array e define seu tamanho
+
+```cpp
+int pontuacao [5] {10,7,2,8,9};
+```
+↳ Inicializa array com seu tamanho e valores definidos.
+
+```cpp
+int dias [7] {3,4};
+```
+↳ Incializa array com seu tamanho definido e valores `3`, `5` e os demais como `0`.
+
+```cpp
+int casas [] {1,6,14,26,35};
+```
+↳ Inicializa array com seus valores definidos, tamanho é definido automáticamente.
+
+
+### Vetores:
+
 
 ### Funções
 
