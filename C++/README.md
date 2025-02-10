@@ -9,6 +9,7 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
   - [Conceitos](#conceitos)
     - [Expressões](#expressões)
     - [Instruções](#instruções)
+    - [Operadores](#operadores)
     - [Variáveis, Constantes e Ponteiros](#variáveis-constantes-e-ponteiros)
       - [Variáveis](#variáveis)
       - [Ponteiros](#ponteiros)
@@ -53,8 +54,14 @@ Instruções são linhas de códigos que executam ações. Geralmente terminadas
 | `1.5 + 2.8;`                               |      Expressão      |
 | `if (a > b) cout << "ais greater than b";` |         If          |
 
+### Operadores
+São grupos de caracteres usados para formar expressões. Os operadores podem ser divididos em 3 classes principais:
 
+- **Unários** → São operadores que usam 1 opreando, geralmente usados para negar o operando.
+- **Binários** → A maioria dos operadores se encaixam nessa classe, pois usam 2 operandos para realizar suas operações.
+- **Terciários** → Existem operadores que usam 3 operandos, porém é mais raro seu uso.
 
+Os operadores também podem ser agrupados em cerca de 7 grupos.
 
 ### Variáveis, Constantes e Ponteiros
 Ambos tem conceitos semelhantes por se tratarem de nomear, apontar e definir locais da memória.
@@ -396,6 +403,7 @@ $ programa.exe arg1 arg2
 ```
 
 ## Tipos de Erros
+// WIP
 ### Erro de sintaxe:
 Erro na estrutura do código.
 
