@@ -7,15 +7,17 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
 - [C++](#c)
   - [Tópicos:](#tópicos)
   - [Conceitos](#conceitos)
-    - [Fluxos de entrada e saída:](#fluxos-de-entrada-e-saída)
-    - [Variáveis, Constantes e Ponteiros:](#variáveis-constantes-e-ponteiros)
+    - [Expressões](#expressões)
+    - [Instruções](#instruções)
+    - [Variáveis, Constantes e Ponteiros](#variáveis-constantes-e-ponteiros)
       - [Variáveis](#variáveis)
       - [Ponteiros](#ponteiros)
       - [Constantes](#constantes)
-    - [Arrays:](#arrays)
+    - [Arrays](#arrays)
       - [Arrays multidimensionais:](#arrays-multidimensionais)
       - [Array 2D](#array-2d)
-    - [Vetores:](#vetores)
+    - [Vetores](#vetores)
+    - [Fluxos de entrada e saída](#fluxos-de-entrada-e-saída)
     - [Funções](#funções)
       - [main()](#main)
   - [Tipos de Erros](#tipos-de-erros)
@@ -29,38 +31,32 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
   - [Links](#links)
 
 ## Conceitos
+**C++** ou Cpp é uma linguagem de programação Imperativa e Orientada a Objetos, é derivada do C. Devido sua descendencia foi chamada por muito tempo por "*C whit classes*".
 
-- `return` → É usado para retornar um valor (variável, constante e etc.) ao sistema ou a máquina, como: `return 0;`, `return a;`.
+### Expressões
+Expressões são blocos de códigos que são usados para formar [Instruções](#instruções), como:
+  - 34 (número);
+  - fav_number (variável);
+  - a + b (soma);
+  - a * b (multiplicação);
+  - a > b (relação);
+  - a = b (atribuição);
 
-- `namespaces` → Usados para renomear comandos, como: `std::cout` que pode virar `cout`.
+### Instruções
+Instruções são linhas de códigos que executam ações. Geralmente terminadas em ";".
 
-- `cin` → Entrada padrão para o teclado, recebe dados do teclado.
-- `cout` → Saída padrão de dados no prompt, mostra no prompt algum dado.
-- `cerr` → Saída de erros padrão, mostra erros.
-- `clog` → Saída dos logs padrão, mostra logs.
-- `<<` → Usa dados anteriores como argumentos para o comando/variável anterior (geralmente anda junto com `cout`).
-- `>>` → Usa dados anteriores para o comando/variável a seguir.
-- `endl` → Pula linha no prompt (endl - end line).
+| Códigos                                    | Tipos de instruções |
+| :----------------------------------------- | :-----------------: |
+| `int x;`                                   |     Declaração      |
+| `fav_number = 12;`                         |     Atribuição      |
+| `x = 2 * 5;`                               |     Atribuição      |
+| `1.5 + 2.8;`                               |      Expressão      |
+| `if (a > b) cout << "ais greater than b";` |         If          |
 
-### Fluxos de entrada e saída:
-- Saída de dados (da máquina para o usúario)
-  ```cpp
-  cout << data1;
 
-  cout << "data 1 is" << data1;
 
-  cout << "data 1 is" << data1 << endl;
-  cout << "data 1 is" << data1 << "\n";
-  ```
-- Entrada de dados (do teclado para a máquina)
-  ```cpp
-  cin >> data1;
 
-  cout >> data1 >> data2;
-  ```
-  > A entrada de dadps pode falhar dependendo da entrada e do tipo de dado solicitado (*int* recebe *string*)
-
-### Variáveis, Constantes e Ponteiros:
+### Variáveis, Constantes e Ponteiros
 Ambos tem conceitos semelhantes por se tratarem de nomear, apontar e definir locais da memória.
 
 Pense na memória como uma caixa de correio de um prédio, onde cada caixinha tem um espaço para conteúdo e um endereço de identificação.
@@ -162,7 +158,7 @@ const string name = "Andrew";
 ```
 > Usado principalmente em sistemas legados.
  
-### Arrays:
+### Arrays
 Arrays são matrizes que contém dados estruturados, ou seja, são tipos de dados que contém uma série de dados.
 
 Como por exemplo a pontuação de um teste. Onde o professor pode criar uma variável para armazenar cada valor ou armazenar todos em apenas uma array.
@@ -269,7 +265,7 @@ cout << Arr[1][2];
 ```
 ↳ Mostrta dados da array.
 
-### Vetores:
+### Vetores
 Os vetores são semelhantes as arrays, porém sua principal diferença é que os vetores não possuem tamanhos fixos.
 
 Os vetores são mais versateis e mais manipulaveis, tendo funções como `sort`, `reverse`, `find` e mais.
@@ -335,12 +331,45 @@ vowels.push_back (d);
 ```
 ↳ Adiciona um valor ao fim do vetor.
 
+### Fluxos de entrada e saída
+Comandos utilizados para realizar a saída e a entrada de dados no sistema.
+
+**Comandos associados:**
+- `cin` → Entrada padrão para o teclado, recebe dados do teclado.
+- `cout` → Saída padrão de dados no prompt, mostra no prompt algum dado.
+- `cerr` → Saída de erros padrão, mostra erros.
+- `clog` → Saída dos logs padrão, mostra logs.
+- `endl` → Pula linha no prompt (endl - end line, \n pode susbtitui-lo na saída).
+- `<<` → Usa dados anteriores como argumentos para o comando/variável anterior (geralmente anda junto com `cout`).
+- `>>` → Usa dados anteriores para o comando/variável a seguir.
+
+**Exemplos:**
+- Saída de dados (da máquina para o usúario)
+  ```cpp
+  cout << data1;
+
+  cout << "data 1 is" << data1;
+
+  cout << "data 1 is" << data1 << endl;
+  cout << "data 1 is" << data1 << "\n";
+  ```
+- Entrada de dados (do teclado para a máquina)
+  ```cpp
+  cin >> data1;
+
+  cout >> data1 >> data2;
+  ```
+  > A entrada de dadps pode falhar dependendo da entrada e do tipo de dado solicitado (*int* recebe *string*).
+
 ### Funções
+As funções são blocos de código que possuem nome e podem ser utilizadas em qualquer parte do código.
+
+- `return` → É usado para retornar um valor (variável, constante e etc.) ao sistema ou a máquina, como: `return 0;`, `return a;`.
 
 #### main()
-A função `main()` é a principal função de qualquer software, pois ela que roda ao inciar o programa.
-Podemos ver a sintaxe padrão:
+A função `main()` é a principal função de qualquer software, pois ela que é executada ao inciar o programa.
 
+Podemos ver a sintaxe padrão:
 ```cpp
 int main()
 {
@@ -348,12 +377,12 @@ int main()
   return 0;
 }
 ```
+Para executar este arquivo de código usamos:
 ```bash
 $ programa.exe
 ```
 
 A função `main()` pode precisar de argumentos para funcionar, neste caso seria assim o código:
-
 ```cpp
 int main(int arg1, char *arg2[])
 {
@@ -361,6 +390,7 @@ int main(int arg1, char *arg2[])
   return 0;
 }
 ```
+Para executar este arquivo de código usamos:
 ```bash
 $ programa.exe arg1 arg2
 ```
