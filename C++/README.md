@@ -307,6 +307,7 @@ vector <double> hi_temperatures (365, 80.9);
 <nome> [<n_elemento>];
 ```
 
+**Exemplos:**
 ```cpp
 vowels [0];
 ```
@@ -317,6 +318,7 @@ vowels [0];
 <nome>.at (<n_elemento>);
 ```
 
+**Exemplos:**
 ```cpp
 vowels.at (0);
 ```
@@ -327,6 +329,7 @@ vowels.at (0);
 <nome>.push_back (<n_elemento>);
 ```
 
+**Exemplos:**
 ```cpp
 vowels.push_back (d);
 ```
