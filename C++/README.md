@@ -14,7 +14,7 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
       - [Constantes](#constantes)
     - [Arrays:](#arrays)
       - [Arrays multidimensionais:](#arrays-multidimensionais)
-        - [Array 2D](#array-2d)
+      - [Array 2D](#array-2d)
     - [Vetores:](#vetores)
     - [Funções](#funções)
       - [main()](#main)
@@ -213,6 +213,7 @@ int casas [] {1,6,14,26,35};
 <nome> [<n_elemento>];
 ```
 
+**Exemplos:**
 ```cpp
 casas [0];
 ```
@@ -226,7 +227,7 @@ Tem as mesmas caracteristicas de um array comum, porém possui 2 ou mais dimens�
 <tipo> <nome> [<tamanho>][<tamanho>]...;
 ```
 
-##### Array 2D
+#### Array 2D
 <img src="https://https://github.com/pedcravo/Wiki/blob/main/C%2B%2B/2Darray.png" width="600px">
 
 ```cpp
@@ -249,7 +250,7 @@ int Arr [linhas][colunas]
 ```
 ↳ Declara a array 2D, define seu tamanho e valores.
 
-***Acessando elementos na array:**
+**Acessando elementos na array:**
 ```html
 <nome> [<n_elemento>][<n_elemento>]
   {
@@ -257,6 +258,7 @@ int Arr [linhas][colunas]
   };
 ```
 
+**Exemplos:**
 ```cpp
 cin >> Arr[1][2];
 ```
