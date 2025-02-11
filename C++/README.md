@@ -10,6 +10,13 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
     - [Expressões](#expressões)
     - [Instruções](#instruções)
     - [Operadores](#operadores)
+      - [Associação](#associação)
+      - [Aritimético](#aritimético)
+      - [Incremento/Decremento](#incrementodecremento)
+      - [Relacional](#relacional)
+      - [Lógico](#lógico)
+      - [Acessar membro](#acessar-membro)
+      - [Outros](#outros)
     - [Variáveis, Constantes e Ponteiros](#variáveis-constantes-e-ponteiros)
       - [Variáveis](#variáveis)
       - [Ponteiros](#ponteiros)
@@ -61,7 +68,57 @@ São grupos de caracteres usados para formar expressões. Os operadores podem se
 - **Binários** → A maioria dos operadores se encaixam nessa classe, pois usam 2 operandos para realizar suas operações.
 - **Terciários** → Existem operadores que usam 3 operandos, porém é mais raro seu uso.
 
-Os operadores também podem ser agrupados em cerca de 7 grupos.
+Os operadores também podem ser agrupados em cerca de 7 grupos:
+#### Associação
+Usados para atribuir o valor da direita a variável da esquerda. Fluxo de atribuição da direita para a esquerda em grupos de 2.
+
+Após a atribuição de um valor a uma variável, a mesma é substituida pelo valor para ser associada a outra variável.
+
+É impossível atribuir um tipo de valor a um tipo diferente de variável.
+
+
+Membros:
+- `=`
+
+Exemplo:
+```cpp
+float var1;
+var1 = 1.1;
+```
+↳ Faz a atribuição de variável.
+
+```cpp
+int var2, var3;
+var2 = var3 = 2;
+```
+↳ Realiza a atribuição de variáveis em cadeia.
+
+```cpp
+int var4 = "value";
+```
+↳ Impossível de realizar a atribuição, pois são tipos diferentes.
+
+#### Aritimético
+Usados para manipular valores númericos, 
+
+Membros:
+- `+`
+- `-`
+- `*`
+- `/`
+- `%`
+- `**`
+
+#### Incremento/Decremento
+
+#### Relacional
+
+#### Lógico
+
+#### Acessar membro
+
+#### Outros
+
 
 ### Variáveis, Constantes e Ponteiros
 Ambos tem conceitos semelhantes por se tratarem de nomear, apontar e definir locais da memória.
