@@ -11,7 +11,7 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
     - [Instruções](#instruções)
     - [Operadores](#operadores)
       - [Associação](#associação)
-      - [Aritimético](#aritimético)
+      - [Aritmético](#aritmético)
       - [Incremento/Decremento](#incrementodecremento)
       - [Relacional](#relacional)
       - [Lógico](#lógico)
@@ -76,11 +76,10 @@ Após a atribuição de um valor a uma variável, a mesma é substituida pelo va
 
 É impossível atribuir um tipo de valor a um tipo diferente de variável.
 
+**Membros:**
+- `=` → Igual
 
-Membros:
-- `=`
-
-Exemplo:
+**Exemplos:**
 ```cpp
 float var1;
 var1 = 1.1;
@@ -98,18 +97,63 @@ int var4 = "value";
 ```
 ↳ Impossível de realizar a atribuição, pois são tipos diferentes.
 
-#### Aritimético
-Usados para manipular valores númericos, 
+#### Aritmético
+Usados para manipular valores númericos.
 
-Membros:
-- `+`
-- `-`
-- `*`
-- `/`
-- `%`
-- `**`
+**Membros:**
+- `+` → Adição
+- `-` → Subtração
+- `*` → Multiplicação
+- `/` → Divisão
+- `%` → Modulo ou resto da divisão
+
+**Exemplos:**
+```cpp
+1 + 3;
+```
+↳ Faz soma entre valores.
+
+```cpp
+int var1, var2 = 4;
+var1 = var2 * 2;
+```
+↳ Realiza a atribuição da variável var1 como sendo a multiplicação da var2 por 2.
 
 #### Incremento/Decremento
+São operadores que funcionam em parte de forma semelhante ao Operador de Atribuição e parte como os Operadores Aritméticos.
+
+Eles existem para fazer a adição ou subtração por 1 de forma mais reduzida no código. Geralmente usados em loops para percorrer uma `string`, `array` ou `vetor`.
+
+**Membros:**
+- `++` → Incremento por 1
+- `--` → Decremento por 1
+
+Eles podem ser usados antes ou depois da variável, tendo cada um seu sentido:
+- Prefixo → `++num`
+- Suxifo → `num++`
+
+**Exemplos:**
+```cpp
+result = ++counter;
+cout << "Counter: " << counter << endl;
+cout << "Resulta: " << result << endl;
+```
+↳ Faz um préincremento, incrementa **primeiro o counter e depois atribui valor ao result**;
+
+```cpp
+result = counter++;
+cout << "Counter: " << counter << endl;
+cout << "Resulta: " << result << endl;
+```
+↳ Realiza um posincremento, **primeiro atribui valor de counter ao result e após isso incremento counter**.
+
+```cpp
+result = ++counter + 10;
+cout << "Counter: " << counter << endl;
+cout << "Resulta: " << result << endl;
+```
+↳ Realiza um preincremento, **primeiro o counter e depois atribui valor de counter + 10 ao result**.
+
 
 #### Relacional
 
