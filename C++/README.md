@@ -8,6 +8,9 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
   - [Tópicos:](#tópicos)
   - [Conceitos](#conceitos)
     - [Expressões](#expressões)
+      - [Expressões de tipo misto](#expressões-de-tipo-misto)
+        - [Alto vs Baixo](#alto-vs-baixo)
+        - [Mudança de tipos](#mudança-de-tipos)
     - [Instruções](#instruções)
     - [Operadores](#operadores)
       - [Associação](#associação)
@@ -39,7 +42,7 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
   - [Links](#links)
 
 ## Conceitos
-**C++** ou Cpp é uma linguagem de programação Imperativa e Orientada a Objetos, é derivada do C. Devido sua descendencia foi chamada por muito tempo por "*C whit classes*".
+**C++** ou Cpp é uma linguagem de programação Imperativa e Orientada a Objetos, é derivada do C. Devido sua descendência foi chamada por muito tempo por "*C whit classes*".
 
 ### Expressões
 Expressões são blocos de códigos que são usados para formar [Instruções](#instruções), como:
@@ -49,6 +52,53 @@ Expressões são blocos de códigos que são usados para formar [Instruções](#
   - a * b (multiplicação);
   - a > b (relação);
   - a = b (atribuição);
+
+#### Expressões de tipo misto
+Assim como toda linguagem de programação, em C++ é possível fazer operações entre variáveis de tipos diferentes. Dependendo de quais os tipos de variáveis e quais suas posições na hierarquia, pode haver perda de precisão dos dados.
+
+##### Alto vs Baixo
+Os "tipos" (Alto e Baixo) de variáveis são baseadas no tamanho dos valores que podem elas armazenar em relação aos outros tipos de variáveis. A hierarquia é:
+1. long double;
+2. double;
+3. float;
+4. unsigned long;
+5. long;
+6. unsigned int;
+7. int.
+
+
+
+Enquanto isso `short` e `char` são sempre transformados em `int`.
+
+##### Mudança de tipos
+Chamamos de conversão de tipos a mudança de tipo de data de um operador.E 
+| Conversão | Descrição                                                                                                                                        |
+| :-------: | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Promoção  | **Conversão para um tipo mais alto.** Geralmente usado em expressões matemáticas de forma implícita (não declara que vai haver mudança de tipo). |
+| Regressão | **Conversão para um tipo mais baixo.** Geralmente usado em associação a tipos inferiores de forma implícita.                                     |
+
+**Exemplos:**
+
+```cpp
+2 * 5.2                         //low <ope> high
+```
+↳ **Promoção implícita**: 2 é promovido para 2.0 para que seja possível realizar a equação (não é declarado pelo dev que vai haver mudança de tipo).
+
+```cpp
+int a = 100, b = 8;
+double var = 0.0;
+var = a / b;                    // resulta em 12
+var static_cast<double>(a)/b    // resulta em 12.5
+```
+↳ **Promoção explícita**: a variável "a" é transformada momentaneamente em `double` para que o resultado da operação seja um `double` e não um `int` armazenado em `double`.
+
+```cpp
+int num = 0;
+num = 123.321                   //low = high
+```
+↳ **Regressão implícito**: 123.321 é reduzido para 123 para que seja possível alocar o dado na memória (não é declarado pelo dev que vai haver mudança de tipo).
+
+
 
 ### Instruções
 Instruções são linhas de códigos que executam ações. Geralmente terminadas em ";".
@@ -64,7 +114,7 @@ Instruções são linhas de códigos que executam ações. Geralmente terminadas
 ### Operadores
 São grupos de caracteres usados para formar expressões. Os operadores podem ser divididos em 3 classes principais:
 
-- **Unários** → São operadores que usam 1 opreando, geralmente usados para negar o operando.
+- **Unários** → São operadores que usam 1 operando, geralmente usados para negar o operando.
 - **Binários** → A maioria dos operadores se encaixam nessa classe, pois usam 2 operandos para realizar suas operações.
 - **Terciários** → Existem operadores que usam 3 operandos, porém é mais raro seu uso.
 
@@ -72,7 +122,7 @@ Os operadores também podem ser agrupados em cerca de 7 grupos:
 #### Associação
 Usados para atribuir o valor da direita a variável da esquerda. Fluxo de atribuição da direita para a esquerda em grupos de 2.
 
-Após a atribuição de um valor a uma variável, a mesma é substituida pelo valor para ser associada a outra variável.
+Após a atribuição de um valor a uma variável, a mesma é substituída pelo valor para ser associada a outra variável.
 
 É impossível atribuir um tipo de valor a um tipo diferente de variável.
 
@@ -98,7 +148,7 @@ int var4 = "value";
 ↳ Impossível de realizar a atribuição, pois são tipos diferentes.
 
 #### Aritmético
-Usados para manipular valores númericos.
+Usados para manipular valores numéricos.
 
 **Membros:**
 - `+` → Adição
@@ -130,7 +180,7 @@ Eles existem para fazer a adição ou subtração por 1 de forma mais reduzida n
 
 Eles podem ser usados antes ou depois da variável, tendo cada um seu sentido:
 - Prefixo → `++num`
-- Suxifo → `num++`
+- Sufixo → `num++`
 
 **Exemplos:**
 ```cpp
@@ -138,21 +188,21 @@ result = ++counter;
 cout << "Counter: " << counter << endl;
 cout << "Resulta: " << result << endl;
 ```
-↳ Faz um préincremento, incrementa **primeiro o counter e depois atribui valor ao result**;
+↳ Faz um pré-incremento, incrementa **primeiro o counter e depois atribui valor ao result**;
 
 ```cpp
 result = counter++;
 cout << "Counter: " << counter << endl;
 cout << "Resulta: " << result << endl;
 ```
-↳ Realiza um posincremento, **primeiro atribui valor de counter ao result e após isso incremento counter**.
+↳ Realiza um pos-incremento, **primeiro atribui valor de counter ao result e após isso incremento counter**.
 
 ```cpp
 result = ++counter + 10;
 cout << "Counter: " << counter << endl;
 cout << "Resulta: " << result << endl;
 ```
-↳ Realiza um preincremento, **primeiro o counter e depois atribui valor de counter + 10 ao result**.
+↳ Realiza um pre-incremento, **primeiro o counter e depois atribui valor de counter + 10 ao result**.
 
 
 #### Relacional
@@ -173,14 +223,14 @@ Pense na memória como uma caixa de correio de um prédio, onde cada caixinha te
 
 É possível dar um nome para cada caixinha com base nos moradores de cada apartamento e ao invés de chamar a caixinha pelo endereço chamá-la pelo nome. Cada caixinha pode ter armazenados qualquer tipo de coisa, desde cartas até chaves.
 
-Logo podemos inferir que **variáveis** e **ponteiros** são nomes dados a locais especificos na memória, tendo cada um tem seu prórpio endereço e conteúdo volátil. A única diferença entre elas são os tipos de contéudo que armazenam (veremos isso em breve).
+Logo podemos inferir que **variáveis** e **ponteiros** são nomes dados a locais específicos na memória, tendo cada um tem seu próprio endereço e conteúdo volátil. A única diferença entre elas são os tipos de conteúdo que armazenam (veremos isso em breve).
 
 Já as **constantes** podem ser vistas como caixinhas semelhantes as variáveis e ponteiros mas que não podem ter seu tipo ou conteúdo modificados com o decorrer do tempo.
 
 #### Variáveis
 Como vimos são palavras chaves para locais na memória que armazenam valores em sí mesmos.
 
-Como se fosse uma caixinha de correspondencia que tem o nome de José (morador daquele apto) que contém somente panfletos, voltando ao exemplo da caixa de correio.
+Como se fosse uma caixinha de correspondência que tem o nome de José (morador daquele apto) que contém somente panfletos, voltando ao exemplo da caixa de correio.
 
 Cada variável tem seu **tipo**, seu **nome**, seu **valor** e seu **escopo**. Sendo a sintaxe comum:
 
@@ -198,7 +248,7 @@ Cada variável tem seu **tipo**, seu **nome**, seu **valor** e seu **escopo**. S
 - `string` → Conjunto de caracteres (batata);
 
 **Modificadores de variáveis:**
-- `signed` → Adicina sinal ao tipo de variável;
+- `signed` → Adiciona sinal ao tipo de variável;
 - `unsigned` → Retira sinal ao tipo de variável;
 - `short` → Torna o tamanho da variável menor;
 - `long` → Aumentar o tamanho da variável.
@@ -206,7 +256,7 @@ Cada variável tem seu **tipo**, seu **nome**, seu **valor** e seu **escopo**. S
 <img src="https://https://github.com/pedcravo/Wiki/blob/main/C%2B%2B/MidifierslnC.png" width="600px">
 
 **Nomes de variáveis:**
-- Existem casos convencionais para as declarações dos nomes de váriaveis.
+- Existem casos convencionais para as declarações dos nomes de variáveis.
 
 [Casos comuns para declaração de variáveis →][variavel]
 
@@ -548,7 +598,7 @@ Exemplo:
 - Falta de memória.
 
 ### Erro de lógica:
-Erros na lógica do programador, nenhum erro de escrita ou semantica, mas sim na lógica da escrita.
+Erros na lógica do programador, nenhum erro de escrita ou semântica, mas sim na lógica da escrita.
 O programa executa mas não do jeito na qual o programador gostaria.
 
 Exemplo:
