@@ -16,8 +16,10 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
       - [Associação](#associação)
       - [Aritmético](#aritmético)
       - [Incremento/Decremento](#incrementodecremento)
+      - [Comparação e igualdade](#comparação-e-igualdade)
       - [Relacional](#relacional)
       - [Lógico](#lógico)
+        - [Avaliação curto-circuito](#avaliação-curto-circuito)
       - [Acessar membro](#acessar-membro)
       - [Outros](#outros)
     - [Variáveis, Constantes e Ponteiros](#variáveis-constantes-e-ponteiros)
@@ -99,7 +101,6 @@ num = 123.321                   //low = high
 ↳ **Regressão implícito**: 123.321 é reduzido para 123 para que seja possível alocar o dado na memória (não é declarado pelo dev que vai haver mudança de tipo).
 
 
-
 ### Instruções
 Instruções são linhas de códigos que executam ações. Geralmente terminadas em ";".
 
@@ -110,6 +111,7 @@ Instruções são linhas de códigos que executam ações. Geralmente terminadas
 | `x = 2 * 5;`                               |     Atribuição      |
 | `1.5 + 2.8;`                               |      Expressão      |
 | `if (a > b) cout << "ais greater than b";` |         If          |
+
 
 ### Operadores
 São grupos de caracteres usados para formar expressões. Os operadores podem ser divididos em 3 classes principais:
@@ -205,9 +207,80 @@ cout << "Resulta: " << result << endl;
 ↳ Realiza um pre-incremento, **primeiro o counter e depois atribui valor de counter + 10 ao result**.
 
 
+#### Comparação e igualdade
+São operadores utilizados para comparar duas expressões, variáveis, números e etc. A saída destes operadores sempre é um `boolean` (true ou false).
+
+Geralmente são utilizados em *loop* e *condicionais* para direcionar o andamento dos comandos.
+
+**Membros:**
+- `==` → Igual (checa se a igualdade é verdadeira)
+- `!=` → Diferente (checa se a não igualdade é verdadeira)
+
+**Exemplos:**
+```cpp
+a == b;
+```
+↳ Realiza checagem se `a` é igual a `b`;
+
+```cpp
+int var1 = 0, var2 = 10;
+while (var1 != var2){
+  var1++;
+}
+```
+↳ Executa `while` enquanto `var1` for diferente de `var2`;
+
+```cpp
+bool equal = false;
+equal = (100 == 50+50);
+cout << equal << endl;          // 0 ou 1
+cout << boolalpha;              // muda formato
+cout << equal << endl;          // false ou true
+cout << noboolalpha;            // volta para formato original
+```
+↳ Mostra `equal` na tela de formatos diferentes, usando *0* e *1* bem como *false* e *true*;
+
 #### Relacional
+Semelhantes aos Operadores de comparação de igualdade, os operadores relacionais fazem comparação entre dois números, expressões, variáveis, dentre outros, e retorna um valor `boolean`.
+
+**Membros:**
+- `>` → Maior que
+- `>=` → Maior ou igual
+- `<` → Menor que
+- `<=` → Menor ou igual
+- `<=>` → Comparação de 3 vias (C++20)
 
 #### Lógico
+Esses operadores utilizam a tabela verdade (`boolean`) para funcionar, são a versão prática da tabela verdade.
+
+Geralmente são utilizados em *condicionais* e *loops* para direcionar o andamento dos comandos.
+
+**Membros:**
+- *not* `!` → Negação (operador unário)
+- *and* `&&` → E lógico (operador binário)
+- *or* `||` →  OU lógico (operador binário)
+
+<img src="https://https://github.com/pedcravo/Wiki/blob/main/C%2B%2B/TabelaVerdade.png" width="600px">
+
+**Precedência:**
+- *not* é superior ao *and*.
+- *and* é superior ao *ou*.
+
+##### Avaliação curto-circuito
+A avaliação curto-circuito é quando o programa não analisa sempre todas as expressões para definir o valor final.
+É uma avaliação que é utilizada comumente pelas linguagens de programação.
+
+**Exemplos:**
+
+```cpp
+expr1 && expr2 && expr3
+```
+↳ Caso o resultado da primeira seja ***false*** o programa não lê as demais expressões, pois neste caso sempre será ***false***.
+
+```cpp
+expr1 || expr2 || expr3
+```
+↳ Caso o resultado da primeira expressão seja ***true*** o programa não lê as demais expressões, pois neste caso sempre será ***true***.
 
 #### Acessar membro
 
