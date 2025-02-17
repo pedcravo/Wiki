@@ -13,9 +13,12 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
         - [Mudança de tipos](#mudança-de-tipos)
     - [Instruções](#instruções)
     - [Operadores](#operadores)
+        - [Procedência dos operadores:](#procedência-dos-operadores)
       - [Associação](#associação)
       - [Aritmético](#aritmético)
       - [Incremento/Decremento](#incrementodecremento)
+        - [Incremento de "a" por "b"](#incremento-de-a-por-b)
+        - [Incremento por 1](#incremento-por-1)
       - [Comparação e igualdade](#comparação-e-igualdade)
       - [Relacional](#relacional)
       - [Lógico](#lógico)
@@ -68,12 +71,10 @@ Os "tipos" (Alto e Baixo) de variáveis são baseadas no tamanho dos valores que
 6. unsigned int;
 7. int.
 
-
-
 Enquanto isso `short` e `char` são sempre transformados em `int`.
 
 ##### Mudança de tipos
-Chamamos de conversão de tipos a mudança de tipo de data de um operador.E 
+Chamamos de "*conversão de tipos*" a mudança de tipo de data de um operador.
 | Conversão | Descrição                                                                                                                                        |
 | :-------: | :----------------------------------------------------------------------------------------------------------------------------------------------- |
 | Promoção  | **Conversão para um tipo mais alto.** Geralmente usado em expressões matemáticas de forma implícita (não declara que vai haver mudança de tipo). |
@@ -121,6 +122,31 @@ São grupos de caracteres usados para formar expressões. Os operadores podem se
 - **Terciários** → Existem operadores que usam 3 operandos, porém é mais raro seu uso.
 
 Os operadores também podem ser agrupados em cerca de 7 grupos:
+
+##### Procedência dos operadores:
+Do mais alto para o mais baixo.
+
+| Operador                           | Associação    |
+| :--------------------------------- | :------------ |
+| [] -> . ()                         | left to right |
+| ++ -- -(unario) *(de-ref) & sizeof | right to left |
+| * / %                              | left to right |
+| + -                                | left to right |
+| << >>                              | left to right |
+| < <= > >=                          | left to right |
+| == !=                              | left to right |
+| &                                  | left to right |
+| ^                                  | left to right |
+| \|                                 | left to right |
+| &&                                 | left to right |
+| \|\|                               | left to right |
+| = op= ?:                           | right to left |
+
+> A tabela não está completa
+
+- Ao usar operadores diferentes, é usada a regra de **procedência**, qual tiver a procedência mais alta é executador primeiro.
+- Quando ambos os operadores tem a mesma procedência ou são iguais, a regra da **associatividade** é utilizada, da esquerda para a direita ou da direita para esquerda.
+
 #### Associação
 Usados para atribuir o valor da direita a variável da esquerda. Fluxo de atribuição da direita para a esquerda em grupos de 2.
 
@@ -172,7 +198,51 @@ var1 = var2 * 2;
 ↳ Realiza a atribuição da variável var1 como sendo a multiplicação da var2 por 2.
 
 #### Incremento/Decremento
+
+##### Incremento de "a" por "b"
 São operadores que funcionam em parte de forma semelhante ao Operador de Atribuição e parte como os Operadores Aritméticos.
+
+Existem para incrementar a variável "a" por qualquer valor. São mais versáteis e ocupam menos espaço, geralmente utilizados em loops.
+
+Forma geral: 
+```html
+a <operador> b
+```
+
+| Operador | Significado | Exemplo em código |
+| :------: | :---------- | :---------------: |
+|   `+=`   | a = a + b   |     `a += b;`     |
+|   `-=`   | a = a - b   |     `a -= b;`     |
+|   `*=`   | a = a * b   |     `a *= b;`     |
+|   `/=`   | a = a/b     |     `a /= b;`     |
+|   `%=`   | a = a%b     |     `a %= b;`     |
+|  `>>=`   | a = a >> b  |    `a >>= b;`     |
+|  `<<=`   | a = a << b  |    `a <<= b;`     |
+|   `&=`   | a = a & b   |     `a &= b;`     |
+|   `^=`   | a = a ^ b   |     `a ^= b;`     |
+|  `\|=`   | a = a \| b  |    `a \|= b;`     |
+
+**Exemplos:**
+```cpp
+int a = 10;
+a += 20;
+```
+↳ Faz soma de a com 20 que resulta no valor de "a".
+
+```cpp
+a /= 2;
+```
+↳ Divide "a" por 2 e iguala a "a".
+
+```cpp
+int b = 5, c = 15;
+a *= b + c; // a = a*(b + c)
+```
+↳ Resolve equação "a*(b + c)" comprimindo os operadores.
+
+
+##### Incremento por 1
+Semelhantes aos que incrementam "a" com "b", os operadores de incremento por 1, fazem operações somente com a variável e com 1. São mais simples e práticos.
 
 Eles existem para fazer a adição ou subtração por 1 de forma mais reduzida no código. Geralmente usados em loops para percorrer uma `string`, `array` ou `vetor`.
 
