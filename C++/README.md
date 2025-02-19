@@ -34,6 +34,18 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
       - [Array 2D](#array-2d)
     - [Vetores](#vetores)
     - [Fluxos de entrada e saída](#fluxos-de-entrada-e-saída)
+    - [Estruturas](#estruturas)
+      - [Sequência](#sequência)
+      - [Seleção - Condicionais](#seleção---condicionais)
+        - [IF](#if)
+        - [IF-ELSE](#if-else)
+        - [IF-ELSEIF-ELSE](#if-elseif-else)
+        - [IF (encadeado)](#if-encadeado)
+        - [SWITCH](#switch)
+      - [Iteração - Looping](#iteração---looping)
+        - [FOR](#for)
+        - [WHILE](#while)
+        - [DO-WHILE](#do-while)
     - [Funções](#funções)
       - [main()](#main)
   - [Tipos de Erros](#tipos-de-erros)
@@ -294,7 +306,7 @@ a == b;
 
 ```cpp
 int var1 = 0, var2 = 10;
-while (var1 != var2){
+while (var1 != var2){'
   var1++;
 }
 ```
@@ -303,7 +315,7 @@ while (var1 != var2){
 ```cpp
 bool equal = false;
 equal = (100 == 50+50);
-cout << equal << endl;          // 0 ou 1
+cout << equal << endl;          //  0 ou 1
 cout << boolalpha;              // muda formato
 cout << equal << endl;          // false ou true
 cout << noboolalpha;            // volta para formato original
@@ -389,6 +401,7 @@ Cada variável tem seu **tipo**, seu **nome**, seu **valor** e seu **escopo**. S
 - `bool` → Boleanos (true/false, 0/qualquer-valor); 
 - `char` → Representam caracteres (A, X, @), tipos (`char`, `char16_t`, `char32_t`, `wchar_t`)
 - `string` → Conjunto de caracteres (batata);
+- `string view` → String nãr armazenada que pode ser acessada mas não modificada, lembra o funcionamento de ponteiros. 
 
 **Modificadores de variáveis:**
 - `signed` → Adiciona sinal ao tipo de variável;
@@ -660,7 +673,119 @@ Comandos utilizados para realizar a saída e a entrada de dados no sistema.
 
   cout >> data1 >> data2;
   ```
-  > A entrada de dadps pode falhar dependendo da entrada e do tipo de dado solicitado (*int* recebe *string*).
+  > A entrada de dados pode falhar dependendo da entrada e do tipo de dado solicitado (*int* recebe *string*).
+
+### Estruturas
+As estruturas são partes essenciais nos programas, pois através delas é possível escrever algoritmos.
+
+São comuns e de sintaxe semelhantes na maioria das linguagens, bem como em c++.
+
+#### Sequência
+As estruturas de sequência são estruturas que organizam a sequencia a ser seguida na execução do código.
+
+#### Seleção - Condicionais
+As estruturas de seleção são as estruturas responsáveis por tomar decisões com base no restante do código. Elas que mudam o curso do código.
+
+As principais são:
+- `if` → Se for ***true*** executa `if`.
+- `if-else` → Se for ***true*** executa `if` se ***false*** executa `else`.
+- `if` encadeado → Encadeia diversos `if` onde todos precisam ser ***true***.
+- `switch` → Uma série de casos para possíveis acontecimentos.
+- `?` (Operador condicional) → `if-else` versão de operador.
+
+##### IF
+```cpp
+if ('condition')
+{
+    /* code */
+}
+```
+
+##### IF-ELSE
+```cpp
+if (condition)
+{
+    /* code */
+}
+else
+{
+    /* code */
+}
+```
+
+##### IF-ELSEIF-ELSE
+```cpp
+if (condition)
+{
+    /* code */
+}
+else if (condition)
+{
+    /* code */
+}
+else
+{
+    /* code */
+}
+```
+
+##### IF (encadeado)
+```cpp
+if (condition)
+{
+    if (condition)
+    {
+        /* code */
+    }
+}
+```
+
+##### SWITCH
+```cpp
+switch (expression)
+{
+case constant expression:
+    /* code */
+    break;
+
+default:
+    break;
+}
+```
+
+#### Iteração - Looping
+As estruturas de iteração são estruturas que geram loops, que repetem uma parte do código até um determinado momento. Elas que repetem o código já executado.
+
+As principais são:
+- `for` → Loop que tem inicio, meio e fim bem definidos `(int i = 0; i < 100; i++)`.
+- `while` → Loop que tem fim bem definido, não possui o início e nem como faz para ir ao fim.
+- `do-while` → Loop que executa pelo menos 1 vez, tem fim bem definido semelhante ao `while`.
+
+Os loops podem ser **Infinitos** caso mal implementados, geralmente tem um ponto para finalizar o loop e um meio de seguir até ele. É possível manipular os loops usando `continue` e `break`, evitando assim loops infinitos.
+
+##### FOR
+```cpp
+for (size_t i = 0; i < count; i++)
+{
+    /* code */
+}
+```
+
+##### WHILE
+```cpp
+while (condition)
+{
+    /* code */
+}
+```
+
+##### DO-WHILE
+```cpp
+do
+{
+    /* code */
+} while (condition);
+```
 
 ### Funções
 As funções são blocos de código que possuem nome e podem ser utilizadas em qualquer parte do código.
