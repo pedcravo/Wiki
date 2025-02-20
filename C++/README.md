@@ -35,14 +35,15 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
     - [Vetores](#vetores)
     - [Fluxos de entrada e saída](#fluxos-de-entrada-e-saída)
     - [Estruturas](#estruturas)
-      - [Sequência](#sequência)
-      - [Seleção - Condicionais](#seleção---condicionais)
+      - [Estruturas de Sequência](#estruturas-de-sequência)
+      - [Estruturas de Seleção - Condicionais](#estruturas-de-seleção---condicionais)
         - [IF](#if)
         - [IF-ELSE](#if-else)
         - [IF-ELSEIF-ELSE](#if-elseif-else)
         - [IF (encadeado)](#if-encadeado)
         - [SWITCH](#switch)
-      - [Iteração - Looping](#iteração---looping)
+        - [? Condicional](#-condicional)
+      - [Estruturas de Iteração - Looping](#estruturas-de-iteração---looping)
         - [FOR](#for)
         - [WHILE](#while)
         - [DO-WHILE](#do-while)
@@ -680,10 +681,10 @@ As estruturas são partes essenciais nos programas, pois através delas é poss�
 
 São comuns e de sintaxe semelhantes na maioria das linguagens, bem como em c++.
 
-#### Sequência
+#### Estruturas de Sequência
 As estruturas de sequência são estruturas que organizam a sequencia a ser seguida na execução do código.
 
-#### Seleção - Condicionais
+#### Estruturas de Seleção - Condicionais
 As estruturas de seleção são as estruturas responsáveis por tomar decisões com base no restante do código. Elas que mudam o curso do código.
 
 As principais são:
@@ -691,7 +692,7 @@ As principais são:
 - `if-else` → Se for ***true*** executa `if` se ***false*** executa `else`.
 - `if` encadeado → Encadeia diversos `if` onde todos precisam ser ***true***.
 - `switch` → Uma série de casos para possíveis acontecimentos.
-- `?` (Operador condicional) → `if-else` versão de operador.
+- `?` Condicional → `if-else` versão de operador, **operador ternário**.
 
 ##### IF
 ```cpp
@@ -748,16 +749,27 @@ case constant expression:
     /* code */
     break;
 
+case constant expression:
+    /* code */
+    break;
+
 default:
+    /* code */
     break;
 }
 ```
 
-#### Iteração - Looping
+##### ? Condicional
+```cpp
+(cond_expr) ? expr1 : expr2
+```
+
+
+#### Estruturas de Iteração - Looping
 As estruturas de iteração são estruturas que geram loops, que repetem uma parte do código até um determinado momento. Elas que repetem o código já executado.
 
 As principais são:
-- `for` → Loop que tem inicio, meio e fim bem definidos `(int i = 0; i < 100; i++)`.
+- `for` → Loop que tem *início*, *condição de termino* e *incremento* bem definidos `(int i = 0; i < 100; i++)`.
 - `while` → Loop que tem fim bem definido, não possui o início e nem como faz para ir ao fim.
 - `do-while` → Loop que executa pelo menos 1 vez, tem fim bem definido semelhante ao `while`.
 
