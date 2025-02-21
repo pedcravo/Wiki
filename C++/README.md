@@ -47,6 +47,8 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
         - [FOR](#for)
         - [WHILE](#while)
         - [DO-WHILE](#do-while)
+- [WIP](#wip)
+    - [Include](#include)
     - [Funções](#funções)
       - [main()](#main)
   - [Tipos de Erros](#tipos-de-erros)
@@ -399,10 +401,14 @@ Cada variável tem seu **tipo**, seu **nome**, seu **valor** e seu **escopo**. S
 - `long` → Números inteiros grandes (2000000);  
 - `float` → Números flutuantes (1.01);
 - `double` → Números flutuantes grandes (1.00001);
-- `bool` → Boleanos (true/false, 0/qualquer-valor); 
+- `bool` → Boolean (true/false, 0/qualquer-valor); 
 - `char` → Representam caracteres (A, X, @), tipos (`char`, `char16_t`, `char32_t`, `wchar_t`)
-- `string` → Conjunto de caracteres (batata);
-- `string view` → String nãr armazenada que pode ser acessada mas não modificada, lembra o funcionamento de ponteiros. 
+- `auto` → Deixa o compilador decidir qual tipo vai ser usado com base no contexto do programa;
+- `string` → Conjunto de caracteres ("batata");
+- `string view` → String nãr armazenada que pode ser acessada mas não modificada, lembra o funcionamento de ponteiros.
+
+> Os tipos `string` e `string_view` devem ser importados para serem utilizados no programa.
+> Ao usa-los é necessário uso de `std::` como prefixo.
 
 **Modificadores de variáveis:**
 - `signed` → Adiciona sinal ao tipo de variável;
@@ -589,27 +595,27 @@ Os vetores são mais versateis e mais manipulaveis, tendo funções como `sort`,
 ```html
 # include <vector>
 
-vector <<tipo>> <nome> (<tamanho>) {<valores>};
+std::vector <<tipo>> <nome> (<tamanho>) {<valores>};
 ```
 
 **Exemplos:**
 ```cpp
-vector <int> notas (10);
+std::vector <int> notas (10);
 ```
 ↳ Declara vetor e define tamanho.
 
 ```cpp
-vector <char> vowels (5);
+std::vector <char> vowels (5);
 ```
 ↳ Declara vetor e define tamanho.
 
 ```cpp
-vector <char> vowels {'a', 'e', 'i', 'o', 'u' };
+std::vector <char> vowels {'a', 'e', 'i', 'o', 'u' };
 ```
 ↳ Declara vetor e define valores armazenados, o tamanho é definido automáticamente.
 
 ```cpp
-vector <double> hi_temperatures (365, 80.9);
+std::vector <double> hi_temperatures (365, 80.9);
 ```
 ↳ Declara vetor e define o tamanho como `365` e o valor default como `80.9`.
 
@@ -776,12 +782,31 @@ As principais são:
 Os loops podem ser **Infinitos** caso mal implementados, geralmente tem um ponto para finalizar o loop e um meio de seguir até ele. É possível manipular os loops usando `continue` e `break`, evitando assim loops infinitos.
 
 ##### FOR
+Este loop é especial pois tem *início*, *condição de termino* e *incremento* bem definidos em sua forma comum, porém é possível modifica-lo para se tornar infinito ou até mesmo para percorrer uma lista.
+
 ```cpp
 for (size_t i = 0; i < count; i++)
 {
     /* code */
 }
 ```
+↳ Loop `for` comum.
+
+```cpp
+for (;;)
+{
+    /* code */
+}
+```
+↳ Loop `for` infinito.
+
+```cpp
+for (size_t i : sequence)
+{
+    /* code */
+}
+```
+↳ Loop `for` que percorre sequencia.
 
 ##### WHILE
 ```cpp
@@ -798,6 +823,17 @@ do
     /* code */
 } while (condition);
 ```
+
+# WIP
+### Include
+O include é um comando utilizado para importar bibliotecas e funções para seu código.
+
+**As bibliotecas mais utilizadas:**
+- `iostrem` →
+- `string` →
+- `string_view` →
+- `vector` →
+- `iomanip` →
 
 ### Funções
 As funções são blocos de código que possuem nome e podem ser utilizadas em qualquer parte do código.
