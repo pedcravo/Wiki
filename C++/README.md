@@ -55,9 +55,11 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
         - [Acessar um valor do JSON](#acessar-um-valor-do-json)
         - [Verificar o tipo de um valor](#verificar-o-tipo-de-um-valor)
         - [Obter valores do JSON](#obter-valores-do-json)
-      - [Acessar elementos de um array](#acessar-elementos-de-um-array)
-      - [Adicionar membros a um objeto JSON](#adicionar-membros-a-um-objeto-json)
-      - [Adicionar elementos a um array](#adicionar-elementos-a-um-array)
+        - [Acessar elementos de um array](#acessar-elementos-de-um-array)
+        - [Adicionar membros a um objeto JSON](#adicionar-membros-a-um-objeto-json)
+        - [Adicionar elementos a um array](#adicionar-elementos-a-um-array)
+      - [jsoncpp](#jsoncpp)
+      - [glaze](#glaze)
     - [Funções](#funções)
       - [main()](#main)
   - [Tipos de Erros](#tipos-de-erros)
@@ -924,7 +926,7 @@ std::cout << "Idade: " << d["idade"].GetInt();   // Saída: Idade: 25
 ```
 > ⚠️ IMPORTANTE: Se o tipo do valor não for o esperado, o programa pode falhar. Verifique com IsXXX() antes.
 
-#### Acessar elementos de um array
+##### Acessar elementos de um array
 ```cpp
 const Value& array = d["numeros"];
 for (SizeType i = 0; i < array.Size(); i++) {
@@ -944,7 +946,7 @@ for (SizeType i = 0; i < nums.Size(); i++) {
 // Saída: 10 20 30
 ```
 
-#### Adicionar membros a um objeto JSON
+##### Adicionar membros a um objeto JSON
 ```cpp
 #include "rapidjson/writer.h"
 #include "rapidjson/stringbuffer.h"
@@ -958,7 +960,13 @@ d.AddMember("idade", 25, allocator);
 ```
 - **O que faz?** Adiciona novos campos ao JSON.
 
-#### Adicionar elementos a um array
+##### Adicionar elementos a um array
+
+#### jsoncpp
+
+#### glaze
+
+
 ```cpp
 Value array(kArrayType);
 Document::AllocatorType& allocator = d.GetAllocator();
