@@ -49,17 +49,6 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
         - [DO-WHILE](#do-while)
 - [WIP](#wip)
     - [Include](#include)
-      - [rapidjson](#rapidjson)
-        - [Estrutura e Comandos](#estrutura-e-comandos)
-        - [Verificar se um membro existe](#verificar-se-um-membro-existe)
-        - [Acessar um valor do JSON](#acessar-um-valor-do-json)
-        - [Verificar o tipo de um valor](#verificar-o-tipo-de-um-valor)
-        - [Obter valores do JSON](#obter-valores-do-json)
-        - [Acessar elementos de um array](#acessar-elementos-de-um-array)
-        - [Adicionar membros a um objeto JSON](#adicionar-membros-a-um-objeto-json)
-        - [Adicionar elementos a um array](#adicionar-elementos-a-um-array)
-      - [jsoncpp](#jsoncpp)
-      - [glaze](#glaze)
     - [Funções](#funções)
       - [main()](#main)
   - [Tipos de Erros](#tipos-de-erros)
@@ -846,133 +835,10 @@ O include é um comando utilizado para importar bibliotecas e funções para seu
 - `string_view` →
 - `vector` →
 - `iomanip` →
-
-#### rapidjson
-Esta biblioteca é utilizada para transformar JSON em DOM e fazer o parse dos dados presentes nele.
-
-[site do rapidjson →][rapidjson]
-
-##### Estrutura e Comandos
-A estrutura padrão do código é:
-```cpp
-#include "rapidjson/document.h"
- 
-using namespace rapidjson;
-
-// Inserir JSON
-
-Document document;
-document.Parse(json);
-
-// Codigo para manipular Parse do JSON
-```
-
-##### Verificar se um membro existe
-```cpp
-if (d.HasMember("chave")) { /* código */ }
-```
-- **O que faz?** Verifica se um determinado campo (chave) existe dentro do objeto JSON.
-- **Exemplo:**
-```cpp
-Document d;
-d.Parse(R"({ "nome": "Pedro" })");
-
-if (d.HasMember("nome")) {
-    std::cout << "Nome existe!\n";
-}
-```
-
-##### Acessar um valor do JSON
-```cpp
-d["chave"]
-```
-- **O que faz?** Acessa o valor associado a uma chave dentro de um objeto JSON.
-- **Exemplo:**
-```cpp
-Document d;
-std::cout << d["nome"].GetString();  // Saída: Pedro
-```
-> **⚠️ IMPORTANTE:** Esse acesso assume que a chave já existe. Se a chave não existir, pode causar erro. Para evitar isso, use HasMember() antes.
-
-##### Verificar o tipo de um valor
-```cpp
-d["chave"].IsString()
-d["chave"].IsInt()
-d["chave"].IsDouble()
-d["chave"].IsBool()
-d["chave"].IsArray()
-d["chave"].IsObject()
-```
-- **O que faz?** Verifica se o valor de uma chave tem o tipo esperado.
-- **Exemplo:**
-```cpp
-if (d["idade"].IsInt()) {
-    std::cout << "Idade: " << d["idade"].GetInt();
-}
-```
-
-##### Obter valores do JSON
-```cpp
-d["chave"].GetString() // Retorna uma string
-d["chave"].GetInt()    // Retorna um inteiro
-d["chave"].GetDouble() // Retorna um número decimal
-d["chave"].GetBool()   // Retorna um booleano
-```
-- **O que faz?** Obtém o valor armazenado em uma chave específica.
-- **Exemplo:**
-```cpp
-std::cout << "Nome: " << d["nome"].GetString();  // Saída: Nome: Pedro
-std::cout << "Idade: " << d["idade"].GetInt();   // Saída: Idade: 25
-```
-> ⚠️ IMPORTANTE: Se o tipo do valor não for o esperado, o programa pode falhar. Verifique com IsXXX() antes.
-
-##### Acessar elementos de um array
-```cpp
-const Value& array = d["numeros"];
-for (SizeType i = 0; i < array.Size(); i++) {
-    std::cout << array[i].GetInt() << " ";
-}
-```
-- **O que faz?** Itera sobre um array JSON e acessa seus elementos.
-- **Exemplo:**
-```cpp
-Document d;
-d.Parse(R"({ "numeros": [10, 20, 30] })");
-
-const Value& nums = d["numeros"];
-for (SizeType i = 0; i < nums.Size(); i++) {
-    std::cout << nums[i].GetInt() << " ";
-}
-// Saída: 10 20 30
-```
-
-##### Adicionar membros a um objeto JSON
-```cpp
-#include "rapidjson/writer.h"
-#include "rapidjson/stringbuffer.h"
-
-Document d;
-d.SetObject();
-Document::AllocatorType& allocator = d.GetAllocator();
-
-d.AddMember("nome", "Pedro", allocator);
-d.AddMember("idade", 25, allocator);
-```
-- **O que faz?** Adiciona novos campos ao JSON.
-
-##### Adicionar elementos a um array
-
-#### jsoncpp
-
-#### glaze
-
-
-```cpp
-Value array(kArrayType);
-Document::AllocatorType& allocator = d.GetAllocator();
-array.PushBack(1, allocator).PushBack(2, allocator).PushBack(3, allocator);
-```
-- **O que faz?** Adiciona elementos a um array JSON.
+- [`rapidjson`][rapidjson] → Mais veloz para parse de JSON.
+- [`nlohmann`][nlohmann] → Escrita mais simples para parse de JSON.
+- [`jsoncpp`][jsoncpp] → Mais detalhista para parse de JSON.
+- [`glaze`][glaze] → Semelhante a velocidade da [rapidjson] e a escrita da [nlohmann] para parse de JSON, funciona melhor se tiver JSON padronizado.
 
 ### Funções
 As funções são blocos de código que possuem nome e podem ser utilizadas em qualquer parte do código.
@@ -1115,4 +981,7 @@ Método padrão: `g++-13 -g -ggdb -std=c++23 .cpp; mv ~/Ontick/`
 [pratica]: https://github.com/pedcravo/Aprendendo-C-
 [variavel]: https://www.dio.me/articles/breve-guia-para-estilo-de-nomenclatura-para-programacao
 [compilador]: https://www.tutorialspoint.com/gnu_debugger/index.htm
-[rapidjson]: https://rapidjson.org/index.html
+[glaze]: glaze/
+[jsoncpp]: jsoncpp/
+[nlohmann]: nlohmann/
+[rapidjson]: rapidjson/
