@@ -4,7 +4,7 @@ O Windows Subsystem for Linux (WSL) é uma camada de compatibilidade desenvolvid
 - **WSL 1**: Lançado em 2016, usa uma camada de tradução para converter chamadas do sistema Linux em chamadas do Windows. É mais leve, mas tem limitações (ex.: sem suporte completo ao `systemd`).
 - **WSL 2**: Introduzido em 2019, usa uma máquina virtual leve com um kernel Linux real, oferecendo melhor desempenho e suporte completo a recursos como `systemd`. É a versão recomendada hoje.
 
-##**Como funciona?**
+## **Como funciona?**
 O WSL combina o kernel do Windows com um ambiente Linux:
 - **WSL 1**: Traduz chamadas de sistema em tempo real, sem um kernel Linux completo.
 - **WSL 2**: Executa um kernel Linux real em uma VM otimizada, gerenciada pelo Windows. Ele usa o Hyper-V para virtualização leve e suporta sistemas de arquivos, redes e processos Linux nativos.
@@ -51,7 +51,7 @@ O WSL 2 também suporta o `systemd` (desde a versão 0.67.6, com configuração 
    * Ubuntu-24.04    Stopped         2
    ```
 
-## **Caso ocorra o erro: "System has not been booted with systemd"**
+## **Caso ocorra o erro: `"System has not been booted with systemd"`**
 Esse erro ocorre quando uma distribuição Linux espera que o `systemd` seja o sistema de inicialização (PID 1), mas o WSL usa um `init` simplificado por padrão. Veja como corrigir:
 
 ### **Sintomas**
