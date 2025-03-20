@@ -825,6 +825,40 @@ https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-pgrep/
 
 ---
 
+## `pidof`
+
+### Para que serve?
+Utilizado para **encontrar o PID (Process ID) de um processo em execução com base no seu nome.** É uma ferramenta simples e direta para identificar processos pelo nome do programa, retornando os IDs correspondentes.
+
+### Opções:
+- `-s` → Retorna apenas um único PID (o primeiro encontrado), mesmo que haja múltiplos processos com o mesmo nome.
+- `-c` → Limita a busca a processos que compartilham o mesmo diretório raiz (útil em sistemas com contêineres).
+- `-x` → Inclui processos iniciados por scripts, além de binários.
+- `-o PID` → Omite um PID específico da saída (ex.: para ignorar o próprio `pidof` ou outro processo).
+- `-q` → Modo silencioso, não exibe saída, mas retorna código de saída (0 se encontrado, 1 se não).
+
+#### Junção de opções:
+- `-sx` → Retorna apenas um PID e inclui processos de scripts.
+- `-c -x` → Busca processos com o mesmo diretório raiz, incluindo scripts.
+
+### Sintaxe comum:
+**`$ pidof [OPÇÕES] nome_do_programa`**
+
+### Exemplos:
+`$ pidof firefox` → Retorna o PID do processo "firefox" (ex.: `12345`).
+
+`$ pidof -s bash` → Retorna apenas o primeiro PID do "bash" ativo.
+
+`$ pidof -x myscript.sh` → Encontra o PID de um script chamado "myscript.sh".
+
+`$ pidof -o 12345 firefox` → Lista PIDs do "firefox", ignorando o PID 12345.
+
+`$ pidof apache2 | xargs kill -9` → Encontra os PIDs do "apache2" e os mata diretamente.
+
+`$ pidof -q python && echo "Python está rodando"` → Verifica silenciosamente se "python" está em execução e exibe uma mensagem se verdadeiro.
+
+---
+
 ## `ps`
 
 ### Para que serve?
@@ -859,6 +893,8 @@ Utilizado para **exibir informações sobre processos em execução no sistema.*
 `$ ps aux | less` → Lista de forma detalhada as informações por intermédio do less (usa interface do less).
 
 `$ ps aux | head` → Mostra os 10 maiores processos.
+
+`$ ps aux | grep SERVER` → Lista os processos ativos e filtra pelo nome do SERVER.
 
 `$ ps -ef` → Mostra os processos com caminho absoluto.
 
