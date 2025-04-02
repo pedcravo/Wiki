@@ -941,7 +941,7 @@ O modo “**Debug**” é utilizado durante o desenvolvimento para facilitar a d
 
 **`$ g++-13 -g -ggdb -std=c++23 app.cpp -o APP`**  → Cria arquivo executável em modo debugger.
 
-`g++-13` → Versão do compilador.
+`g++-13` → Versão do compilador específica. Pode ser usada simplesmente como `g++`.
 
 `-g -ggdb` → Torna o arquivo debugavel.
 
@@ -955,13 +955,13 @@ O modo “**Debug**” é utilizado durante o desenvolvimento para facilitar a d
 
 `-On` → Flags de compilação, onde o `n` define a flag (`0` a `3`).
 
-`-O0` →
+- `-O0` →
 
-`-O1` →
+- `-O1` →
 
-`-O2` →
+- `-O2` →
 
-`-O3` → Modo **Release**.
+- `-O3` → Modo **Release**, modo mais veloz e otimizado do código.
 
 Método padrão: `g++-13 -g -ggdb -std=c++23 .cpp; mv ~/Ontick/`
 
