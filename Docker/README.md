@@ -33,16 +33,16 @@ docker run -it IMAGEM
 ```
 
 #### Opções úteis:
-|Opção|Uso|
-|:----|:--|
-|`-d`| Usado para executar o container em segundo plano, torna semelhante a um daemon|
-|`-e` `--env`| Define uma variavel global|
-|`-i` | Torna a instalação interativa|
-|`--name`| Utilizado para dar um nome personalizado ao container|
-|`-p`| Mapeia portas (ex.: -p 8080:80)|
-|`-q`| Torna a instalação silenciosa, não mostra nada na tela|
-|`--rm`| Remove automaticamente o container após parar|
-|`-t`| Abre o terminal do container|
+| Opção        | Uso                                                                            |
+| :----------- | :----------------------------------------------------------------------------- |
+| `-d`         | Usado para executar o container em segundo plano, torna semelhante a um daemon |
+| `-e` `--env` | Define uma variavel global                                                     |
+| `-i`         | Torna a instalação interativa                                                  |
+| `--name`     | Utilizado para dar um nome personalizado ao container                          |
+| `-p`         | Mapeia portas (ex.: -p 8080:80)                                                |
+| `-q`         | Torna a instalação silenciosa, não mostra nada na tela                         |
+| `--rm`       | Remove automaticamente o container após parar                                  |
+| `-t`         | Abre o terminal do container                                                   |
 
 
 ### Executar comandos em Container
@@ -57,12 +57,12 @@ docker exec -it CONTAINER COMANDO
 ```
 
 #### Opções úteis:
-|Opção|Uso|
-|:----|:--|
-|`-d`| Usado para executar o container em segundo plano, torna semelhante a um daemon|
-|`-e` `--env`| Define uma variavel global|
-|`-i` | Torna a instalação interativa|
-|`-t`| Abre o terminal do container|
+| Opção        | Uso                                                                            |
+| :----------- | :----------------------------------------------------------------------------- |
+| `-d`         | Usado para executar o container em segundo plano, torna semelhante a um daemon |
+| `-e` `--env` | Define uma variavel global                                                     |
+| `-i`         | Torna a instalação interativa                                                  |
+| `-t`         | Abre o terminal do container                                                   |
 
 
 ### Excluir Container
@@ -108,14 +108,14 @@ docker ps -al --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
 ```
 
 #### Opções úteis:
-|Opção|Uso|
-|:----|:--|
-|`-a`| Mostra todos|
-|`-f`| Filtra os containers mostrados|
-|`--format`| Formata a saída do comando|
-|`-n` | Mostra o s ultimos **n** containers|
-|`-l`| Mostra o ultimo container|
-|`-q`| Mostra apenas os ids dos containers|
+| Opção      | Uso                                 |
+| :--------- | :---------------------------------- |
+| `-a`       | Mostra todos                        |
+| `-f`       | Filtra os containers mostrados      |
+| `--format` | Formata a saída do comando          |
+| `-n`       | Mostra o s ultimos **n** containers |
+| `-l`       | Mostra o ultimo container           |
+| `-q`       | Mostra apenas os ids dos containers |
 
 
 ### Mostrar logs de Container
@@ -130,8 +130,8 @@ docker logs -n 10 CONTAINER
 ```
 
 #### Opções úteis:
-|Opção|Uso|
-|:----|:--|
-|`-f`| Segue os logs em tempo real|
-|`-n`| Mostra o s ultimos **n** containers|
-|`-t`| Mostra os logs em determinado período de tempo|
+| Opção | Uso                                            |
+| :---- | :--------------------------------------------- |
+| `-f`  | Segue os logs em tempo real                    |
+| `-n`  | Mostra o s ultimos **n** containers            |
+| `-t`  | Mostra os logs em determinado período de tempo |

@@ -254,11 +254,11 @@ Por padrão é baixada a branch principal. Neste fluxo de trabalho **é possíve
 
 #### Branchs remotas
 Podemos resumir os comandos para branchs no git em forma de tabela.
-Comandos | Existe local? | Existe remoto?
-:--------- | :------: | :-------:
-push -u | **V** | **X**
-checkout --track | **X** | **V**
-branch -u | **V** | **V**
+| Comandos         | Existe local? | Existe remoto? |
+| :--------------- | :-----------: | :------------: |
+| push -u          |     **V**     |     **X**      |
+| checkout --track |     **X**     |     **V**      |
+| branch -u        |     **V**     |     **V**      |
 
 #### Renomear branchs
 [**Renomeando branch no git**][Renomeando branch no git]]
