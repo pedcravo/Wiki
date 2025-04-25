@@ -39,7 +39,7 @@ Aqui estão os temas disponíveis para explorar os comandos Linux:
    Comandos para gerenciamento de grupos no sistema, como `groupadd`, `groupdel`, `gpasswd`.
 
 9. [Manipulação de Redes](./ManipulaçãoDeRedes)
-   Comandos para configurar e diagnosticar redes, como `ip`, `ping`, `netstat`, `curl`.
+   Comandos para configurar e diagnosticar redes, como `ip`, `ping`, `netstat`, `curl`, `ssh`.
 
 10. [Manipulação de Usuários](./ManipulaçãoDeUsuários)  
    Comandos para criar, deletar e gerenciar usuários, como `useradd`, `usermod`, `passwd`.
@@ -48,7 +48,7 @@ Aqui estão os temas disponíveis para explorar os comandos Linux:
    Principais tipos, como modificar e utilizar as variáveis no Linux, como: `$PATH`, `$HOME`, `$USER`.
 
 12. [Manipulação do Sistema](./ManipulaçãoDoSistema)  
-    Comandos relacionados à manutenção e monitoramento do sistema, como `top`, `jobs`, `ssh`.
+    Comandos relacionados à manutenção e monitoramento do sistema, como `top`, `jobs`.
 
 13. [Metacaracteres e Expressões Regulares](./MetaCaractere)  
     Uso de metacaracteres e expressões regulares para operações no terminal, como `*`, `?`, `[ ]`.

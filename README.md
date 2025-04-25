@@ -22,3 +22,12 @@ Este repositório é uma coleção de conhecimento prático sobre diferentes ár
 ### Exemplo de Uso
 
 Se você está interessado em comandos de Linux, por exemplo, basta clicar no link [Linux](./Linux) e você será levado para uma página com temas de comandos como: `ajuda`, `operadores lógicos`, `manupulação de variaveis` , entre outros.
+
+## Comandos Uteis:
+
+- `# ssh-keygen -b 1024 -t rsa` → Cria chaves pub e priv com tamanho de 1024 bits do tipo rsa de segurança.
+
+[Tutorial ssh](https://github.com/pedcravo/Wiki/tree/main/Linux/Manipula%C3%A7%C3%A3oDeRedes#ssh)
+
+- `$ git config --global user.name "Pedro Cravo"` → Define usuário global do desktop como "Pedro Cravo".
+- `$ git config --global user.email "pedroh.s.cravo@gmail.com"` → Define email global do desktop como "pedroh.s.cravo@gmail.com".
