@@ -53,13 +53,13 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
       - [main()](#main)
     - [APIs](#apis)
       - [Entendendo a Pistache API em C++](#entendendo-a-pistache-api-em-c)
-        - [**O que é a Pistache API?**](#o-que-é-a-pistache-api)
-        - [**Como Funciona a Pistache API?**](#como-funciona-a-pistache-api)
-        - [**Exemplo Prático: Criando uma API REST Simples com Pistache**](#exemplo-prático-criando-uma-api-rest-simples-com-pistache)
-      - [**Como Instalar e Configurar a Pistache**](#como-instalar-e-configurar-a-pistache)
-      - [**Principais Características da Pistache**](#principais-características-da-pistache)
-      - [**Limitações e Considerações**](#limitações-e-considerações)
-      - [**Exemplo Avançado: Manipulando JSON e POST**](#exemplo-avançado-manipulando-json-e-post)
+        - [O que é a Pistache API?](#o-que-é-a-pistache-api)
+        - [Como Funciona a Pistache API?](#como-funciona-a-pistache-api)
+        - [Exemplo Prático: Criando uma API REST Simples com Pistache](#exemplo-prático-criando-uma-api-rest-simples-com-pistache)
+      - [Como Instalar e Configurar a Pistache](#como-instalar-e-configurar-a-pistache)
+      - [Principais Características da Pistache](#principais-características-da-pistache)
+      - [Limitações e Considerações](#limitações-e-considerações)
+      - [Exemplo Avançado: Manipulando JSON e POST](#exemplo-avançado-manipulando-json-e-post)
   - [Tipos de Erros](#tipos-de-erros)
     - [Erro de sintaxe:](#erro-de-sintaxe)
     - [Erro de semântica:](#erro-de-semântica)
@@ -888,9 +888,9 @@ Anotações presentes no README da Wiki.
 
 #### Entendendo a Pistache API em C++
 
-A **Pistache** é um framework HTTP e REST de alta performance escrito em C++ (atualmente usando C++17), projetado para criar servidores e clientes HTTP com uma API clara e elegante. Ele é ideal para desenvolver APIs RESTful, oferecendo suporte a operações como GET, POST, e manipulação de respostas em formatos como JSON. A seguir, explico o que é a Pistache, como ela funciona, seus principais componentes e um exemplo prático, integrando os conceitos de APIs em C++ e informações específicas sobre a Pistache obtidas de fontes confiáveis.
+A [**Pistache**](https://youtu.be/9BCO5W_Kw3Q?si=TxS6aYIThr9V3LKD) é um framework HTTP e REST de alta performance escrito em C++ (atualmente usando C++17), projetado para criar servidores e clientes HTTP com uma API clara e elegante. Ele é ideal para desenvolver APIs RESTful, oferecendo suporte a operações como GET, POST, e manipulação de respostas em formatos como JSON. A seguir, explico o que é a Pistache, como ela funciona, seus principais componentes e um exemplo prático, integrando os conceitos de APIs em C++ e informações específicas sobre a Pistache obtidas de fontes confiáveis.
 
-##### **O que é a Pistache API?**
+##### O que é a Pistache API?
 A Pistache é uma biblioteca open-source que fornece uma interface para construir servidores HTTP e APIs REST em C++. Ela é leve, multithreaded e usa um modelo assíncrono baseado em **promises** e **futures** para lidar com requisições de forma eficiente. Seu objetivo é simplificar a criação de serviços web robustos, com suporte a:
 
 - **Servidores HTTP**: Para processar requisições GET, POST, PUT, DELETE, etc.
@@ -898,9 +898,11 @@ A Pistache é uma biblioteca open-source que fornece uma interface para construi
 - **Roteamento**: Para mapear URLs a funções específicas.
 - **Manipulação de Dados**: Suporte a MIME types, JSON, e envio de arquivos estáticos.
 
-A Pistache é compatível com Linux, macOS, Windows e sistemas BSD, embora algumas funcionalidades (como chamadas específicas do Linux, como `epoll`) limitem sua portabilidade total sem ajustes.[](https://www.reddit.com/r/cpp/comments/6ehhqe/has_anyone_tested_andor_reviewed_pistacheio_c/)[](https://github.com/pistacheio/pistache/blob/master/README.md)
+A Pistache é compatível com Linux, macOS, Windows e sistemas BSD, embora algumas funcionalidades (como chamadas específicas do Linux, como `epoll`) limitem sua portabilidade total sem ajustes.
+- [Reddit](https://www.reddit.com/r/cpp/comments/6ehhqe/has_anyone_tested_andor_reviewed_pistacheio_c/)
+- [Github](https://github.com/pistacheio/pistache/blob/master/README.md)
 
-##### **Como Funciona a Pistache API?**
+##### Como Funciona a Pistache API?
 A Pistache opera em torno de alguns conceitos centrais que permitem criar servidores e APIs REST de maneira eficiente:
 
 1. **Http::Endpoint**:
@@ -928,7 +930,7 @@ A Pistache opera em torno de alguns conceitos centrais que permitem criar servid
 6. **Multithreading**:
    - A Pistache é multithreaded por padrão, usando um número de threads baseado nos núcleos da CPU, o que a torna eficiente para lidar com múltiplas conexões simultâneas.[](https://reposhub.com/cpp/web-application-framework/oktal-pistache.html)
 
-##### **Exemplo Prático: Criando uma API REST Simples com Pistache**
+##### Exemplo Prático: Criando uma API REST Simples com Pistache
 Aqui está um exemplo de como criar um servidor REST que responde a uma requisição GET na rota `/hello` com uma mensagem simples:
 
 ```cpp
@@ -992,9 +994,7 @@ curl http://localhost:8080/hello
 # Resposta: Hello from Router!
 ```
 
----
-
-#### **Como Instalar e Configurar a Pistache**
+#### Como Instalar e Configurar a Pistache
 Para usar a Pistache, você precisa instalá-la e configurá-la no seu projeto. Aqui estão os passos básicos para um ambiente Linux (Ubuntu):
 
 1. **Instalação via Pacotes Pré-compilados**:[](https://pistacheio.github.io/pistache/docs/)
@@ -1029,7 +1029,7 @@ Para usar a Pistache, você precisa instalá-la e configurá-la no seu projeto. 
 
 ---
 
-#### **Principais Características da Pistache**
+#### Principais Características da Pistache
 - **Alta Performance**: Usa chamadas de sistema eficientes (como `epoll` no Linux) e multithreading para lidar com muitas conexões.[](https://www.reddit.com/r/cpp/comments/6ehhqe/has_anyone_tested_andor_reviewed_pistacheio_c/)
 - **API Elegante**: Oferece uma sintaxe clara para definir rotas e handlers.[](https://www.linuxlinks.com/pistache-modern-elegant-http-rest-framework/)
 - **Suporte a JSON**: Embora não inclua parsing de JSON nativo (para manter a leveza), pode ser combinado com bibliotecas como RapidJSON.[](https://github.com/pistacheio/pistache/issues/211)
@@ -1038,7 +1038,7 @@ Para usar a Pistache, você precisa instalá-la e configurá-la no seu projeto. 
 
 ---
 
-#### **Limitações e Considerações**
+#### Limitações e Considerações
 - **Documentação Incompleta**: A documentação oficial é parcial, e a comunidade ainda busca voluntários para completá-la.[](https://github.com/pistacheio/pistache/blob/master/README.md)
 - **Suporte Limitado a HTTPS**: O suporte a HTTPS não é nativo e requer configurações adicionais ou bibliotecas externas como OpenSSL.[](https://github.com/pistacheio/pistache/issues/52)
 - **Dependência de Linux**: Algumas funcionalidades usam APIs específicas do Linux (como `epoll`), o que pode limitar a portabilidade sem ajustes.[](https://www.reddit.com/r/cpp/comments/6ehhqe/has_anyone_tested_andor_reviewed_pistacheio_c/)
@@ -1047,7 +1047,7 @@ Para usar a Pistache, você precisa instalá-la e configurá-la no seu projeto. 
 
 ---
 
-#### **Exemplo Avançado: Manipulando JSON e POST**
+#### Exemplo Avançado: Manipulando JSON e POST
 Para um caso mais realista, como um servidor que recebe um POST com JSON e retorna uma resposta manipulada:
 
 ```cpp
