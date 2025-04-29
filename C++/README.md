@@ -51,6 +51,15 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
     - [Include](#include)
     - [Funções](#funções)
       - [main()](#main)
+    - [APIs](#apis)
+      - [Entendendo a Pistache API em C++](#entendendo-a-pistache-api-em-c)
+        - [**O que é a Pistache API?**](#o-que-é-a-pistache-api)
+        - [**Como Funciona a Pistache API?**](#como-funciona-a-pistache-api)
+        - [**Exemplo Prático: Criando uma API REST Simples com Pistache**](#exemplo-prático-criando-uma-api-rest-simples-com-pistache)
+      - [**Como Instalar e Configurar a Pistache**](#como-instalar-e-configurar-a-pistache)
+      - [**Principais Características da Pistache**](#principais-características-da-pistache)
+      - [**Limitações e Considerações**](#limitações-e-considerações)
+      - [**Exemplo Avançado: Manipulando JSON e POST**](#exemplo-avançado-manipulando-json-e-post)
   - [Tipos de Erros](#tipos-de-erros)
     - [Erro de sintaxe:](#erro-de-sintaxe)
     - [Erro de semântica:](#erro-de-semântica)
@@ -872,6 +881,239 @@ int main(int arg1, char *arg2[])
 Para executar este arquivo de código usamos:
 ```bash
 $ programa.exe arg1 arg2
+```
+
+### APIs
+Anotações presentes no README da Wiki.
+
+#### Entendendo a Pistache API em C++
+
+A **Pistache** é um framework HTTP e REST de alta performance escrito em C++ (atualmente usando C++17), projetado para criar servidores e clientes HTTP com uma API clara e elegante. Ele é ideal para desenvolver APIs RESTful, oferecendo suporte a operações como GET, POST, e manipulação de respostas em formatos como JSON. A seguir, explico o que é a Pistache, como ela funciona, seus principais componentes e um exemplo prático, integrando os conceitos de APIs em C++ e informações específicas sobre a Pistache obtidas de fontes confiáveis.
+
+##### **O que é a Pistache API?**
+A Pistache é uma biblioteca open-source que fornece uma interface para construir servidores HTTP e APIs REST em C++. Ela é leve, multithreaded e usa um modelo assíncrono baseado em **promises** e **futures** para lidar com requisições de forma eficiente. Seu objetivo é simplificar a criação de serviços web robustos, com suporte a:
+
+- **Servidores HTTP**: Para processar requisições GET, POST, PUT, DELETE, etc.
+- **Clientes HTTP**: Para fazer chamadas a outros serviços.
+- **Roteamento**: Para mapear URLs a funções específicas.
+- **Manipulação de Dados**: Suporte a MIME types, JSON, e envio de arquivos estáticos.
+
+A Pistache é compatível com Linux, macOS, Windows e sistemas BSD, embora algumas funcionalidades (como chamadas específicas do Linux, como `epoll`) limitem sua portabilidade total sem ajustes.[](https://www.reddit.com/r/cpp/comments/6ehhqe/has_anyone_tested_andor_reviewed_pistacheio_c/)[](https://github.com/pistacheio/pistache/blob/master/README.md)
+
+##### **Como Funciona a Pistache API?**
+A Pistache opera em torno de alguns conceitos centrais que permitem criar servidores e APIs REST de maneira eficiente:
+
+1. **Http::Endpoint**:
+   - Representa o servidor HTTP. É configurado com um endereço (IP e porta) e inicializado para escutar requisições.
+   - Exemplo: `Http::Endpoint endpoint(Address("localhost", 8080));` cria um servidor na porta 8080.
+
+2. **Http::Handler**:
+   - Classes que herdam de `Http::Handler` definem como as requisições HTTP são processadas.
+   - O método principal é `onRequest(const Http::Request& request, Http::ResponseWriter response)`, que recebe a requisição e envia a resposta.
+   - Exemplo: Um handler pode responder "Hello, World" para uma requisição GET.
+
+3. **Roteamento (Rest::Router)**:
+   - Permite mapear URLs e métodos HTTP (GET, POST, etc.) a funções específicas.
+   - Exemplo: `Routes::Get(router, "/hello", [](const Rest::Request&, Http::ResponseWriter response) {...});`.
+
+4. **Modelo Assíncrono**:
+   - A Pistache usa **promises** e **futures** para operações assíncronas, como envio de respostas ou leitura de arquivos, evitando bloqueios.[](https://pistacheio.github.io/pistache/docs/http-handler/)
+   - Isso melhora a escalabilidade, mas foi criticado por alguns desenvolvedores em comparação com modelos baseados em callbacks (como o Boost.Asio), devido a possíveis overheads.[](https://www.reddit.com/r/cpp/comments/6ehhqe/has_anyone_tested_andor_reviewed_pistacheio_c/)
+
+5. **Respostas e Requisições**:
+   - **Http::Request**: Contém informações da requisição (método, URL, query parameters, body).
+   - **Http::ResponseWriter**: Usado para enviar respostas, incluindo código HTTP (200, 404, etc.), corpo (como JSON) e cabeçalhos.
+   - Suporta envio de arquivos estáticos (`Http::serveFile`) e respostas chunked para dados dinâmicos.[](https://pistacheio.github.io/pistache/docs/http-handler/)
+
+6. **Multithreading**:
+   - A Pistache é multithreaded por padrão, usando um número de threads baseado nos núcleos da CPU, o que a torna eficiente para lidar com múltiplas conexões simultâneas.[](https://reposhub.com/cpp/web-application-framework/oktal-pistache.html)
+
+##### **Exemplo Prático: Criando uma API REST Simples com Pistache**
+Aqui está um exemplo de como criar um servidor REST que responde a uma requisição GET na rota `/hello` com uma mensagem simples:
+
+```cpp
+#include <pistache/endpoint.h>
+#include <pistache/router.h>
+#include <pistache/http.h>
+
+using namespace Pistache;
+
+class HelloHandler : public Http::Handler {
+public:
+    HTTP_PROTOTYPE(HelloHandler)
+
+    void onRequest(const Http::Request& request, Http::ResponseWriter response) override {
+        response.send(Http::Code::Ok, "Hello, World!\n");
+    }
+};
+
+void setupRoutes(Rest::Router& router) {
+    Rest::Routes::Get(router, "/hello", [](const Rest::Request&, Http::ResponseWriter response) {
+        response.send(Http::Code::Ok, "Hello from Router!\n");
+        return Rest::Route::Result::Ok;
+    });
+}
+
+int main() {
+    // Configura o endpoint
+    Address addr(Ip::any(), 8080);
+    Http::Endpoint endpoint(addr);
+    
+    // Configura opções do servidor
+    auto opts = Http::Endpoint::options().threads(4);
+    endpoint.init(opts);
+
+    // Configura roteamento
+    Rest::Router router;
+    setupRoutes(router);
+    
+    // Associa o router ao endpoint
+    endpoint.setHandler(router.handler());
+
+    // Inicia o servidor
+    endpoint.serve();
+    
+    // Para o servidor graciosamente
+    endpoint.shutdown();
+    return 0;
+}
+```
+
+**Explicação do Código**:
+- **Http::Endpoint**: Configurado para escutar na porta 8080.
+- **Rest::Router**: Define uma rota `/hello` que responde com uma mensagem.
+- **Http::Handler**: Um handler personalizado pode ser usado para lógicas mais complexas.
+- **Multithreading**: O servidor usa 4 threads para maior desempenho.
+- **Resposta**: A rota `/hello` retorna o código HTTP 200 e a mensagem "Hello from Router!".
+
+Para testar, compile o código (certifique-se de ter a Pistache instalada) e use `curl`:
+```bash
+curl http://localhost:8080/hello
+# Resposta: Hello from Router!
+```
+
+---
+
+#### **Como Instalar e Configurar a Pistache**
+Para usar a Pistache, você precisa instalá-la e configurá-la no seu projeto. Aqui estão os passos básicos para um ambiente Linux (Ubuntu):
+
+1. **Instalação via Pacotes Pré-compilados**:[](https://pistacheio.github.io/pistache/docs/)
+   ```bash
+   sudo add-apt-repository ppa:pistache+team/unstable
+   sudo apt update
+   sudo apt install libpistache-dev
+   ```
+
+2. **Compilação Manual**:
+   ```bash
+   git clone https://github.com/pistacheio/pistache.git
+   cd pistache
+   mkdir build
+   cd build
+   cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
+   make
+   sudo make install
+   ```
+
+3. **Configuração no CMake**:
+   Para integrar a Pistache ao seu projeto, ajuste o `CMakeLists.txt`:
+   ```cmake
+   cmake_minimum_required(VERSION 3.12)
+   project(PistacheExample)
+   set(CMAKE_CXX_STANDARD 17)
+   find_package(Pistache REQUIRED)
+   add_executable(${PROJECT_NAME} src/main.cpp)
+   target_link_libraries(${PROJECT_NAME} Pistache::Pistache)
+   ```
+   Isso garante que os headers e bibliotecas da Pistache sejam incluídos corretamente.[](https://stackoverflow.com/questions/52468551/include-pistache-in-c-project)
+
+---
+
+#### **Principais Características da Pistache**
+- **Alta Performance**: Usa chamadas de sistema eficientes (como `epoll` no Linux) e multithreading para lidar com muitas conexões.[](https://www.reddit.com/r/cpp/comments/6ehhqe/has_anyone_tested_andor_reviewed_pistacheio_c/)
+- **API Elegante**: Oferece uma sintaxe clara para definir rotas e handlers.[](https://www.linuxlinks.com/pistache-modern-elegant-http-rest-framework/)
+- **Suporte a JSON**: Embora não inclua parsing de JSON nativo (para manter a leveza), pode ser combinado com bibliotecas como RapidJSON.[](https://github.com/pistacheio/pistache/issues/211)
+- **Assincronia**: Usa promises para operações como envio de respostas ou leitura de arquivos, ideal para APIs com baixa latência.[](https://pistacheio.github.io/pistache/docs/http-handler/)
+- **Flexibilidade**: Suporta tanto servidores REST quanto clientes HTTP para chamadas externas.[](https://www.linuxlinks.com/pistache-modern-elegant-http-rest-framework/)
+
+---
+
+#### **Limitações e Considerações**
+- **Documentação Incompleta**: A documentação oficial é parcial, e a comunidade ainda busca voluntários para completá-la.[](https://github.com/pistacheio/pistache/blob/master/README.md)
+- **Suporte Limitado a HTTPS**: O suporte a HTTPS não é nativo e requer configurações adicionais ou bibliotecas externas como OpenSSL.[](https://github.com/pistacheio/pistache/issues/52)
+- **Dependência de Linux**: Algumas funcionalidades usam APIs específicas do Linux (como `epoll`), o que pode limitar a portabilidade sem ajustes.[](https://www.reddit.com/r/cpp/comments/6ehhqe/has_anyone_tested_andor_reviewed_pistacheio_c/)
+- **Estabilidade**: A Pistache ainda não atingiu a versão 1.0, indicando que pode ter instabilidades, embora seja considerada "pronta para produção" em muitos casos.[](https://cpp.libhunt.com/pistache-alternatives)
+- **Parsing de Dados**: Não inclui parsing nativo de MIME ou JSON, exigindo bibliotecas externas para manipular dados complexos.[](https://github.com/pistacheio/pistache/issues/211)
+
+---
+
+#### **Exemplo Avançado: Manipulando JSON e POST**
+Para um caso mais realista, como um servidor que recebe um POST com JSON e retorna uma resposta manipulada:
+
+```cpp
+#include <pistache/endpoint.h>
+#include <pistache/router.h>
+#include <rapidjson/document.h>
+#include <rapidjson/writer.h>
+#include <rapidjson/stringbuffer.h>
+
+using namespace Pistache;
+using namespace rapidjson;
+
+void handlePost(const Rest::Request& request, Http::ResponseWriter response) {
+    // Obtém o corpo da requisição
+    auto body = request.body();
+    
+    // Parsing do JSON
+    Document doc;
+    doc.Parse(body.c_str());
+    
+    if (!doc.IsObject() || !doc.HasMember("name")) {
+        response.send(Http::Code::Bad_Request, "JSON inválido\n");
+        return;
+    }
+    
+    // Extrai o campo "name"
+    auto name = doc["name"].GetString();
+    
+    // Cria uma resposta JSON
+    StringBuffer buffer;
+    Writer<StringBuffer> writer(buffer);
+    writer.StartObject();
+    writer.Key("message");
+    writer.String(("Olá, " + std::string(name) + "!").c_str());
+    writer.EndObject();
+    
+    response.headers().add<Http::Header::ContentType>(MIME(Application, Json));
+    response.send(Http::Code::Ok, buffer.GetString());
+}
+
+int main() {
+    Address addr(Ip::any(), 8080);
+    Http::Endpoint endpoint(addr);
+    auto opts = Http::Endpoint::options().threads(4);
+    endpoint.init(opts);
+    
+    Rest::Router router;
+    Rest::Routes::Post(router, "/greet", handlePost);
+    
+    endpoint.setHandler(router.handler());
+    endpoint.serve();
+    
+    endpoint.shutdown();
+    return 0;
+}
+```
+
+**Explicação**:
+- **RapidJSON**: Usado para parsear e criar JSON.
+- **Rota POST**: A rota `/greet` aceita um POST com um JSON como `{"name": "Alice"}`.
+- **Resposta**: Retorna um JSON como `{"message": "Olá, Alice!"}`.
+
+**Teste com curl**:
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"name":"Alice"}' http://localhost:8080/greet
+# Resposta: {"message":"Olá, Alice!"}
 ```
 
 ## Tipos de Erros
