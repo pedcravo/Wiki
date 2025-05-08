@@ -47,6 +47,37 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
         - [FOR](#for)
         - [WHILE](#while)
         - [DO-WHILE](#do-while)
+    - [Estruturas de Dados](#estruturas-de-dados)
+      - [Array](#array)
+        - [Create (Criar)](#create-criar)
+        - [Read (Ler)](#read-ler)
+        - [Update (Atualizar)](#update-atualizar)
+        - [Delete (Excluir)](#delete-excluir)
+      - [Vector](#vector)
+        - [Create (Criar)](#create-criar-1)
+        - [Read (Ler)](#read-ler-1)
+        - [Update (Atualizar)](#update-atualizar-1)
+        - [Delete (Excluir)](#delete-excluir-1)
+      - [Struct](#struct)
+        - [Create (Criar)](#create-criar-2)
+        - [Read (Ler)](#read-ler-2)
+        - [Update (Atualizar)](#update-atualizar-2)
+        - [Delete (Excluir)](#delete-excluir-2)
+      - [Map](#map)
+        - [Create (Criar)](#create-criar-3)
+        - [Read (Ler)](#read-ler-3)
+        - [Update (Atualizar)](#update-atualizar-3)
+        - [Delete (Excluir)](#delete-excluir-3)
+      - [Unordered Map](#unordered-map)
+        - [Create (Criar)](#create-criar-4)
+        - [Read (Ler)](#read-ler-4)
+        - [Update (Atualizar)](#update-atualizar-4)
+        - [Delete (Excluir)](#delete-excluir-4)
+      - [Queue](#queue)
+        - [Create (Criar)](#create-criar-5)
+        - [Read (Ler)](#read-ler-5)
+        - [Update (Atualizar)](#update-atualizar-5)
+        - [Delete (Excluir)](#delete-excluir-5)
 - [WIP](#wip)
     - [Include](#include)
     - [Funções](#funções)
@@ -779,7 +810,6 @@ default:
 (cond_expr) ? expr1 : expr2
 ```
 
-
 #### Estruturas de Iteração - Looping
 As estruturas de iteração são estruturas que geram loops, que repetem uma parte do código até um determinado momento. Elas que repetem o código já executado.
 
@@ -831,6 +861,813 @@ do
 {
     /* code */
 } while (condition);
+```
+
+### Estruturas de Dados
+As estruturas de dados são formas de organizar e armazenar dados na memória para facilitar operações como inserção, leitura, atualização e exclusão. Em C++, a biblioteca padrão (`STL - Standard Template Library`) oferece estruturas como `std::vector`, `std::map`, `std::queue`, entre outras, além de permitir a criação de estruturas personalizadas, como `struct`. Nesta seção, abordaremos as principais estruturas de dados, com foco nas operações **CRUD** (Create, Read, Update, Delete), suas características, declarações e exemplos práticos.
+
+#### Array
+Os **arrays** são estruturas estáticas que armazenam elementos do mesmo tipo em memória contígua, com tamanho fixo definido em tempo de compilação. São úteis quando o número de elementos é conhecido e não mudará.
+
+**Características:**
+- Tamanho fixo, definido na declaração.
+- Armazenamento contíguo, permitindo acesso rápido via índices (O(1)).
+- Todos os elementos devem ser do mesmo tipo (ex.: `int`, `float`).
+- Não suporta operações dinâmicas como redimensionamento.
+- O primeiro elemento tem índice 0, e o último tem índice `n-1`.
+
+**Declaração de arrays:**
+```html
+<tipo> <nome>[<tamanho>] = {<valores>};
+```
+
+**Exemplo:**
+```cpp
+int notas[5] = {10, 7, 2, 8, 9}; // Array de 5 inteiros
+```
+
+**Operações CRUD em Arrays:**
+Devido ao tamanho fixo, as operações CRUD em arrays são limitadas. Não há inserção ou exclusão verdadeira, mas podemos simular essas operações.
+
+##### Create (Criar)
+Define valores na declaração ou atribui valores a índices específicos.
+
+**Exemplo:**
+```cpp
+int my_array[3];
+my_array[0] = 10;
+my_array[1] = 20;
+my_array[2] = 30;
+```
+
+**Funcionamento:**
+- A inicialização na declaração ou atribuição por índice é O(1).
+- Após criação: `my_array = [10, 20, 30]`.
+
+##### Read (Ler)
+Acessa elementos por índice ou itera pelo array.
+
+**Exemplo:**
+```cpp
+std::cout << "Elemento na posição 1: " << my_array[1] << std::endl; // Exibe 20
+for (int i = 0; i < 3; i++) {
+    std::cout << my_array[i] << " "; // Exibe 10 20 30
+}
+std::cout << std::endl;
+```
+
+**Funcionamento:**
+- Acesso por índice é O(1).
+- Iteração é O(n).
+
+##### Update (Atualizar)
+Modifica um elemento em um índice específico.
+
+**Exemplo:**
+```cpp
+my_array[1] = 25; // Substitui 20 por 25
+```
+
+**Funcionamento:**
+- Atualização por índice é O(1).
+- Após atualização: `my_array = [10, 25, 30]`.
+
+##### Delete (Excluir)
+Não é possível remover elementos de um array (tamanho fixo). Pode-se "simular" a exclusão marcando o elemento como inválido (ex.: definindo como 0 ou outro valor sentinela) ou ignorando-o.
+
+**Exemplo:**
+```cpp
+my_array[0] = 0; // "Remove" o elemento na posição 0 (marca como 0)
+```
+
+**Funcionamento:**
+- Não há exclusão real; a marcação é O(1).
+- Após "exclusão": `my_array = [0, 25, 30]`, mas o tamanho permanece 3.
+
+**Cuidados:**
+- Sempre valide índices para evitar acesso fora dos limites, que causa comportamento indefinido.
+- Arrays são menos flexíveis que `std::vector` devido ao tamanho fixo.
+
+**Exemplo Completo:**
+```cpp
+#include <iostream>
+
+int main() {
+    // Create
+    int my_array[3] = {10, 20, 30};
+    std::cout << "Após CREATE: ";
+    for (int i = 0; i < 3; i++) std::cout << my_array[i] << " ";
+    std::cout << std::endl;
+
+    // Read
+    std::cout << "Elemento na posição 1: " << my_array[1] << std::endl;
+
+    // Update
+    my_array[1] = 25;
+    std::cout << "Após UPDATE: ";
+    for (int i = 0; i < 3; i++) std::cout << my_array[i] << " ";
+    std::cout << std::endl;
+
+    // Delete (simulado)
+    my_array[0] = 0;
+    std::cout << "Após DELETE (simulado): ";
+    for (int i = 0; i < 3; i++) std::cout << my_array[i] << " ";
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+
+**Saída:**
+```
+Após CREATE: 10 20 30
+Elemento na posição 1: 20
+Após UPDATE: 10 25 30
+Após DELETE (simulado): 0 25 30
+```
+
+#### Vector
+Os **vetores** (`std::vector`) são estruturas dinâmicas que armazenam elementos do mesmo tipo em memória contígua, com tamanho ajustável em tempo de execução. São mais versáteis que arrays, suportando operações como inserção e exclusão.
+
+**Características:**
+- Tamanho dinâmico, ajustado com `push_back`, `pop_back`, `resize`, etc.
+- Armazenamento contíguo, com acesso por índice em O(1).
+- Suporte a métodos como `size()`, `empty()`, `front()`, `back()`, `erase()`.
+- Todos os elementos devem ser do mesmo tipo.
+
+**Declaração de vetores:**
+```html
+#include <vector>
+std::vector<<tipo>> <nome>(<tamanho>, <valor_default>);
+```
+
+**Exemplo:**
+```cpp
+#include <vector>
+std::vector<int> notas(3, 0); // Cria vetor com 3 elementos inicializados com 0
+notas.push_back(10);          // Adiciona 10 ao final
+```
+
+**Operações CRUD em Vetores:**
+As operações CRUD são bem definidas em `std::vector`, com métodos específicos para cada uma.
+
+##### Create (Criar)
+Adiciona elementos com `push_back` (ao final) ou `insert` (em uma posição específica).
+
+**Exemplo:**
+```cpp
+std::vector<int> my_vector;
+my_vector.push_back(10);
+my_vector.push_back(20);
+my_vector.insert(my_vector.begin() + 1, 15);
+```
+
+**Funcionamento:**
+- `push_back`: O(1) amortizado.
+- `insert`: O(n) devido ao deslocamento.
+- Após inserção: `my_vector = [10, 15, 20]`.
+
+##### Read (Ler)
+Acessa elementos por índice ou itera pelo vetor.
+
+**Exemplo:**
+```cpp
+std::cout << "Elemento na posição 1: " << my_vector[1] << std::endl; // Exibe 15
+for (const int& value : my_vector) {
+    std::cout << value << " "; // Exibe 10 15 20
+}
+std::cout << std::endl;
+```
+
+**Funcionamento:**
+- Acesso por índice (`my_vector[i]` ou `at(i)`) é O(1).
+- Iteração é O(n).
+- `at(i)` lança exceção para índices inválidos.
+
+##### Update (Atualizar)
+Modifica um elemento em uma posição específica.
+
+**Exemplo:**
+```cpp
+my_vector[1] = 25; // Substitui 15 por 25
+```
+
+**Funcionamento:**
+- Atualização é O(1).
+- Após atualização: `my_vector = [10, 25, 20]`.
+
+##### Delete (Excluir)
+Remove elementos com `erase` (por posição) ou `pop_back` (último elemento).
+
+**Exemplo:**
+```cpp
+my_vector.erase(my_vector.begin()); // Remove 10
+my_vector.pop_back(); // Remove 20
+```
+
+**Funcionamento:**
+- `erase`: O(n) devido ao deslocamento.
+- `pop_back`: O(1).
+- Após exclusões: `my_vector = [25]`.
+
+**Cuidados:**
+- Verifique `size()` ou `empty()` antes de acessar/remover elementos.
+- Exclusão no início/meio é custosa; considere `std::deque` ou `std::list` para esses casos.
+
+**Exemplo Completo:**
+```cpp
+#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> my_vector;
+
+    // Create
+    my_vector.push_back(10);
+    my_vector.push_back(20);
+    my_vector.push_back(30);
+    std::cout << "Após CREATE: ";
+    for (const int& value : my_vector) std::cout << value << " ";
+    std::cout << std::endl;
+
+    // Read
+    std::cout << "Elemento na posição 1: " << my_vector[1] << std::endl;
+
+    // Update
+    my_vector[1] = 25;
+    std::cout << "Após UPDATE: ";
+    for (const int& value : my_vector) std::cout << value << " ";
+    std::cout << std::endl;
+
+    // Delete
+    my_vector.erase(my_vector.begin());
+    std::cout << "Após DELETE: ";
+    for (const int& value : my_vector) std::cout << value << " ";
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+
+**Saída:**
+```
+Após CREATE: 10 20 30
+Elemento na posição 1: 20
+Após UPDATE: 10 25 30
+Após DELETE: 25 30
+```
+
+#### Struct
+As **structs** são tipos de dados definidos pelo programador que agrupam variáveis de diferentes tipos. São ideais para modelar entidades com múltiplos atributos, como um registro.
+
+**Características:**
+- Campos podem ter tipos diferentes (ex.: `int`, `std::string`).
+- Membros são públicos por padrão.
+- Frequentemente usadas em vetores ou outras estruturas.
+- Suporta operações CRUD quando armazenada em contêineres como `std::vector`.
+
+**Declaração de structs:**
+```html
+struct <nome> {
+    <tipo> <campo1>;
+    <tipo> <campo2>;
+    ...
+};
+```
+
+**Exemplo:**
+```cpp
+struct STR_DATA {
+    int id;
+    std::string name;
+};
+```
+
+**Operações CRUD em Vetores de Structs:**
+As structs são frequentemente armazenadas em `std::vector` para suportar operações dinâmicas.
+
+##### Create (Criar)
+Cria uma instância da `struct` e a adiciona ao vetor.
+
+**Exemplo:**
+```cpp
+std::vector<STR_DATA> my_data;
+STR_DATA new_data = {1, "cachorro"};
+my_data.push_back(new_data);
+new_data = {2, "gato"};
+my_data.push_back(new_data);
+```
+
+**Funcionamento:**
+- `push_back`: O(1) amortizado.
+- Após inserção: `my_data = [{1, "cachorro"}, {2, "gato"}]`.
+
+##### Read (Ler)
+Acessa campos de uma `struct` por índice ou itera pelo vetor.
+
+**Exemplo:**
+```cpp
+std::cout << "Nome na posição 1: " << my_data[1].name << std::endl; // Exibe "gato"
+for (const auto& data : my_data) {
+    std::cout << "id: " << data.id << ", name: " << data.name << std::endl;
+}
+```
+
+**Funcionamento:**
+- Acesso a campos é O(1).
+- Iteração é O(n).
+- Use `&` para evitar cópias.
+
+##### Update (Atualizar)
+Modifica uma `struct` ou seus campos.
+
+**Exemplo:**
+```cpp
+my_data[1] = {2, "ornitorrinco"};
+my_data[0].name = "lobo";
+```
+
+**Funcionamento:**
+- Atualização é O(1).
+- Após atualização: `my_data = [{1, "lobo"}, {2, "ornitorrinco"}]`.
+
+##### Delete (Excluir)
+Remove uma `struct` com `erase` ou `pop_back`.
+
+**Exemplo:**
+```cpp
+my_data.erase(my_data.begin()); // Remove {1, "lobo"}
+```
+
+**Funcionamento:**
+- `erase`: O(n).
+- `pop_back`: O(1).
+- Após exclusão: `my_data = [{2, "ornitorrinco"}]`.
+
+**Cuidados:**
+- Valide índices.
+- Exclusão no início/meio é custosa.
+
+**Exemplo Completo:**
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+struct STR_DATA {
+    int id;
+    std::string name;
+};
+
+int main() {
+    std::vector<STR_DATA> my_data;
+
+    // Create
+    STR_DATA new_data = {1, "cachorro"};
+    my_data.push_back(new_data);
+    new_data = {2, "gato"};
+    my_data.push_back(new_data);
+    std::cout << "Após CREATE:\n";
+    for (const auto& data : my_data) {
+        std::cout << "id: " << data.id << ", name: " << data.name << std::endl;
+    }
+
+    // Read
+    std::cout << "Nome na posição 1: " << my_data[1].name << std::endl;
+
+    // Update
+    my_data[1] = {2, "ornitorrinco"};
+    std::cout << "Após UPDATE:\n";
+    for (const auto& data : my_data) {
+        std::cout << "id: " << data.id << ", name: " << data.name << std::endl;
+    }
+
+    // Delete
+    my_data.erase(my_data.begin());
+    std::cout << "Após DELETE:\n";
+    for (const auto& data : my_data) {
+        std::cout << "id: " << data.id << ", name: " << data.name << std::endl;
+    }
+
+    return 0;
+}
+```
+
+**Saída:**
+```
+Após CREATE:
+id: 1, name: cachorro
+id: 2, name: gato
+Nome na posição 1: gato
+Após UPDATE:
+id: 1, name: cachorro
+id: 2, name: ornitorrinco
+Após DELETE:
+id: 2, name: ornitorrinco
+```
+
+#### Map
+O **map** (`std::map`) é uma estrutura de chave-valor ordenada, onde cada chave é única e mapeia para um valor. Usa uma árvore binária balanceada (geralmente uma Red-Black Tree) para manter as chaves ordenadas.
+
+**Características:**
+- Chaves são únicas e ordenadas (por padrão, em ordem crescente).
+- Acesso, inserção e exclusão têm complexidade O(log n).
+- Ideal para buscas frequentes por chave ou iteração ordenada.
+- Suporta qualquer tipo de chave e valor, desde que a chave seja comparável.
+
+**Declaração de maps:**
+```html
+#include <map>
+std::map<<tipo_chave>, <tipo_valor>> <nome>;
+```
+
+**Exemplo:**
+```cpp
+#include <map>
+std::map<int, std::string> my_map;
+my_map[1] = "um";
+my_map[2] = "dois";
+```
+
+**Operações CRUD em Maps:**
+As operações CRUD são baseadas nas chaves.
+
+##### Create (Criar)
+Adiciona um par chave-valor com `insert` ou operador `[]`.
+
+**Exemplo:**
+```cpp
+std::map<int, std::string> my_map;
+my_map.insert({1, "um"});
+my_map[2] = "dois"; // Insere ou atualiza
+```
+
+**Funcionamento:**
+- `insert`: O(log n).
+- `[]`: O(log n); insere se a chave não existe.
+- Após inserção: `my_map = {1:"um", 2:"dois"}`.
+
+##### Read (Ler)
+Acessa valores por chave ou itera pelos pares.
+
+**Exemplo:**
+```cpp
+std::cout << "Valor da chave 1: " << my_map[1] << std::endl; // Exibe "um"
+for (const auto& pair : my_map) {
+    std::cout << pair.first << ": " << pair.second << std::endl;
+}
+```
+
+**Funcionamento:**
+- Acesso por chave (`my_map[key]` ou `at(key)`) é O(log n).
+- Iteração é O(n).
+- `at(key)` lança exceção se a chave não existe.
+
+##### Update (Atualizar)
+Modifica o valor associado a uma chave.
+
+**Exemplo:**
+```cpp
+my_map[1] = "one"; // Atualiza o valor da chave 1
+```
+
+**Funcionamento:**
+- Atualização é O(log n).
+- Após atualização: `my_map = {1:"one", 2:"dois"}`.
+
+##### Delete (Excluir)
+Remove um par chave-valor com `erase`.
+
+**Exemplo:**
+```cpp
+my_map.erase(1); // Remove a chave 1
+```
+
+**Funcionamento:**
+- `erase`: O(log n).
+- Após exclusão: `my_map = {2:"dois"}`.
+
+**Cuidados:**
+- Verifique se a chave existe (`count(key)` ou `find(key)`) antes de acessar com `[]`, pois `[]` insere uma chave se ela não existe.
+- Use `at(key)` para acesso seguro.
+
+**Exemplo Completo:**
+```cpp
+#include <iostream>
+#include <map>
+#include <string>
+
+int main() {
+    std::map<int, std::string> my_map;
+
+    // Create
+    my_map.insert({1, "um"});
+    my_map[2] = "dois";
+    std::cout << "Após CREATE:\n";
+    for (const auto& pair : my_map) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
+    // Read
+    std::cout << "Valor da chave 1: " << my_map[1] << std::endl;
+
+    // Update
+    my_map[1] = "one";
+    std::cout << "Após UPDATE:\n";
+    for (const auto& pair : my_map) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
+    // Delete
+    my_map.erase(1);
+    std::cout << "Após DELETE:\n";
+    for (const auto& pair : my_map) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
+    return 0;
+}
+```
+
+**Saída:**
+```
+Após CREATE:
+1: um
+2: dois
+Valor da chave 1: um
+Após UPDATE:
+1: one
+2: dois
+Após DELETE:
+2: dois
+```
+
+#### Unordered Map
+O **unordered_map** (`std::unordered_map`) é uma estrutura de chave-valor não ordenada, implementada com uma tabela de hash, oferecendo acesso mais rápido que `std::map` em média.
+
+**Características:**
+- Chaves são únicas, mas não ordenadas.
+- Acesso, inserção e exclusão têm complexidade O(1) em média (O(n) no pior caso).
+- Ideal para buscas rápidas por chave.
+- Usa mais memória que `std::map` devido à tabela de hash.
+
+**Declaração de unordered_maps:**
+```html
+#include <unordered_map>
+std::unordered_map<<tipo_chave>, <tipo_valor>> <nome>;
+```
+
+**Exemplo:**
+```cpp
+#include <unordered_map>
+std::unordered_map<int, std::string> my_umap;
+my_umap[1] = "um";
+my_umap[2] = "dois";
+```
+
+**Operações CRUD em Unordered Maps:**
+Semelhantes a `std::map`, mas com desempenho diferente.
+
+##### Create (Criar)
+Adiciona um par chave-valor.
+
+**Exemplo:**
+```cpp
+std::unordered_map<int, std::string> my_umap;
+my_umap.insert({1, "um"});
+my_umap[2] = "dois";
+```
+
+**Funcionamento:**
+- `insert` e `[]`: O(1) em média.
+- Após inserção: `my_umap = {1:"um", 2:"dois"}`.
+
+##### Read (Ler)
+Acessa valores por chave ou itera pelos pares.
+
+**Exemplo:**
+```cpp
+std::cout << "Valor da chave 1: " << my_umap[1] << std::endl; // Exibe "um"
+for (const auto& pair : my_umap) {
+    std::cout << pair.first << ": " << pair.second << std::endl;
+}
+```
+
+**Funcionamento:**
+- Acesso por chave é O(1) em média.
+- Iteração é O(n).
+- Ordem de iteração não é garantida.
+
+##### Update (Atualizar)
+Modifica o valor de uma chave.
+
+**Exemplo:**
+```cpp
+my_umap[1] = "one";
+```
+
+**Funcionamento:**
+- Atualização é O(1) em média.
+- Após atualização: `my_umap = {1:"one", 2:"dois"}`.
+
+##### Delete (Excluir)
+Remove um par chave-valor.
+
+**Exemplo:**
+```cpp
+my_umap.erase(1);
+```
+
+**Funcionamento:**
+- `erase`: O(1) em média.
+- Após exclusão: `my_umap = {2:"dois"}`.
+
+**Cuidados:**
+- Evite `[]` para leitura sem verificar a existência da chave.
+- Performance pode degradar com muitas colisões na tabela de hash.
+
+**Exemplo Completo:**
+```cpp
+#include <iostream>
+#include <unordered_map>
+#include <string>
+
+int main() {
+    std::unordered_map<int, std::string> my_umap;
+
+    // Create
+    my_umap.insert({1, "um"});
+    my_umap[2] = "dois";
+    std::cout << "Após CREATE:\n";
+    for (const auto& pair : my_umap) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
+    // Read
+    std::cout << "Valor da chave 1: " << my_umap[1] << std::endl;
+
+    // Update
+    my_umap[1] = "one";
+    std::cout << "Após UPDATE:\n";
+    for (const auto& pair : my_umap) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
+    // Delete
+    my_umap.erase(1);
+    std::cout << "Após DELETE:\n";
+    for (const auto& pair : my_umap) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+
+    return 0;
+}
+```
+
+**Saída (ordem pode variar):**
+```
+Após CREATE:
+2: dois
+1: um
+Valor da chave 1: um
+Após UPDATE:
+2: dois
+1: one
+Após DELETE:
+2: dois
+```
+
+#### Queue
+A **queue** (`std::queue`) é uma estrutura de fila que segue a política **FIFO** (First In, First Out). Elementos são inseridos no final e removidos do início.
+
+**Características:**
+- Suporta inserção no final (`push`) e remoção no início (`pop`).
+- Acesso restrito ao primeiro (`front`) e último (`back`) elementos.
+- Complexidade O(1) para inserção e remoção.
+- Ideal para cenários como filas de tarefas ou buffers.
+
+**Declaração de queues:**
+```html
+#include <queue>
+std::queue<<tipo>> <nome>;
+```
+
+**Exemplo:**
+```cpp
+#include <queue>
+std::queue<int> my_queue;
+my_queue.push(10);
+my_queue.push(20);
+```
+
+**Operações CRUD em Queues:**
+As operações CRUD são limitadas devido à natureza FIFO.
+
+##### Create (Criar)
+Adiciona um elemento ao final com `push`.
+
+**Exemplo:**
+```cpp
+std::queue<int> my_queue;
+my_queue.push(10);
+my_queue.push(20);
+my_queue.push(30);
+```
+
+**Funcionamento:**
+- `push`: O(1).
+- Após inserção: `my_queue = [10, 20, 30]` (10 é o primeiro).
+
+##### Read (Ler)
+Acessa o primeiro (`front`) ou último (`back`) elemento.
+
+**Exemplo:**
+```cpp
+std::cout << "Primeiro: " << my_queue.front() << std::endl; // Exibe 10
+std::cout << "Último: " << my_queue.back() << std::endl; // Exibe 30
+```
+
+**Funcionamento:**
+- `front` e `back`: O(1).
+- Não há acesso direto a elementos intermediários.
+
+##### Update (Atualizar)
+Não há suporte direto para atualização, pois a queue não permite acesso arbitrário. Pode-se recriar a queue para simular.
+
+**Exemplo (simulado):**
+```cpp
+std::queue<int> temp;
+while (!my_queue.empty()) {
+    int value = my_queue.front();
+    my_queue.pop();
+    if (value == 10) value = 15; // "Atualiza" 10 para 15
+    temp.push(value);
+}
+my_queue = temp;
+```
+
+**Funcionamento:**
+- Simulação é O(n).
+- Após "atualização": `my_queue = [15, 20, 30]`.
+
+##### Delete (Excluir)
+Remove o primeiro elemento com `pop`.
+
+**Exemplo:**
+```cpp
+my_queue.pop(); // Remove 10
+```
+
+**Funcionamento:**
+- `pop`: O(1).
+- Após exclusão: `my_queue = [20, 30]`.
+
+**Cuidados:**
+- Verifique `empty()` antes de acessar `front` ou `pop`.
+- Não suporta exclusão arbitrária ou acesso a elementos intermediários.
+
+**Exemplo Completo:**
+```cpp
+#include <iostream>
+#include <queue>
+
+int main() {
+    std::queue<int> my_queue;
+
+    // Create
+    my_queue.push(10);
+    my_queue.push(20);
+    my_queue.push(30);
+    std::cout << "Após CREATE, primeiro: " << my_queue.front() << std::endl;
+
+    // Read
+    std::cout << "Último: " << my_queue.back() << std::endl;
+
+    // Update (simulado)
+    std::queue<int> temp;
+    while (!my_queue.empty()) {
+        int value = my_queue.front();
+        my_queue.pop();
+        if (value == 10) value = 15;
+        temp.push(value);
+    }
+    my_queue = temp;
+    std::cout << "Após UPDATE, primeiro: " << my_queue.front() << std::endl;
+
+    // Delete
+    my_queue.pop();
+    std::cout << "Após DELETE, primeiro: " << my_queue.front() << std::endl;
+
+    return 0;
+}
+```
+
+**Saída:**
+```
+Após CREATE, primeiro: 10
+Último: 30
+Após UPDATE, primeiro: 15
+Após DELETE, primeiro: 20
 ```
 
 # WIP
