@@ -63,21 +63,26 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
         - [Read (Ler)](#read-ler-2)
         - [Update (Atualizar)](#update-atualizar-2)
         - [Delete (Excluir)](#delete-excluir-2)
-      - [Map](#map)
+      - [Vetor de Struct](#vetor-de-struct)
         - [Create (Criar)](#create-criar-3)
         - [Read (Ler)](#read-ler-3)
         - [Update (Atualizar)](#update-atualizar-3)
         - [Delete (Excluir)](#delete-excluir-3)
-      - [Unordered Map](#unordered-map)
+      - [Map](#map)
         - [Create (Criar)](#create-criar-4)
         - [Read (Ler)](#read-ler-4)
         - [Update (Atualizar)](#update-atualizar-4)
         - [Delete (Excluir)](#delete-excluir-4)
-      - [Queue](#queue)
+      - [Unordered Map](#unordered-map)
         - [Create (Criar)](#create-criar-5)
         - [Read (Ler)](#read-ler-5)
         - [Update (Atualizar)](#update-atualizar-5)
         - [Delete (Excluir)](#delete-excluir-5)
+      - [Queue](#queue)
+        - [Create (Criar)](#create-criar-6)
+        - [Read (Ler)](#read-ler-6)
+        - [Update (Atualizar)](#update-atualizar-6)
+        - [Delete (Excluir)](#delete-excluir-6)
 - [WIP](#wip)
     - [Include](#include)
     - [Funções](#funções)
@@ -901,7 +906,7 @@ my_array[2] = 30;
 ```
 
 **Funcionamento:**
-- A inicialização na declaração ou atribuição por índice é O(1).
+- A inicialização na declaração **ou** atribuição por índice é O(1).
 - Após criação: `my_array = [10, 20, 30]`.
 
 ##### Read (Ler)
@@ -949,42 +954,8 @@ my_array[0] = 0; // "Remove" o elemento na posição 0 (marca como 0)
 - Arrays são menos flexíveis que `std::vector` devido ao tamanho fixo.
 
 **Exemplo Completo:**
-```cpp
-#include <iostream>
 
-int main() {
-    // Create
-    int my_array[3] = {10, 20, 30};
-    std::cout << "Após CREATE: ";
-    for (int i = 0; i < 3; i++) std::cout << my_array[i] << " ";
-    std::cout << std::endl;
-
-    // Read
-    std::cout << "Elemento na posição 1: " << my_array[1] << std::endl;
-
-    // Update
-    my_array[1] = 25;
-    std::cout << "Após UPDATE: ";
-    for (int i = 0; i < 3; i++) std::cout << my_array[i] << " ";
-    std::cout << std::endl;
-
-    // Delete (simulado)
-    my_array[0] = 0;
-    std::cout << "Após DELETE (simulado): ";
-    for (int i = 0; i < 3; i++) std::cout << my_array[i] << " ";
-    std::cout << std::endl;
-
-    return 0;
-}
-```
-
-**Saída:**
-```
-Após CREATE: 10 20 30
-Elemento na posição 1: 20
-Após UPDATE: 10 25 30
-Após DELETE (simulado): 0 25 30
-```
+Código contido no arquivo [type1.cpp](https://github.com/pedcravo/Praticando-Cpp/blob/main/Data-Types/type1.cpp)
 
 #### Vector
 Os **vetores** (`std::vector`) são estruturas dinâmicas que armazenam elementos do mesmo tipo em memória contígua, com tamanho ajustável em tempo de execução. São mais versáteis que arrays, suportando operações como inserção e exclusão.
@@ -1075,196 +1046,224 @@ my_vector.pop_back(); // Remove 20
 - Exclusão no início/meio é custosa; considere `std::deque` ou `std::list` para esses casos.
 
 **Exemplo Completo:**
-```cpp
-#include <iostream>
-#include <vector>
 
-int main() {
-    std::vector<int> my_vector;
+Código contido no arquivo [type1.cpp](https://github.com/pedcravo/Praticando-Cpp/blob/main/Data-Types/type1.cpp)
 
-    // Create
-    my_vector.push_back(10);
-    my_vector.push_back(20);
-    my_vector.push_back(30);
-    std::cout << "Após CREATE: ";
-    for (const int& value : my_vector) std::cout << value << " ";
-    std::cout << std::endl;
-
-    // Read
-    std::cout << "Elemento na posição 1: " << my_vector[1] << std::endl;
-
-    // Update
-    my_vector[1] = 25;
-    std::cout << "Após UPDATE: ";
-    for (const int& value : my_vector) std::cout << value << " ";
-    std::cout << std::endl;
-
-    // Delete
-    my_vector.erase(my_vector.begin());
-    std::cout << "Após DELETE: ";
-    for (const int& value : my_vector) std::cout << value << " ";
-    std::cout << std::endl;
-
-    return 0;
-}
-```
-
-**Saída:**
-```
-Após CREATE: 10 20 30
-Elemento na posição 1: 20
-Após UPDATE: 10 25 30
-Após DELETE: 25 30
-```
 
 #### Struct
-As **structs** são tipos de dados definidos pelo programador que agrupam variáveis de diferentes tipos. São ideais para modelar entidades com múltiplos atributos, como um registro.
+As **estruturas** (`struct`) em C++ são tipos de dados definidos pelo usuário que agrupam variáveis de diferentes tipos sob um único nome. São semelhantes às classes, mas com membros públicos por padrão, sendo ideais para representar registros ou coleções de dados relacionados.
 
 **Características:**
-- Campos podem ter tipos diferentes (ex.: `int`, `std::string`).
-- Membros são públicos por padrão.
-- Frequentemente usadas em vetores ou outras estruturas.
-- Suporta operações CRUD quando armazenada em contêineres como `std::vector`.
+- Agrupa variáveis de tipos distintos (ex.: `int`, `float`, `string`).
+- Acesso aos membros via operador `.` (ou `->` para ponteiros).
+- Suporta métodos, construtores e herança, como classes.
+- Armazenamento contíguo na memória, garantindo eficiência.
 
-**Declaração de structs:**
-```html
-struct <nome> {
-    <tipo> <campo1>;
-    <tipo> <campo2>;
-    ...
+**Declaração de Structs:**
+```cpp
+struct <NomeDaStruct> {
+    <tipo1> <membro1>;
+    <tipo2> <membro2>;
+    // Outros membros e métodos
 };
 ```
 
 **Exemplo:**
 ```cpp
+#include <string>
+struct Aluno {
+    std::string nome;
+    int idade;
+    float nota;
+};
+Aluno aluno1;              // Instanciação
+aluno1.nome = "João";      // Atribuição
+aluno1.idade = 20;
+aluno1.nota = 8.5;
+```
+
+**Operações CRUD em Structs:**
+As operações CRUD (Create, Read, Update, Delete) referem-se à manipulação de instâncias e seus membros.
+
+##### Create (Criar)
+Cria uma instância da struct, inicializando seus membros.
+
+**Exemplo:**
+```cpp
+Aluno aluno2 = {"Maria", 19, 9.0}; // Inicialização direta
+// Usando construtor
+struct Aluno {
+    std::string nome;
+    int idade;
+    float nota;
+    Aluno(std::string n, int i, float nt) : nome(n), idade(i), nota(nt) {}
+};
+Aluno aluno3("Pedro", 21, 7.5);
+```
+
+**Funcionamento:**
+- Inicialização pode ser direta, uniforme ou via construtores.
+- O(1) para criação de instâncias automáticas; O(n) para inicialização em coleções.
+
+##### Read (Ler)
+Acessa os membros de uma instância.
+
+**Exemplo:**
+```cpp
+std::cout << "Nome: " << aluno1.nome << ", Idade: " << aluno1.idade
+          << ", Nota: " << aluno1.nota << std::endl;
+// Para ponteiros
+Aluno* ptr = &aluno1;
+std::cout << ptr->nome;
+```
+
+**Funcionamento:**
+- Acesso via `.` ou `->` é O(1).
+- Iteração em coleções de structs (ex.: em `std::vector`) é O(n).
+
+##### Update (Atualizar)
+Modifica valores dos membros de uma instância.
+
+**Exemplo:**
+```cpp
+aluno1.nota = 9.5; // Atualiza nota
+```
+
+**Funcionamento:**
+- Atualização é O(1) por acessar diretamente o membro.
+- Após atualização: `aluno1 = {"João", 20, 9.5}`.
+
+##### Delete (Excluir)
+Remove uma instância, geralmente por saída de escopo ou liberação de memória.
+
+**Exemplo:**
+```cpp
+Aluno* aluno4 = new Aluno{"Ana", 22, 8.0}; // Alocação dinâmica
+delete aluno4; // Libera memória
+```
+
+**Funcionamento:**
+- Instâncias automáticas (stack) são destruídas ao sair do escopo (O(1)).
+- Instâncias dinâmicas (heap) requerem `delete` (O(1)).
+- Em vetores: `std::vector<Aluno> turma; turma.erase(turma.begin());` (O(n)).
+
+**Cuidados:**
+- Evite acessar membros de structs desalocadas (undefined behavior).
+- Inicialize membros para evitar valores indefinidos.
+- Para gerenciar várias instâncias, use `std::vector<Aluno>`.
+
+**Exemplo Completo:**
+
+Código contido no arquivo [type1.cpp](https://github.com/pedcravo/Praticando-Cpp/blob/main/Data-Types/type1.cpp)
+
+
+#### Vetor de Struct
+Um **vetor de structs** em C++ utiliza `std::vector` para armazenar múltiplas instâncias de uma estrutura (`struct`). Combina a flexibilidade do vetor dinâmico com a capacidade da struct de agrupar dados heterogêneos, permitindo gerenciar coleções de registros de forma eficiente.
+
+**Características:**
+- Usa `std::vector<NomeDaStruct>` para armazenar instâncias de uma struct.
+- Suporta operações dinâmicas como inserção, exclusão e acesso por índice.
+- Elementos são armazenados em memória contígua, com acesso em O(1).
+- Cada elemento do vetor é uma instância completa da struct, contendo todos os seus membros.
+
+**Declaração de Vetor de Structs:**
+```cpp
+#include <vector>
+struct NomeDaStruct {
+    <tipo1> <membro1>;
+    <tipo2> <membro2>;
+};
+std::vector<NomeDaStruct> nomeVetor;
+```
+
+**Exemplo:**
+```cpp
+#include <vector>
+#include <string>
 struct STR_DATA {
     int id;
     std::string name;
 };
+std::vector<STR_DATA> my_data;
 ```
 
-**Operações CRUD em Vetores de Structs:**
-As structs são frequentemente armazenadas em `std::vector` para suportar operações dinâmicas.
+**Operações CRUD em Vetor de Structs:**
+As operações CRUD (Create, Read, Update, Delete) são aplicadas ao vetor, manipulando instâncias da struct.
 
 ##### Create (Criar)
-Cria uma instância da `struct` e a adiciona ao vetor.
+Adiciona uma nova instância da struct ao vetor, geralmente com `push_back`.
 
 **Exemplo:**
 ```cpp
-std::vector<STR_DATA> my_data;
 STR_DATA new_data = {1, "cachorro"};
-my_data.push_back(new_data);
-new_data = {2, "gato"};
-my_data.push_back(new_data);
+my_data.push_back(new_data); // Adiciona ao vetor
+std::cout << "Novo item adicionado ao vetor\n";
+std::cout << "Tamanho atual: " << my_data.size() << std::endl;
 ```
 
 **Funcionamento:**
 - `push_back`: O(1) amortizado.
-- Após inserção: `my_data = [{1, "cachorro"}, {2, "gato"}]`.
+- Permite criar e adicionar structs inicializadas diretamente.
+- Após inserção: `my_data = [{1, "cachorro"}]`.
 
 ##### Read (Ler)
-Acessa campos de uma `struct` por índice ou itera pelo vetor.
+Acessa e exibe os membros das structs no vetor, geralmente iterando com um loop.
 
 **Exemplo:**
 ```cpp
-std::cout << "Nome na posição 1: " << my_data[1].name << std::endl; // Exibe "gato"
 for (const auto& data : my_data) {
-    std::cout << "id: " << data.id << ", name: " << data.name << std::endl;
+    std::cout << "Dado atual / id: " << data.id << " / name: " << data.name << std::endl;
 }
 ```
 
 **Funcionamento:**
-- Acesso a campos é O(1).
-- Iteração é O(n).
-- Use `&` para evitar cópias.
+- Acesso por índice (`my_data[i]`) é O(1).
+- Iteração completa é O(n), onde `n` é o tamanho do vetor.
+- Usa referência (`const auto&`) para evitar cópias desnecessárias.
 
 ##### Update (Atualizar)
-Modifica uma `struct` ou seus campos.
+Modifica uma instância da struct em uma posição específica do vetor.
 
 **Exemplo:**
 ```cpp
-my_data[1] = {2, "ornitorrinco"};
-my_data[0].name = "lobo";
+STR_DATA new_data = {2, "ornitorrinco"};
+my_data[1] = new_data; // Atualiza a posição 1
 ```
 
 **Funcionamento:**
-- Atualização é O(1).
-- Após atualização: `my_data = [{1, "lobo"}, {2, "ornitorrinco"}]`.
+- Atualização por índice é O(1).
+- Substitui a struct inteira na posição especificada.
+- Após atualização: `my_data[1] = {2, "ornitorrinco"}`.
 
 ##### Delete (Excluir)
-Remove uma `struct` com `erase` ou `pop_back`.
+Remove uma instância da struct do vetor, geralmente com `erase`.
 
 **Exemplo:**
 ```cpp
-my_data.erase(my_data.begin()); // Remove {1, "lobo"}
+for (auto it = my_data.begin(); it != my_data.end(); ++it) {
+    if (it->id == 1) {
+        my_data.erase(it);
+        break; // Sai do loop após exclusão
+    }
+}
+std::cout << "Tamanho atual: " << my_data.size() << std::endl;
 ```
 
 **Funcionamento:**
-- `erase`: O(n).
-- `pop_back`: O(1).
-- Após exclusão: `my_data = [{2, "ornitorrinco"}]`.
+- `erase`: O(n) devido ao deslocamento de elementos.
+- Necessário verificar o índice ou condição para evitar acessos inválidos.
+- Após exclusão, o vetor é ajustado, reduzindo seu tamanho.
 
 **Cuidados:**
-- Valide índices.
-- Exclusão no início/meio é custosa.
+- Verifique `size()` ou `empty()` antes de acessar elementos.
+- Exclusão por ID requer busca (O(n)); considere `std::map` para buscas frequentes por chave.
+- Evite acessar structs após remoção para evitar comportamento indefinido.
+- Use `break` após `erase` em loops para evitar iteração inválida.
 
 **Exemplo Completo:**
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
 
-struct STR_DATA {
-    int id;
-    std::string name;
-};
+Código contido no arquivo [type1.cpp](https://github.com/pedcravo/Praticando-Cpp/blob/main/Data-Types/type1.cpp)
 
-int main() {
-    std::vector<STR_DATA> my_data;
-
-    // Create
-    STR_DATA new_data = {1, "cachorro"};
-    my_data.push_back(new_data);
-    new_data = {2, "gato"};
-    my_data.push_back(new_data);
-    std::cout << "Após CREATE:\n";
-    for (const auto& data : my_data) {
-        std::cout << "id: " << data.id << ", name: " << data.name << std::endl;
-    }
-
-    // Read
-    std::cout << "Nome na posição 1: " << my_data[1].name << std::endl;
-
-    // Update
-    my_data[1] = {2, "ornitorrinco"};
-    std::cout << "Após UPDATE:\n";
-    for (const auto& data : my_data) {
-        std::cout << "id: " << data.id << ", name: " << data.name << std::endl;
-    }
-
-    // Delete
-    my_data.erase(my_data.begin());
-    std::cout << "Após DELETE:\n";
-    for (const auto& data : my_data) {
-        std::cout << "id: " << data.id << ", name: " << data.name << std::endl;
-    }
-
-    return 0;
-}
-```
-
-**Saída:**
-```
-Após CREATE:
-id: 1, name: cachorro
-id: 2, name: gato
-Nome na posição 1: gato
-Após UPDATE:
-id: 1, name: cachorro
-id: 2, name: ornitorrinco
-Após DELETE:
-id: 2, name: ornitorrinco
-```
 
 #### Map
 O **map** (`std::map`) é uma estrutura de chave-valor ordenada, onde cada chave é única e mapeia para um valor. Usa uma árvore binária balanceada (geralmente uma Red-Black Tree) para manter as chaves ordenadas.
