@@ -29,12 +29,54 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
       - [Variáveis](#variáveis)
       - [Ponteiros](#ponteiros)
       - [Constantes](#constantes)
-    - [Arrays](#arrays)
-      - [Arrays multidimensionais:](#arrays-multidimensionais)
-      - [Array 2D](#array-2d)
-    - [Vetores](#vetores)
+    - [Estruturas de Dados](#estruturas-de-dados)
+      - [Array](#array)
+        - [Create (Criar)](#create-criar)
+        - [Read (Ler)](#read-ler)
+        - [Update (Atualizar)](#update-atualizar)
+        - [Delete (Excluir)](#delete-excluir)
+      - [Arrays Multidimensionais](#arrays-multidimensionais)
+        - [Create (Criar)](#create-criar-1)
+        - [Read (Ler)](#read-ler-1)
+        - [Update (Atualizar)](#update-atualizar-1)
+        - [Delete (Excluir)](#delete-excluir-1)
+      - [Vector](#vector)
+        - [Create (Criar)](#create-criar-2)
+        - [Read (Ler)](#read-ler-2)
+        - [Update (Atualizar)](#update-atualizar-2)
+        - [Delete (Excluir)](#delete-excluir-2)
+      - [Vetores Multidimensionais](#vetores-multidimensionais)
+        - [Create (Criar)](#create-criar-3)
+        - [Read (Ler)](#read-ler-3)
+        - [Update (Atualizar)](#update-atualizar-3)
+        - [Delete (Excluir)](#delete-excluir-3)
+      - [Struct](#struct)
+        - [Create (Criar)](#create-criar-4)
+        - [Read (Ler)](#read-ler-4)
+        - [Update (Atualizar)](#update-atualizar-4)
+        - [Delete (Excluir)](#delete-excluir-4)
+      - [Vetor de Struct](#vetor-de-struct)
+        - [Create (Criar)](#create-criar-5)
+        - [Read (Ler)](#read-ler-5)
+        - [Update (Atualizar)](#update-atualizar-5)
+        - [Delete (Excluir)](#delete-excluir-5)
+      - [Map](#map)
+        - [Create (Criar)](#create-criar-6)
+        - [Read (Ler)](#read-ler-6)
+        - [Update (Atualizar)](#update-atualizar-6)
+        - [Delete (Excluir)](#delete-excluir-6)
+      - [Unordered Map](#unordered-map)
+        - [Create (Criar)](#create-criar-7)
+        - [Read (Ler)](#read-ler-7)
+        - [Update (Atualizar)](#update-atualizar-7)
+        - [Delete (Excluir)](#delete-excluir-7)
+      - [Queue](#queue)
+        - [Create (Criar)](#create-criar-8)
+        - [Read (Ler)](#read-ler-8)
+        - [Update (Atualizar)](#update-atualizar-8)
+        - [Delete (Excluir)](#delete-excluir-8)
     - [Fluxos de entrada e saída](#fluxos-de-entrada-e-saída)
-    - [Estruturas](#estruturas)
+    - [Estruturas de Sequencia, Seleção e Iteração](#estruturas-de-sequencia-seleção-e-iteração)
       - [Estruturas de Sequência](#estruturas-de-sequência)
       - [Estruturas de Seleção - Condicionais](#estruturas-de-seleção---condicionais)
         - [IF](#if)
@@ -47,44 +89,7 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
         - [FOR](#for)
         - [WHILE](#while)
         - [DO-WHILE](#do-while)
-    - [Estruturas de Dados](#estruturas-de-dados)
-      - [Array](#array)
-        - [Create (Criar)](#create-criar)
-        - [Read (Ler)](#read-ler)
-        - [Update (Atualizar)](#update-atualizar)
-        - [Delete (Excluir)](#delete-excluir)
-      - [Vector](#vector)
-        - [Create (Criar)](#create-criar-1)
-        - [Read (Ler)](#read-ler-1)
-        - [Update (Atualizar)](#update-atualizar-1)
-        - [Delete (Excluir)](#delete-excluir-1)
-      - [Struct](#struct)
-        - [Create (Criar)](#create-criar-2)
-        - [Read (Ler)](#read-ler-2)
-        - [Update (Atualizar)](#update-atualizar-2)
-        - [Delete (Excluir)](#delete-excluir-2)
-      - [Vetor de Struct](#vetor-de-struct)
-        - [Create (Criar)](#create-criar-3)
-        - [Read (Ler)](#read-ler-3)
-        - [Update (Atualizar)](#update-atualizar-3)
-        - [Delete (Excluir)](#delete-excluir-3)
-      - [Map](#map)
-        - [Create (Criar)](#create-criar-4)
-        - [Read (Ler)](#read-ler-4)
-        - [Update (Atualizar)](#update-atualizar-4)
-        - [Delete (Excluir)](#delete-excluir-4)
-      - [Unordered Map](#unordered-map)
-        - [Create (Criar)](#create-criar-5)
-        - [Read (Ler)](#read-ler-5)
-        - [Update (Atualizar)](#update-atualizar-5)
-        - [Delete (Excluir)](#delete-excluir-5)
-      - [Queue](#queue)
-        - [Create (Criar)](#create-criar-6)
-        - [Read (Ler)](#read-ler-6)
-        - [Update (Atualizar)](#update-atualizar-6)
-        - [Delete (Excluir)](#delete-excluir-6)
-- [WIP](#wip)
-    - [Include](#include)
+    - [Bibliotecas](#bibliotecas)
     - [Funções](#funções)
       - [main()](#main)
     - [APIs](#apis)
@@ -94,7 +99,6 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
         - [Exemplo Prático: Criando uma API REST Simples com Pistache](#exemplo-prático-criando-uma-api-rest-simples-com-pistache)
       - [Como Instalar e Configurar a Pistache](#como-instalar-e-configurar-a-pistache)
       - [Principais Características da Pistache](#principais-características-da-pistache)
-      - [Limitações e Considerações](#limitações-e-considerações)
       - [Exemplo Avançado: Manipulando JSON e POST](#exemplo-avançado-manipulando-json-e-post)
   - [Tipos de Erros](#tipos-de-erros)
     - [Erro de sintaxe:](#erro-de-sintaxe)
@@ -524,349 +528,7 @@ const string name = "Andrew";
 ```
 > Usado principalmente em sistemas legados.
  
-### Arrays
-Arrays são matrizes que contém dados estruturados, ou seja, são tipos de dados que contém uma série de dados.
-
-Como por exemplo a pontuação de um teste. Onde o professor pode criar uma variável para armazenar cada valor ou armazenar todos em apenas uma array.
-```cpp
-int teste_nota1 = 0;
-int teste_nota2 = 0;
-int teste_nota3 = 0;
-int teste_nota4 = 0;
-...
-int teste_notaN = 0;
-```
-
-**Caracteristicas:**
-- Cada array tem seu tamanho fixo;
-- Array é guardada na memória continuamente;
-- Todos os elementos devem ser do mesmo tipo (int, float, char);
-- Os elementos podem ser acessados diretamente e individualmente;
-- O primeiro elemento tem index 0 enquanto o ultimo tem n-1.
-
-**Declarando array:**
-```html
-<tipo> <nome> [<tamanho>] {<valores>};
-```
-
-**Exemplos:**
-```cpp
-int notas [10];
-```
-↳ Apenas declara array e define seu tamanho.
-
-```cpp
-int pontuacao [5] {10,7,2,8,9};
-```
-↳ Inicializa array com seu tamanho e valores definidos.
-
-```cpp
-int dias [7] {3,4};
-```
-↳ Incializa array com seu tamanho definido e valores `3`, `5` e os demais como `0`.
-
-```cpp
-int casas [] {1,6,14,26,35};
-```
-↳ Inicializa array com seus valores definidos, tamanho é definido automáticamente.
-
-**Acessando elementos na array:**
-```html
-<nome> [<n_elemento>];
-```
-
-**Exemplos:**
-```cpp
-casas [0];
-```
-↳ Seleciona o primeiro item da array `casas[]`.
-
-#### Arrays multidimensionais:
-Tem as mesmas caracteristicas de um array comum, porém possui 2 ou mais dimensões.
-
-**Declarando array:**
-```html
-<tipo> <nome> [<tamanho>][<tamanho>]...;
-```
-
-#### Array 2D
-<img src="https://https://github.com/pedcravo/Wiki/blob/main/C%2B%2B/2Darray.png" width="600px">
-
-```cpp
-const int Row (4);
-const int Col (4);
-int Arr [linhas][colunas];
-```
-↳ Apenas declara array 2D e define seu tamanho.
-
-```cpp
-const int Row (4);
-const int Col (4);
-int Arr [linhas][colunas]
-{
-  { 0, 4, 3, 5 },
-  { 2, 1, 3, 5 },
-  { 1, 2, 4, 5 },
-  { 3, 1, 2, 5 },
-};
-```
-↳ Declara a array 2D, define seu tamanho e valores.
-
-**Acessando elementos na array:**
-```html
-<nome> [<n_elemento>][<n_elemento>]
-  {
-    {}, ...
-  };
-```
-
-**Exemplos:**
-```cpp
-cin >> Arr[1][2];
-```
-↳ Insere dados do teclado a array.
-
-```cpp
-cout << Arr[1][2];
-```
-↳ Mostrta dados da array.
-
-### Vetores
-Os vetores são semelhantes as arrays, porém sua principal diferença é que os vetores não possuem tamanhos fixos.
-
-Os vetores são mais versateis e mais manipulaveis, tendo funções como `sort`, `reverse`, `find` e mais.
-
-**Declarando vetores:**
-```html
-# include <vector>
-
-std::vector <<tipo>> <nome> (<tamanho>) {<valores>};
-```
-
-**Exemplos:**
-```cpp
-std::vector <int> notas (10);
-```
-↳ Declara vetor e define tamanho.
-
-```cpp
-std::vector <char> vowels (5);
-```
-↳ Declara vetor e define tamanho.
-
-```cpp
-std::vector <char> vowels {'a', 'e', 'i', 'o', 'u' };
-```
-↳ Declara vetor e define valores armazenados, o tamanho é definido automáticamente.
-
-```cpp
-std::vector <double> hi_temperatures (365, 80.9);
-```
-↳ Declara vetor e define o tamanho como `365` e o valor default como `80.9`.
-
-**Acessando elementos no vetor com método array**
-```html
-<nome> [<n_elemento>];
-```
-
-**Exemplos:**
-```cpp
-vowels [0];
-```
-↳ Seleciona o primeiro item da vetor `vowels[]`.
-
-**Acessando elementos no vetor com método vetor**
-```html
-<nome>.at (<n_elemento>);
-```
-
-**Exemplos:**
-```cpp
-vowels.at (0);
-```
-↳ Seleciona o primeiro item da vetor `vowels()`.
-
-**Adicionar elementos ao fim do vetor:**
-```html
-<nome>.push_back (<n_elemento>);
-```
-
-**Exemplos:**
-```cpp
-vowels.push_back (d);
-```
-↳ Adiciona um valor ao fim do vetor.
-
-### Fluxos de entrada e saída
-Comandos utilizados para realizar a saída e a entrada de dados no sistema.
-
-**Comandos associados:**
-- `cin` → Entrada padrão para o teclado, recebe dados do teclado.
-- `cout` → Saída padrão de dados no prompt, mostra no prompt algum dado.
-- `cerr` → Saída de erros padrão, mostra erros.
-- `clog` → Saída dos logs padrão, mostra logs.
-- `endl` → Pula linha no prompt (endl - end line, \n pode susbtitui-lo na saída).
-- `<<` → Usa dados anteriores como argumentos para o comando/variável anterior (geralmente anda junto com `cout`).
-- `>>` → Usa dados anteriores para o comando/variável a seguir.
-
-**Exemplos:**
-- Saída de dados (da máquina para o usúario)
-  ```cpp
-  cout << data1;
-
-  cout << "data 1 is" << data1;
-
-  cout << "data 1 is" << data1 << endl;
-  cout << "data 1 is" << data1 << "\n";
-  ```
-- Entrada de dados (do teclado para a máquina)
-  ```cpp
-  cin >> data1;
-
-  cout >> data1 >> data2;
-  ```
-  > A entrada de dados pode falhar dependendo da entrada e do tipo de dado solicitado (*int* recebe *string*).
-
-### Estruturas
-As estruturas são partes essenciais nos programas, pois através delas é possível escrever algoritmos.
-
-São comuns e de sintaxe semelhantes na maioria das linguagens, bem como em c++.
-
-#### Estruturas de Sequência
-As estruturas de sequência são estruturas que organizam a sequencia a ser seguida na execução do código.
-
-#### Estruturas de Seleção - Condicionais
-As estruturas de seleção são as estruturas responsáveis por tomar decisões com base no restante do código. Elas que mudam o curso do código.
-
-As principais são:
-- `if` → Se for ***true*** executa `if`.
-- `if-else` → Se for ***true*** executa `if` se ***false*** executa `else`.
-- `if` encadeado → Encadeia diversos `if` onde todos precisam ser ***true***.
-- `switch` → Uma série de casos para possíveis acontecimentos.
-- `?` Condicional → `if-else` versão de operador, **operador ternário**.
-
-##### IF
-```cpp
-if ('condition')
-{
-    /* code */
-}
-```
-
-##### IF-ELSE
-```cpp
-if (condition)
-{
-    /* code */
-}
-else
-{
-    /* code */
-}
-```
-
-##### IF-ELSEIF-ELSE
-```cpp
-if (condition)
-{
-    /* code */
-}
-else if (condition)
-{
-    /* code */
-}
-else
-{
-    /* code */
-}
-```
-
-##### IF (encadeado)
-```cpp
-if (condition)
-{
-    if (condition)
-    {
-        /* code */
-    }
-}
-```
-
-##### SWITCH
-```cpp
-switch (expression)
-{
-case constant expression:
-    /* code */
-    break;
-
-case constant expression:
-    /* code */
-    break;
-
-default:
-    /* code */
-    break;
-}
-```
-
-##### ? Condicional
-```cpp
-(cond_expr) ? expr1 : expr2
-```
-
-#### Estruturas de Iteração - Looping
-As estruturas de iteração são estruturas que geram loops, que repetem uma parte do código até um determinado momento. Elas que repetem o código já executado.
-
-As principais são:
-- `for` → Loop que tem *início*, *condição de termino* e *incremento* bem definidos `(int i = 0; i < 100; i++)`.
-- `while` → Loop que tem fim bem definido, não possui o início e nem como faz para ir ao fim.
-- `do-while` → Loop que executa pelo menos 1 vez, tem fim bem definido semelhante ao `while`.
-
-Os loops podem ser **Infinitos** caso mal implementados, geralmente tem um ponto para finalizar o loop e um meio de seguir até ele. É possível manipular os loops usando `continue` e `break`, evitando assim loops infinitos.
-
-##### FOR
-Este loop é especial pois tem *início*, *condição de termino* e *incremento* bem definidos em sua forma comum, porém é possível modifica-lo para se tornar infinito ou até mesmo para percorrer uma lista.
-
-```cpp
-for (size_t i = 0; i < count; i++)
-{
-    /* code */
-}
-```
-↳ Loop `for` comum.
-
-```cpp
-for (;;)
-{
-    /* code */
-}
-```
-↳ Loop `for` infinito.
-
-```cpp
-for (size_t i : sequence)
-{
-    /* code */
-}
-```
-↳ Loop `for` que percorre sequencia.
-
-##### WHILE
-```cpp
-while (condition)
-{
-    /* code */
-}
-```
-
-##### DO-WHILE
-```cpp
-do
-{
-    /* code */
-} while (condition);
-```
+---
 
 ### Estruturas de Dados
 As estruturas de dados são formas de organizar e armazenar dados na memória para facilitar operações como inserção, leitura, atualização e exclusão. Em C++, a biblioteca padrão (`STL - Standard Template Library`) oferece estruturas como `std::vector`, `std::map`, `std::queue`, entre outras, além de permitir a criação de estruturas personalizadas, como `struct`. Nesta seção, abordaremos as principais estruturas de dados, com foco nas operações **CRUD** (Create, Read, Update, Delete), suas características, declarações e exemplos práticos.
@@ -879,6 +541,7 @@ Os **arrays** são estruturas estáticas que armazenam elementos do mesmo tipo e
 - Armazenamento contíguo, permitindo acesso rápido via índices (O(1)).
 - Todos os elementos devem ser do mesmo tipo (ex.: `int`, `float`).
 - Não suporta operações dinâmicas como redimensionamento.
+- Os elementos podem ser acessados diretamente e individualmente;
 - O primeiro elemento tem índice 0, e o último tem índice `n-1`.
 
 **Declaração de arrays:**
@@ -956,6 +619,90 @@ my_array[0] = 0; // "Remove" o elemento na posição 0 (marca como 0)
 **Exemplo Completo:**
 
 Código contido no arquivo [type1.cpp](https://github.com/pedcravo/Praticando-Cpp/blob/main/Data-Types/type1.cpp)
+
+
+#### Arrays Multidimensionais
+Os **arrays multidimensionais** em C++ são estruturas estáticas que armazenam elementos do mesmo tipo em uma grade de múltiplas dimensões (ex.: matrizes 2D, 3D). São alocados em memória contígua e têm tamanho fixo definido em tempo de compilação.
+
+**Características:**
+- Tamanho fixo, definido na declaração.
+- Armazenamento contíguo, com acesso por índices em O(1).
+- Todos os elementos devem ser do mesmo tipo.
+- Ideal para dados com dimensões conhecidas e imutáveis.
+
+**Declaração de Arrays Multidimensionais:**
+```html
+<tipo> <nome>[<tamanho1>][<tamanho2>][...];
+```
+
+**Exemplo:**
+```cpp
+int matriz[2][3] = {{1, 2, 3}, {4, 5, 6}}; // Matriz 2x3 inicializada
+```
+
+**Operações CRUD em Arrays Multidimensionais:**
+As operações CRUD (Create, Read, Update, Delete) são realizadas diretamente nos elementos via índices.
+
+##### Create (Criar)
+Inicializa o array com valores na declaração ou atribuição manual.
+
+**Exemplo:**
+```cpp
+int matriz[2][3];
+matriz[0][0] = 1; matriz[0][1] = 2; matriz[0][2] = 3;
+matriz[1][0] = 4; matriz[1][1] = 5; matriz[1][2] = 6;
+```
+
+**Funcionamento:**
+- Inicialização na declaração é O(1) por elemento.
+- Após criação: `matriz = [[1, 2, 3], [4, 5, 6]]`.
+
+##### Read (Ler)
+Acessa elementos por índices ou itera pela matriz.
+
+**Exemplo:**
+```cpp
+std::cout << "Elemento [1][2]: " << matriz[1][2] << std::endl; // Exibe 6
+for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 3; j++) {
+        std::cout << matriz[i][j] << " "; // Exibe 1 2 3 4 5 6
+    }
+}
+std::cout << std::endl;
+```
+
+**Funcionamento:**
+- Acesso por índice (`matriz[i][j]`) é O(1).
+- Iteração completa é O(n*m) para uma matriz `n x m`.
+
+##### Update (Atualizar)
+Modifica um elemento em uma posição específica.
+
+**Exemplo:**
+```cpp
+matriz[1][2] = 10; // Substitui 6 por 10
+```
+
+**Funcionamento:**
+- Atualização é O(1).
+- Após atualização: `matriz = [[1, 2, 3], [4, 5, 10]]`.
+
+##### Delete (Excluir)
+Não há exclusão direta em arrays estáticos; pode-se "limpar" definindo valores padrão (ex.: 0).
+
+**Exemplo:**
+```cpp
+matriz[1][2] = 0; // "Remove" definindo 0
+```
+
+**Funcionamento:**
+- Atribuição de valor padrão é O(1).
+- Arrays estáticos não permitem redimensionamento ou remoção real de elementos.
+
+**Cuidados:**
+- Verifique limites dos índices para evitar acesso inválido (undefined behavior).
+- Arrays estáticos não podem ser redimensionados; use vetores multidimensionais para flexibilidade.
+
 
 #### Vector
 Os **vetores** (`std::vector`) são estruturas dinâmicas que armazenam elementos do mesmo tipo em memória contígua, com tamanho ajustável em tempo de execução. São mais versáteis que arrays, suportando operações como inserção e exclusão.
@@ -1048,6 +795,133 @@ my_vector.pop_back(); // Remove 20
 **Exemplo Completo:**
 
 Código contido no arquivo [type1.cpp](https://github.com/pedcravo/Praticando-Cpp/blob/main/Data-Types/type1.cpp)
+
+
+#### Vetores Multidimensionais
+Os **vetores multidimensionais** (`std::vector` aninhado) são estruturas dinâmicas que armazenam vetores de vetores, permitindo dimensões ajustáveis em tempo de execução. São mais flexíveis que arrays multidimensionais.
+
+**Características:**
+- Tamanho dinâmico, ajustado com `push_back`, `resize`, etc.
+- Armazenamento contíguo por linha, com acesso por índice em O(1).
+- Suporte a métodos como `size()`, `empty()`, `resize()`.
+- Todos os elementos devem ser do mesmo tipo.
+
+**Declaração de Vetores Multidimensionais:**
+```html
+#include <vector>
+std::vector<std::vector<<tipo>>> <nome>(<tamanho1>, std::vector<<tipo>>(<tamanho2>, <valor_default>));
+```
+
+**Exemplo:**
+```cpp
+#include <vector>
+std::vector<std::vector<int>> matriz(2, std::vector<int>(3, 0)); // Matriz 2x3 inicializada com 0
+matriz[0][2] = 3; // Atribui 3 à posição [0][2]
+```
+
+**Operações CRUD em Vetores Multidimensionais:**
+As operações CRUD são realizadas com métodos do `std::vector` para manipular linhas e elementos.
+
+##### Create (Criar)
+Adiciona linhas ou elementos com `push_back` ou inicialização direta.
+
+**Exemplo:**
+```cpp
+std::vector<std::vector<int>> matriz;
+matriz.push_back({1, 2, 3}); // Adiciona linha [1, 2, 3]
+matriz.push_back({4, 5, 6}); // Adiciona linha [4, 5, 6]
+```
+
+**Funcionamento:**
+- `push_back` para linhas: O(1) amortizado.
+- Inicialização de vetores aninhados: O(n*m) para `n x m`.
+- Após inserção: `matriz = [[1, 2, 3], [4, 5, 6]]`.
+
+##### Read (Ler)
+Acessa elementos por índices ou itera pela matriz.
+
+**Exemplo:**
+```cpp
+std::cout << "Elemento [1][2]: " << matriz[1][2] << std::endl; // Exibe 6
+for (const auto& linha : matriz) {
+    for (const int& valor : linha) {
+        std::cout << valor << " "; // Exibe 1 2 3 4 5 6
+    }
+}
+std::cout << std::endl;
+```
+
+**Funcionamento:**
+- Acesso por índice (`matriz[i][j]`) é O(1).
+- Iteração completa é O(n*m) para uma matriz `n x m`.
+- Use `at(i)` para verificação de índices.
+
+##### Update (Atualizar)
+Modifica um elemento em uma posição específica.
+
+**Exemplo:**
+```cpp
+matriz[1][2] = 10; // Substitui 6 por 10
+```
+
+**Funcionamento:**
+- Atualização é O(1).
+- Após atualização: `matriz = [[1, 2, 3], [4, 5, 10]]`.
+
+##### Delete (Excluir)
+Remove linhas ou elementos com `erase` ou `pop_back`.
+
+**Exemplo:**
+```cpp
+matriz.erase(matriz.begin()); // Remove a primeira linha
+matriz[0].pop_back(); // Remove o último elemento da primeira linha
+```
+
+**Funcionamento:**
+- `erase` para linhas: O(n) devido ao deslocamento.
+- `pop_back` para elementos: O(1).
+- Após exclusões: `matriz = [[4, 5]]`.
+
+**Cuidados:**
+- Verifique `size()` de cada dimensão antes de acessar/remover elementos.
+- Exclusão de linhas/elementos é custosa (O(n)); considere outras estruturas para remoções frequentes.
+- Evite índices inválidos usando `at()` ou verificações manuais.
+
+**Exemplo Completo:**
+```cpp
+#include <iostream>
+#include <vector>
+
+int main() {
+    // Criando vetor multidimensional
+    std::vector<std::vector<int>> matriz(2, std::vector<int>(3, 0));
+    matriz[0] = {1, 2, 3}; // Create
+    matriz[1] = {4, 5, 6};
+
+    // Lendo elementos
+    std::cout << "Elemento [1][2]: " << matriz[1][2] << std::endl; // Read
+    for (const auto& linha : matriz) {
+        for (const int& valor : linha) {
+            std::cout << valor << " ";
+        }
+    }
+    std::cout << std::endl;
+
+    // Atualizando elemento
+    matriz[1][2] = 10; // Update
+
+    // Excluindo linha
+    matriz.erase(matriz.begin()); // Delete
+    for (const auto& linha : matriz) {
+        for (const int& valor : linha) {
+            std::cout << valor << " ";
+        }
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+```
 
 
 #### Struct
@@ -1351,55 +1225,8 @@ my_map.erase(1); // Remove a chave 1
 - Use `at(key)` para acesso seguro.
 
 **Exemplo Completo:**
-```cpp
-#include <iostream>
-#include <map>
-#include <string>
+Código contido no arquivo [type2.cpp](https://github.com/pedcravo/Praticando-Cpp/blob/main/Data-Types/type2.cpp)
 
-int main() {
-    std::map<int, std::string> my_map;
-
-    // Create
-    my_map.insert({1, "um"});
-    my_map[2] = "dois";
-    std::cout << "Após CREATE:\n";
-    for (const auto& pair : my_map) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
-    }
-
-    // Read
-    std::cout << "Valor da chave 1: " << my_map[1] << std::endl;
-
-    // Update
-    my_map[1] = "one";
-    std::cout << "Após UPDATE:\n";
-    for (const auto& pair : my_map) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
-    }
-
-    // Delete
-    my_map.erase(1);
-    std::cout << "Após DELETE:\n";
-    for (const auto& pair : my_map) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
-    }
-
-    return 0;
-}
-```
-
-**Saída:**
-```
-Após CREATE:
-1: um
-2: dois
-Valor da chave 1: um
-Após UPDATE:
-1: one
-2: dois
-Após DELETE:
-2: dois
-```
 
 #### Unordered Map
 O **unordered_map** (`std::unordered_map`) é uma estrutura de chave-valor não ordenada, implementada com uma tabela de hash, oferecendo acesso mais rápido que `std::map` em média.
@@ -1486,55 +1313,8 @@ my_umap.erase(1);
 - Performance pode degradar com muitas colisões na tabela de hash.
 
 **Exemplo Completo:**
-```cpp
-#include <iostream>
-#include <unordered_map>
-#include <string>
+Código contido no arquivo [type3.cpp](https://github.com/pedcravo/Praticando-Cpp/blob/main/Data-Types/type3.cpp)
 
-int main() {
-    std::unordered_map<int, std::string> my_umap;
-
-    // Create
-    my_umap.insert({1, "um"});
-    my_umap[2] = "dois";
-    std::cout << "Após CREATE:\n";
-    for (const auto& pair : my_umap) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
-    }
-
-    // Read
-    std::cout << "Valor da chave 1: " << my_umap[1] << std::endl;
-
-    // Update
-    my_umap[1] = "one";
-    std::cout << "Após UPDATE:\n";
-    for (const auto& pair : my_umap) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
-    }
-
-    // Delete
-    my_umap.erase(1);
-    std::cout << "Após DELETE:\n";
-    for (const auto& pair : my_umap) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
-    }
-
-    return 0;
-}
-```
-
-**Saída (ordem pode variar):**
-```
-Após CREATE:
-2: dois
-1: um
-Valor da chave 1: um
-Após UPDATE:
-2: dois
-1: one
-Após DELETE:
-2: dois
-```
 
 #### Queue
 A **queue** (`std::queue`) é uma estrutura de fila que segue a política **FIFO** (First In, First Out). Elementos são inseridos no final e removidos do início.
@@ -1626,51 +1406,186 @@ my_queue.pop(); // Remove 10
 - Não suporta exclusão arbitrária ou acesso a elementos intermediários.
 
 **Exemplo Completo:**
+Código contido no arquivo [type4.cpp](https://github.com/pedcravo/Praticando-Cpp/blob/main/Data-Types/type4.cpp)
+
+---
+
+### Fluxos de entrada e saída
+Comandos utilizados para realizar a saída e a entrada de dados no sistema.
+
+**Comandos associados:**
+- `cin` → Entrada padrão para o teclado, recebe dados do teclado.
+- `cout` → Saída padrão de dados no prompt, mostra no prompt algum dado.
+- `cerr` → Saída de erros padrão, mostra erros.
+- `clog` → Saída dos logs padrão, mostra logs.
+- `endl` → Pula linha no prompt (endl - end line, \n pode susbtitui-lo na saída).
+- `<<` → Usa dados anteriores como argumentos para o comando/variável anterior (geralmente anda junto com `cout`).
+- `>>` → Usa dados anteriores para o comando/variável a seguir.
+
+**Exemplos:**
+- Saída de dados (da máquina para o usúario)
+  ```cpp
+  cout << data1;
+
+  cout << "data 1 is" << data1;
+
+  cout << "data 1 is" << data1 << endl;
+  cout << "data 1 is" << data1 << "\n";
+  ```
+- Entrada de dados (do teclado para a máquina)
+  ```cpp
+  cin >> data1;
+
+  cout >> data1 >> data2;
+  ```
+  > A entrada de dados pode falhar dependendo da entrada e do tipo de dado solicitado (*int* recebe *string*).
+
+---
+
+### Estruturas de Sequencia, Seleção e Iteração
+As estruturas Sequencia, Seleção e Iteração são partes essenciais nos programas, pois através delas é possível escrever algoritmos.
+
+São comuns e de sintaxe semelhantes na maioria das linguagens, bem como em c++.
+
+#### Estruturas de Sequência
+As estruturas de sequência são estruturas que organizam a sequencia a ser seguida na execução do código.
+
+#### Estruturas de Seleção - Condicionais
+As estruturas de seleção são as estruturas responsáveis por tomar decisões com base no restante do código. Elas que mudam o curso do código.
+
+As principais são:
+- `if` → Se for ***true*** executa `if`.
+- `if-else` → Se for ***true*** executa `if` se ***false*** executa `else`.
+- `if` encadeado → Encadeia diversos `if` onde todos precisam ser ***true***.
+- `switch` → Uma série de casos para possíveis acontecimentos.
+- `?` Condicional → `if-else` versão de operador, **operador ternário**.
+
+##### IF
 ```cpp
-#include <iostream>
-#include <queue>
-
-int main() {
-    std::queue<int> my_queue;
-
-    // Create
-    my_queue.push(10);
-    my_queue.push(20);
-    my_queue.push(30);
-    std::cout << "Após CREATE, primeiro: " << my_queue.front() << std::endl;
-
-    // Read
-    std::cout << "Último: " << my_queue.back() << std::endl;
-
-    // Update (simulado)
-    std::queue<int> temp;
-    while (!my_queue.empty()) {
-        int value = my_queue.front();
-        my_queue.pop();
-        if (value == 10) value = 15;
-        temp.push(value);
-    }
-    my_queue = temp;
-    std::cout << "Após UPDATE, primeiro: " << my_queue.front() << std::endl;
-
-    // Delete
-    my_queue.pop();
-    std::cout << "Após DELETE, primeiro: " << my_queue.front() << std::endl;
-
-    return 0;
+if ('condition')
+{
+    /* code */
 }
 ```
 
-**Saída:**
-```
-Após CREATE, primeiro: 10
-Último: 30
-Após UPDATE, primeiro: 15
-Após DELETE, primeiro: 20
+##### IF-ELSE
+```cpp
+if (condition)
+{
+    /* code */
+}
+else
+{
+    /* code */
+}
 ```
 
-# WIP
-### Include
+##### IF-ELSEIF-ELSE
+```cpp
+if (condition)
+{
+    /* code */
+}
+else if (condition)
+{
+    /* code */
+}
+else
+{
+    /* code */
+}
+```
+
+##### IF (encadeado)
+```cpp
+if (condition)
+{
+    if (condition)
+    {
+        /* code */
+    }
+}
+```
+
+##### SWITCH
+```cpp
+switch (expression)
+{
+case constant expression:
+    /* code */
+    break;
+
+case constant expression:
+    /* code */
+    break;
+
+default:
+    /* code */
+    break;
+}
+```
+
+##### ? Condicional
+```cpp
+(cond_expr) ? expr1 : expr2
+```
+
+#### Estruturas de Iteração - Looping
+As estruturas de iteração são estruturas que geram loops, que repetem uma parte do código até um determinado momento. Elas que repetem o código já executado.
+
+As principais são:
+- `for` → Loop que tem *início*, *condição de termino* e *incremento* bem definidos `(int i = 0; i < 100; i++)`.
+- `while` → Loop que tem fim bem definido, não possui o início e nem como faz para ir ao fim.
+- `do-while` → Loop que executa pelo menos 1 vez, tem fim bem definido semelhante ao `while`.
+
+Os loops podem ser **Infinitos** caso mal implementados, geralmente tem um ponto para finalizar o loop e um meio de seguir até ele. É possível manipular os loops usando `continue` e `break`, evitando assim loops infinitos.
+
+##### FOR
+Este loop é especial pois tem *início*, *condição de termino* e *incremento* bem definidos em sua forma comum, porém é possível modifica-lo para se tornar infinito ou até mesmo para percorrer uma lista.
+
+```cpp
+for (size_t i = 0; i < count; i++)
+{
+    /* code */
+}
+```
+↳ Loop `for` comum.
+
+```cpp
+for (;;)
+{
+    /* code */
+}
+```
+↳ Loop `for` infinito.
+
+```cpp
+for (size_t i : sequence)
+{
+    /* code */
+}
+```
+↳ Loop `for` que percorre sequencia.
+
+##### WHILE
+```cpp
+while (condition)
+{
+    /* code */
+}
+```
+
+##### DO-WHILE
+```cpp
+do
+{
+    /* code */
+} while (condition);
+```
+
+---
+
+### Bibliotecas
 O include é um comando utilizado para importar bibliotecas e funções para seu código.
 
 **As bibliotecas mais utilizadas:**
@@ -1679,11 +1594,16 @@ O include é um comando utilizado para importar bibliotecas e funções para seu
 - `string` →
 - `string_view` →
 - `vector` →
+- `map` →
+- `unordered_map` →
+- `queue` →
 - `iomanip` →
 - [`rapidjson`][rapidjson] → Mais veloz para parse de JSON.
 - [`nlohmann`][nlohmann] → Escrita mais simples para parse de JSON.
 - [`jsoncpp`][jsoncpp] → Mais detalhista para parse de JSON.
 - [`glaze`][glaze] → Semelhante a velocidade da [rapidjson] e a escrita da [nlohmann] para parse de JSON, funciona melhor se tiver JSON padronizado.
+
+---
 
 ### Funções
 As funções são blocos de código que possuem nome e podem ser utilizadas em qualquer parte do código.
@@ -1863,8 +1783,6 @@ Para usar a Pistache, você precisa instalá-la e configurá-la no seu projeto. 
    ```
    Isso garante que os headers e bibliotecas da Pistache sejam incluídos corretamente.[](https://stackoverflow.com/questions/52468551/include-pistache-in-c-project)
 
----
-
 #### Principais Características da Pistache
 - **Alta Performance**: Usa chamadas de sistema eficientes (como `epoll` no Linux) e multithreading para lidar com muitas conexões.[](https://www.reddit.com/r/cpp/comments/6ehhqe/has_anyone_tested_andor_reviewed_pistacheio_c/)
 - **API Elegante**: Oferece uma sintaxe clara para definir rotas e handlers.[](https://www.linuxlinks.com/pistache-modern-elegant-http-rest-framework/)
@@ -1872,14 +1790,6 @@ Para usar a Pistache, você precisa instalá-la e configurá-la no seu projeto. 
 - **Assincronia**: Usa promises para operações como envio de respostas ou leitura de arquivos, ideal para APIs com baixa latência.[](https://pistacheio.github.io/pistache/docs/http-handler/)
 - **Flexibilidade**: Suporta tanto servidores REST quanto clientes HTTP para chamadas externas.[](https://www.linuxlinks.com/pistache-modern-elegant-http-rest-framework/)
 
----
-
-#### Limitações e Considerações
-- **Documentação Incompleta**: A documentação oficial é parcial, e a comunidade ainda busca voluntários para completá-la.[](https://github.com/pistacheio/pistache/blob/master/README.md)
-- **Suporte Limitado a HTTPS**: O suporte a HTTPS não é nativo e requer configurações adicionais ou bibliotecas externas como OpenSSL.[](https://github.com/pistacheio/pistache/issues/52)
-- **Dependência de Linux**: Algumas funcionalidades usam APIs específicas do Linux (como `epoll`), o que pode limitar a portabilidade sem ajustes.[](https://www.reddit.com/r/cpp/comments/6ehhqe/has_anyone_tested_andor_reviewed_pistacheio_c/)
-- **Estabilidade**: A Pistache ainda não atingiu a versão 1.0, indicando que pode ter instabilidades, embora seja considerada "pronta para produção" em muitos casos.[](https://cpp.libhunt.com/pistache-alternatives)
-- **Parsing de Dados**: Não inclui parsing nativo de MIME ou JSON, exigindo bibliotecas externas para manipular dados complexos.[](https://github.com/pistacheio/pistache/issues/211)
 
 ---
 
@@ -1951,6 +1861,8 @@ int main() {
 curl -X POST -H "Content-Type: application/json" -d '{"name":"Alice"}' http://localhost:8080/greet
 # Resposta: {"message":"Olá, Alice!"}
 ```
+
+---
 
 ## Tipos de Erros
 // WIP
