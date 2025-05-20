@@ -75,6 +75,10 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
         - [Read (Ler)](#read-ler-8)
         - [Update (Atualizar)](#update-atualizar-8)
         - [Delete (Excluir)](#delete-excluir-8)
+    - [POO](#poo)
+      - [Classes](#classes)
+      - [Objetos](#objetos)
+      - [Herança](#herança)
     - [Fluxos de entrada e saída](#fluxos-de-entrada-e-saída)
     - [Estruturas de Sequencia, Seleção e Iteração](#estruturas-de-sequencia-seleção-e-iteração)
       - [Estruturas de Sequência](#estruturas-de-sequência)
@@ -1407,6 +1411,21 @@ my_queue.pop(); // Remove 10
 
 **Exemplo Completo:**
 Código contido no arquivo [type4.cpp](https://github.com/pedcravo/Praticando-Cpp/blob/main/Data-Types/type4.cpp)
+
+---
+
+### POO
+É a programação que utiliza de Classes e Objetos para manipular as variáveis, funções e estruturas de um programa.
+
+A programação orientada a objetos é um tipo de programação mais avançada que a procedural, que utiliza variáveis e funções.
+
+Este tipo de programação pode resolver uma gama de problemas de forma mais segura, estruturada e fácil de entender.
+
+#### Classes
+
+#### Objetos
+
+#### Herança
 
 ---
 
