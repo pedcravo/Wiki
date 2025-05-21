@@ -1415,11 +1415,13 @@ Código contido no arquivo [type4.cpp](https://github.com/pedcravo/Praticando-Cp
 ---
 
 ### POO
-É a programação que utiliza de Classes e Objetos para manipular as variáveis, funções e estruturas de um programa.
+É a programação que utiliza de Classes e Objetos para manipular variáveis, funções e estruturas de um programa.
 
-A programação orientada a objetos é um tipo de programação mais avançada que a procedural, que utiliza variáveis e funções.
+A programação orientada a objetos é um tipo de programação mais avançada que a procedural (programação comum, que utiliza apenas variáveis e funções para formar o algoritmo), sendo menos comum entre as linguagens de programação.
 
-Este tipo de programação pode resolver uma gama de problemas de forma mais segura, estruturada e fácil de entender.
+Este tipo de programação pode resolver uma gama de problemas de forma mais segura, estruturada, fácil de entender e com maior facilidade de reutilizar o código.
+
+É mais aconselhada para programas de longa vida.
 
 #### Classes
 
