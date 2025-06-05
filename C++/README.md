@@ -76,9 +76,10 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
         - [Update (Atualizar)](#update-atualizar-8)
         - [Delete (Excluir)](#delete-excluir-8)
     - [POO](#poo)
-      - [Classes](#classes)
-      - [Objetos](#objetos)
-      - [Herança](#herança)
+      - [Classes e Objetos](#classes-e-objetos)
+        - [Tipos de classes:](#tipos-de-classes)
+        - [Propriedades das classes:](#propriedades-das-classes)
+      - [Criando uma Classe:](#criando-uma-classe)
     - [Fluxos de entrada e saída](#fluxos-de-entrada-e-saída)
     - [Estruturas de Sequencia, Seleção e Iteração](#estruturas-de-sequencia-seleção-e-iteração)
       - [Estruturas de Sequência](#estruturas-de-sequência)
@@ -1415,19 +1416,40 @@ Código contido no arquivo [type4.cpp](https://github.com/pedcravo/Praticando-Cp
 ---
 
 ### POO
-É a programação que utiliza de Classes e Objetos para manipular variáveis, funções e estruturas de um programa.
+É a programação que utiliza de Classes e Objetos para manipular variáveis, funções e estruturas de um programa, tornando o programa mais modular e reutilizável.
+É mais aconselhada para programas de longa vida.
 
 A programação orientada a objetos é um tipo de programação mais avançada que a procedural (programação comum, que utiliza apenas variáveis e funções para formar o algoritmo), sendo menos comum entre as linguagens de programação.
 
-Este tipo de programação pode resolver uma gama de problemas de forma mais segura, estruturada, fácil de entender e com maior facilidade de reutilizar o código.
+Este tipo de programação pode resolver uma gama de problemas de forma mais segura, estruturada e fácil de entender.
 
-É mais aconselhada para programas de longa vida.
+#### Classes e Objetos
+As **classes** são um tipo de grupo de dados e métodos que o programador por criar e manipular como bem entender.
 
-#### Classes
+Já os **objetos** são as instancias/declarações das classes no código da main. Eles são declarados de forma semelhante aos demais tipos de dados (int, bool, etc.), tornando-os de manipulação intuitiva.
 
-#### Objetos
+##### Tipos de classes:
+- **Concreta** → São o tipo mais comum de classes, são aquelas que tem seus métodos **implementados** e **podem ser instanciados na main**.
+- **Abstrata** → São as classes que existem para serem herdadas e reutilizadas, tem todos os seus métodos do tipo **virtual** e são implementados mesmo que básicamente. **Não podem ser instanciados na main**.
+- **Interface** → São um tipo de classe **Abstrata**, existem para serem herdadas e usadas como base para a criação de classes, são como um "molde vazio". Tem todos os seus métodos do tipo **virtual puros**, ou seja, não são implementados tendo somente a assinatura. **Não podem ser instanciados na main**.
 
-#### Herança
+> **OBS:** Geralmente se usa `= 0;` ao fim das assinaturas da classe virtual, para mostrar que não há implementação.
+> Algo parecido é feito no destrutor, porém se usa `= default;`
+
+##### Propriedades das classes:
+- **Membro** → São as variáveis e constantes que fazem parte daquela classe.
+- **Método** → São as funções que fazem parte daquela classe.
+- **Herança** → É uma das propriedades das classes de herdar/derivar a formatação de outra classe, seus membros e métodos.
+  - **Polimorfismo** → A capacidade de uma classe de herdar e sobreescrever os métodos da classe base.
+- **Virtual** → Usado no ínicio da assinatura de um método para dizer que ele pode ser reescrito na implementação feita por uma classe herdeira. Torna mais volátil o uso dos métodos.
+- **Override** → Usado ao fim da assínatura de um método herdado para reescreve-lo ou implementa-lo.
+- **Privacidade dos dados** → Usados para modificar a visibilidade dos membros e métodos da classe.
+  - **`public:`** → Torna os membros declarados abaixo dela visíveis para a classe, suas herdeiras e em todos os locais com instancia da classe.
+  - **`protected:`** → Torna os membros declarados abaixo dela visíveis apenas para a classe e pelas classes herdeiras.
+  - **`private:`** → Torna os membros declarados abaixo dela visíveis apenas para a classe.
+
+#### Criando uma Classe:
+wip
 
 ---
 
