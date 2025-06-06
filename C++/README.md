@@ -77,9 +77,8 @@ Toda a parte prática vamos usar o diretório [Aprendendo C++][pratica].
         - [Delete (Excluir)](#delete-excluir-8)
     - [POO](#poo)
       - [Classes e Objetos](#classes-e-objetos)
-        - [Tipos de classes:](#tipos-de-classes)
-        - [Propriedades das classes:](#propriedades-das-classes)
-      - [Criando uma Classe:](#criando-uma-classe)
+        - [Herança e Composição:](#herança-e-composição)
+      - [Exemplos de código](#exemplos-de-código)
     - [Fluxos de entrada e saída](#fluxos-de-entrada-e-saída)
     - [Estruturas de Sequencia, Seleção e Iteração](#estruturas-de-sequencia-seleção-e-iteração)
       - [Estruturas de Sequência](#estruturas-de-sequência)
@@ -1424,34 +1423,249 @@ A programação orientada a objetos é um tipo de programação mais avançada q
 Este tipo de programação pode resolver uma gama de problemas de forma mais segura, estruturada e fácil de entender.
 
 #### Classes e Objetos
-As **classes** são um tipo de grupo de dados e métodos que o programador por criar e manipular como bem entender.
+As **classes** são um tipo de grupo de dados e métodos que o programador pode criar e manipular como bem entender.
 
 Já os **objetos** são as instancias/declarações das classes no código da main. Eles são declarados de forma semelhante aos demais tipos de dados (int, bool, etc.), tornando-os de manipulação intuitiva.
 
-##### Tipos de classes:
+**Tipos de classes:**
 - **Concreta** → São o tipo mais comum de classes, são aquelas que tem seus métodos **implementados** e **podem ser instanciados na main**.
 - **Abstrata** → São as classes que existem para serem herdadas e reutilizadas, tem todos os seus métodos do tipo **virtual** e são implementados mesmo que básicamente. **Não podem ser instanciados na main**.
 - **Interface** → São um tipo de classe **Abstrata**, existem para serem herdadas e usadas como base para a criação de classes, são como um "molde vazio". Tem todos os seus métodos do tipo **virtual puros**, ou seja, não são implementados tendo somente a assinatura. **Não podem ser instanciados na main**.
 
-> **OBS:** Geralmente se usa `= 0;` ao fim das assinaturas da classe virtual, para mostrar que não há implementação.
+> **OBS:** Geralmente se usa `= 0;` ao fim das assinaturas de métodos do tipo virtual, para mostrar que não há implementação.
 > Algo parecido é feito no destrutor, porém se usa `= default;`
 
-##### Propriedades das classes:
-- **Membro** → São as variáveis e constantes que fazem parte daquela classe.
-- **Método** → São as funções que fazem parte daquela classe.
-- **Herança** → É uma das propriedades das classes de herdar/derivar a formatação de outra classe, seus membros e métodos.
-  - **Polimorfismo** → A capacidade de uma classe de herdar e sobreescrever os métodos da classe base.
-- **Virtual** → Usado no ínicio da assinatura de um método para dizer que ele pode ser reescrito na implementação feita por uma classe herdeira. Torna mais volátil o uso dos métodos.
-- **Override** → Usado ao fim da assínatura de um método herdado para reescreve-lo ou implementa-lo.
+**Propriedades das classes:**
+- **Membro** → São as variáveis e constantes que fazem parte daquela classe (geralmente tem o nome começando com `m_`).
+- **Método** → São as funções que fazem parte daquela classe. **Se dividem em 5 tipos:**
+  - **Construtor** → É a função padrão chamada quando a classe é instanciada, geralmente inicializa os membros da classe. Pode existir mais de uma em uma classe.
+  - **Destrutor** → É a função padrão chamada quando a classe é apagada (quando saí do escopo onde a classe foi instanciada). Só pode existir um na classe.
+  - **Getters** → São as funções responsáveis por retornar os valores dos membros (privados e protegidos) no escopo da instancia da classe.
+  - **Outros** → São as funções que não se encaixam em nenhum desses tipos.
+  - **Setters** → São as funções responsáveis por modificar os valore dos membros da classe.
+- **`virtual`** → Usado no ínicio da assinatura de um método (menos de construtores) para dizer que ele pode ser reescrito na implementação feita por uma classe herdeira. Torna mais volátil o uso dos métodos.
+- **`override`** → Usado ao fim da assínatura de um método herdado para reescreve-lo ou implementa-lo.
+- **`const`** → Usado ao fim da assínatura de um método (antes do `override`) para declarar que o método pode ser usado quando a instancia da classe for uma constante.
 - **Privacidade dos dados** → Usados para modificar a visibilidade dos membros e métodos da classe.
   - **`public:`** → Torna os membros declarados abaixo dela visíveis para a classe, suas herdeiras e em todos os locais com instancia da classe.
   - **`protected:`** → Torna os membros declarados abaixo dela visíveis apenas para a classe e pelas classes herdeiras.
   - **`private:`** → Torna os membros declarados abaixo dela visíveis apenas para a classe.
 
-#### Criando uma Classe:
-wip
+##### Herança e Composição:
+As classes tem a propriedades de herdar/derivar a formatação de outra classe. Cria uma relação de **"é uma"**, *Checking Account* **é uma** *Account*.
+- **Polimorfismo** → A capacidade de uma classe de herdar e sobreescrever os métodos da classe base.
+- **Privacidade de Herança** → Para derivar alguma classe é necessário usar algum dos modificadores de privacidade no cabeçalho da classe, como:
+  - **`: public <class-name>`** → Torna os membros e métodos publicos da classe base publicos a derivada, os protegidos na base são protegidos na derivada e os privados não são acessados pela derivada.
+  - **`: protected <class-name>`** → Torna os membros e métodos publicos da classe base protegidos na derivada, os protegidos na base continuam como protegidos na derivada e os privados não são acessados pela derivada.
+  - **`: private <class-name>`** → Torna todos os membros e métodos da classe base privados na classe derivada, os privados não são acessados pela derivada.
+  
+  | Tipo de método | Herança com `public`              | Herança com `protected`           | Herança com `private`           |
+  | :------------- | :-------------------------------- | :-------------------------------- | :------------------------------ |
+  | `public`       | É herdado com o tipo `public`.    | É herdado com o tipo `protected`. | É herdado com o tipo `private`. |
+  | `protected`    | É herdado com o tipo `protected`. | É herdado com o tipo `protected`. | É herdado com o tipo `private`. |
+  | `private`      | Não é acessível e nem herdado.    | Não é acessível e nem herdado.    | Não é acessível e nem herdado.  |
 
----
+A capacidade das classes de comporem (fazer parte) de outras, quando duas classes já existem e se deseja trabalhar relacionando as classes (não criando uma com base na outra). Cria uma relação de **"tem uma"**, *Person* **tem uma** *Account*.
+- **`friend <class-name>`** → Usado para criar relação de composição entre uma classe e outra.
+
+> **OBS:** Quando uma classe *A* cria relação com uma classe *B*, não necessáriamente a *B* tem relação com *A*. A composição não é reciproca.
+
+#### Exemplos de código
+**Classe concreta**
+```cpp
+class CConcrete
+{
+private:
+      std::string m_name;
+      int m_health;
+      double m_money;
+      
+public:
+    // Construtor
+    CConcrete(std::string _name = "None", int _health = 0, double _money = 0);  // Construtor Padrão
+    CConcrete(const CConcrete &_obj);                                           // Construtor Cópia
+
+    // Destructor implementado
+    ~CConcrete() { std::cout << "Destrutor usado por " << m_name << "\n"; }
+
+    // Getters
+    std::string Name() const;
+    int Health() const;
+    double Money() const;
+
+    // Setters
+    void SetName(std::string _name);    
+};
+
+// Implementação do métodos
+CConcrete::CConcrete(std::string _name, int _health, double _money)
+    : m_name{_name}, m_health{_health}, m_money{_money} {}  // Inicializando membros
+
+CConcrete::CConcrete(const CConcrete &_obj)
+    : CPlayer{_obj.m_name, _obj.m_health, _obj.m_money} {}  // Chamando método Padrão com valores copiados
+
+std::string CConcrete::Name() const
+{
+  return m_name;
+}
+
+int CConcrete::Health() const
+{
+  return m_health;
+}
+
+double CConcrete::Money() const
+{
+  return m_money;
+}
+
+void CConcrete::SetName(std::string _name)
+{
+  m_name = _name;
+}
+
+```
+
+**Classe abstrata**
+```cpp
+class CAbstract
+{
+private:
+      int m_private;
+
+protected:
+      std::string m_name;
+      int m_health;
+      double m_money;
+
+public:
+    // Construtor
+    CAbstract(std::string _name = "None", int _health = 0, double _money = 0);
+
+    // Destructor
+    virtual ~CAbstract() = default;
+
+    // Getters
+    virtual std::string Name() = 0;
+    virtual int Health() = 0;
+    virtual double Money()= 0;
+};
+
+// Implementação dos métodos
+CAbstract::CAbstract(std::string _name, int _health, double _money)
+    : m_name{_name}, m_health{_health}, m_money{_money} {}  // Inicializando membros
+
+std::string CConcrete::Name()
+{
+  return m_name;
+}
+
+int CConcrete::Health()
+{
+  return m_health;
+}
+
+double CConcrete::Money()
+{
+  return m_money;
+}
+```
+
+**Interface**
+``` cpp
+class CInterface
+{
+private:
+      int m_private;
+
+protected:
+      std::string m_name;
+      int m_health;
+      double m_money;
+
+public:
+    // Construtor
+    CInterface(std::string _name = "None", int _health = 0, double _money = 0);
+
+    // Destructor
+    virtual ~CInterface() = default;
+
+    // Getters
+    virtual std::string Name() = 0;
+    virtual int Health() = 0;
+    virtual double Money()= 0;
+};
+```
+
+**Herança**
+```cpp
+class CBase
+{
+private:
+      int m_private;
+
+protected:
+      std::string m_name;
+      int m_health;
+      double m_money;
+
+public:
+    CInterface(std::string _name = "None", int _health = 0, double _money = 0);
+
+    virtual ~CInterface() = default;
+
+    virtual std::string Name() { return m_name; }
+    virtual int Health() { return m_heath; }
+    virtual double Money() { return m_money; }
+};
+
+//
+
+class CDerived : public CBase
+{
+public:
+    CBase(std::string _name = "None", int _health = 0, double _money = 0){}
+
+    virtual ~CBase() = default;
+};
+```
+
+**Polimorfismo**
+```cpp
+class CBase
+{
+private:
+      int m_private;
+
+protected:
+      std::string m_name;
+      int m_health;
+      double m_money;
+
+public:
+    CInterface(std::string _name = "None", int _health = 0, double _money = 0);
+
+    virtual ~CInterface() = default;
+
+    virtual std::string Name() = 0;
+    virtual int Health() = 0;
+    virtual double Money() = 0;
+};
+
+//
+
+class CDerived : public CBase
+{
+public:
+    CBase(std::string _name = "None", int _health = 0, double _money = 0){}
+
+    virtual ~CBase() = default;
+
+    virtual std::string Name() override { return m_name; }
+    virtual int Health() override { return m_heath; }
+    virtual double Money() override { return m_money; }
+};
+```
 
 ### Fluxos de entrada e saída
 Comandos utilizados para realizar a saída e a entrada de dados no sistema.
