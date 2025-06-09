@@ -80,12 +80,32 @@ Este guia descreve como configurar uma área de trabalho no Windows utilizando W
    ```
    - Exemplo: `git clone -o meu_projeto git@github.com:usuario/projeto.git`
 
-### 7. Abrir a área de trabalho no VS Code
-1. No VS Code, vá até "file" e em seguida "Open Folder".
-2. Selecione a pasta de trabalho.
+### 7. Instalar bibliotecas ZeroMQ e cppzmq
+1. Instale a biblioteca **libzmq** (ZeroMQ):
+   ```
+   sudo apt install libzmq3-dev
+   ```
+2. Instale a biblioteca **cppzmq** (wrapper C++ para ZeroMQ):
+   ```
+   git clone git@github.com:zeromq/cppzmq.git
+   cd cppzmq
+   mkdir build
+   cd build
+   cmake -DCPPZMQ_BUILD_TESTS=OFF ..
+   sudo make -j4 install
+   ```
+3. Volte ao diretório do projeto (se necessário):
+   ```
+   cd ~/Ontick
+   ```
+
+### 8. Abrir a área de trabalho no VS Code
+1. No VS Code, vá até **File > Open Folder**.
+2. Selecione a pasta de trabalho (ex.: `Ontick`).
 3. Comece a codar.
 
 ## Notas adicionais
 - Caso encontre problemas com permissões no WSL, verifique se o usuário tem as permissões corretas usando `sudo`.
 - Para atualizar o projeto, use comandos como `git pull` no terminal.
 - Mantenha o VS Code e as extensões atualizadas para melhor desempenho.
+- Para projetos que utilizam ZeroMQ/cppzmq, certifique-se de incluir os cabeçalhos (`#include <zmq.hpp>`) e vincular as bibliotecas (`-lzmq`) ao compilar (ex.: `g++ seu_arquivo.cpp -lzmq -o seu_programa`).
