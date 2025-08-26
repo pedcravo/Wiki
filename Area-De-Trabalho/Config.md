@@ -61,8 +61,7 @@ Este guia descreve como configurar uma área de trabalho no Windows utilizando W
 ### 5. Configurar área de trabalho
 1. No terminal do Ubuntu, crie uma pasta para o projeto:
    ```
-   mkdir Ontick
-   cd Ontick
+   mkdir Ontick && cd Ontick
    ```
 2. Configure o Git com suas credenciais:
    ```
