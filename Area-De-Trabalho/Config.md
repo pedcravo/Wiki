@@ -27,10 +27,9 @@ Este guia descreve como configurar uma área de trabalho no Windows utilizando W
    ```
    sudo apt update
    ```
-3. Instale o compilador g++ e o debugger gdb:
+3. Instale o compilador **g++**, debugger **gdb** e versionador de arquivos **git**:
    ```
-   sudo apt install g++
-   sudo apt install gdb
+   sudo apt install g++ gdb git -y
    ```
 
 ### 3. Instalar e configurar o Visual Studio Code
