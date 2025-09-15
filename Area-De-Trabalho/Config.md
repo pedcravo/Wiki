@@ -29,7 +29,7 @@ Este guia descreve como configurar uma área de trabalho no Windows utilizando W
    ```
 3. Instale o compilador **g++**, debugger **gdb** e versionador de arquivos **git**:
    ```
-   sudo apt install g++ gdb git -y
+   sudo apt install g++ gdb git tmux cmake -y
    ```
 
 ### 3. Instalar e configurar o Visual Studio Code
@@ -83,6 +83,15 @@ Este guia descreve como configurar uma área de trabalho no Windows utilizando W
    ```
    sudo apt install libzmq3-dev
    ```
+   - Por via das duvidas faça:
+   ```
+    git clone git@github.com:zeromq/libzmq.git
+    cd libzmq && ./autogen.sh && ./configure
+    make check
+    sudo make install
+    sudo ldconfig
+    ```
+   
 2. Instale a biblioteca **cppzmq** (wrapper C++ para ZeroMQ):
    ```
    git clone git@github.com:zeromq/cppzmq.git
@@ -92,6 +101,17 @@ Este guia descreve como configurar uma área de trabalho no Windows utilizando W
    cmake -DCPPZMQ_BUILD_TESTS=OFF ..
    sudo make -j4 install
    ```
+   - Ou faça:
+   ```
+    git clone git@github.com:zeromq/cppzmq.git
+    cd cppzmq && mkdir build && cd build
+    cmake -DCPPZMQ_BUILD_TESTS=OFF ..
+    sudo make -j4 install
+    sudo ldconfig
+    cd .. && ./ci_build.sh
+    sudo cp zmq.hpp /usr/local/include/
+   ```
+   
 3. Volte ao diretório do projeto (se necessário):
    ```
    cd ~/Ontick
