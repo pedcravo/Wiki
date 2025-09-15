@@ -47,7 +47,7 @@ Este guia descreve como configurar uma área de trabalho no Windows utilizando W
    ```
    ssh-keygen -b 1024 -t rsa
    ```
-   - Pressione Enter para aceitar o local padrão (`~/.ssh/id_rsa`) e deixe a senha em branco, se desejar.
+   - Pressione Enter para aceitar o local padrão (`~/.ssh/id_rsa`) e coloque a senha.
 2. Exiba a chave pública:
    ```
    cat ~/.ssh/id_rsa.pub
