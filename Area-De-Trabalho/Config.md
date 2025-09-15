@@ -29,7 +29,7 @@ Este guia descreve como configurar uma área de trabalho no Windows utilizando W
    ```
 3. Instale o compilador **g++**, debugger **gdb** e versionador de arquivos **git**:
    ```
-   sudo apt install g++ gdb git tmux cmake libtool -y
+   sudo apt install g++ gdb git tmux cmake libtool curl -y
    ```
 
 ### 3. Instalar e configurar o Visual Studio Code
