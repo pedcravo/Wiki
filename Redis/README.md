@@ -619,7 +619,39 @@ A Ontick utiliza o **Redis** e o **MySQL** pelos serviços do **AWS**, mais espe
 Para fazer a instalação e configurações do **Redis** e do **Redis Commander** é indicado o uso em [**Docker**][docker].
 Então primeiramente faça a instalação do [**Docker**][docker] em sua máquina.
 
-Após instalar o **Docker** execute os comandos em [**Instalação docker, redis, redis commandar e sql**][tutorial].
+Após instalar o **Docker** execute os seguintes comandos ou olhe todos em [**Instalação docker, redis, redis commander e sql**][tutorial].
+
+### Instalação Redis:
+- Criar um storage no Docker para o redis `docker volume create redis-storage `
+- os arquivos serão armazenados no diretório  `/var/lib/docker/volumes/redis-storage `
+
+Iniciar o Redis
+```
+docker run --detach --name redis-docker \
+-v redis-storage:/data \
+-p 6379:6379 --restart=always redis:latest
+```
+Para funcionar o json crei esse redis (redis stack)
+```
+sudo docker run --detach --name redis-docker \
+-v redis-storage:/data \
+-p 6379:6379 --restart=always redis/redis-stack:latest
+```
+
+### Redis commander
+
+variaveis de ambiente
+`export MY_IP=192.168.0.206`
+`export MY_IP=172.17.0.1` (docker)
+
+iniciar o commander
+```
+docker run --detach --name commander-docker \
+--env REDIS_HOSTS=my_redis:$MY_IP:6379 \
+--env HTTP_USER=admin \
+--env HTTP_PASSWORD=admin \
+-p 8081:8081 --restart=always rediscommander/redis-commander:latest
+```
 
 ## redis.conf
 Acesse as configurações básicas de redis.conf https://raw.githubusercontent.com/redis/redis/unstable/redis.conf
