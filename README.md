@@ -25,4 +25,4 @@ Se você está interessado em comandos de Linux, por exemplo, basta clicar no li
 
 ## Configurando área de trabalho:
 
-[Área de trabalho](./Area-De-Trabalho/README.md)
+[Área de trabalho](./Area-De-Trabalho)
